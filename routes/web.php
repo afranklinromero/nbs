@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('autor', 'AutorController');
+Route::resource('gallo', 'GalloController');
