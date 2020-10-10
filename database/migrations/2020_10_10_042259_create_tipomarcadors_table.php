@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAutorsTable extends Migration
+class CreateTipomarcadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateAutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('autors', function (Blueprint $table) {
-            $table->engine = 'InnoDB'; //para db relacional
-            $table->string('nombres', 32);
-            $table->string('apellidos', 64);
-            $table->string('correo', 64);
+        Schema::create('tipomarcadors', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->integer('estado')->default(1);
         });
     }
 
@@ -30,6 +26,6 @@ class CreateAutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autors');
+        Schema::dropIfExists('tipomarcadors');
     }
 }
