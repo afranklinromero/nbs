@@ -12,5 +12,9 @@ $factory->define(Libro::class, function (Faker $faker) {
         'titulo' => $faker->name,
         'tapa' => $faker->text(5),
         'documentopdf' => $faker->text(5),
+        'edicion' => $faker->text(5),
+        'serie' => $faker->text(5),
+        'nropublicacion' => $faker->numberBetween(1,10),
+        'lugarpublicacion' => $faker->country,
     ];
 });

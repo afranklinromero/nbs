@@ -14,12 +14,18 @@ class DatabaseSeeder extends Seeder
     {
         $this->truncateTables([
             'users',
-            'autors',
-            'libros',
+            'autor',
+            'libro',
+            'autorlibro',
+            'tipomarcador',
+            'marcador',
         ]);
 
         $this->call(AutorSeeder::class);
         $this->call(LibroSeeder::class);
+        $this->call(AutorlibroSeeder::class);
+        $this->call(TipomarcadorSeeder::class);
+        $this->call(MarcadorSeeder::class);
     }
 
     protected function truncateTables(array $tables){

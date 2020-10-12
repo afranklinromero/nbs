@@ -13,12 +13,16 @@ class CreateLibrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('libros', function (Blueprint $table) {
+        Schema::create('libro', function (Blueprint $table) {
             $table->engine = 'InnoDB'; //para db relacional
             $table->id();
             $table->string('titulo', 256);
             $table->string('tapa', 512);
             $table->string('documentopdf', 512);
+            $table->string('edicion', 32);
+            $table->string('serie', 32);
+            $table->string('nropublicacion');
+            $table->string('lugarpublicacion', 32);
             $table->timestamps();
             $table->integer('estado')->default(1);
         });
@@ -31,6 +35,6 @@ class CreateLibrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libros');
+        Schema::dropIfExists('libro');
     }
 }

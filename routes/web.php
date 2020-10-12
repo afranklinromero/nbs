@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('autor', 'AutorController');
+Route::resource('libro', 'LibroController');
 Route::resource('gallo', 'GalloController');

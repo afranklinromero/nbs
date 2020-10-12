@@ -13,9 +13,12 @@ class CreateTipomarcadorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipomarcadors', function (Blueprint $table) {
+        Schema::create('tipomarcador', function (Blueprint $table) {
+            $table->engine = 'InnoDB'; //para db relacional
             $table->id();
+            $table->string('nombre', 128);
             $table->timestamps();
+            $table->integer('estado')->default(1);
         });
     }
 
@@ -26,6 +29,6 @@ class CreateTipomarcadorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipomarcadors');
+        Schema::dropIfExists('tipomarcador');
     }
 }

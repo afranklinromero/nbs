@@ -13,8 +13,9 @@ class CreateAutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('autors', function (Blueprint $table) {
+        Schema::create('autor', function (Blueprint $table) {
             $table->engine = 'InnoDB'; //para db relacional
+            $table->id();
             $table->string('nombres', 32);
             $table->string('apellidos', 64);
             $table->string('correo', 64);
@@ -30,6 +31,6 @@ class CreateAutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autors');
+        Schema::dropIfExists('autor');
     }
 }

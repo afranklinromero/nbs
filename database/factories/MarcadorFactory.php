@@ -1,0 +1,24 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Libro;
+use App\Marcador;
+use App\Model;
+use App\Tipomarcador;
+use Faker\Generator as Faker;
+
+$factory->define(Marcador::class, function (Faker $faker) {
+    return [
+        //
+        'libro_id' => Libro::all('id')->random(),
+        'padre_id' => Marcador::all('id')->random(),
+        'tipomarcador_id' => Tipomarcador::all('id')->random(),
+        'numero' => $faker->numberBetween(1, 10),
+        'nivel' => $faker->numberBetween(1, 4),
+        'espadre' => $faker->numberBetween(0, 1),
+        'nombre' => $faker->name,
+        'pagina' => $faker->numberBetween(1, 500),
+        'vistaprevia' => $faker->text(125),
+    ];
+});
