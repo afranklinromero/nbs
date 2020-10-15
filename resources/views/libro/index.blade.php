@@ -2,24 +2,21 @@
 
 @section('contenido')
 <div class="container">
-    <p class="h4 text-success text-center">
-    {!! Form::model(['route'=>['libro.create'],'method'=>'GET']) !!}
+    <form action="{{route ('libro.buscar') }}" method="GET" class="d-inline">
+        {{ csrf_field() }}
         <div class="row">
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
                     <img src="nbs.png" alt="" srcset="" width="500">
-                    {!! Form::text('titulo',null,['class'=>'form-control'])!!}
+                    {!! Form::text('dato',null,['class'=>'form-control'])!!}
                 </div>
                 <div class="form-group col-md-12 text-center">
                     
-                    <a href="{{ url()->previous() }}" class="btn btn-warning"><i class="fas fa-search"></i> Buscar</a>
-                    <a href="{{ url()->previous() }}" class="btn btn-warning"><i class="fas fa-arrow-left">  </i> Volver</a>
+                <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
                 </div>
             </p>
         </div>
-        
-    {!! Form::close() !!}
-    </p>
+    </form>
 
     @include('libro.aside.asaide')
     @include('libro.aside.info')

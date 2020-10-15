@@ -13,6 +13,12 @@ class LibroController extends Controller
         return view('libro.index',compact('libros'));
     }
 
+    public function buscar(Request $request){
+        //dd($request->dato);
+        $libros=Libro::where('titulo', 'like', '%'.$request->dato.'%')->orderBy('id', 'DESC')->paginate(10);
+        return view('libro.index',compact('libros'));
+    }
+
     public function show ($id){
         $libro = Libro::find($id);
         return view('libro.show', compact('libro'));
