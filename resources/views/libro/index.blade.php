@@ -6,9 +6,14 @@
     {!! Form::model(['route'=>['libro.create'],'method'=>'GET']) !!}
         <div class="row">
             <p class="text-center">
-                <div class="col-md-12 text-center">
+                <div class="form-group col-md-12 text-center">
                     <img src="nbs.png" alt="" srcset="" width="500">
-                    {!! Form::text('fecha',null,['class'=>'form-control'])!!}
+                    {!! Form::text('titulo',null,['class'=>'form-control'])!!}
+                </div>
+                <div class="form-group col-md-12 text-center">
+                    
+                    <a href="{{ url()->previous() }}" class="btn btn-warning"><i class="fas fa-search"></i> Buscar</a>
+                    <a href="{{ url()->previous() }}" class="btn btn-warning"><i class="fas fa-arrow-left">  </i> Volver</a>
                 </div>
             </p>
         </div>
