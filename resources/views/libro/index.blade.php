@@ -3,7 +3,17 @@
 @section('contenido')
 <div class="container">
     <p class="h4 text-success text-center">
-
+    {!! Form::model(['route'=>['libro.create'],'method'=>'GET']) !!}
+        <div class="row">
+            <p class="text-center">
+                <div class="col-md-12 text-center">
+                    <img src="nbs.png" alt="" srcset="" width="500">
+                    {!! Form::text('fecha',null,['class'=>'form-control'])!!}
+                </div>
+            </p>
+        </div>
+        
+    {!! Form::close() !!}
     </p>
 
     @include('libro.aside.asaide')
