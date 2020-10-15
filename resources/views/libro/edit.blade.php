@@ -1,13 +1,15 @@
-@extends('template')
+@extends('layouts.app')
 
 @section('contenido')
 <div class="container">
-    @include('tipoproductos.aside.asaide')
-    @include('tipoproductos.aside.error')
-    {!! Form::model($tipoproducto,['route'=>['tipoproductos.update',$tipoproducto->id],'method'=>'PUT']) !!}
+    <p class="h4 text-success text-center"><i class="far fa-file"></i> EDITAR LIBRO</p>
+    @include('libro.aside.asaide')
+    @include('libro.aside.error')
+
+    {!! Form::model($libro,['route'=>['libro.update',$libro->id],'method'=>'PUT']) !!}
         <div class="row">
             <div class="col-md-6">
-                @include('tipoproductos.aside.form')
+                @include('libro.aside.form')
             </div>
         </div>
     {!! Form::close() !!}

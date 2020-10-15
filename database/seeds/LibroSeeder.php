@@ -16,6 +16,7 @@ class LibroSeeder extends Seeder
 
         Libro::create([
             'titulo' => 'ENFERMEDADES QUIRURJICAS DEL SISTEMA DIGESTIVO',
+            'fecha'=>'2020-10-15',
             'tapa'=>'1.png',
             'documentopdf'=>'8 Libro NAC tomo 2.pdf',
             'edicion'=>'',
@@ -26,6 +27,7 @@ class LibroSeeder extends Seeder
 
         Libro::create([
             'titulo' => 'NORMAS DE SALUD ORAL',
+            'fecha'=>'2020-10-15',
             'tapa'=>'2.png',
             'documentopdf'=>'DECRETO_REGLAMENTARIO_A_LA_LEY_3131.pdf',
             'edicion'=>'8 AGOSTO 2015',
@@ -36,6 +38,7 @@ class LibroSeeder extends Seeder
 
         Libro::create([
             'titulo' => 'DECRETO SUPREMO N° 28562',
+            'fecha'=>'2020-10-15',
             'tapa'=>'3.png',
             'documentopdf'=>'8 Libro NAC tomo 2.pdf',
             'edicion'=>'',
@@ -46,6 +49,7 @@ class LibroSeeder extends Seeder
 
         Libro::create([
             'titulo' => 'DOCUMENTO TECNICO DE PROCEDIMIENTO PARA EL MANEJO DE CADAVERES DE CASOS DE COVID-19',
+            'fecha'=>'2020-10-15',
             'tapa'=>'4.png',
             'documentopdf'=>'Documento técnico de procedimiento para el manejo de cadáveres de casos de COVID19.pdf',
             'edicion'=>'',
@@ -56,6 +60,7 @@ class LibroSeeder extends Seeder
 
         Libro::create([
             'titulo' => 'ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909',
+            'fecha'=>'2020-10-15',
             'tapa'=>'5.png',
             'documentopdf'=>'ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909.pdf',
             'edicion'=>'',

@@ -10,6 +10,7 @@ $factory->define(Libro::class, function (Faker $faker) {
     return [
         //
         'titulo' => $faker->name,
+        'fecha' => now(),
         'tapa' => $faker->text(5),
         'documentopdf' => $faker->text(5),
         'edicion' => $faker->text(5),

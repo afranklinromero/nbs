@@ -15,14 +15,9 @@
     {!! Form::file('tapa', ['class'=>'form-control']) !!}
 </div>
 
-<div id="myId">
-
-</div>
-
-
 <div class="form-group">
     {!! Form::label('documentopdf','Documento PDF') !!}
-    {!! Form::text('documentopdf',null,['class'=>'form-control'])!!}
+    {!! Form::file('documentopdf', ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
@@ -35,11 +30,14 @@
     {!! Form::text('serie',null,['class'=>'form-control'])!!}
 </div>
 
-
-
 <div class="form-group">
     {!! Form::label('nropublicacion','Numero publicación') !!}
     {!! Form::number('nropublicacion', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('lugarpublicacion','Lugar de publicacion') !!}
+    {!! Form::text('lugarpublicacion',null,['class'=>'form-control'])!!}
 </div>
 
 <div class="form-group">

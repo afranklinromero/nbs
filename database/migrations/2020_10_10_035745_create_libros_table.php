@@ -17,6 +17,7 @@ class CreateLibrosTable extends Migration
             $table->engine = 'InnoDB'; //para db relacional
             $table->id();
             $table->string('titulo', 256);
+            $table->date('fecha');
             $table->string('tapa', 512);
             $table->string('documentopdf', 512);
             $table->string('edicion', 32);

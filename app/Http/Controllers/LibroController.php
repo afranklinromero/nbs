@@ -9,7 +9,7 @@ class LibroController extends Controller
 {
     //
     public function index(){
-        $libros=Libro::orderBy('titulo')->paginate(10);
+        $libros=Libro::orderBy('id', 'DESC')->paginate(10);
         return view('libro.index',compact('libros'));
     }
 
@@ -25,7 +25,14 @@ class LibroController extends Controller
     public function store (Request $request){
 
         $libro = new Libro();
-        $libro->nombre = $request->nombre;
+        $libro->titulo = $request->titulo;
+        $libro->fecha = $request->fecha;
+        $libro->tapa = $request->tapa;
+        $libro->documentopdf = $request->documentopdf;
+        $libro->edicion = $request->edicion;
+        $libro->serie = $request->serie;
+        $libro->nropublicacion = $request->nropublicacion;
+        $libro->lugarpublicacion = $request->lugarpublicacion;
         $libro->created_at = now();
         $libro->updated_at = now();
         $libro->estado = 1;
@@ -40,14 +47,21 @@ class LibroController extends Controller
 
     public function edit($id){
         $libro = Libro::find($id);
-        return view('libro.edit', compact('tipoproducto'));
+        return view('libro.edit', compact('libro'));
     }
 
     public function update (Request $request, $id){
 
         $libro = Libro::find($id);
 
-        $libro->nombre = $request->nombre;
+        $libro->titulo = $request->titulo;
+        $libro->fecha = $request->fecha;
+        $libro->tapa = $request->tapa;
+        $libro->documentopdf = $request->documentopdf;
+        $libro->edicion = $request->edicion;
+        $libro->serie = $request->serie;
+        $libro->nropublicacion = $request->nropublicacion;
+        $libro->lugarpublicacion = $request->lugarpublicacion;
         $libro->updated_at = now();
 
         $libro->save();
