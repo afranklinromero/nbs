@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group col-md-12 text-center">
                     
-                <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
+                <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
                 </div>
             </p>
         </div>
