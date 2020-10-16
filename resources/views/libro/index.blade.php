@@ -13,7 +13,6 @@
                         <div class="col-md-8">{!! Form::text('dato',null,['class'=>'form-control'])!!}</div>
                         <div class="col-md-2"></div>
                     </div>
-
                 </div>
                 <div class="form-group col-md-12 text-center">
                 <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
@@ -47,7 +46,7 @@
                 </td>
                 <td>
                     <p class="text-dark"> <strong>libro ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span></p>
-                    <h4 class="text-info"><a href="{{ route('libro.show', $libro->id) }}"> {{ $libro->titulo }}</a> </h4>
+                    <h4 class="text-info"><a href="{{ route('marcador.index', $libro->id) }}"> {{ $libro->titulo }}</a> </h4>
                     <p class="text-muted">
                         <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>
                         <strong class="text-lowercase">lugar publicacion › </strong> {{ $libro->lugarpublicacion}}<br>

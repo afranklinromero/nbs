@@ -25,6 +25,6 @@ class MarcadorSeeder extends Seeder
             'vistaprevia' => 'imagen',
         ]);
 
-        factory(Marcador::class, 100)->create();
+        factory(Marcador::class, 500)->create();
     }
 }
