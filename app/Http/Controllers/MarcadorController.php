@@ -8,13 +8,14 @@ use App\Modelos\Marcador;
 class MarcadorController extends Controller
 {
     //
-    public function index($libro_id=1){
+    public function index(){
         $marcadores=Marcador::where('libro_id', '=', $libro_id)->orderBy('id', 'DESC')->paginate(10);
         return view('marcador.index',compact('marcadores'));
     }
 
-    public function buscar(Request $request){
+    public function buscar(Request $request, $libro_id, $nombre){
         //dd($request->dato);
+        dd($libro. ' ' . $nombre);
         $marcadors=Marcador::where('titulo', 'like', '%'.$request->dato.'%')->orderBy('id', 'DESC')->paginate(10);
         return view('marcador.index',compact('marcadors'));
     }

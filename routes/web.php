@@ -22,7 +22,7 @@ Route::resource('autor', 'AutorController');
 Route::get('libro/buscar', 'LibroController@buscar')->name('libro.buscar');
 Route::resource('libro', 'LibroController');
 
-Route::get('marcador/buscar', 'MarcadorController@buscar')->name('marcador.buscar');
+Route::get('marcador/buscar/{libro_id}/{nombre}', 'MarcadorController@buscar')->name('marcador.buscar');
 Route::resource('marcador', 'MarcadorController');
 
 Route::resource('gallo', 'GalloController');
