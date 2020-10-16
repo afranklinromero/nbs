@@ -7,11 +7,15 @@
         <div class="row">
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
-                    <img src="nbs.png" alt="" srcset="" width="500">
-                    {!! Form::text('dato',null,['class'=>'form-control'])!!}
+                    <img src="{{ asset('nbs.png')}}" alt="" srcset="" width="500">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">{!! Form::text('dato',null,['class'=>'form-control'])!!}</div>
+                        <div class="col-md-2"></div>
+                    </div>
+
                 </div>
                 <div class="form-group col-md-12 text-center">
-                    
                 <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
                 </div>
             </p>
@@ -21,33 +25,34 @@
     @include('libro.aside.asaide')
     @include('libro.aside.info')
     <ul class="navbar-nav mr-auto">
-    <table class="table table-striped">
+        <p>
+            <a href="{{ route('libro.create') }}" class="btn btn-primary"><i class="far fa-file"></i> Nuevo</a>
+        </p>
+
+    <table class="table">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Fecha creacion</th>
-            <th scope="col">Fecha modificacion</th>
-            <th scope="col">Estado</th>
-            <th> <a href="{{ route('libro.create') }}" class="btn btn-primary"><i class="far fa-file"></i> Nuevo</a></th>
+            <th scope="col">Tapa</th>
+            <th scope="col">Descripcion</th>
+
             </tr>
         </thead>
         <tbody>
             @foreach($libros as $libro)
             <tr>
-                <td>{{ $libro->id  }} </td>
-                <td>{{ $libro->titulo }}</td>
-                <td><img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" width="80" alt="" srcset=""></td>
-                <td>{{ $libro->updated_at }}</td>
-                <td>{{ $libro->estado }}</td>
                 <td>
-                    <a href="{{route ('libro.show', $libro->id) }}" class="btn btn-success btn-sm d-inline"><i class="fas fa-eye"></i></a>
-                    <a href="{{route ('libro.edit', $libro->id) }}" class="btn btn-warning btn-sm d-inline text-white"><i class="fas fa-edit"></i></a>
-                    <form action="{{route ('libro.destroy', $libro->id) }}" method="POST" class="d-inline">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>
-                    </form>
+                    <img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" class="rounded" width="100" alt="" srcset="">
+
+
+                </td>
+                <td>
+                    <p class="text-dark"> <strong>libro ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span></p>
+                    <h4 class="text-info"><a href="{{ route('libro.show', $libro->id) }}"> {{ $libro->titulo }}</a> </h4>
+                    <p class="text-muted">
+                        <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>
+                        <strong class="text-lowercase">lugar publicacion › </strong> {{ $libro->lugarpublicacion}}<br>
+                        <strong class="text-lowercase">numero publicación › </strong> {{ $libro->nropublicacion}}<br>
+                    </p>
                 </td>
             </tr>
             @endforeach

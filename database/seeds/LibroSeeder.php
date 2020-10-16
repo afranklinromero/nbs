@@ -14,59 +14,59 @@ class LibroSeeder extends Seeder
     {
         //
 
-        Libro::create([
-            'titulo' => 'ENFERMEDADES QUIRURJICAS DEL SISTEMA DIGESTIVO',
-            'fecha'=>'2020-10-15',
-            'tapa'=>'1.png',
-            'documentopdf'=>'8 Libro NAC tomo 2.pdf',
-            'edicion'=>'',
-            'serie'=>'DOCUMENTOS TECNICO NORMATIVOS',
-            'nropublicacion'=>'0',
-            'lugarpublicacion'=>'',
-        ]);
+        Libro::create(['titulo'=>'ENFERMEDADES QUIRURJICAS DEL SISTEMA DIGESTIVO', 'fecha'=>'2020-10-15', 'tapa'=>'1.png','documentopdf'=>'8 Libro NAC tomo 2.pdf', 'edicion'=>'UNIDAD 15','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'NORMAS EN SALUD ORAL', 'fecha'=>'2020-10-15', 'tapa'=>'2.png','documentopdf'=>'2010-Normas_Salud_Oral-6316.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 176', 'lugarpublicacion'=>'LA PAZ BOLIVIA 2010',]);
+Libro::create(['titulo'=>'DECRETO SUPREMO N° 28562', 'fecha'=>'2020-10-15', 'tapa'=>'3.png','documentopdf'=>'DECRETO_REGLAMENTARIO_A_LA_LEY_3131.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'8 DE AGOSTO 2005',]);
+Libro::create(['titulo'=>'DOCUMENTO TECNICO DE PROCEDIMIENTO PARA EL MANEJO DE CADAVERES DE CASOS DE COVID-19', 'fecha'=>'2020-10-15', 'tapa'=>'4.png','documentopdf'=>'Documento técnico de procedimiento para el manejo de cadáveres de casos de COVID19.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909', 'fecha'=>'2020-10-15', 'tapa'=>'5.png','documentopdf'=>'ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'GUIA DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD SEUNDO NIVEL DE ATENCIÓN', 'fecha'=>'2020-10-15', 'tapa'=>'6.png','documentopdf'=>'Guia Acreditacion 2do nivel de atencion.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 61', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'GUIA DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD TERCER NIVEL DE ATENCIÓN', 'fecha'=>'2020-10-15', 'tapa'=>'7.png','documentopdf'=>'Guia Acreditacion 3er Nivel de Atención.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 62', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'GUIA DE MANEJO DE REACCIONES ADVERSAS A FARMACOS DE PRIMERA LINEA', 'fecha'=>'2020-10-15', 'tapa'=>'8.png','documentopdf'=>'Guía de Manejo de Reacciones Adversas a fármacos de Primera Línea.pdf', 'edicion'=>'PRIMERA EDICION','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 2013', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'GUIA DE PROCEDIMIENTOS DE DESINFECCION PARA EL COVID 19', 'fecha'=>'2020-10-15', 'tapa'=>'9.png','documentopdf'=>'Guia de procedimientos de desinfección para el Covid 19.pdf', 'edicion'=>'','serie'=>'SISTEMA UNICO DE SALUD', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'GUIA DE TAMIZAJE DE CANCER DE CUELLO UTERINO DE MAMA', 'fecha'=>'2020-10-15', 'tapa'=>'10.png','documentopdf'=>'Guía de Tamizaje de Cáncer cervicouterino y de mama.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 335', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2013',]);
+Libro::create(['titulo'=>'GUIA DE TRATAMIENTO ANTIRRETROVIRAL EN ADULTOS', 'fecha'=>'2020-10-15', 'tapa'=>'11.png','documentopdf'=>'Guia de Tratamiento Antirretroviral en adultos.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 51', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2009',]);
+Libro::create(['titulo'=>'GUIA DE TRATAMIENTO ANTIRRETROVIRAL EN NIÑOS', 'fecha'=>'2020-10-15', 'tapa'=>'12.png','documentopdf'=>'Guia de Tratamiento Antirretroviral en niños.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 50', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2009',]);
+Libro::create(['titulo'=>'GUIA NACIONAL PARA EL MANEJO DE LA INFECCION POR EL VIRUS ZIKA', 'fecha'=>'2020-10-15', 'tapa'=>'13.png','documentopdf'=>'Guia Nacional para el Manejo de la infeccion por el virus Zika.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 414', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2016',]);
+Libro::create(['titulo'=>'GUIA NACIONAL PARA EL MANEJO DE LA ENFERMEDAD POR EL VIRUS DE LA CHIKUNGUNYA', 'fecha'=>'2020-10-15', 'tapa'=>'14.png','documentopdf'=>'Guia Nacional para el Manejo del Virus de la enfermedad de Chikungunya.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 377', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2015',]);
+Libro::create(['titulo'=>'GUIA PARA EL MANEJO DEL COVID 19', 'fecha'=>'2020-10-15', 'tapa'=>'15.png','documentopdf'=>'Guía para el Manejo del COVID 19.pdf', 'edicion'=>'VERSION MAYO 2020 EN ACTUALIZACCION CONSTANTE','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2020',]);
+Libro::create(['titulo'=>'GUIA PARA LA PREVENCION Y CONTROL DE LA TUBERCULOSIS DENTRO DE LOS ESTABLECIMIENTOS DE SALUD', 'fecha'=>'2020-10-15', 'tapa'=>'16.png','documentopdf'=>'Guía para la prevención y control de la Tuberculosis dentro de los Establecimientos de Salud.pdf', 'edicion'=>'PRIMERA EDICION','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 231', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2012',]);
+Libro::create(['titulo'=>'GUIA PARA LA VIGILANCIA CENTINELA DE LAS INFECCIONES RESPIRATURIAS AGUDAS GRAVES, IRAG PARTE 2', 'fecha'=>'2020-10-15', 'tapa'=>'17.png','documentopdf'=>'Guía para la Vigilancia Centinela de las Infecciones Respiratorias Agudas Graves IRAG - Segunda p.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 390', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2015',]);
+Libro::create(['titulo'=>'GUIA PARA LA VIGILANCIA CENTINELA DE LAS INFECCIONES RESPIRATURIAS AGUDAS GRAVES, IRAG PARTE 1', 'fecha'=>'2020-10-15', 'tapa'=>'18.png','documentopdf'=>'Guía para la Vigilancia Centinela de las Infecciones Respiratorias Graves IRAG - Primera parte.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 390', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2015',]);
+Libro::create(['titulo'=>'GUIA PARA EL MANEJO DE COINFECCION TB/VIH', 'fecha'=>'2020-10-15', 'tapa'=>'19.png','documentopdf'=>'Guía Práctica de manejo de Coinfección TB-VIH.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 460', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2018',]);
+Libro::create(['titulo'=>'GUIA PRACTICA DE MONITOREO Y EVALUACION DEL PROGRAMA NACIONAL DE CONTROL DE LA TUBERCULOSIS', 'fecha'=>'2020-10-15', 'tapa'=>'20.png','documentopdf'=>'Guía práctica de Monitoreo y Evaluación del Programa Nacional de Control de la Tuberculosis', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 363', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2014',]);
+Libro::create(['titulo'=>'GUIA TECNICA DE MANEJO DE LA TUBERCULOSIS DROGORRESISTENTE', 'fecha'=>'2020-10-15', 'tapa'=>'21.png','documentopdf'=>'Guía Técnica de manejo de la Tuberculosis Drogorresistente.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 474', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2019',]);
+Libro::create(['titulo'=>'LEVANTAMIENTO EPIDEMIOLOGICO INDICE CEO Y CPO-D', 'fecha'=>'2020-10-15', 'tapa'=>'22.png','documentopdf'=>'levantamiento ORAL.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 049', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2017',]);
+Libro::create(['titulo'=>'LEY 2027 DEL ESTATUTO DEL FUNCIONARIO PUBLICO DEL 27 DE OCTUBRE DE 1999', 'fecha'=>'2020-10-15', 'tapa'=>'23.png','documentopdf'=>'Ley_2027_Estatuto_Funcionario_Público.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'LEY 3131 LEY DEL EJERCICIO PROFESIONAL MEDICO', 'fecha'=>'2020-10-15', 'tapa'=>'24.png','documentopdf'=>'Ley-3131-Ejercicio-Mdico.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'NORMAS NACIONALES DE ATENCION CLINICA', 'fecha'=>'2020-10-15', 'tapa'=>'25.png','documentopdf'=>'Libro NAC tomo 1.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 288', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2012',]);
+Libro::create(['titulo'=>'LISTA NACIONAL DE MEDICAMENTOS ESENCIALES LINAME 2018-2020', 'fecha'=>'2020-10-15', 'tapa'=>'26.png','documentopdf'=>'Lista Nacional de Medicamentos LINAME 2018-2020.pdf', 'edicion'=>'REGULACION FARMACEUTICA N. 20','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 454', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2018',]);
+Libro::create(['titulo'=>'NORMAS BOLIVIANAS DE DIAGNOSTICO Y TRATAMIENTO DE LA MALARIA', 'fecha'=>'2020-10-15', 'tapa'=>'27.png','documentopdf'=>'MALARIA.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 22', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'MANUAL DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD PRIMER NIVEL DE ATENCION', 'fecha'=>'2020-10-15', 'tapa'=>'28.png','documentopdf'=>'Manual Acreditación 1er Nivel de Atención.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 57', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'ATENCION INTEGRADA AL CONTINUO DEL CURSO DE LA VIDA ADOLESCENTE - MUJER EN EDAD FERTIL - MUJER DURANTE EL EMBARAZO, PARTO Y PUERPERIO - RECIEN NADICO/A - NIÑO/A MENOR DE 5 AÑOS', 'fecha'=>'2020-10-15', 'tapa'=>'29.png','documentopdf'=>'Manual AIEPI Continuo de la Vida.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 240', 'lugarpublicacion'=>'BOLIVIA 2011',]);
+Libro::create(['titulo'=>'MANUAL DE AUDITORIA Y NORMA TECNICA', 'fecha'=>'2020-10-15', 'tapa'=>'30.png','documentopdf'=>'Manual de Auditoría y Norma Técnica.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 63', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'MANUAL DE NORMAS PARA EL DIAGNOSTICO Y TRATAMIENTO DE CHAGAS CONGENITO', 'fecha'=>'2020-10-15', 'tapa'=>'31.png','documentopdf'=>'Manual de Normas para el Diagnóstico y Tratamiento del Chagas Congénito.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 219', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2011',]);
+Libro::create(['titulo'=>'MANUAL DE NORMAS TECNICAS EN TUBERCULOSIS', 'fecha'=>'2020-10-15', 'tapa'=>'32.png','documentopdf'=>'Manual de Normas Técnicas en Tuberculosis.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 449', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2017',]);
+Libro::create(['titulo'=>'MANUAL DE NORMAS TECNICAS Y OPERATIVAS PARA EL TAMIZAJE, DIAGNOSTICO Y TRATAMIENTO DE LA ENFERMEDAD DE CHAGAS CRONICA RECIENTE INFANTIL', 'fecha'=>'2020-10-15', 'tapa'=>'33.png','documentopdf'=>'Manual de Normas Técnicas y operativas para el tamizaje, diagnóstico y tratamiento del Chagas cró.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 30', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2007',]);
+Libro::create(['titulo'=>'MANUAL DE APLICACIÓN DE PRESTACIONES', 'fecha'=>'2020-10-15', 'tapa'=>'34.png','documentopdf'=>'Manual de prestaciones de la Ley 475.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 388', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2015',]);
+Libro::create(['titulo'=>'MANUAL DE PROCESOS PARA LA DETECCION, DIAGNOSTICO, TRATAMIENTO Y SEGUIMIENTO DE ENFERMEDAD DE CHAGAS INFANTIL', 'fecha'=>'2020-10-15', 'tapa'=>'35.png','documentopdf'=>'Manual de Procesos para la deteccion, diagnóstico, tratamiento y seguimiento de la enfermedad de .pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 31', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2007',]);
+Libro::create(['titulo'=>'MANUAL DE NORMAS Y PROCEDIMIENTOS PARA LA PREVENCION Y CONTROL DEL ANTAVIRUS', 'fecha'=>'2020-10-15', 'tapa'=>'36.png','documentopdf'=>'Manual Hantavirus.pdf', 'edicion'=>'PRIMERA EDICION','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 102', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2009',]);
+Libro::create(['titulo'=>'MANUAL TECNICO PROGRAMA AMPLIADO INMUNAZIÓN FAMILIAR Y COMUNITARIA', 'fecha'=>'2020-10-15', 'tapa'=>'37.png','documentopdf'=>'Manual tecnico del PAI.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 356', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2016',]);
+Libro::create(['titulo'=>'CARTILLA DE SALUD SEXUAL Y SALUD REPRODUCTIVA CONSENTIMIENTO INFORMADO Y METODOS ANTICONCEPTIVOS', 'fecha'=>'2020-10-15', 'tapa'=>'38.png','documentopdf'=>'Métodos Anticonceptivos.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2018',]);
+Libro::create(['titulo'=>'NORMA NACIONAL DE PROFILAXIS PARA RABIA HUMANA Y ANIMALES DOMESTICOS', 'fecha'=>'2020-10-15', 'tapa'=>'39.png','documentopdf'=>'Norma Nacional de Profilaxis para Rabia Humana y animales domésticos.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 268', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2012',]);
+Libro::create(['titulo'=>'NORMA NACIONAL DE REFERENCIA Y CONTRAREFERENCIA', 'fecha'=>'2020-10-15', 'tapa'=>'40.png','documentopdf'=>'Norma Nacional de Referencia y Contrareferencia.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 289', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2013',]);
+Libro::create(['titulo'=>'MANUAL NACIONAL DE PROCEDIMIENTOS TECNICOS DE LEISHMANIASIS', 'fecha'=>'2020-10-15', 'tapa'=>'41.png','documentopdf'=>'Norma Nacional y Manual de Procedimientos Técnicos de Leishmaniasis.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 364', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2015',]);
+Libro::create(['titulo'=>'NORMA TECNICA ADMINISTRATIVA Y MANUAL DE APLICACIONES ODONTOLOGICAS', 'fecha'=>'2020-10-15', 'tapa'=>'42.png','documentopdf'=>'NORMA TECNICA  PNSO 2018 ULTIMO.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 434', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2017',]);
+Libro::create(['titulo'=>'NORMA TENICA DE PROCEDIMIENTOS DE BIOSEGURIDAD PARA LA PREVENCION DEL CONTAGIO DE COVID-19', 'fecha'=>'2020-10-15', 'tapa'=>'43.png','documentopdf'=>'Norma Técnica de procedimientos de Bioseguridad para la prevención del contagio de Covid 19.pdf', 'edicion'=>'VERSION MAYO 2020','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>'', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2020',]);
+Libro::create(['titulo'=>'NORMA TECNICA PARA EL MANEJO DEL EXPEDIENTE CLINICO', 'fecha'=>'2020-10-15', 'tapa'=>'44.png','documentopdf'=>'Norma Técnica para el Manejo del Expediente Clínico.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 64', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'NORMAS DE DIAGNOSTICO Y MANEJO DEL DENGUE', 'fecha'=>'2020-10-15', 'tapa'=>'45.png','documentopdf'=>'Normas de diagnostico y manejo del Dengue.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'SANTA CRUZ - BOLIVIA 2009',]);
+Libro::create(['titulo'=>'OBTENCION DEL CONSENTIMIENTO INFORMADO', 'fecha'=>'2020-10-15', 'tapa'=>'46.png','documentopdf'=>'Obtnción del Consentimiento Informado.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 65', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2008',]);
+Libro::create(['titulo'=>'PLAN DE MONITOREO Y EVALUACION DEL PROGRAMA NACIONAL DE CONTROL DE LA TUBERCULOSIS', 'fecha'=>'2020-10-15', 'tapa'=>'47.png','documentopdf'=>'Plan de Monitoreo y Evaluación del Programa de Control de la Tuberculosis.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 362', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2014',]);
+Libro::create(['titulo'=>'PLAN NACIONAL DE CONTROL DE LA TUBERCULOSIS EN BOLIVIA 2016 - 2020', 'fecha'=>'2020-10-15', 'tapa'=>'48.png','documentopdf'=>'Plan Nacional de Control de la Tuberculosis en Bolivia 2016-2020.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 424', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2017',]);
+Libro::create(['titulo'=>'PROTOCOLO BASICO AISLAMIENTO DEL PACIENTE CASOS SOSPECHOSOS DE COVID-19', 'fecha'=>'2020-10-15', 'tapa'=>'49.png','documentopdf'=>'Protocolo Básico de Aislamiento del paciente casos sospechosos de Covid 19.pdf', 'edicion'=>'','serie'=>'', 'nropublicacion'=>'', 'lugarpublicacion'=>'',]);
+Libro::create(['titulo'=>'PROTOCOLO PARA EL DIAGNOSTICO POR LABORATORIO DE COVID-19 EN EL MARCO DE LA EMERGENCIA SANITARIA', 'fecha'=>'2020-10-15', 'tapa'=>'50.png','documentopdf'=>'Protocolo para el Diagnóstico por laboratorio de Covid 19 en el marco de la emergencia sanitaria.pdf', 'edicion'=>'VERSION MAYO 2020','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>'', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2020',]);
+Libro::create(['titulo'=>'PROTOCOLO PARA EL MANEJO DE LA MUJER EMBARAZADA Y COVID-19', 'fecha'=>'2020-10-15', 'tapa'=>'51.png','documentopdf'=>'Protocolo para el manejo de la mujer embarazada y Coronavirus (Covid 19).pdf', 'edicion'=>'VERSION MAYO 2020','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>'', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2020',]);
+Libro::create(['titulo'=>'PROTOCOLO MANEJO DE LAS REACCIONES ADVERSAS POR TRATAMIENTO ETIOLOGICO DE LA EMFERMEDAD DE CHAGAS', 'fecha'=>'2020-10-15', 'tapa'=>'52.png','documentopdf'=>'Protocolo para el Manejo de Reacciones Adversas por tratamiento etiológico de la enfermedad de Ch.pdf', 'edicion'=>'','serie'=>'SERIE DOCUMENTOS TECNICOS - NORMATIVOS', 'nropublicacion'=>' 32', 'lugarpublicacion'=>'LA PAZ - BOLIVIA 2007',]);
 
-        Libro::create([
-            'titulo' => 'NORMAS DE SALUD ORAL',
-            'fecha'=>'2020-10-15',
-            'tapa'=>'2.png',
-            'documentopdf'=>'DECRETO_REGLAMENTARIO_A_LA_LEY_3131.pdf',
-            'edicion'=>'8 AGOSTO 2015',
-            'serie'=>'DOCUMENTOS TECNICO NORMATIVOS',
-            'nropublicacion'=>'0',
-            'lugarpublicacion'=>'LA PAZ - BOLIVIA 2010',
-        ]);
 
-        Libro::create([
-            'titulo' => 'DECRETO SUPREMO N° 28562',
-            'fecha'=>'2020-10-15',
-            'tapa'=>'3.png',
-            'documentopdf'=>'8 Libro NAC tomo 2.pdf',
-            'edicion'=>'',
-            'serie'=>'DOCUMENTOS TECNICO NORMATIVOS',
-            'nropublicacion'=>'0',
-            'lugarpublicacion'=>'',
-        ]);
-
-        Libro::create([
-            'titulo' => 'DOCUMENTO TECNICO DE PROCEDIMIENTO PARA EL MANEJO DE CADAVERES DE CASOS DE COVID-19',
-            'fecha'=>'2020-10-15',
-            'tapa'=>'4.png',
-            'documentopdf'=>'Documento técnico de procedimiento para el manejo de cadáveres de casos de COVID19.pdf',
-            'edicion'=>'',
-            'serie'=>'DOCUMENTOS TECNICO NORMATIVOS',
-            'nropublicacion'=>'0',
-            'lugarpublicacion'=>'',
-        ]);
-
-        Libro::create([
-            'titulo' => 'ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909',
-            'fecha'=>'2020-10-15',
-            'tapa'=>'5.png',
-            'documentopdf'=>'ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909.pdf',
-            'edicion'=>'',
-            'serie'=>'DOCUMENTOS TECNICO NORMATIVOS',
-            'nropublicacion'=>'0',
-            'lugarpublicacion'=>'',
-        ]);
     }
 }

@@ -20,10 +20,10 @@ class CreateLibrosTable extends Migration
             $table->date('fecha');
             $table->string('tapa', 512);
             $table->string('documentopdf', 512);
-            $table->string('edicion', 32);
-            $table->string('serie', 32);
+            $table->string('edicion', 64);
+            $table->string('serie', 64);
             $table->string('nropublicacion');
-            $table->string('lugarpublicacion', 32);
+            $table->string('lugarpublicacion', 64);
             $table->timestamps();
             $table->integer('estado')->default(1);
         });
