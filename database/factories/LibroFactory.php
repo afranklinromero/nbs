@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Model;
-use App\Libro;
+use App\Modelos\Libro;
 use Faker\Generator as Faker;
 
 $factory->define(Libro::class, function (Faker $faker) {

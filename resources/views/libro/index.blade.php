@@ -46,7 +46,7 @@
                 </td>
                 <td>
                     <p class="text-dark"> <strong>libro ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span></p>
-                    <h4 class="text-info"><a href="{{ route('marcador.buscar', $libro->id) }}"> {{ $libro->titulo }}</a> </h4>
+                    <h4 class="text-info"><a href="{{ route('marcador.buscar1', ['libro_id' => $libro->id, 'nombre' => 'asdf']) }}"> {{ $libro->titulo }}</a> </h4>
                     <p class="text-muted">
                         <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>
                         <strong class="text-lowercase">lugar publicacion › </strong> {{ $libro->lugarpublicacion}}<br>

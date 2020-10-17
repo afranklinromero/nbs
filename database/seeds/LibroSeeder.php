@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Libro;
+use App\Modelos\Libro;
 
 class LibroSeeder extends Seeder
 {

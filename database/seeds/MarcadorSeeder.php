@@ -1,6 +1,6 @@
 <?php
 
-use App\Marcador;
+use App\Modelos\Marcador;
 use Illuminate\Database\Seeder;
 
 class MarcadorSeeder extends Seeder

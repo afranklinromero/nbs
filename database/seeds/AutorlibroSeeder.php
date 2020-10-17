@@ -1,6 +1,6 @@
 <?php
 
-use App\Autorlibro;
+use App\Modelos\Autorlibro;
 use Illuminate\Database\Seeder;
 
 class AutorlibroSeeder extends Seeder

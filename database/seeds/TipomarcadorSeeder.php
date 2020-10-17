@@ -1,6 +1,6 @@
 <?php
 
-use App\Tipomarcador;
+use App\Modelos\Tipomarcador;
 use Illuminate\Database\Seeder;
 
 class TipomarcadorSeeder extends Seeder

@@ -2,7 +2,7 @@
 
 @section('contenido')
 <div class="container">
-    <form action="{{route ('marcador.buscar') }}" method="GET" class="form-inline">
+    <form action="{{route ('marcador.buscar2') }}" method="GET" class="form-inline">
         {{ csrf_field() }}
         <div class="row">
             <p class="text-center">

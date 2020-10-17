@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Libro;
-use App\Marcador;
+use App\Modelos\Libro;
+use App\Modelos\Marcador;
 use App\Model;
-use App\Tipomarcador;
+use App\Modelos\Tipomarcador;
 use Faker\Generator as Faker;
 
 $factory->define(Marcador::class, function (Faker $faker) {

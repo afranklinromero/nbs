@@ -2,9 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Autor;
-use App\Autorlibro;
-use App\Libro;
+use App\Modelos\Autor;
+use App\Modelos\Libro;
+use App\Modelos\Autorlibro;
 use App\Model;
 use Faker\Generator as Faker;
 

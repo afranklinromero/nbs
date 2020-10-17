@@ -9,15 +9,21 @@ class MarcadorController extends Controller
 {
     //
     public function index(){
+        $marcadores=Marcador::orderBy('id', 'DESC')->paginate(10);
+        return view('marcador.index',compact('marcadores'));
+    }
+
+    public function buscar1($libro_id){
+        //dd($libro_id. ' ' . $nombre);
         $marcadores=Marcador::where('libro_id', '=', $libro_id)->orderBy('id', 'DESC')->paginate(10);
         return view('marcador.index',compact('marcadores'));
     }
 
-    public function buscar(Request $request, $libro_id, $nombre){
-        //dd($request->dato);
-        dd($libro. ' ' . $nombre);
-        $marcadors=Marcador::where('titulo', 'like', '%'.$request->dato.'%')->orderBy('id', 'DESC')->paginate(10);
-        return view('marcador.index',compact('marcadors'));
+    public function buscar2(Request $request){
+        dd($request->libro_id);
+        //dd($libro_id. ' ' . $nombre);
+        $marcadores=Marcador::where('libro_id', '=', $request->libro_id)->where('nombre', 'like', '%'. $request->nombre .'%')->orderBy('id', 'DESC')->paginate(10);
+        return view('marcador.index',compact('marcadores'));
     }
 
     public function show ($id){

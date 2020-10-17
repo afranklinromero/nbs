@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Autor;
+use App\Modelos\Autor;
 
 class AutorSeeder extends Seeder
 {
