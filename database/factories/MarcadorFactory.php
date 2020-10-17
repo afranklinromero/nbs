@@ -18,7 +18,7 @@ $factory->define(Marcador::class, function (Faker $faker) {
         'nivel' => $faker->numberBetween(1, 4),
         'espadre' => $faker->numberBetween(0, 1),
         'nombre' => $faker->name,
-        'pagina' => $faker->numberBetween(1, 500),
+        'pagina' => $faker->numberBetween(1, 100),
         'vistaprevia' => $faker->text(125),
     ];
 });

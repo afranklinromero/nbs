@@ -35,7 +35,7 @@
                 </td>
                 <td>
                     <p class="text-dark"> <strong>marcador ›  </strong> <span class="text-secondary"> {{$marcador->id}}</span></p>
-                    <h4 class="text-info"><a href="{{ route('marcador.show', $marcador->id) }}"> {{ $marcador->nombre }}</a> </h4>
+                <h4 class="text-info"><a href="{{ asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}"> {{ $marcador->nombre }}</a> </h4>
                     <p class="text-muted">
                         <strong class="text-lowercase">libro › </strong> {{ $marcador->libro->titulo}} <br>
                         <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}}<br>
