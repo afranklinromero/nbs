@@ -7,16 +7,20 @@
         <div class="row">
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
-                    <img src="{{ asset('nbs.png')}}" alt="" srcset="" width="500">
+                <h3 class="text-muted"> Sistema de Busqueda de Normas Bolivianas de Salud </h3>
+                    <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
                     <div class="row">
+                        
+                        <div class="col-md-2" ></div>
+                        <div class="col-md-8 ">{!! Form::text('dato',null,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui'])!!}</div>
                         <div class="col-md-2"></div>
-                        <div class="col-md-8">{!! Form::text('dato',null,['class'=>'form-control'])!!}</div>
-                        <div class="col-md-2"></div>
+                        
+                        
                     </div>
                 </div>
-                <div class="form-group col-md-12 text-center">
-                <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
-                </div>
+               <!-- <div class="form-group col-md-12 text-center" >
+                <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"> </i> Buscar</button>
+                </div> -->
             </p>
         </div>
     </form>

@@ -12,15 +12,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+         // La creación de datos de roles debe ejecutarse primero
+  
         $this->truncateTables([
-            'users',
+            
             'autor',
             'libro',
             'autorlibro',
             'tipomarcador',
             'marcador',
         ]);
-
+            
+    $this->call(RoleTableSeeder::class);
+    
+    $this->call(UserTableSeeder::class);
         $this->call(AutorSeeder::class);
         $this->call(LibroSeeder::class);
         $this->call(AutorlibroSeeder::class);

@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+Route::resource('/', 'LibroController');
+    
 
 Route::resource('autor', 'AutorController');
 
@@ -26,4 +25,4 @@ Route::get('marcador/buscar1/{libro_id}', 'MarcadorController@buscar1')->name('m
 Route::get('marcador/buscar2', 'MarcadorController@buscar2')->name('marcador.buscar2');
 Route::resource('marcador', 'MarcadorController');
 
-Route::resource('gallo', 'GalloController');
+
