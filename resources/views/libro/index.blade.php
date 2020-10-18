@@ -28,9 +28,7 @@
     @include('libro.aside.asaide')
     @include('libro.aside.info')
     <ul class="navbar-nav mr-auto">
-        <p>
-            <a href="{{ route('libro.create') }}" class="btn btn-primary"><i class="far fa-file"></i> Nuevo</a>
-        </p>
+      
 
     <table class="table">
         <thead>

@@ -23,42 +23,87 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-               <!-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           
+            <ul class="navbar-nav mr-auto">
+                @if( Auth::check())
+                     @if(Auth::user()->hasRole('admin'))
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">INICIO</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="">LIBROS </a>
+                      </li>
+                     
+                      <li class="nav-item">
+                        <a class="nav-link" href="">USUARIOS</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="">EXAMENES</a>
+                      </li>
+                      <li class="nav-item">
+                        
+                      </li>
+                     @else
+                     <li class="nav-item active">
+                      <a class="nav-link" href="">EXAMENES <span class="sr-only">(current)</span></a>
+                    </li>
+                     
+                  
+                    @endif
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
+               @endif    
+           </ul>
+                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mr-auto">
+                   
+                @guest
+                <li class="nav-item active"><a class="text-success nav-link" href="{{ route('login') }}"> Ingresar </a></li>
+               
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                    <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Inicio</a>
-                    @else
-                        <a href="{{ route('login') }}">Ingresar</a>
-                    <!--    <a href="{{ route('register') }}">Trabaja Con Nosotros</a> !-->
-                    @endauth
-                </div>
-            @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
+            </ul>
+
+           
+        </div>
+      </nav>
 
         <main class="py-4">
             @yield('contenido')
         </main>
     </div>
+    
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
