@@ -35,18 +35,23 @@
             @foreach($marcadores as $marcador)
             <tr>
                 <td>
-                <h4 class="text-info">
-                    <a href="{{ asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
-                        @for($i = 1; $i <= ($marcador->nivel -1)*3; $i++) &nbsp; @endfor {{ $marcador->nombre }}
-                    </a>
-                </h4>
-                    <p class="text-muted">
-                        <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
-                        <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
-                        <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}
-                    </p>
                 </td>
-            </tr>
+                    <td>
+                        <p>
+                            <span>@for($i=1; $i<($marcador->nivel-1)*3; $i++) &nbsp; @endfor </span>
+                            <span class="text-primary text-muted">
+                                <a href="{{ asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                                    {{ $marcador->nombre }}
+                                </a>
+                            </span>
+                        </p>
+                        <p class="text-muted">
+                            <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
+                            <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
+                            <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}
+                        </p>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>
