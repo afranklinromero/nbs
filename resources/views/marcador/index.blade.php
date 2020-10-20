@@ -6,10 +6,13 @@
         {{ csrf_field() }}
         <div class="row">
             <p class="text-center">
+                <h3 class="text-muted text-center"> Buscar en <u>{{ $marcadores->first()->libro->titulo }} </u></h3>
                 <div class="form-group col-md-12 text-center">
-                    <img src="{{ asset('nbs.png')}}" class="d-inline" alt="" srcset="" width="150">
-                    {!! Form::text('dato',null,['class'=>'form-control d-inline', 'size'=>'100'])!!}
-                    <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"></i>Buscar</button>
+                    <a href="{{ route('libro.index') }}">
+                        <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
+                    </a>
+                    {!! Form::text('dato',null,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'size'=>'100'])!!}
+                    <button class="btn btn-success" type="submit"><i class="fas fa-search"></i>Buscar</button>
                 </div>
             </p>
         </div>

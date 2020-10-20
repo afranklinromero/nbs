@@ -8,14 +8,16 @@
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
                 <h3 class="text-muted"> Sistema de Busqueda de Normas Bolivianas de Salud </h3>
-                    <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
+                    <a href="{{ route('libro.index') }}">
+                        <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
+                    </a>
                     <div class="row">
-                        
+
                         <div class="col-md-2" ></div>
-                        <div class="col-md-8 ">{!! Form::text('dato',null,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui'])!!}</div>
+                        <div class="col-md-8 ">{!! Form::text('dato',$dato,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui'])!!}</div>
                         <div class="col-md-2"></div>
-                        
-                        
+
+
                     </div>
                 </div>
                <!-- <div class="form-group col-md-12 text-center" >
@@ -28,7 +30,7 @@
     @include('libro.aside.asaide')
     @include('libro.aside.info')
     <ul class="navbar-nav mr-auto">
-      
+
 
     <table class="table">
         <thead>

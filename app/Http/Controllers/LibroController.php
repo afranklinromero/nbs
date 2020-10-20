@@ -10,13 +10,15 @@ class LibroController extends Controller
     //
     public function index(){
         $libros=Libro::orderBy('id', 'DESC')->paginate(10);
-        return view('libro.index',compact('libros'));
+        $dato = '';
+        return view('libro.index',compact('libros', 'dato'));
     }
 
     public function buscar(Request $request){
         //dd($request->dato);
-        $libros=Libro::where('titulo', 'like', '%'.$request->dato.'%')->orderBy('id', 'DESC')->paginate(10);
-        return view('libro.index',compact('libros'));
+        $dato = $request->dato;
+        $libros=Libro::where('titulo', 'like', '%'.$dato.'%')->orderBy('id', 'DESC')->paginate(10);
+        return view('libro.index',compact('libros', 'dato'));
     }
 
     public function show ($id){
