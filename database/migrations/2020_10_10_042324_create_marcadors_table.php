@@ -19,7 +19,7 @@ class CreateMarcadorsTable extends Migration
             $table->bigInteger('libro_id')->unsigned();
             $table->bigInteger('padre_id')->unsigned();
             $table->bigInteger('tipomarcador_id')->unsigned();
-            $table->string('numero', 16);
+            $table->integer('numero');
             $table->integer('nivel')->default(1);
             $table->integer('espadre')->default(1);
             $table->string('nombre', 256);

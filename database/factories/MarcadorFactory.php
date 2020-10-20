@@ -9,6 +9,7 @@ use App\Modelos\Tipomarcador;
 use Faker\Generator as Faker;
 
 $factory->define(Marcador::class, function (Faker $faker) {
+    $libros = Libro::where('id', '<>', '27');
     return [
         //
         'libro_id' => Libro::all('id')->random(),

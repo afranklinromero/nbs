@@ -11,7 +11,8 @@
                     <a href="{{ route('libro.index') }}">
                         <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
                     </a>
-                    {!! Form::text('dato',null,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'size'=>'100'])!!}
+                    {!! Form::hidden('libro_id', $marcadores->first()->libro->id) !!}
+                    {!! Form::text('nombre',null,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'size'=>'100'])!!}
                     <button class="btn btn-success" type="submit"><i class="fas fa-search"></i>Buscar</button>
                 </div>
             </p>
@@ -34,15 +35,15 @@
             @foreach($marcadores as $marcador)
             <tr>
                 <td>
-                    <img src="{{ asset('tapas/') }}/{{ $marcador->tapa}}" class="rounded" width="100" alt="" srcset="">
-                </td>
-                <td>
-                    <p class="text-dark"> <strong>marcador ›  </strong> <span class="text-secondary"> {{$marcador->id}}</span></p>
-                <h4 class="text-info"><a href="{{ asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}"> {{ $marcador->nombre }}</a> </h4>
+                <h4 class="text-info">
+                    <a href="{{ asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                        @for($i = 1; $i <= ($marcador->nivel -1)*3; $i++) &nbsp; @endfor {{ $marcador->nombre }}
+                    </a>
+                </h4>
                     <p class="text-muted">
-                        <strong class="text-lowercase">libro › </strong> {{ $marcador->libro->titulo}} <br>
-                        <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}}<br>
-                        <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}<br>
+                        <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
+                        <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
+                        <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}
                     </p>
                 </td>
             </tr>

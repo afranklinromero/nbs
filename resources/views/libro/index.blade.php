@@ -45,11 +45,9 @@
             <tr>
                 <td>
                     <img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" class="rounded" width="100" alt="" srcset="">
-
-
                 </td>
                 <td>
-                    <p class="text-dark"> <strong>libro ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span></p>
+                <p class="text-dark"> <strong>libro ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span> &nbsp; <strong>id: </strong>{{$libro->id }}</p>
                     <h4 class="text-info"><a href="{{ route('marcador.buscar1', ['libro_id' => $libro->id, 'nombre' => 'asdf']) }}"> {{ $libro->titulo }}</a> </h4>
                     <p class="text-muted">
                         <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>

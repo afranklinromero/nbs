@@ -585,7 +585,7 @@
 											"top": 410,
 											"width": 145.24072265625,
 											"height": 13,
-											"text": "-numero: String[16]",
+											"text": "-numero: Integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3307,8 +3307,7 @@
 							},
 							"name": "numero",
 							"visibility": "private",
-							"type": "String",
-							"multiplicity": "16"
+							"type": "Integer"
 						},
 						{
 							"_type": "UMLAttribute",
