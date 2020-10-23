@@ -55,6 +55,7 @@ class MarcadorSeeder extends Seeder
         Marcador::create([	'padre_id'=>'37', 	'libro_id'=>'27', 	'tipomarcador_id'=>'1', 	'numero'=>'40', 	'nivel'=>'2', 	'espadre'=>'0', 	'nombre'=>'Anexo 3. FICHA DE SUPERVISIÓN DE PUESTOS DE DIAGNOSTICO Y TRATAMIENTO', 	'pagina'=>'31', 	'vistaprevia'=>'40.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
 
 
+
         //factory(Marcador::class, 500)->create();
     }
 }
