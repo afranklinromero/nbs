@@ -143,7 +143,7 @@
                         <p>
                             <span>@for($i=1; $i<($marcador->nivel-1)*3; $i++) &nbsp; @endfor </span>
                             <span class="text-primary text-muted">
-                                <a href="{{ asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                                <a href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
                                     {{$marcador->nombre}}
                                 </a>
                             </span>
@@ -161,7 +161,7 @@
     {{ $marcadores->links() }}
     </div>
     <div class="col-8">
-      2 of 2
+    <embed src="{{asset('libros') }}/MALARIA.pdf#page=31" type="application/pdf" width="100%" height="600px" />
     </div>
   </div>
 
