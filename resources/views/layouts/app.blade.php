@@ -12,14 +12,14 @@
     <!-- Fonts -->
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
-
+   
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('dropzone.css') }}">
 
     <script src="{{ asset('dropzone.js')}}"></script>
-
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <script src="{{asset('js/app.js')}}"></script>
 </head>
 <body>
     <div id="app">
@@ -31,7 +31,7 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
            
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 @if( Auth::check())
                      @if(Auth::user()->hasRole('admin'))
                      <li class="nav-item">
@@ -65,7 +65,9 @@
                 <ul class="navbar-nav mr-auto">
                    
                 @guest
-                <li class="nav-item active"><a class="text-success nav-link" href="{{ route('login') }}"> Ingresar </a></li>
+                                <li style="margin-bottom: -25px;" class="nav-item active"><a class="text-muted nav-link" href="{{ route('login') }}"> <span class="menu_usuario mr-2" style="float:left;" > Menu|Usuario </span> <i class="fas fa-user-circle fa-2x"> </i>
+</a></li>
+
                
                 @else
                     <li class="dropdown">
@@ -90,10 +92,11 @@
                 @endguest
             </ul>
 
-           
+       
         </div>
+        
       </nav>
-
+      <hr width=90% size=20> 
         <main class="py-4">
             @yield('contenido')
         </main>

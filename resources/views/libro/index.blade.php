@@ -4,17 +4,22 @@
 <div class="container">
     <form action="{{route ('libro.buscar') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
+       
         <div class="row">
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
-                <h3 class="text-muted"> Sistema de Busqueda de Normas Bolivianas de Salud </h3>
+                
                     <a href="{{ route('libro.index') }}">
-                        <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
+                        <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="300">
                     </a>
+                    <h3 class="text-success"><strong> Normas Bolivianas de Salud </strong></h3>
                     <div class="row">
 
                         <div class="col-md-2" ></div>
-                        <div class="col-md-8 ">{!! Form::text('dato',$dato,['class'=>'form-control','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui'])!!}</div>
+                       
+ 
+  
+                        <div class="col-md-8 ">{!! Form::text('dato',$dato,['class'=>'form-control caja','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'onkeypress' => "myFunction();"])!!}</div>
                         <div class="col-md-2"></div>
 
 
@@ -29,10 +34,11 @@
 
     @include('libro.aside.asaide')
     @include('libro.aside.info')
-    <ul class="navbar-nav mr-auto">
+   
 
-
-    <table class="table">
+   
+   
+   <table class="table">
         <thead>
             <tr>
             <th scope="col">Tapa</th>
@@ -58,8 +64,13 @@
             </tr>
             @endforeach
         </tbody>
+ 
+
     </table>
-    {{ $libros->links() }}
+    
+    </div>        
 </div>
+
+
 
 @endsection
