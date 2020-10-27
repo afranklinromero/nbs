@@ -161,7 +161,7 @@
     {{ $marcadores->links() }}
     </div>
     <div class="col-8">
-    <embed src="{{asset('libros') }}/MALARIA.pdf#page=31" type="application/pdf" width="100%" height="600px" />
+    <embed src="{{asset('libros') }}/MALARIA.pdf#page=4" type="application/pdf" width="100%" height="100%" />
     </div>
   </div>
 

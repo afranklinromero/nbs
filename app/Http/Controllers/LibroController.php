@@ -9,7 +9,7 @@ class LibroController extends Controller
 {
     //
     public function index(){
-        $libros=Libro::orderBy('id', 'DESC')->paginate(10);
+        $libros=Libro::orderBy('id', 'DESC')->paginate(5);
         $dato = '';
         return view('libro.index',compact('libros', 'dato'));
     }

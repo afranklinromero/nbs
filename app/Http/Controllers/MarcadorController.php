@@ -15,14 +15,14 @@ class MarcadorController extends Controller
 
     public function buscar1($libro_id){
         //dd($libro_id. ' ' . $nombre);
-        $marcadores=Marcador::where('libro_id', '=', $libro_id)->orderBy('numero', 'ASC')->paginate(10);
+        $marcadores=Marcador::where('libro_id', '=', $libro_id)->orderBy('numero', 'ASC')->paginate(4);
         return view('marcador.index',compact('marcadores'));
     }
 
     public function buscar2(Request $request){
         //dd($request->libro_id);
         //dd($libro_id. ' ' . $nombre);
-        $marcadores=Marcador::where('libro_id', '=', $request->libro_id)->where('nombre', 'like', '%'. $request->nombre .'%')->orderBy('id', 'DESC')->paginate(10);
+        $marcadores=Marcador::where('libro_id', '=', $request->libro_id)->where('nombre', 'like', '%'. $request->nombre .'%')->orderBy('id', 'DESC')->paginate(4);
         return view('marcador.index',compact('marcadores'));
     }
 

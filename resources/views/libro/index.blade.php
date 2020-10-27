@@ -10,7 +10,7 @@
                 <div class="form-group col-md-12 text-center">
                 
                     <a href="{{ route('libro.index') }}">
-                        <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="300">
+                        <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="25%">
                     </a>
                     <h3 class="text-success"><strong> Normas Bolivianas de Salud </strong></h3>
                     <div class="row">
@@ -67,8 +67,9 @@
  
 
     </table>
-    
-    </div>        
+    {{ $libros->links() }} 
+    </div>     
+      
 </div>
 
 
