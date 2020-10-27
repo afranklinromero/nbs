@@ -8,7 +8,7 @@
         <div class="row">
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
-                
+
                     <a href="{{ route('libro.index') }}">
                         <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="25%">
                     </a>
@@ -16,9 +16,9 @@
                     <div class="row">
 
                         <div class="col-md-2" ></div>
-                       
- 
-  
+
+
+
                         <div class="col-md-8 ">{!! Form::text('dato',$dato,['class'=>'form-control caja','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'onkeypress' => "myFunction();"])!!}</div>
                         <div class="col-md-2"></div>
 
@@ -34,10 +34,7 @@
 
     @include('libro.aside.asaide')
     @include('libro.aside.info')
-   
 
-   
-   
    <table class="table">
         <thead>
             <tr>
@@ -64,12 +61,12 @@
             </tr>
             @endforeach
         </tbody>
- 
+
 
     </table>
-    {{ $libros->links() }} 
-    </div>     
-      
+    {{ $libros->links() }}
+    </div>
+
 </div>
 
 
