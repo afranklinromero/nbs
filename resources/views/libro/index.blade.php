@@ -4,7 +4,7 @@
 <div class="container">
     <form action="{{route ('libro.buscar') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
-       
+
         <div class="row">
             <p class="text-center">
                 <div class="form-group col-md-12 text-center">
