@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController');
 Route::resource('/', 'LibroController');
-    
+
 
 Route::resource('autor', 'AutorController');
 
@@ -25,6 +25,7 @@ Route::resource('libro', 'LibroController');
 
 Route::get('marcador/buscar1/{libro_id}', 'MarcadorController@buscar1')->name('marcador.buscar1');
 Route::get('marcador/buscar2', 'MarcadorController@buscar2')->name('marcador.buscar2');
+Route::get('marcador/irapagina', 'MarcadorController@irapagina')->name('marcador.irapagina');
 Route::resource('marcador', 'MarcadorController');
 
 

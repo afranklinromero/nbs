@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Modelos\Libro;
 use Illuminate\Http\Request;
 use App\Modelos\Marcador;
 
@@ -22,7 +23,7 @@ class MarcadorController extends Controller
     public function buscar2(Request $request){
         //dd($request->libro_id);
         //dd($libro_id. ' ' . $nombre);
-        $marcadores=Marcador::where('libro_id', '=', $request->libro_id)->where('nombre', 'like', '%'. $request->nombre .'%')->orderBy('id', 'DESC')->paginate(4);
+        $marcadores=Marcador::where('libro_id', '=', $request->libro_id)->where('nombre', 'like', '%'. $request->nombre .'%')->orderBy('numero', 'DESC')->paginate(4);
         return view('marcador.index',compact('marcadores'));
     }
 
@@ -100,5 +101,18 @@ class MarcadorController extends Controller
         } else {
             return "Obtener marcadors";
         }
+    }
+
+    public function irapagina(Request $request){
+        //$libro = Libro::find($request->libro_id);
+        //dd($request->documentopdf);
+        if ($request->ajax()){
+            //<embed class="embed" src="{{asset('libros') }}/MALARIA.pdf#page=4" type="application/pdf" width="100%" height="100%" />
+            return "<embed src='". asset('libros') . "/".$request->documentopdf."#page=".$request->pagina."' type='application/pdf' width='100%' height='100%'/>";
+            //return 'okok';
+        } else {
+            return 'procesando...';
+        }
+
     }
 }

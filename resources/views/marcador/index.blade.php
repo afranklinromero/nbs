@@ -143,9 +143,16 @@
                         <p>
                             <span>@for($i=1; $i<($marcador->nivel-1)*3; $i++) &nbsp; @endfor </span>
                             <span class="text-primary text-muted">
-                                <a href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                                <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
                                     {{$marcador->nombre}}
                                 </a>
+                                {!! Form::open(['route' => 'marcador.irapagina', 'method' => 'get', 'id' => 'frmirapagina']) !!}
+                                    {{ csrf_field() }}
+                                    {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
+                                    {!! Form::hidden('pagina', $marcador->pagina, null) !!}
+                                    {!! Form::submit('ir', ['class' => 'btn btn-sm btn-primary', 'id' => 'go-to-page']) !!}
+                                {!! Form::close() !!}
+
                             </span>
                         </p>
                         <p class="text-muted">
@@ -160,8 +167,8 @@
     </table>
     {{ $marcadores->links() }}
     </div>
-    <div class="col-8">
-        <embed src="{{asset('libros') }}/MALARIA.pdf#page=4" type="application/pdf" width="100%" height="100%" />
+    <div class="col-8" id="paginalibro">
+
     </div>
   </div>
 
@@ -174,26 +181,28 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
-@section('scriptlocal')
+
     <script>
-        $(document).on( "click", "a", function() {
+        $(document).on( "click", "#go-to-page", function() {
             event.preventDefault();
-            //alert('buscando producto....');
-            $route = $(this).attr('href');
-            alert($route);
-            //alert('mi ruta: ' + $route);
-            /*$.get($route, function(result){
-                //$('#nombre-cli').val('hola');
-                //alert(result);
-                $('#productos-venta').html(result);
-            });*/
+            var $form = $(this).parent();
+            //
+            $.get($form.attr('action'), $form.serialize(), function(result){
+                console.log(result);
+                $('#paginalibro').html(result);
+            });
+            //$embed.attr('src', $link);
+            //alert();
         });
     </script>
-
-@endsection
 </body>
 
 </html>
