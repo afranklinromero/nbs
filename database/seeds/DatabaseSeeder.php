@@ -1,5 +1,6 @@
 <?php
 
+use App\Modelos\Detalleparticipacion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,18 @@ class DatabaseSeeder extends Seeder
             'autorlibro',
             'tipomarcador',
             'marcador',
+            'tema',
+            'pregunta',
+            'respuesta',
+            'nivel',
+            'nivelusuario',
+            'configuracion',
+            'concurso',
+            'temaconcurso',
+            'inscripcion',
+            'participacion',
+            'detalleparticipacion',
+            'clasificacion',
         ]);
 
         $this->call(RoleTableSeeder::class);
@@ -32,6 +45,18 @@ class DatabaseSeeder extends Seeder
         $this->call(AutorlibroSeeder::class);
         $this->call(TipomarcadorSeeder::class);
         $this->call(MarcadorSeeder::class);
+        $this->call(TemaSeeder::class);
+        $this->call(PreguntaSeeder::class);
+        $this->call(RespuestaSeeder::class);
+        $this->call(NivelSeeder::class);
+        $this->call(NivelusuarioSeeder::class);
+        $this->call(ConfiguracionSeeder::class);
+        $this->call(ConcursoSeeder::class);
+        $this->call(TemaconcursoSeeder::class);
+        $this->call(InscripcionSeeder::class);
+        $this->call(ParticipacionSeeder::class);
+        $this->call(DetalleparticipacionSeeder::class);
+        $this->call(ClasificacionSeeder::class);
     }
 
     protected function truncateTables(array $tables){
