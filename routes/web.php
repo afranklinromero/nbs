@@ -28,4 +28,9 @@ Route::get('marcador/buscar2', 'MarcadorController@buscar2')->name('marcador.bus
 Route::get('marcador/irapagina', 'MarcadorController@irapagina')->name('marcador.irapagina');
 Route::resource('marcador', 'MarcadorController');
 
+Route::get('concurso/jugar', 'ConcursoController@jugar')->name('concurso.jugar');
+Route::resource('concurso', 'ConcursoController');
+
+Route::resource('clasificacion', 'ClasificacionController');
+
 

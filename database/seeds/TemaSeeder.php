@@ -13,6 +13,7 @@ class TemaSeeder extends Seeder
     public function run()
     {
         //
-        factory(Tema::class, 10)->create();
+        //factory(Tema::class, 10)->create();
+        Tema::create(['nombre'=>'Malaria']);
     }
 }

@@ -13,6 +13,6 @@ class ClasificacionSeeder extends Seeder
     public function run()
     {
         //
-        factory(Clasificacion::class, 2000)->create();
+        factory(Clasificacion::class, 50)->create();
     }
 }

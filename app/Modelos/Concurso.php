@@ -8,4 +8,13 @@ class Concurso extends Model
 {
     //
     protected $table = 'concurso';
+
+    public function configuracion(){
+        return $this->belongsTo('App\Modelos\Configuracion', 'configuracion','id');
+    }
+
+    public function clasificaciones()
+    {
+        return $this->hasMany('App\Modelos\Clasificacion');
+    }
 }
