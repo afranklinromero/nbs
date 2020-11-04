@@ -30,9 +30,12 @@
                             @endphp
                             @foreach($concurso->clasificaciones->sortByDesc('puntos') as $clasificacion)
                             <tr>
-                                <td> {{ $nro }}° </td>
-                                <td> {{ $clasificacion->usuario->name }} </td>
-                                <td> {{ $clasificacion->puntos }} </td>
+                                @if ($nro<=10)
+                                    <td> {{ $nro }}° </td>
+                                    <td> {{ $clasificacion->usuario->name }} </td>
+                                    <td> {{ $clasificacion->puntos }} </td>
+                                @endif
+
                                 @php
                                     $nro++;
                                 @endphp
@@ -40,7 +43,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a class="btn btn-outline-success">Ingresar</a>
                 </div>
             </div>
         </div>

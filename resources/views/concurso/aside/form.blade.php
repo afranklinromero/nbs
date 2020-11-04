@@ -1,25 +1,25 @@
 
-@php
-    $i = 1;
-@endphp
 @foreach ($preguntas as $pregunta)
-<div class="card" style="display: {{ ($i==1)? 'block': 'none' }}">
+    @foreach ($pregunta->respuestas as $respuesta)
+        {!! Form::hidden('respuesta[]', null) !!}
+    @endforeach
+@endforeach
+
+@php
+    $pregunta = $preguntas->first();
+@endphp
+
+<div class="card">
     <div class="card-header">
-        <h3 class="text-success">  {{$pregunta->pregunta}} </h3>
+        <h3 class="text-success"> 1.- {{$pregunta->pregunta}} </h3>
     </div>
     <div class="card-body">
-        <div class="form-group">
-            @foreach ($pregunta->respuestas as $respuesta)
-                <button onclick="siguiente()" class="btn btn-info"> {{ $respuesta->respuesta }}</button><br><br>
-            @endforeach
-        </div>
+        @foreach ($pregunta->respuestas as $respuesta)
+            <button class="btn btn-success" id="{{ $respuesta->id }}"> {{$respuesta->respuesta}} </button> <br><br>
+        @endforeach
     </div>
 </div>
 <br>
-@php
-    $i++;
-@endphp
-@endforeach
 
 <div class="form-group">
     {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}

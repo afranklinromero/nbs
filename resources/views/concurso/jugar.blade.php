@@ -3,8 +3,6 @@
 @section('contenido')
 <div class="container">
     <h2 class="text-primary"></i>Concursando</h2>
-    <button onclick="interval()">Interval</button>
-    <button onclick="timeout()">Timeout</button>
     <div class="text-danger" id="testdiv">0/60</div>
     @include('concurso.aside.error')
 
@@ -49,12 +47,14 @@
         i++;
     }
 
-    $(document).on("click", ".btn-info", function() {
+    $(document).on("click", ".btn-success", function() {
         event.preventDefault();
+
         $thiscard = $(this).parent().parent().parent();
-        $thiscard.fadeOut('slow');
-        console.log('siguiente');
-        $thiscard.next().next().fadeIn(300);
+        $thiscard.fadeOut('slow', function(){
+            $thiscard.next().next().fadeIn(300);
+        });
+
         //alert($('#testdiv').text());
     });
 
