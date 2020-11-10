@@ -70,7 +70,7 @@
                 formjuego = $('#frmjuego');
                 console.log(formjuego);
                 $.post(frmjuego.action, formjuego.serialize(), function(result){
-
+                    $('#pregunta').html(result);    
                 });
                 console.log(frmjuego.action);
                 $('#pregunta').html(result);

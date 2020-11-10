@@ -13,6 +13,6 @@ class DetalleparticipacionSeeder extends Seeder
     public function run()
     {
         //
-        factory(Detalleparticipacion::class, 2000)->create();
+        //factory(Detalleparticipacion::class, 2000)->create();
     }
 }

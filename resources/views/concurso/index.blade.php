@@ -15,7 +15,7 @@
                   <h5 class="card-title">Concursar</h5>
                   <p class="card-text">Participa del concurso, respondiendo 10 preguntas</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <a href="{{ route('concurso.jugar') }}" class="btn btn-outline-success">Jugar</a>
+                  <a href="{{ route('concurso.juegos') }}" class="btn btn-outline-success">Jugar</a>
                 </div>
             </div>
         </div>

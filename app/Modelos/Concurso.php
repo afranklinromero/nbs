@@ -10,7 +10,7 @@ class Concurso extends Model
     protected $table = 'concurso';
 
     public function configuracion(){
-        return $this->belongsTo('App\Modelos\Configuracion', 'configuracion','id');
+        return $this->belongsTo('App\Modelos\Configuracion', 'configuracion_id','id');
     }
 
     public function clasificaciones()

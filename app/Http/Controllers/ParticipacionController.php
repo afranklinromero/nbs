@@ -39,7 +39,7 @@ class ParticipacionController extends Controller
     public function store (Request $request){
 
         $participacion = new Participacion();
-        $concurso = Concurso::find($request->cocurso_id);
+        $concurso = Concurso::find($request->concurso_id);
 
         $participacion->concurso_id = $concurso->id;
         $participacion->user_id = 1;
@@ -47,7 +47,6 @@ class ParticipacionController extends Controller
         $participacion->respuestascorrectas = 0;
         $participacion->puntos = 0;
 
-        $detalleparticipaciones[] = null;
 
         foreach ($request->respuestas as $key => $respuesta) {
             $detalleparticipacion = new Detalleparticipacion();
@@ -55,11 +54,13 @@ class ParticipacionController extends Controller
             $detalleparticipacion->pregunta_id = $request->preguntas[$key];
             $detalleparticipacion->respuesta_id = $request->respuestas[$key];
             $respuesta = Respuesta::find($detalleparticipacion->respuesta_id);
-            $detalleparticipacion->escorrecto = $respuesta->escorrecta;
+            $detalleparticipacion->escorrecto = $respuesta->escorrecto;
 
             if ($detalleparticipacion->escorrecto == 1){
                 $participacion->respuestascorrectas++;
             }
+
+            $detalleparticipaciones[] = $detalleparticipacion;
         }
 
         $preguntaserroneas = $concurso->configuracion->nropreguntas - $participacion->respuestascorrectas;
@@ -70,13 +71,20 @@ class ParticipacionController extends Controller
             $participacion->puntos = 0;
         }
 
-
+        //**GUARDAR */
         $participacion->save();
+        foreach ($detalleparticipaciones as $key => $detalleparticipacion) {
+            $detalleparticipacion->participacion_id = $participacion->id;
+            //dd($detalleparticipacion);
+            $detalleparticipacion->save();
+        }
 
+        
+        if ($request->ajax()){
+            return 'Gracias por su participacion id:'  . $participacion->id . ' Su puntuacion es: ' . $participacion->puntos;
+        }
         return redirect()->route('concurso.index')
-                        ->with('info','El Tipoproducto fue guardado');
-
-
+                        ->with('info','participacion guardada');
    }
 
 
