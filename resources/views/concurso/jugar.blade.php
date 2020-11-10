@@ -6,9 +6,9 @@
     <div class="text-danger" id="testdiv">0/60</div>
     @include('concurso.aside.error')
 
-    {!! Form::open([ 'route' => [ 'concurso.store' ]]) !!}
+    {!! Form::open([ 'route' => [ 'participacion.store' ], 'id'=>'frmjuego', '']) !!}
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 @include('concurso.aside.form')
             </div>
         </div>
@@ -49,10 +49,36 @@
 
     $(document).on("click", ".btn-success", function() {
         event.preventDefault();
-
-        $thiscard = $(this).parent().parent().parent();
-        $thiscard.fadeOut('slow', function(){
+        $route = this.href;
+        //alert($route)
+        /*$thiscard.fadeOut('slow', function(){
             $thiscard.next().next().fadeIn(300);
+        });*/
+        var index = $('#index').text();
+        $("input[name='preguntas[]']").map( function(key){
+            if (key == (index-1))
+                $(this).val($('#pregunta_id').text());
+        });
+
+        $("input[name='respuestas[]']").map( function(key){
+            if (key == (index-1))
+                $(this).val($route.split("/")[6]);
+        });
+
+        $.get($route, function(result){
+            if (result == 'endgame'){
+                formjuego = $('#frmjuego');
+                console.log(formjuego);
+                $.post(frmjuego.action, formjuego.serialize(), function(result){
+
+                });
+                console.log(frmjuego.action);
+                $('#pregunta').html(result);
+            } else {
+                $('#pregunta').html(result);
+            }
+
+
         });
 
         //alert($('#testdiv').text());

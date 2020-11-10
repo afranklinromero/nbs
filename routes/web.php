@@ -28,8 +28,12 @@ Route::get('marcador/buscar2', 'MarcadorController@buscar2')->name('marcador.bus
 Route::get('marcador/irapagina', 'MarcadorController@irapagina')->name('marcador.irapagina');
 Route::resource('marcador', 'MarcadorController');
 
-Route::get('concurso/jugar', 'ConcursoController@jugar')->name('concurso.jugar');
+Route::get('concurso/juegos', 'ConcursoController@juegos')->name('concurso.juegos');
+Route::get('concurso/jugar/{concurso_id}', 'ConcursoController@jugar')->name('concurso.jugar');
+Route::get('concurso/siguiente/{index}/{respuesta_id}', 'ConcursoController@siguiente')->name('concurso.siguiente');
 Route::resource('concurso', 'ConcursoController');
+
+Route::resource('participacion', 'ParticipacionController');
 
 Route::resource('clasificacion', 'ClasificacionController');
 

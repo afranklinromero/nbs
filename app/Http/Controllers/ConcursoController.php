@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class ConcursoController extends Controller
 {
     //
+    public $n = 10;
+
     public function index(){
         $concursos=Concurso::orderBy('id', 'DESC')->paginate(10);
         return view('concurso.index',compact('concursos'));
@@ -26,9 +28,33 @@ class ConcursoController extends Controller
         return view('concurso.show', compact('concurso'));
     }
 
-    public function jugar(){
+    public function juegos(Request $request){
+        $concursos = Concurso::where('estado', '1')->orderBy('id', 'DESC')->paginate(10);
+        return view('concurso.juegos', compact('concursos'));
+    }
+
+    public function jugar(Request $request, $concurso_id){
+        $n = $this->n;
+        $index = 1;
         $preguntas = Pregunta::orderByRaw('rand()')->take(10)->get();
-        return view('concurso.jugar', compact('preguntas'));
+        return view('concurso.jugar', compact('preguntas', 'index', 'n', 'concurso_id'));
+    }
+
+    public function siguiente(Request $request, $index, $pregunta_id){
+        $n = $this->n;
+        if ($index <10){
+            do {
+                $pregunta = Pregunta::orderByRaw('rand()')->take(1)->get()->first();
+            }
+            while($pregunta_id == $pregunta->id);
+
+            $index++;
+            if ($request->ajax()){
+                return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta'))->render());
+            }
+        } else {
+            return 'endgame';
+        }
     }
 
     public function create(){

@@ -15,7 +15,7 @@
                     <h5 class="card-title">{{ $concurso->nombre }}</h5>
                     <p class="card-text"> <strong>Fecha de inicio: </strong> {{ $concurso->fechaini }}  </p>
                     <p class="card-text"> <strong>Fecha de Finalizacion: </strong> {{ $concurso->fechafin }}  </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <p class="card-text"><small class="text-muted">Clasificación top 10</small></p>
                     <table class="table table-sm table-striped">
                         <thead>
                             <tr>

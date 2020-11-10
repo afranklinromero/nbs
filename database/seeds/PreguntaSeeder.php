@@ -14,5 +14,6 @@ class PreguntaSeeder extends Seeder
     {
         //
         factory(Pregunta::class, 50)->create();
+
     }
 }
