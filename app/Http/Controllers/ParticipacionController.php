@@ -57,20 +57,25 @@ class ParticipacionController extends Controller
             $detalleparticipacion->escorrecto = $respuesta->escorrecto;
 
             if ($detalleparticipacion->escorrecto == 1){
-                $participacion->respuestascorrectas++;
+                $participacion->respuestascorrectas = $participacion->respuestascorrectas + 1;
             }
 
             $detalleparticipaciones[] = $detalleparticipacion;
         }
 
+        //dd($detalleparticipaciones);
         $preguntaserroneas = $concurso->configuracion->nropreguntas - $participacion->respuestascorrectas;
 
+
+        $participacion->puntos = $concurso->configuracion->puntosporrespuesta * $participacion->respuestascorrectas;
+        /*
         if ($concurso->configuracion->limiterespuestaserroneas <= $preguntaserroneas){
-            $participacion->puntos = $concurso->configuracion->puntosporrespuesta * $participacion->respuestascorrectas;
+            
         } else {
             $participacion->puntos = 0;
         }
 
+        */
         //**GUARDAR */
         $participacion->save();
         foreach ($detalleparticipaciones as $key => $detalleparticipacion) {
@@ -111,7 +116,6 @@ class ParticipacionController extends Controller
 
         return redirect()->route('concurso.index')
                         ->with('info','El Tipoproducto fue actualizado');
-
 
    }
 
