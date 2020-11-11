@@ -13,6 +13,11 @@ class RespuestaSeeder extends Seeder
     public function run()
     {
         //
-        factory(Respuesta::class, 200)->create();
+        for ($i=1; $i <= 50 ; $i++) { 
+            # code...
+            factory(Respuesta::class, 4)->create(['pregunta_id' => $i]);
+        }
+        
+        
     }
 }

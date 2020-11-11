@@ -15,3 +15,5 @@ $factory->define(Respuesta::class, function (Faker $faker) {
         'escorrecto' => $faker->numberBetween(0, 1),
     ];
 });
+
+
