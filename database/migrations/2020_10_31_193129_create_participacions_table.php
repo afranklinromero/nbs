@@ -18,7 +18,9 @@ class CreateParticipacionsTable extends Migration
             $table->id();
             $table->bigInteger('concurso_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('respuestascorrectas')->default(0);
+            $table->time('tiempo')->default('00:00');
+            $table->bigInteger('correctas')->default(0);
+            $table->bigInteger('incorrectas')->default(0);
             $table->bigInteger('puntos')->default(0);
             $table->timestamps();
             $table->integer('estado')->default(1);

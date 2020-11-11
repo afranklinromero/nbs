@@ -44,7 +44,8 @@ class ParticipacionController extends Controller
         $participacion->concurso_id = $concurso->id;
         $participacion->user_id = 1;
 
-        $participacion->respuestascorrectas = 0;
+        $participacion->correctas = 0;
+        $participacion->incorrectas = 0;
         $participacion->puntos = 0;
 
 
@@ -57,20 +58,21 @@ class ParticipacionController extends Controller
             $detalleparticipacion->escorrecto = $respuesta->escorrecto;
 
             if ($detalleparticipacion->escorrecto == 1){
-                $participacion->respuestascorrectas = $participacion->respuestascorrectas + 1;
+                $participacion->correctas = $participacion->correctas + 1;
+            } else {
+                $participacion->incorrectas = $participacion->incorrectas + 1;
             }
 
             $detalleparticipaciones[] = $detalleparticipacion;
         }
 
         //dd($detalleparticipaciones);
-        $preguntaserroneas = $concurso->configuracion->nropreguntas - $participacion->respuestascorrectas;
 
 
-        $participacion->puntos = $concurso->configuracion->puntosporrespuesta * $participacion->respuestascorrectas;
+        $participacion->puntos = $concurso->configuracion->puntosporrespuesta * $participacion->correctas;
         /*
         if ($concurso->configuracion->limiterespuestaserroneas <= $preguntaserroneas){
-            
+
         } else {
             $participacion->puntos = 0;
         }
@@ -84,9 +86,9 @@ class ParticipacionController extends Controller
             $detalleparticipacion->save();
         }
 
-        
+
         if ($request->ajax()){
-            return 'Gracias por su participacion id:'  . $participacion->id . ' Su puntuacion es: ' . $participacion->puntos;
+            return response()->json(\view('concurso.aside.finjuego', \compact('participacion'))->render());
         }
         return redirect()->route('concurso.index')
                         ->with('info','participacion guardada');
