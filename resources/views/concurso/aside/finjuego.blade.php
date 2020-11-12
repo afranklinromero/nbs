@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mx-auto" style="width: 30rem;">
     <div class="card-header text-white bg-success">
         <h3> RONDA TERMINADA </h3>
 
@@ -8,7 +8,7 @@
         <table class="table">
         	<tr>
         		<td>Tiempo:</td>
-        		<td>19</td>
+        		<td>{{ $participacion->tiempo }}</td>
         	</tr>
         	<tr>
         		<td>Respuestas correctas:</td>
@@ -22,6 +22,7 @@
         		<td>Puntos:</td>
         		<td>{{ $participacion->puntos }}</td>
         	</tr>
-        </table>
+		</table>
+		<a class="btn btn-primary" href="{{ route('concurso.jugar', $participacion->concurso_id) }}">Volver a jugar</a>
     </div>
 </div>

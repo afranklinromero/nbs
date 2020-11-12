@@ -44,6 +44,7 @@ class ParticipacionController extends Controller
         $participacion->concurso_id = $concurso->id;
         $participacion->user_id = 1;
 
+        $participacion->tiempo = '00:'.$request->tiempo;
         $participacion->correctas = 0;
         $participacion->incorrectas = 0;
         $participacion->puntos = 0;
@@ -52,10 +53,20 @@ class ParticipacionController extends Controller
         foreach ($request->respuestas as $key => $respuesta) {
             $detalleparticipacion = new Detalleparticipacion();
             $detalleparticipacion->participacion_id = 0;
-            $detalleparticipacion->pregunta_id = $request->preguntas[$key];
-            $detalleparticipacion->respuesta_id = $request->respuestas[$key];
-            $respuesta = Respuesta::find($detalleparticipacion->respuesta_id);
-            $detalleparticipacion->escorrecto = $respuesta->escorrecto;
+            $pregunta_id = $request->preguntas[$key];
+            $respuesta_id = $request->respuestas[$key];
+            if ($respuesta_id > 0){
+                $detalleparticipacion->pregunta_id = $pregunta_id;
+                $respuesta = Respuesta::find($respuesta_id);
+                $detalleparticipacion->respuesta_id = $respuesta->id;
+                $detalleparticipacion->escorrecto = $respuesta->escorrecto;
+            } else {
+                $detalleparticipacion->pregunta_id = 1;
+                $detalleparticipacion->respuesta_id = 1;
+                $detalleparticipacion->escorrecto = 0;
+            }
+
+            
 
             if ($detalleparticipacion->escorrecto == 1){
                 $participacion->correctas = $participacion->correctas + 1;
