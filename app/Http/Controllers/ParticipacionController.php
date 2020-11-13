@@ -44,7 +44,7 @@ class ParticipacionController extends Controller
         $participacion->concurso_id = $concurso->id;
         $participacion->user_id = 1;
 
-        $participacion->tiempo = '00:'.$request->tiempo;
+        $participacion->tiempo = intdiv($request->tiempo, 60). ':'. ($request->tiempo % 60);
         $participacion->correctas = 0;
         $participacion->incorrectas = 0;
         $participacion->puntos = 0;
@@ -66,7 +66,7 @@ class ParticipacionController extends Controller
                 $detalleparticipacion->escorrecto = 0;
             }
 
-            
+
 
             if ($detalleparticipacion->escorrecto == 1){
                 $participacion->correctas = $participacion->correctas + 1;

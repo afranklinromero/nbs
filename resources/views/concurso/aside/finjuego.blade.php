@@ -1,10 +1,10 @@
-<div class="card mx-auto" style="width: 30rem;">
+<div class="card mx-auto">
     <div class="card-header text-white bg-success">
         <h3> RONDA TERMINADA </h3>
 
     </div>
     <div class="card-body">
-        <img src="http://lorempixel.com/400/200/nightlife" class="card-img-top" alt="...">
+        <h1 class="display-1 text-center">{{ $participacion->correctas }}%</h1>
         <table class="table">
         	<tr>
         		<td>Tiempo:</td>

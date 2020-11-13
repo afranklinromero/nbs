@@ -3,13 +3,13 @@
 @section('contenido')
 <div class="container">
     <h2 class="text-primary"></i>Concursando</h2>
-    
+
     @include('concurso.aside.error')
 
     {!! Form::open([ 'route' => [ 'participacion.store' ], 'id'=>'frmjuego', '']) !!}
                 @include('concurso.aside.form')
-        
-        
+
+
     {!! Form::close() !!}
 </div>
 
@@ -25,8 +25,16 @@
     var timer;
 
     function proceso(){
-        if (t<60  && enjuego){
-            document.getElementById("testdiv").innerHTML=  t + '/60';
+        if (t<=60  && enjuego){
+            //document.getElementById("testdiv").innerHTML= Math.floor(t/60).toString() + ':' + (t%60).toString();
+            min = Math.floor(t/60);
+            sec = (t%60);
+            smin = min.toString();
+            ssec = sec.toString();
+            if (min<10){ smin = '0'+smin}
+            if (sec<10){ ssec = '0'+ssec}
+            document.getElementById("progress").innerHTML=  smin + ':' + ssec;
+            $('#progress').attr('style',  'width: '+(t*100/n).toString() + '%')
             t++;
         } else {
             terminarjuego();
@@ -61,7 +69,7 @@
         formjuego = $('#frmjuego');
         console.log(formjuego);
         $.post(frmjuego.action, formjuego.serialize(), function(result){
-            $('#pregunta').html(result);    
+            $('#pregunta').html(result);
         });
     }
 
@@ -71,7 +79,7 @@
         var index = $('#index').text();
         $("input[name='preguntas[]']").map( function(key){
             if (key == (index-1))
-                $(this).val($('#pregunta_id').text());
+                $(this).val($('#pregunta_id').val());
         });
 
         $("input[name='respuestas[]']").map( function(key){
