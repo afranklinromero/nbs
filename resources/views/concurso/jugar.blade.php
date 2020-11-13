@@ -37,7 +37,9 @@
             $('#progress').attr('style',  'width: '+(t*100/n).toString() + '%')
             t++;
         } else {
-            terminarjuego();
+            if (t>=60){
+                terminarjuego();
+            }
             finalizarCronometro(timer);
         }
     }

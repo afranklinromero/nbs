@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modelos\Concurso;
 use App\Modelos\Configuracion;
+use App\Modelos\Clasificacion;
 use App\Modelos\Detalleparticipacion;
 use App\Modelos\Participacion;
 use App\Modelos\Pregunta;
@@ -97,9 +98,28 @@ class ParticipacionController extends Controller
             $detalleparticipacion->save();
         }
 
+        $clasificacion = Clasificacion::where('user_id', $participacion->user_id)
+                                    ->where('concurso_id', $participacion->concurso_id)
+                                    ->where('estado', 1)->first();
+
+        if (isset($clasificacion)){
+            $clasificacion->puntos = $clasificacion->puntos + $participacion->puntos;
+            $clasificacion->updated_at = now();
+            $clasificacion->save();
+        } else {
+            $clasificacion = new Clasificacion();
+            $clasificacion->concurso_id = $participacion->concurso_id;
+            $clasificacion->user_id = $participacion->user_id;
+            $clasificacion->puntos = $participacion->puntos;
+            $clasificacion->save();
+        }
+
+        $clasificaciones = Clasificacion::where('concurso_id', $participacion->concurso_id)->where('estado', '1')->get();
+        
+
 
         if ($request->ajax()){
-            return response()->json(\view('concurso.aside.finjuego', \compact('participacion'))->render());
+            return response()->json(\view('concurso.aside.finjuego', \compact('participacion', 'clasificacion', 'clasificaciones'))->render());
         }
         return redirect()->route('concurso.index')
                         ->with('info','participacion guardada');
