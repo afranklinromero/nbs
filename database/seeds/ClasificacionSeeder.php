@@ -16,7 +16,7 @@ class ClasificacionSeeder extends Seeder
     {
         //
         //factory(Clasificacion::class, 50)->create();
-
+/*
         $concursos = Concurso::all();
         foreach ($concursos as $key => $concurso) {
             $usuarios = User::all();
@@ -24,5 +24,6 @@ class ClasificacionSeeder extends Seeder
                 factory(Clasificacion::class, 1)->create(['user_id' => $usuario->id, 'concurso_id' => $concurso->id]);
             }
         }
+        */
     }
 }

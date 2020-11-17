@@ -12,6 +12,7 @@ use App\Modelos\Respuesta;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class ParticipacionController extends Controller
 {
@@ -40,10 +41,11 @@ class ParticipacionController extends Controller
     public function store (Request $request){
 
         $participacion = new Participacion();
+        
         $concurso = Concurso::find($request->concurso_id);
 
         $participacion->concurso_id = $concurso->id;
-        $participacion->user_id = 1;
+        $participacion->user_id = Auth::user()->id;
 
         $participacion->tiempo = intdiv($request->tiempo, 60). ':'. ($request->tiempo % 60);
         $participacion->correctas = 0;

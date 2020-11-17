@@ -89,15 +89,22 @@
                 $(this).val($route.split("/")[6]);
         });
 
+        //$('#pregunta').fadeIn(1000).html('<div class="loading"><img src="http://127.0.0.1:8000/img/loader.gif"/><br/>Un momento, por favor...</div>');
+
         $.get($route, function(result){
+            
             console.log('boton siguiente!!');
             if (result == 'endgame'){
+                console.log('terminaodo juego');
                 terminarjuego();
                 //$('#pregunta').html(result);
             } else {
-                $('#pregunta').html(result);
+                $('#pregunta').fadeOut(500, function(){
+                    $('#pregunta').fadeIn(300).html(result);
+                });
             }
         });
+        return false;
     });
 </script>
 

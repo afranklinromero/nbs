@@ -4,7 +4,7 @@
 
     </div>
     <div class="card-body">
-        <h1 class="display-1 text-center">{{ $participacion->correctas }}%</h1>
+        <h1 class="display-1 text-center">{{ $participacion->correctas }}/{{ $participacion->concurso->configuracion->nropreguntas }}</h1>
         <table class="table">
         	<tr>
         		<td width='50%' class="text-right"><strong>Tiempo:</strong> </td>

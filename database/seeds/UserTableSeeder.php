@@ -29,6 +29,8 @@ class UserTableSeeder extends Seeder
         $user->save();
         $user->roles()->attach($role_admin);//
 
+        factory(User::class, 50)->create();
+
         
     }
 }
