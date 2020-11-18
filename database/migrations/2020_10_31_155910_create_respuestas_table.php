@@ -18,7 +18,7 @@ class CreateRespuestasTable extends Migration
             $table->id();
             $table->bigInteger('pregunta_id')->unsigned();
             $table->string('respuesta', 512);
-            $table->integer('escorrecto')->default(1);
+            $table->integer('escorrecta')->default(1);
             $table->timestamps();
             $table->integer('estado')->default(1);
 

@@ -9687,6 +9687,60 @@
 					]
 				}
 			]
+		},
+		{
+			"_type": "UMLCollaboration",
+			"_id": "AAAAAAF13VH0Vwpoc9E=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Collaboration1",
+			"ownedElements": [
+				{
+					"_type": "UMLInteraction",
+					"_id": "AAAAAAF13VH0Vwppr/o=",
+					"_parent": {
+						"$ref": "AAAAAAF13VH0Vwpoc9E="
+					},
+					"name": "Interaction1",
+					"ownedElements": [
+						{
+							"_type": "UMLCommunicationDiagram",
+							"_id": "AAAAAAF13VH0WApqvCE=",
+							"_parent": {
+								"$ref": "AAAAAAF13VH0Vwppr/o="
+							},
+							"name": "CommunicationDiagram1"
+						}
+					]
+				}
+			]
+		},
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAF13VI9SwtterI=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model1",
+			"ownedElements": [
+				{
+					"_type": "UMLObjectDiagram",
+					"_id": "AAAAAAF13VI9SwtusBQ=",
+					"_parent": {
+						"$ref": "AAAAAAF13VI9SwtterI="
+					},
+					"name": "ObjectDiagram1"
+				},
+				{
+					"_type": "UMLObject",
+					"_id": "AAAAAAF13VJQHAvSbFk=",
+					"_parent": {
+						"$ref": "AAAAAAF13VI9SwtterI="
+					},
+					"name": "Object1"
+				}
+			]
 		}
 	]
 }

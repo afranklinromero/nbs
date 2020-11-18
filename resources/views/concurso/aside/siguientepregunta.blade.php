@@ -5,7 +5,10 @@
     </div>
     <div class="card-body">
         @foreach ($pregunta->respuestas as $respuesta)
-            <a href="{{ route('concurso.siguiente', ['index' => $index, 'respuesta_id' => $respuesta->id]) }}" class="btn btn-outline-primary siguiente btn-lg btn-block" id="{{ $respuesta->id }}"> {{$respuesta->respuesta}} </a> <br>
+            <a href="{{ route('concurso.responder', ['index' => $index, 'pregunta_id' => $pregunta->id,'mirespuesta_id' => $respuesta->id]) }}" class="btn btn-outline-primary jugar btn-lg btn-block" id="{{ $respuesta->id }}"> 
+                {{$respuesta->respuesta}} -> {{$respuesta->escorrecta}} 
+            </a> 
+            <br>
         @endforeach
     </div>
 </div>
