@@ -75,7 +75,7 @@
         });
     }
 
-    $(document).on("click", ".btn-success", function() {
+    $(document).on("click", ".siguiente", function() {
         event.preventDefault();
         $route = this.href;
         var index = $('#index').text();
@@ -92,7 +92,7 @@
         //$('#pregunta').fadeIn(1000).html('<div class="loading"><img src="http://127.0.0.1:8000/img/loader.gif"/><br/>Un momento, por favor...</div>');
 
         $.get($route, function(result){
-            
+
             console.log('boton siguiente!!');
             if (result == 'endgame'){
                 console.log('terminaodo juego');

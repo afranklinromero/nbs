@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modelos\Concurso;
 use App\Modelos\Pregunta;
+use App\Modelos\Respuesta;
 use Illuminate\Http\Request;
 
 class ConcursoController extends Controller
@@ -55,6 +56,15 @@ class ConcursoController extends Controller
         } else {
             return 'endgame';
         }
+    }
+
+    public function calificar(Request $request, $index, $pregunta_id, $respuesta_id){
+        if ($request->ajax()){
+            $pregunta = Pregunta::find($pregunta_id);
+            $mirespuesta = Respuesta::find($respuesta_id);
+            return response()->json(\view('concurso.aside.calificar', \compact('index', 'pregunta', 'mirespuesta'))->render());
+        }
+
     }
 
     public function create(){
