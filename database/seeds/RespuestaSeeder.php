@@ -15,9 +15,8 @@ class RespuestaSeeder extends Seeder
         //
         for ($i=1; $i <= 50 ; $i++) { 
             # code...
-            factory(Respuesta::class, 4)->create(['pregunta_id' => $i]);
+            factory(Respuesta::class, 1)->create(['pregunta_id' => $i, 'escorrecta' => 1]);
+            factory(Respuesta::class, 3)->create(['pregunta_id' => $i, 'escorrecta' => 0]);
         }
-        
-        
     }
 }

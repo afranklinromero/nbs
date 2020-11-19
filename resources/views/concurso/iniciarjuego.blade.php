@@ -90,6 +90,24 @@
         });
     }
 
+    $(document).on("click", ".evaluar", function() {
+        event.preventDefault();
+        $route = this.href;   
+        var elemento = this; 
+        $(this).removeClass('btn-outline-primary');
+        $(this).addClass('btn-warning');
+        $.get($route, function(result){
+            if (result == 1){
+                console.log('success');
+                //elemento.toggleClass('btn-success');
+            } else {
+                console.log('danger');
+                //elemento.toggleClass('btn-danger');
+            }
+        });
+        return false;
+    });
+
     $(document).on("click", ".jugar", function() {
         event.preventDefault();
         $route = this.href;

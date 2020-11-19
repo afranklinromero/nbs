@@ -11,6 +11,7 @@ class ConcursoController extends Controller
 {
     //
     public $n = 10;
+    public $preguntas = null;
 
     public function index(){
         $concursos=Concurso::orderBy('id', 'DESC')->paginate(10);
@@ -37,8 +38,10 @@ class ConcursoController extends Controller
     public function iniciarjuego(Request $request, $concurso_id){
         $n = $this->n;
         $index = 1;
-        $pregunta = Pregunta::orderByRaw('rand()')->take(1)->first();
-        return view('concurso.iniciarjuego', compact('pregunta', 'index', 'n', 'concurso_id'));
+        $preguntas = Pregunta::inRandomOrder()->limit(10);
+        $pregunta = $preguntas->first();
+        $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
+        return view('concurso.iniciarjuego', compact('pregunta', 'respuestas', 'index', 'n', 'concurso_id'));
     }
 
     public function siguientepregunta(Request $request, $index, $pregunta_id, $respuesta_id){
@@ -49,13 +52,24 @@ class ConcursoController extends Controller
             }
             while($pregunta_id == $pregunta->id);
 
+            $respuestas = $pregunta->shuffle();
+
             $index++;
             if ($request->ajax()){
-                return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta'))->render());
+                return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta', 'respuestas'))->render());
             }
         } else {
             return 'endgame';
         }
+    }
+
+    public function evaluar(Request $request, $mirespuesta_id){
+        if ($request->ajax()){
+            $escorrecta = $mirespuesta = Respuesta::find($mirespuesta_id)->escorrecta;
+            
+            return $escorrecta;
+        }
+
     }
 
     public function responder(Request $request, $index, $pregunta_id, $mirespuesta_id){
