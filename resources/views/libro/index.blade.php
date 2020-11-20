@@ -5,31 +5,25 @@
     <form action="{{route ('libro.buscar') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
 
-        <div class="row">
+        
             <p class="text-center">
-                <div class="form-group col-md-12 text-center">
+                <div class="form-group text-center">
 
                     <a href="{{ route('libro.index') }}">
                         <img class="mb-3" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="25%">
                     </a>
                     <h3 class="text-success"><strong> Normas Bolivianas de Salud </strong></h3>
-                    <div class="row">
-
-                        <div class="col-md-2" ></div>
-
-
-
-                        <div class="col-md-8 ">{!! Form::text('dato',$dato,['class'=>'form-control caja','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'onkeypress' => "myFunction();"])!!}</div>
-                        <div class="col-md-2"></div>
-
-
-                    </div>
+                   
+                       
+                        <div>{!! Form::text('dato',$dato,['class'=>'form-control caja','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'onkeypress' => "myFunction();"])!!}</div>
+                        
+                    
                 </div>
                <!-- <div class="form-group col-md-12 text-center" >
                 <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"> </i> Buscar</button>
                 </div> -->
             </p>
-        </div>
+        
     </form>
 
     @include('libro.aside.asaide')
@@ -61,13 +55,13 @@
             </tr>
             @endforeach
         </tbody>
-
-
-    </table>
-    {{ $libros->links() }}
-    </div>
-
+      </table>
+       
+       {{ $libros->links() }} 
+        
 </div>
+
+
 
 
 

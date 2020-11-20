@@ -16,14 +16,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('dropzone.css') }}">
-
-    <script src="{{ asset('dropzone.js')}}"></script>
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <script src="{{asset('js/app.js')}}"></script>
 </head>
 <body>
-    <div id="app">
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,74 +79,79 @@
             </ul>
 
 
-        </div>
+             </div>
 
       </nav>
       <hr width=90% size=20 style="margin-top: 0rem;">
-        <main class="py-4">
+    <main class="py-4">
 
 
-        <div class="container">
+    <div class="container">
 
 
-    @include('marcador.aside.info')
-    <ul class="navbar-nav mr-auto">
+        @include('marcador.aside.info')
+        
 
-    <div class="row">
-    <div class="col-4">
-        <h3>TAPA</h3>
-        <a href="{{ route('libro.index') }}">
-                                <img class="mb-3 mr-5" src="{{ asset('tapas/27.png')}}" alt="Malaria" srcset="" width="40%">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div style="width: 100%; height: 100%; overflow-y: scroll;">
+                <h3>TAPA</h3>
+                <a href="{{ route('libro.index') }}">
+                                <img class="mb-3 mr-5" src="{{ asset('tapas/27.png')}}" alt="Malaria" srcset="" width="30%">
                             </a>
-    <table class="table">
-        <thead>
+                            
+                <table class="table">
+                <thead>
 
-            <th scope="col">Descripcion</th>
+                    <th scope="col">Descripcion</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($marcadores as $marcador)
-            <tr>
+                    </tr>
+                </thead>
+        
+                 <tbody>
+           
+                        @foreach($marcadores as $marcador)
+                        <tr>
 
-                    <td>
-                        <p>
-                            <span>@for($i=1; $i<($marcador->nivel-1)*3; $i++) &nbsp; @endfor </span>
-                            <span class="text-primary text-muted">
-                                <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
-                                    {{$marcador->nombre}}
-                                </a>
-                                {!! Form::open(['route' => 'marcador.irapagina', 'method' => 'get', 'id' => 'frmirapagina']) !!}
-                                    {{ csrf_field() }}
-                                    {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
-                                    {!! Form::hidden('pagina', $marcador->pagina, null) !!}
-                                    {!! Form::submit('ir', ['class' => 'btn btn-sm btn-primary', 'id' => 'go-to-page']) !!}
-                                {!! Form::close() !!}
+                                <td>
+                                    <p>
+                                        <span>@for($i=1; $i<($marcador->nivel-1)*3; $i++) &nbsp; @endfor </span>
+                                        <span class="text-primary text-muted">
+                                            <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                                                {{$marcador->nombre}}
+                                            </a>
+                                            {!! Form::open(['route' => 'marcador.irapagina', 'method' => 'get', 'id' => 'frmirapagina']) !!}
+                                                {{ csrf_field() }}
+                                                {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
+                                                {!! Form::hidden('pagina', $marcador->pagina, null) !!}
+                                                
+                                            {!! Form::close() !!}
 
-                            </span>
-                        </p>
-                        <p class="text-muted">
-                            <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
-                            <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
-                            <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}
-                        </p>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    {{ $marcadores->links() }}
+                                        </span>
+                                    </p>
+                                    <p class="text-muted">
+                                        <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
+                                        <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
+                                        <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}
+                                    </p>
+                                </td>
+                            </tr>
+                        @endforeach
+                        
+                    </tbody>
+                    
+                </table>
+                </div>
+            {{ $marcadores->links() }}
+            </div>
+    
+        </div>
+
+
     </div>
-    <div class="col-8" id="paginalibro">
 
-    </div>
-  </div>
-
-
-</div>
-
-        </main>
-    </div>
+    </main>
+   
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
