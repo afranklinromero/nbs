@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Modelos\Concurso;
 use App\Modelos\Pregunta;
+use App\Modelos\Respuesta;
 use Illuminate\Http\Request;
 
 class ConcursoController extends Controller
 {
     //
     public $n = 10;
+    public $preguntas = null;
 
     public function index(){
         $concursos=Concurso::orderBy('id', 'DESC')->paginate(10);
@@ -33,14 +35,16 @@ class ConcursoController extends Controller
         return view('concurso.juegos', compact('concursos'));
     }
 
-    public function jugar(Request $request, $concurso_id){
+    public function iniciarjuego(Request $request, $concurso_id){
         $n = $this->n;
         $index = 1;
-        $preguntas = Pregunta::orderByRaw('rand()')->take(10)->get();
-        return view('concurso.jugar', compact('preguntas', 'index', 'n', 'concurso_id'));
+        $preguntas = Pregunta::inRandomOrder()->limit(10);
+        $pregunta = $preguntas->first();
+        $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
+        return view('concurso.iniciarjuego', compact('pregunta', 'respuestas', 'index', 'n', 'concurso_id'));
     }
 
-    public function siguiente(Request $request, $index, $pregunta_id){
+    public function siguientepregunta(Request $request, $index, $pregunta_id, $respuesta_id){
         $n = $this->n;
         if ($index <10){
             do {
@@ -48,13 +52,33 @@ class ConcursoController extends Controller
             }
             while($pregunta_id == $pregunta->id);
 
+            $respuestas = $pregunta->shuffle();
+
             $index++;
             if ($request->ajax()){
-                return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta'))->render());
+                return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta', 'respuestas'))->render());
             }
         } else {
             return 'endgame';
         }
+    }
+
+    public function evaluar(Request $request, $mirespuesta_id){
+        if ($request->ajax()){
+            $escorrecta = $mirespuesta = Respuesta::find($mirespuesta_id)->escorrecta;
+            
+            return $escorrecta;
+        }
+
+    }
+
+    public function responder(Request $request, $index, $pregunta_id, $mirespuesta_id){
+        if ($request->ajax()){
+            $pregunta = Pregunta::find($pregunta_id);
+            $mirespuesta = Respuesta::find($mirespuesta_id);
+            return response()->json(\view('concurso.aside.responder', \compact('index', 'pregunta', 'mirespuesta'))->render());
+        }
+
     }
 
     public function create(){

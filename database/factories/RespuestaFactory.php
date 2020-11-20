@@ -12,7 +12,7 @@ $factory->define(Respuesta::class, function (Faker $faker) {
         //
         'pregunta_id' => Pregunta::all('id')->random(),
         'respuesta' => $faker->text(128),
-        'escorrecto' => $faker->numberBetween(0, 1),
+        'escorrecta' => $faker->numberBetween(0, 1),
     ];
 });
 

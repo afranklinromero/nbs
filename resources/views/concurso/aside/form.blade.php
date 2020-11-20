@@ -14,7 +14,7 @@
 @endphp
 
 <div id="pregunta">
-    @include('concurso.aside.pregunta')
+    @include('concurso.aside.siguientepregunta')
 </div>
 
 <br>

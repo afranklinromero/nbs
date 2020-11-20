@@ -16,5 +16,5 @@
     <link rel="stylesheet" href="{{ asset('dropzone.css') }}">
     <script src="{{ asset('dropzone.js')}}"></script>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <script src="{{asset('js/app.js')}}"></script>
+    <!--<script src="{{asset('js/app.js')}}"></script>-->
 </head>
