@@ -112,48 +112,34 @@
            
                         @foreach($marcadores as $marcador)
                         <tr>
-
-                                <td>
-                                    <p>
-                                        <span>@for($i=1; $i<($marcador->nivel-1)*3; $i++) &nbsp; @endfor </span>
-                                        <span class="text-primary text-muted">
-                                            <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
-                                                {{$marcador->nombre}}
-                                            </a>
-                                            {!! Form::open(['route' => 'marcador.irapagina', 'method' => 'get', 'id' => 'frmirapagina']) !!}
-                                                {{ csrf_field() }}
-                                                {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
-                                                {!! Form::hidden('pagina', $marcador->pagina, null) !!}
-                                                
-                                            {!! Form::close() !!}
-
-                                        </span>
-                                    </p>
+                            <td>
+                                {!! Form::open(['route' => 'marcador.irapagina', 'method' => 'get', 'id' => 'frmirapagina']) !!}
+                                    {{ csrf_field() }}
+                                    {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
+                                    {!! Form::hidden('pagina', $marcador->pagina, null) !!}
+                                    <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                                        {{$marcador->nombre}}
+                                    </a>
                                     <p class="text-muted">
                                         <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
                                         <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
                                         <strong class="text-lowercase">numero publicación › </strong> {{ $marcador->tipomarcador_id}}
                                     </p>
-                                </td>
-                            </tr>
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
                         @endforeach
-                        
-                    </tbody>
+                </tbody>
                     
                 </table>
                 </div>
             {{ $marcadores->links() }}
             </div>
-    
+            <div class="col-15 col-md-6" id="paginalibro">
+            </div>
         </div>
-
-
     </div>
-
     </main>
-   
-
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
     <script
@@ -167,12 +153,14 @@
 
 
     <script>
-        $(document).on( "click", "#go-to-page", function() {
+        $(document).on( "click", ".go-to-page", function() {
             event.preventDefault();
+            //alert('go to page');
             var $form = $(this).parent();
-            //
+            console.log('go.top-age');
+            console.log($form.attr('action'));
             $.get($form.attr('action'), $form.serialize(), function(result){
-                console.log(result);
+                //console.log(result);
                 $('#paginalibro').html(result);
             });
             //$embed.attr('src', $link);
