@@ -107,9 +107,7 @@
 
                     </tr>
                 </thead>
-        
                  <tbody>
-           
                         @foreach($marcadores as $marcador)
                         <tr>
                             <td>
