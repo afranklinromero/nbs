@@ -35,7 +35,7 @@
                         <a class="nav-link" href="{{ route('home') }}">INICIO</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="">LIBROS </a>
+                      <a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="">USUARIOS</a>
@@ -44,6 +44,16 @@
                         <a class="nav-link" href="">EXAMENES</a>
                       </li>
                       <li class="nav-item">
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                          Dropdown link
+                        </a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Link 1</a>
+                          <a class="dropdown-item" href="#">Link 2</a>
+                          <a class="dropdown-item" href="#">Link 3</a>
+                        </div>
                       </li>
                      @else
                      <li class="nav-item ">
@@ -87,22 +97,16 @@
             </ul>
 
 
-        </div>
-
-      </nav>
-      
-        
+            </div>
+        </nav>
             @yield('contenido')
-      
     </div>
-
     
     <script src="{{ asset('dropzone.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
     @yield('scriptlocal')
-  
-   
     
 </body>
 
