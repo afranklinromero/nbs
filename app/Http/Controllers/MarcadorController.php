@@ -106,6 +106,7 @@ class MarcadorController extends Controller
     public function irapagina(Request $request){
         //$libro = Libro::find($request->libro_id);
         //dd($request->documentopdf);
+
         if ($request->ajax()){
             //<embed class="embed" src="{{asset('libros') }}/MALARIA.pdf#page=4" type="application/pdf" width="100%" height="100%" />
             return "<embed src='". asset('libros') . "/".$request->documentopdf."#page=".$request->pagina."' type='application/pdf' width='100%' height='100%'/>";

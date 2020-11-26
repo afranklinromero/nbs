@@ -96,10 +96,16 @@
             <div class="col-12 col-md-6">
                 <div style="width: 100%; height: 100%; overflow-y: scroll;">
                 <h3>TAPA</h3>
-                <a href="{{ route('libro.index') }}">
-                                <img class="mb-3 mr-5" src="{{ asset('tapas/27.png')}}" alt="Malaria" srcset="" width="30%">
-                            </a>
-                            
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{ asset('tapas/27.png')}}" alt="Malaria" srcset="" width="100%">
+                        </div>
+                        <div class="col-md-6">
+                            <strong class="text-lowercase">Titulo › </strong> {{ $marcadores->first()->libro->titulo}} &nbsp;&nbsp;&nbsp;
+                            <strong class="text-lowercase">pagina › </strong>  &nbsp;&nbsp;&nbsp;
+                            <strong class="text-lowercase">numero publicación › </strong>
+                        </div>
+                    </div>
                 <table class="table">
                 <thead>
 
