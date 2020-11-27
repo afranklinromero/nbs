@@ -19,7 +19,7 @@
 
         var height = $(window).height();
 
-        $('#marcadores').height(height);
+        $('#left-body').height(height/2);
     });
 
     $(document).on( "click", ".go-to-page", function() {
@@ -30,13 +30,24 @@
         });
     });
 
-
     $(document).on( "click", ".page-link", function() {
         event.preventDefault();
         var route = $(this).attr('href');
         $.get(route, function(result){
-            $('.show-left').html(result);
+            $('.show-left-body').html(result);
         });
+    });
+
+    $(document).on('keypress', '.nombre-libro', function(e) {
+        if(e.which == 13) {
+            event.preventDefault();
+            var form = $(this).parent().parent();
+            console.log(form.attr('action'));
+            
+            $.get(form.attr('action'), form.serialize(), function(result){
+                $('.show-left-body').html(result);
+            });
+        }
     });
 </script>
     

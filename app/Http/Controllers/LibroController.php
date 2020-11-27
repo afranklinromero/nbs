@@ -24,14 +24,16 @@ class LibroController extends Controller
 
     public function show (Request $request, $id){
         $libro = Libro::find($id);
-        $marcadores = $libro->marcadores()->paginate(5);
+        //if(isset($request->nombre)) dd($request->nombre);
+        $marcadores = $libro->marcadores()->where('estado', '1')->where('nombre', 'like', '%'. (isset($request->nombre)? $request->nombre:'') .'%' )->paginate(5);
 
         if ($request->ajax()){
-            return view('libro.aside.show-left', compact('libro', 'marcadores'))->render();
+            return view('libro.aside.show-left-body', compact('libro', 'marcadores'))->render();
         }
         //$marcadores = Marcador::where('libro_id', $libro->id)->where('estado', '1')->paginate(10);
         return view('libro.show', compact('libro', 'marcadores'));
     }
+
 
     public function create(){
         return view('libro.create');
