@@ -8,4 +8,9 @@ class Libro extends Model
 {
     //
     protected $table = 'libro';
+    
+    public function marcadores()
+    {
+        return $this->hasMany('App\Modelos\Marcador');
+    }
 }

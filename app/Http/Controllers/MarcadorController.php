@@ -11,13 +11,21 @@ class MarcadorController extends Controller
     //
     public function index(){
         $marcadores=Marcador::orderBy('numero', 'ASC')->paginate(10);
-        return view('marcador.index',compact('marcadores'));
+        return view('libro.aside.show-left-body',compact('marcadores'));
     }
 
-    public function buscar1($libro_id){
-        //dd($libro_id. ' ' . $nombre);
-        $marcadores=Marcador::where('libro_id', '=', $libro_id)->orderBy('numero', 'ASC')->paginate(4);
-        return view('marcador.index',compact('marcadores'));
+    public function buscar(Request $request){
+
+        //dd($request->libro_id. ' ' . $request->nombre);
+        $libro = Libro::find($request->libro_id);
+        $marcadores=Marcador::where('libro_id',  $request->libro_id)
+                    ->where('nombre', 'like', '%'.$request->nombre.'%')
+                    ->where('estado', '1')
+                    ->orderBy('numero', 'ASC')->paginate(5);
+
+        if ($request->ajax()){
+            return view('libro.aside.show-left-body',compact('libro', 'marcadores'))->render();
+        }
     }
 
     public function buscar2(Request $request){
@@ -106,6 +114,7 @@ class MarcadorController extends Controller
     public function irapagina(Request $request){
         //$libro = Libro::find($request->libro_id);
         //dd($request->documentopdf);
+
         if ($request->ajax()){
             //<embed class="embed" src="{{asset('libros') }}/MALARIA.pdf#page=4" type="application/pdf" width="100%" height="100%" />
             return "<embed src='". asset('libros') . "/".$request->documentopdf."#page=".$request->pagina."' type='application/pdf' width='100%' height='100%'/>";

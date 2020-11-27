@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Modelos\Libro;
+use App\Modelos\Marcador;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
@@ -21,10 +22,18 @@ class LibroController extends Controller
         return view('libro.index',compact('libros', 'dato'));
     }
 
-    public function show ($id){
+    public function show (Request $request, $id){
         $libro = Libro::find($id);
-        return view('libro.show', compact('libro'));
+        //if(isset($request->nombre)) dd($request->nombre);
+        $marcadores = $libro->marcadores()->where('estado', '1')->where('nombre', 'like', '%'. (isset($request->nombre)? $request->nombre:'') .'%' )->paginate(5);
+
+        if ($request->ajax()){
+            return view('libro.aside.show-left-body', compact('libro', 'marcadores'))->render();
+        }
+        //$marcadores = Marcador::where('libro_id', $libro->id)->where('estado', '1')->paginate(10);
+        return view('libro.show', compact('libro', 'marcadores'));
     }
+
 
     public function create(){
         return view('libro.create');

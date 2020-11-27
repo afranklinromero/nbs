@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nbs.app')
 
 @section('contenido')
 <div class="container">
@@ -45,7 +45,7 @@
                 </td>
                 <td>
                 <p class="text-dark"> <strong>libro ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span> &nbsp; <strong>id: </strong>{{$libro->id }}</p>
-                    <h4 class="text-info"><a href="{{ route('marcador.buscar1', ['libro_id' => $libro->id, 'nombre' => '']) }}"> {{ $libro->titulo }}</a> </h4>
+                    <h4 class="text-info"><a href="{{ route('libro.show', $libro->id) }}"> {{ $libro->titulo }}</a> </h4>
                     <p class="text-muted">
                         <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>
                         <strong class="text-lowercase">lugar publicacion › </strong> {{ $libro->lugarpublicacion}}<br>
