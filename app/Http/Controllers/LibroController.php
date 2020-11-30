@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 class LibroController extends Controller
 {
     //
-    public function index(){
-        $libros=Libro::orderBy('id', 'DESC')->paginate(5);
-        $dato = '';
-        return view('libro.index',compact('libros', 'dato'));
+    public function index(Request $request){
+        $libros = Libro::where('estado', '9')->paginate(5);
+        if(isset($request->titulo) && ($request->titulo != "")){
+            $libros = Libro::where('titulo', 'like', '%'.$request->titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate(5);
+            //dd($libros->items());
+        }
+
+        if ($request->ajax()){ 
+            return view('libro.aside.index-datos',compact('libros'))->render();
+        } else
+            return view('libro.index',compact('libros'));
+
     }
 
     public function buscar(Request $request){

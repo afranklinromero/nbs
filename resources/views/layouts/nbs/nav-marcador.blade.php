@@ -18,14 +18,14 @@
               @endif
           @endif
       </ul>
-      <form action="{{route ('marcador.buscar2') }}" method="GET" class="form-inline">
+      <form action="{{route ('libro.index') }}" method="GET" class="form-inline">
           {{ csrf_field() }}
           <div class="form-group col-md-12 text-center">
                   <a href="{{ route('libro.index') }}">
                       <img class="mb-3 mr-5" src="{{ asset('nbs.jpg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="100">
                   </a>
                   {!! Form::hidden('libro_id', $libro->id) !!}
-                  {!! Form::text('nombre',null,['class'=>'form-control caja','placeholder'=>' &#x1F50D; ', 'size'=>'100'])!!}
+                  {!! Form::text('titulo',null,['class'=>'form-control caja titulo','placeholder'=>' &#x1F50D; ', 'size'=>'100'])!!}
           </div>
       </form>
       <ul class="navbar-nav ml-auto">

@@ -2,7 +2,7 @@
 
 @section('contenido')
     <div class="container">
-        <div class="row">
+        <div class="row show">
             <div class="col-md-4 show-left">
                 @include('libro.aside.show-left')
             </div>
@@ -47,6 +47,20 @@
             $.get(form.attr('action'), form.serialize(), function(result){
                 $('.show-left-body').html(result);
             });
+        }
+    });
+
+    $(document).on('keypress', '.titulo', function(e) {
+        if(e.which == 13) {
+            event.preventDefault();
+            var form = $(this).parent().parent();
+            console.log(form.attr('action'));
+            
+            $.get(form.attr('action'), form.serialize(), function(result){
+                console.log(result);
+                $('.show').html(result);
+            });
+            
         }
     });
 </script>
