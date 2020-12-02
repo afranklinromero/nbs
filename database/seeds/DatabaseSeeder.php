@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'autor',
             'libro',
             'autorlibro',
+            'busqueda',
             'tipomarcador',
             'marcador',
             'tema',
@@ -43,6 +44,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AutorSeeder::class);
         $this->call(LibroSeeder::class);
         $this->call(AutorlibroSeeder::class);
+        $this->call(BusquedaSeeder::class);
         $this->call(TipomarcadorSeeder::class);
         $this->call(MarcadorSeeder::class);
         $this->call(Marcadorid2Seeder::class);

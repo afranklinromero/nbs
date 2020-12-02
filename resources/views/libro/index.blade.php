@@ -26,7 +26,9 @@
 
     @include('libro.aside.asaide')
     @include('libro.aside.info')
+    
     <div id="datos">
+        
         @include('libro.aside.index-datos')
     </div>
 </div>
@@ -47,6 +49,17 @@
             });
             
         }
+    });
+
+    $(document).on('click', '.titulo', function(e) {
+        event.preventDefault();
+        var form = $(this).parent();
+        console.log(form.attr('action'));
+        
+        $.get(form.attr('action'), form.serialize(), function(result){
+            console.log(result);
+            $('#datos').html(result);
+        });
     });
 </script>
 @endsection

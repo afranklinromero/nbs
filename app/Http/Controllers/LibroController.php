@@ -2,24 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Modelos\Busqueda;
 use App\Modelos\Libro;
 use App\Modelos\Marcador;
+use BusquedaSeeder;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
 {
     //
     public function index(Request $request){
+        
         $libros = Libro::where('estado', '9')->paginate(5);
         if(isset($request->titulo) && ($request->titulo != "")){
-            $libros = Libro::where('titulo', 'like', '%'.$request->titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate(5);
+            $titulo = str_replace(' ', '%', $request->titulo);
+            $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate(5);
             //dd($libros->items());
         }
+        $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
 
         if ($request->ajax()){ 
-            return view('libro.aside.index-datos',compact('libros'))->render();
-        } else
-            return view('libro.index',compact('libros'));
+            if(sizeof($libros->items()) > 0){
+                $busqueda = Busqueda::where('frase', $request->titulo)->first();
+                if (isset($busqueda)){
+                    $busqueda->frecuencia = $busqueda->frecuencia + 1;
+                    $busqueda->updated_at = now();
+                    $busqueda->save();
+                } else {
+                    $busqueda = new Busqueda();
+                    $busqueda->frase = $request->titulo;
+                    $busqueda->save();
+                }
+                $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
+
+                
+            } 
+                
+            return view('libro.aside.index-datos',compact('libros', 'busquedas'))->render();
+        } else{
+            
+            return view('libro.index',compact('libros', 'busquedas'));
+        }
 
     }
 
