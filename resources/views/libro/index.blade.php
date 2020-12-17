@@ -13,8 +13,6 @@
                 <div>
                     {!! Form::text('titulo', null,['class'=>'form-control caja titulo','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'id' => 'titulo'])!!}
                 </div>
-                    
-                
             </div>
             <!-- <div class="form-group col-md-12 text-center" >
             <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"> </i> Buscar</button>
@@ -27,7 +25,6 @@
     @include('libro.aside.info')
     
     <div id="datos">
-        
         @include('libro.aside.index-datos')
     </div>
 </div>

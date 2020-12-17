@@ -1,14 +1,14 @@
-<div id="busqueda" class="row">
+<div id="busqueda" class="text-center">
     
         @foreach ($busquedas as $busqueda)
             <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
                 {!! Form::hidden('titulo', $busqueda->frase) !!}
-                    <a href="#" class="btn btn-secondary btn-sm titulo">
+                    <a href="#" class="btn btn-success btn-sm m-1 titulo">
                         {{ $busqueda->frase }} <span class="badge badge-light"> {{ $busqueda->frecuencia }}</span>
-                    </a>&nbsp;
+                    </a>
             </form>
         @endforeach
-    
+        
 </div>
 
 <table class="table">
