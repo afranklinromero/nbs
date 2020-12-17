@@ -1,5 +1,11 @@
+<div class="card">
 <div id="busqueda" class="text-center">
-    
+    <div class="card-head">
+        <h3 class="card-title text-success align-left">
+            busquedas frecuentes
+        </h3>
+    </div>
+    <div class="card-body">
         @foreach ($busquedas as $busqueda)
             <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
                 {!! Form::hidden('titulo', $busqueda->frase) !!}
@@ -8,7 +14,8 @@
                     </a>
             </form>
         @endforeach
-        
+    </div>
+</div>
 </div>
 
 <table class="table">
