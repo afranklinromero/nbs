@@ -136,4 +136,11 @@ class LibroController extends Controller
             return "Obtener libros";
         }
     }
+
+    public function download($id)
+    {
+        $libro = Libro::find($id);
+        $pathToFile = "libros/".$libro->documentopdf;
+        return response()->download($pathToFile);
+    }
 }

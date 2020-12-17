@@ -7,7 +7,7 @@
     <div class="col-md-8">
         <strong class="text-lowercase">serie › </strong> {{ $libro->serie }} <br>
         <strong class="text-lowercase">numero publicación › </strong>{{ $libro->nropublicacion }} <br>
-        <a href="" class="btn btn-success btn-sm">descargar</a>
+        <a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a>
     </div>
 </div>
 <hr>
