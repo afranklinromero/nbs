@@ -7,6 +7,7 @@
     @include('concurso.aside.info')
 
     <div class="row">
+        
         @foreach($concursos as $concurso)
         <div class="col-md-4">
             <div class="card mb-3 shadow">
@@ -16,7 +17,7 @@
                     <p class="card-text"> <strong>Fecha de inicio: </strong> {{ $concurso->fechaini }}  </p>
                     <p class="card-text"> <strong>Fecha de Finalizacion: </strong> {{ $concurso->fechafin }}  </p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <a class="btn btn-danger" href="{{ route('concurso.iniciarjuego', $concurso->id)}}">Ingresar</a>
+                    <a class="btn btn-danger" href="{{ route('concurso.jugar', $concurso->id)}}">Ingresar</a>
                 </div>
             </div>
         </div>

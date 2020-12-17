@@ -5,12 +5,12 @@
     </div>
     <div class="card-body">
         <h3>Seleccione una respuesta</h3>
-        
+        <a id="siguientepregunta" href="{{route('concurso.siguientepregunta', ['index' => $index, 'preguntaanterior_id' => $pregunta->id])}}">xxx</a>
         @foreach ($respuestas as $respuesta)
             {!! Form::hidden('mirespuesta[]', $respuesta->id) !!}
             <a
-                href="{{ route('concurso.evaluar', ['mirespuesta_id' => $respuesta->id]) }}" 
-                class="btn btn-outline-primary evaluar btn-lg btn-block" 
+                href="{{ route('concurso.responder', ['mirespuesta_id' => $respuesta->id]) }}" 
+                class="btn btn-outline-primary responder btn-lg btn-block" 
                 id="{{ $respuesta->id }}"> 
                     {{$respuesta->respuesta}} -> {{$respuesta->escorrecta}} 
             </a> 

@@ -35,26 +35,27 @@ class ConcursoController extends Controller
         return view('concurso.juegos', compact('concursos'));
     }
 
-    public function iniciarjuego(Request $request, $concurso_id){
+    public function jugar(Request $request, $concurso_id){
         $n = $this->n;
         $index = 1;
         $preguntas = Pregunta::inRandomOrder()->limit(10);
         $pregunta = $preguntas->first();
         $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
-        return view('concurso.iniciarjuego', compact('pregunta', 'respuestas', 'index', 'n', 'concurso_id'));
+        return view('concurso.jugar', compact('pregunta', 'respuestas', 'index', 'n', 'concurso_id'));
     }
 
-    public function siguientepregunta(Request $request, $index, $pregunta_id, $respuesta_id){
+    public function siguientepregunta(Request $request, $index, $preguntaanterior_id){
         $n = $this->n;
         if ($index <10){
             do {
                 $pregunta = Pregunta::orderByRaw('rand()')->take(1)->get()->first();
             }
-            while($pregunta_id == $pregunta->id);
+            while($preguntaanterior_id == $pregunta->id);
 
             $respuestas = $pregunta->shuffle();
 
             $index++;
+
             if ($request->ajax()){
                 return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta', 'respuestas'))->render());
             }
@@ -63,7 +64,7 @@ class ConcursoController extends Controller
         }
     }
 
-    public function evaluar(Request $request, $mirespuesta_id){
+    public function responder(Request $request, $mirespuesta_id){
         if ($request->ajax()){
             $escorrecta = $mirespuesta = Respuesta::find($mirespuesta_id)->escorrecta;
             
@@ -71,7 +72,7 @@ class ConcursoController extends Controller
         }
 
     }
-
+/*
     public function responder(Request $request, $index, $pregunta_id, $mirespuesta_id){
         if ($request->ajax()){
             $pregunta = Pregunta::find($pregunta_id);
@@ -80,7 +81,7 @@ class ConcursoController extends Controller
         }
 
     }
-
+*/
     public function create(){
         return view('concurso.create');
     }
