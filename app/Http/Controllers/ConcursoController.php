@@ -52,12 +52,12 @@ class ConcursoController extends Controller
             }
             while($preguntaanterior_id == $pregunta->id);
 
-            $respuestas = $pregunta->shuffle();
+            $respuestas = $pregunta->respuestas->shuffle();
 
             $index++;
 
             if ($request->ajax()){
-                return response()->json(\view('concurso.aside.pregunta', \compact('index', 'pregunta', 'respuestas'))->render());
+                return response()->json(\view('concurso.aside.siguientepregunta', \compact('index', 'pregunta', 'respuestas'))->render());
             }
         } else {
             return 'endgame';

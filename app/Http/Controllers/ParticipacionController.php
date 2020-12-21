@@ -53,16 +53,16 @@ class ParticipacionController extends Controller
         $participacion->puntos = 0;
 
 
-        foreach ($request->respuestas as $key => $respuesta) {
+        foreach ($request->respuestas as $i => $respuesta) {
             $detalleparticipacion = new Detalleparticipacion();
             $detalleparticipacion->participacion_id = 0;
-            $pregunta_id = $request->preguntas[$key];
-            $respuesta_id = $request->respuestas[$key];
+            $pregunta_id = $request->preguntas[$i];
+            $respuesta_id = $request->respuestas[$i];
             if ($respuesta_id > 0){
                 $detalleparticipacion->pregunta_id = $pregunta_id;
                 $respuesta = Respuesta::find($respuesta_id);
                 $detalleparticipacion->respuesta_id = $respuesta->id;
-                $detalleparticipacion->escorrecto = $respuesta->escorrecto;
+                $detalleparticipacion->escorrecto = $respuesta->escorrecta;
             } else {
                 $detalleparticipacion->pregunta_id = 1;
                 $detalleparticipacion->respuesta_id = 1;
@@ -93,8 +93,10 @@ class ParticipacionController extends Controller
 
         */
         //**GUARDAR */
+        //dd($detalleparticipaciones);
         $participacion->save();
         foreach ($detalleparticipaciones as $key => $detalleparticipacion) {
+
             $detalleparticipacion->participacion_id = $participacion->id;
             //dd($detalleparticipacion);
             $detalleparticipacion->save();

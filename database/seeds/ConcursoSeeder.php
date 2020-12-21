@@ -17,5 +17,6 @@ class ConcursoSeeder extends Seeder
         Concurso::create(['nombre'=>'1er Concurso Malaria', 'configuracion_id' => 1, 'fechaini' => now(), 'fechafin' => '2020-11-30']);
         Concurso::create(['nombre'=>'2do Concurso Malaria', 'configuracion_id' => 1, 'fechaini' => now(), 'fechafin' => '2020-11-30']);
         Concurso::create(['nombre'=>'3er Concurso Malaria', 'configuracion_id' => 1, 'fechaini' => now(), 'fechafin' => '2020-11-30']);
+        Concurso::create(['nombre'=>'3er Concurso Tuberculosis', 'configuracion_id' => 1, 'fechaini' => now(), 'fechafin' => '2020-12-30']);
     }
 }

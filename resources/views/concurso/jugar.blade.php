@@ -86,18 +86,23 @@
         });
     }
 
-    function siguientepregunta(index, preguntaanterior_id){
+    function siguientepregunta(index, preguntaanterior_id, ruta_respuesta){
         $route = $('#siguientepregunta').attr('href');
         console.log('ruta siguiente preguta: '+$route);
         
         $("input[name='preguntas[]']").map( function(key){
-            if (key == (index-1))
+            if (key == (index-1)){
                 $(this).val($('#pregunta_id').val());
+                console.log('pregunta_id: ' + $('#pregunta_id').val());
+            }
         });
 
         $("input[name='respuestas[]']").map( function(key){
-            if (key == (index-1))
-                $(this).val($route.split("/")[6]);
+            if (key == (index-1)){
+                var respuesta_id = ruta_respuesta.split("/")[5];
+                $(this).val(respuesta_id);
+                console.log('respuesta_id: ' + respuesta_id);
+            }
         });
 
         //$('#pregunta').fadeIn(1000).html('<div class="loading"><img src="http://127.0.0.1:8000/img/loader.gif"/><br/>Un momento, por favor...</div>');
@@ -122,25 +127,25 @@
         event.preventDefault();
 
 
-        $route = this.href;   
-        console.log('ruta responder: '+$route);
+        var ruta_respuesta = this.href;   
+        console.log('ruta respuesta: '+ruta_respuesta);
         var elemento = this; 
         $(this).removeClass('btn-outline-primary');
         $(this).addClass('btn-warning');
-        $.get($route, function(result){
+        $.get(ruta_respuesta, function(result){
             if (result == 1){
                 console.log('success');
-                alert('correcto');
+                //alert('correcto');
                 $(this).toggleClass('btn-success');
             } else {
                 console.log('danger');
-                alert('incorrecto');
+                //alert('incorrecto');
                 $(this).toggleClass('btn-danger');
             }
         });
         var index = $('#index').text();
 
-        siguientepregunta(index);
+        siguientepregunta(index, $('#pregunta_id').val(), ruta_respuesta);
     });
 
     $(document).on("click", ".jugar", function() {
