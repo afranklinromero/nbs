@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Modelos\Concurso;
 use App\Modelos\Pregunta;
 use App\Modelos\Respuesta;
+use App\Modelos\Temaconcurso;
 use Illuminate\Http\Request;
 
 class ConcursoController extends Controller
@@ -31,24 +32,26 @@ class ConcursoController extends Controller
     }
 
     public function juegos(Request $request){
-        $concursos = Concurso::where('estado', '1')->orderBy('id', 'DESC')->paginate(10);
-        return view('concurso.juegos', compact('concursos'));
+        $temaconcursos = Temaconcurso::where('estado', '1')->orderBy('id', 'DESC')->paginate(10);
+        return view('concurso.juegos', compact('temaconcursos'));
     }
 
-    public function jugar(Request $request, $concurso_id){
+    public function jugar(Request $request, $temaconcurso_id){
         $n = $this->n;
         $index = 1;
-        $preguntas = Pregunta::inRandomOrder()->limit(10);
+        $temaconcurso = Temaconcurso::find($temaconcurso_id);
+        $preguntas = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->inRandomOrder()->limit(10);
         $pregunta = $preguntas->first();
         $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
-        return view('concurso.jugar', compact('pregunta', 'respuestas', 'index', 'n', 'concurso_id'));
+        return view('concurso.jugar', compact('pregunta', 'respuestas', 'index', 'n', 'temaconcurso'));
     }
 
-    public function siguientepregunta(Request $request, $index, $preguntaanterior_id){
+    public function siguientepregunta(Request $request, $index, $temaconcurso_id, $preguntaanterior_id){
         $n = $this->n;
+        $temaconcurso = Temaconcurso::find($temaconcurso_id);
         if ($index <10){
             do {
-                $pregunta = Pregunta::orderByRaw('rand()')->take(1)->get()->first();
+                $pregunta = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->orderByRaw('rand()')->take(1)->get()->first();
             }
             while($preguntaanterior_id == $pregunta->id);
 
@@ -57,7 +60,7 @@ class ConcursoController extends Controller
             $index++;
 
             if ($request->ajax()){
-                return response()->json(\view('concurso.aside.siguientepregunta', \compact('index', 'pregunta', 'respuestas'))->render());
+                return response()->json(\view('concurso.aside.siguientepregunta', \compact('index', 'pregunta', 'respuestas', 'temaconcurso'))->render());
             }
         } else {
             return 'endgame';
@@ -67,10 +70,8 @@ class ConcursoController extends Controller
     public function responder(Request $request, $mirespuesta_id){
         if ($request->ajax()){
             $escorrecta = $mirespuesta = Respuesta::find($mirespuesta_id)->escorrecta;
-            
             return $escorrecta;
         }
-
     }
 /*
     public function responder(Request $request, $index, $pregunta_id, $mirespuesta_id){
@@ -152,4 +153,5 @@ class ConcursoController extends Controller
             return "Obtener libros";
         }
     }
+
 }

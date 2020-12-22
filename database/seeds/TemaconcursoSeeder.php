@@ -14,7 +14,7 @@ class TemaconcursoSeeder extends Seeder
     {
         //
         //factory(Temaconcurso::class, 10)->create();
-        Temaconcurso::create(['tema_id'=> 1, 'concurso_id'=>1,]);
-        Temaconcurso::create(['tema_id'=> 2, 'concurso_id'=>2,]);
+        //Temaconcurso::create(['tema_id'=> 1, 'concurso_id'=>1,]);
+        //Temaconcurso::create(['tema_id'=> 2, 'concurso_id'=>2,]);
     }
 }

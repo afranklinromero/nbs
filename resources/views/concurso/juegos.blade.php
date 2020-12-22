@@ -8,16 +8,17 @@
 
     <div class="row">
         
-        @foreach($concursos as $concurso)
+        @foreach($temaconcursos as $temaconcurso)
         <div class="col-md-4">
             <div class="card mb-3 shadow">
                 <img src="http://lorempixel.com/400/200/nightlife" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $concurso->nombre }}</h5>
-                    <p class="card-text"> <strong>Fecha de inicio: </strong> {{ $concurso->fechaini }}  </p>
-                    <p class="card-text"> <strong>Fecha de Finalizacion: </strong> {{ $concurso->fechafin }}  </p>
+                    <h5 class="card-title">{{ $temaconcurso->concurso->nombre }}</h5>
+                    <p class="card-text"> <strong>Fecha de inicio: </strong> {{ $temaconcurso->concurso->fechaini }}  </p>
+                    <p class="card-text"> <strong>Fecha de Finalizacion: </strong> {{ $temaconcurso->concurso->fechafin }}  </p>
+                    <p class="card-text"> <strong>Tema: </strong> {{ $temaconcurso->tema->nombre }}  </p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    <a class="btn btn-danger" href="{{ route('concurso.jugar', $concurso->id)}}">Ingresar</a>
+                    <a class="btn btn-danger" href="{{ route('concurso.jugar', $temaconcurso->id)}}">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -30,3 +31,4 @@
 
 
 @endsection
+

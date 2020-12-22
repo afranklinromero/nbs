@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
         <h3>Seleccione una respuesta</h3>
-        <a id="siguientepregunta" href="{{route('concurso.siguientepregunta', ['index' => $index, 'preguntaanterior_id' => $pregunta->id])}}">xxx</a>
+        <a id="siguientepregunta" href="{{route('concurso.siguientepregunta', ['index' => $index, 'temaconcurso_id'=> $temaconcurso->id, 'preguntaanterior_id' => $pregunta->id])}}">xxx</a>
         @foreach ($respuestas as $respuesta)
             {!! Form::hidden('mirespuesta[]', $respuesta->id) !!}
             <a

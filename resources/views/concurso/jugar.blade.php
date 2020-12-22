@@ -12,7 +12,8 @@
             <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated bg-default" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">00:00</div>
         </div>
         {!! Form::hidden('tiempo', '0', ['id' => 'tiempo']) !!}
-        {!! Form::hidden('concurso_id', $concurso_id) !!}
+        {!! Form::hidden('concurso_id', $temaconcurso->concurso->id) !!}
+        {!! Form::hidden('tema_id', $temaconcurso->tema->id) !!}
         @for ($i = 0; $i < $n; $i++)
             {!! Form::hidden('preguntas[]', '0', ['id' => 'pregunta'.$i]) !!}
             {!! Form::hidden('respuestas[]', '0', ['id' => 'respuesta'.$i]) !!}
@@ -126,26 +127,30 @@
     $(document).on("click", ".responder", function() {
         event.preventDefault();
 
-
         var ruta_respuesta = this.href;   
         console.log('ruta respuesta: '+ruta_respuesta);
         var elemento = this; 
         $(this).removeClass('btn-outline-primary');
-        $(this).addClass('btn-warning');
+        //$(this).addClass('btn-warning');
+        var correcto = 0;
         $.get(ruta_respuesta, function(result){
             if (result == 1){
                 console.log('success');
                 //alert('correcto');
-                $(this).toggleClass('btn-success');
+                correcto = 1;
+                $(elemento).addClass('btn-success');
             } else {
                 console.log('danger');
                 //alert('incorrecto');
-                $(this).toggleClass('btn-danger');
+                correcto = 0;
+                $(elemento).addClass('btn-danger');
             }
+                
         });
+
         var index = $('#index').text();
 
-        siguientepregunta(index, $('#pregunta_id').val(), ruta_respuesta);
+        siguientepregunta(index,  $('#pregunta_id').val(), ruta_respuesta);
     });
 
     $(document).on("click", ".jugar", function() {

@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Pregunta::class, function (Faker $faker) {
     return [
-        'tema_id' => Tema::all('id')->random(),
+        'tema_id' => 1,
         'pregunta' => $faker->text(128),
     ];
 });
