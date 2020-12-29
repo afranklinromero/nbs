@@ -37,10 +37,10 @@
         if(e.which == 13) {
             event.preventDefault();
             var form = $(this).parent().parent().parent();
-            console.log(form.attr('action'));
+            console.log("ruta busqueda tecla enter: " + form.attr('action'));
             
             $.get(form.attr('action'), form.serialize(), function(result){
-                console.log(result);
+                //console.log(result);
                 $('#datos').html(result);
             });
             
@@ -50,10 +50,10 @@
     $(document).on('click', '.titulo', function(e) {
         event.preventDefault();
         var form = $(this).parent();
-        console.log(form.attr('action'));
+        console.log("ruta busqueda click;" + form.attr('action'));
         
         $.get(form.attr('action'), form.serialize(), function(result){
-            console.log(result);
+            //console.log(result);
             $('#datos').html(result);
         });
     });

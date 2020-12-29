@@ -14,23 +14,14 @@
                       <a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="">USUARIOS</a>
+                        <a class="nav-link" href="{{ route('concurso.index') }}">CONCURSOS</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="">EXAMENES</a>
+                        <a class="nav-link" href="{{ route('clasificacion.index') }}">CLASIFICACIONES</a>
                       </li>
                       <li class="nav-item">
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                          Dropdown link
-                        </a>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Link 1</a>
-                          <a class="dropdown-item" href="#">Link 2</a>
-                          <a class="dropdown-item" href="#">Link 3</a>
-                        </div>
-                      </li>
+                     
                      @else
                      <li class="nav-item ">
                       <a class="nav-link" href="">EXAMENES <span class="sr-only">(current)</span></a>

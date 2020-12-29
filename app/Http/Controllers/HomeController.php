@@ -29,15 +29,8 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['user', 'admin']);
      
-       
-      
-
-        return view('home');
-
-       
-        
-
-
+        //return view('home');
+        return app(LibroController::class)->index($request);
     }
     public function someAdminStuff(Request $request)
     {

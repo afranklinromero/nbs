@@ -1,4 +1,4 @@
-@extends('layouts.concurso.app')
+@extends('layouts.nbs.app')
 
 @section('contenido')
 <div class="container">
