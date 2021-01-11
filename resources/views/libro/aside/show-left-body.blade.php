@@ -6,6 +6,16 @@
         </tr>
     </thead>
     <tbody>
+        {!! Form::open(['route' => 'marcador.irapagina', 'method' => 'get', 'id' => 'frmirapagina1']) !!}
+            {{ csrf_field() }}
+            {!! Form::hidden('documentopdf', $marcadores[0]->libro->documentopdf, null) !!}
+            {!! Form::hidden('pagina', '1', null) !!}
+            
+            <a class="go-to-page-1" href="{{asset('libros') }}/{{$marcadores[0]->libro->documentopdf}}#page=1">
+                pagina1
+            </a>
+        {!! Form::close() !!}
+        
         @foreach($marcadores as $marcador)
         <tr>
             <td>
@@ -13,6 +23,7 @@
                     {{ csrf_field() }}
                     {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
                     {!! Form::hidden('pagina', $marcador->pagina, null) !!}
+                    
                     <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
                         {{$marcador->nombre}}
                     </a>

@@ -20,15 +20,22 @@
         var height = $(window).height();
 
         $('#left-body').height(height/2);
+
+        var $form = $('#frmirapagina1');
+        cargarPagina($form);
     });
 
     $(document).on( "click", ".go-to-page", function() {
         event.preventDefault();
         var $form = $(this).parent();
+        cargarPagina($form);
+    });
+
+    function cargarPagina($form){
         $.get($form.attr('action'), $form.serialize(), function(result){
             $('.show-right').html(result);
         });
-    });
+    }
 
     $(document).on( "click", ".page-link", function() {
         event.preventDefault();
