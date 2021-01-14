@@ -21,6 +21,7 @@ Route::resource('/', 'LibroController');
 Route::resource('autor', 'AutorController');
 
 Route::get('libro/buscar', 'LibroController@buscar')->name('libro.buscar');
+Route::get('libro/pagination/{page}', 'LibroController@pagination')->name('libro.pagination');
 Route::get('libro/download/{id}', 'LibroController@download')->name('libro.download');
 Route::resource('libro', 'LibroController');
 

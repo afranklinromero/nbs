@@ -20,9 +20,10 @@ class LibroController extends Controller
             //dd($libros->items());
         }
         $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
-
+        $mensaje=null;
         if ($request->ajax()){ 
             if(sizeof($libros->items()) > 0){
+                $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
                 $busqueda = Busqueda::where('frase', $request->titulo)->first();
                 if (isset($busqueda)){
                     $busqueda->frecuencia = $busqueda->frecuencia + 1;
@@ -34,16 +35,49 @@ class LibroController extends Controller
                     $busqueda->save();
                 }
                 $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
-
-                
-            } 
-                
-            return view('libro.aside.index-datos',compact('libros', 'busquedas'))->render();
+            } else {
+                $mensaje = "No se encontraron coincidencias!!!";
+            }
+             
+            return view('libro.aside.index-datos',compact('libros', 'busquedas', 'mensaje'))->render();
         } else{
             
-            return view('libro.index',compact('libros', 'busquedas'));
+            return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
         }
+    }
 
+    public function pagination(Request $request, $page){
+        $libros = Libro::where('estado', '9')->paginate(5);
+        if(isset($request->titulo) && ($request->titulo != "")){
+            $titulo = str_replace(' ', '%', $request->titulo);
+            $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate(5);
+            //dd($libros->items());
+        }
+        $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
+        $mensaje=null;
+        if ($request->ajax()){ 
+            if(sizeof($libros->items()) > 0){
+                $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
+                $busqueda = Busqueda::where('frase', $request->titulo)->first();
+                if (isset($busqueda)){
+                    $busqueda->frecuencia = $busqueda->frecuencia + 1;
+                    $busqueda->updated_at = now();
+                    $busqueda->save();
+                } else {
+                    $busqueda = new Busqueda();
+                    $busqueda->frase = $request->titulo;
+                    $busqueda->save();
+                }
+                $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
+            } else {
+                $mensaje = "No se encontraron coincidencias!!!";
+            }
+             
+            return view('libro.aside.index-datos-pagination',compact('libros', 'busquedas', 'mensaje'))->render();
+        } else{
+            
+            return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
+        }
     }
 
     public function buscar(Request $request){

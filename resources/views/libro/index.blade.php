@@ -23,10 +23,7 @@
 
     @include('libro.aside.asaide')
     @include('libro.aside.info')
-    
-    <div id="datos">
-        @include('libro.aside.index-datos')
-    </div>
+    @include('libro.aside.index-datos')
 </div>
 
 @endsection
@@ -43,19 +40,34 @@
                 //console.log(result);
                 $('#datos').html(result);
             });
-            
         }
     });
 
     $(document).on('click', '.titulo', function(e) {
         event.preventDefault();
         var form = $(this).parent();
-        console.log("ruta busqueda click;" + form.attr('action'));
+        console.log("ruta busqueda click: " + form.attr('action'));
         
         $.get(form.attr('action'), form.serialize(), function(result){
             //console.log(result);
             $('#datos').html(result);
         });
+    });
+
+    $(document).on('click', '.pagination a', function(e) {
+        event.preventDefault();
+        alert('hi pagination');
+        //var page = route.split('page=')[1];
+        //route = $('#pagination').attr('href');
+        //console.log(route);
+        //alert(route);
+        /*
+        $.get(route,  function(result){
+            //console.log(result);
+            $('#pagination').html(result);
+            //alert(result);
+        });
+        */
     });
 </script>
 @endsection
