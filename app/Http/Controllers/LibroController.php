@@ -45,8 +45,9 @@ class LibroController extends Controller
             return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
         }
     }
-
+/*
     public function pagination(Request $request, $page){
+        
         $libros = Libro::where('estado', '9')->paginate(5);
         if(isset($request->titulo) && ($request->titulo != "")){
             $titulo = str_replace(' ', '%', $request->titulo);
@@ -78,8 +79,10 @@ class LibroController extends Controller
             
             return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
         }
+        
     }
 
+    */
     public function buscar(Request $request){
         //dd($request->dato);
         $dato = $request->dato;

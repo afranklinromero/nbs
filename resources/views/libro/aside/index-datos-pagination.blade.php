@@ -18,7 +18,6 @@
                             <p class="text-muted">
                                 <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>
                                 <strong class="text-lowercase">lugar publicacion › </strong> {{ $libro->lugarpublicacion}}<br>
-                                <strong class="text-lowercase">lind › </strong> <a id="pagination" href="{{ route('libro.pagination', $libros->currentPage())}}">{{ route('libro.pagination')}}</p><br>
                             </p>
                         </td>
                     </tr>

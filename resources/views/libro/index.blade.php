@@ -56,18 +56,19 @@
 
     $(document).on('click', '.pagination a', function(e) {
         event.preventDefault();
-        alert('hi pagination');
-        //var page = route.split('page=')[1];
-        //route = $('#pagination').attr('href');
-        //console.log(route);
+        
+        page = $(this).attr('href').split('page=')[1];;
+        console.log('pagina: '+ page);
+        var route = $('#paginationlink').attr('href');
+        console.log(route);
         //alert(route);
-        /*
+        
         $.get(route,  function(result){
             //console.log(result);
             $('#pagination').html(result);
-            //alert(result);
+            //$('pagination').html(result);
         });
-        */
+        
     });
 </script>
 @endsection
