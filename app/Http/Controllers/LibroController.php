@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Modelos\Busqueda;
 use App\Modelos\Libro;
 use App\Modelos\Marcador;
-use BusquedaSeeder;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
 {
     //
     public function index(Request $request){
-        
+
         $libros = Libro::where('estado', '9')->paginate(5);
         if(isset($request->titulo) && ($request->titulo != "")){
             $titulo = str_replace(' ', '%', $request->titulo);
@@ -21,7 +20,7 @@ class LibroController extends Controller
         }
         $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
         $mensaje=null;
-        if ($request->ajax()){ 
+        if ($request->ajax()){
             if(sizeof($libros->items()) > 0){
                 $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
                 $busqueda = Busqueda::where('frase', $request->titulo)->first();
@@ -38,16 +37,16 @@ class LibroController extends Controller
             } else {
                 $mensaje = "No se encontraron coincidencias!!!";
             }
-             
+
             return view('libro.aside.index-datos',compact('libros', 'busquedas', 'mensaje'))->render();
         } else{
-            
+
             return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
         }
     }
 /*
     public function pagination(Request $request, $page){
-        
+
         $libros = Libro::where('estado', '9')->paginate(5);
         if(isset($request->titulo) && ($request->titulo != "")){
             $titulo = str_replace(' ', '%', $request->titulo);
@@ -56,7 +55,7 @@ class LibroController extends Controller
         }
         $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
         $mensaje=null;
-        if ($request->ajax()){ 
+        if ($request->ajax()){
             if(sizeof($libros->items()) > 0){
                 $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
                 $busqueda = Busqueda::where('frase', $request->titulo)->first();
@@ -73,13 +72,13 @@ class LibroController extends Controller
             } else {
                 $mensaje = "No se encontraron coincidencias!!!";
             }
-             
+
             return view('libro.aside.index-datos-pagination',compact('libros', 'busquedas', 'mensaje'))->render();
         } else{
-            
+
             return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
         }
-        
+
     }
 
     */

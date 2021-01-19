@@ -1,6 +1,5 @@
 <?php
 
-use App\Modelos\Detalleparticipacion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
