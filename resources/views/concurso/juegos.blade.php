@@ -7,7 +7,6 @@
     @include('concurso.aside.info')
 
     <div class="row">
-        
         @foreach($temaconcursos as $temaconcurso)
         <div class="col-md-4">
             <div class="card mb-3 shadow">

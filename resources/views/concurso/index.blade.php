@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="container">
 
-    <h1 class="text-primary">Concursos</h1>
+    <h1 class="text-primary">Olimpiada Normas de Salud</h1>
     @include('concurso.aside.asaide')
     @include('concurso.aside.info')
 
@@ -12,10 +12,10 @@
             <div class="card mb-3 shadow">
                 <img src="{{ asset('img/imagen2.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Concursar</h5>
-                  <p class="card-text">Participa del concurso, respondiendo 10 preguntas</p>
+                  <h5 class="card-title">Olimpiada Normas de Salud</h5>
+                  <p class="card-text">Participa de esta olimpiada, respondiendo 10 preguntas en un determinado tiempo, mientras mas participes tendras mas oportunidad de ganar</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  <a href="{{ route('concurso.juegos') }}" class="btn btn-outline-success">Jugar</a>
+                  <a href="{{ route('concurso.juegos') }}" class="btn btn-outline-success">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <img src="{{ asset('img/imagen1.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Ver la clasificacion</h5>
-                  <p class="card-text">Mira la clasificación y ve en que lugar estas, tus puntos son acumulativos</p>
+                  <p class="card-text">Mira la clasificación en linea, y ve en que lugar estas, tus puntos son acumulativos, mientras mas participes tendras mas oportunidades de ganar.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <a href="{{ route('clasificacion.index') }}" class="btn btn-outline-success">Ingresar</a>
                 </div>
@@ -35,7 +35,7 @@
                 <img src="{{ asset('img/preguntas.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Preguntas</h5>
-                  <p class="card-text">Participa del concurso, respondiendo 10 preguntas</p>
+                  <p class="card-text">Puedes sugerir algunas preguntas para las olimpiadas, tu pregunta será evaluada por nuestro equipo, y se mostrará con tu nombre en la olimpiada.</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                   <a class="btn btn-outline-success">Ingresar</a>
                 </div>
