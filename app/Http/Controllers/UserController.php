@@ -11,22 +11,25 @@ use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
-    public function index(){
-        $users = User::orderBy('id')->paginate();
+    public function index(Request $request){
+        $users = User::orderBy('id')->paginate(10);
+        if ($request->ajax())
+            return view('users.aside.lista',compact('users'))->render();
         return view('users.index',compact('users'));
     }
 
-    public function show($id){
-        $users = User::find($id);
+    public function show(Request $request, $id){
+        $user = User::find($id);
 
-        return view('users.show', compact('users'));
+        if ($request->ajax())
+            return view('users.aside.show', compact('user'))->render();
+        return view('users.show', compact('user'));
     }
     public function create(){
-
         $roles = Role::all();
         return view('users.create', compact('roles'));
 
-        }
+    }
 
     public function edit($id){
         $users = user::find($id);

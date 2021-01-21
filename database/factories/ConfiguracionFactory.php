@@ -12,6 +12,6 @@ $factory->define(Configuracion::class, function (Faker $faker) {
         'nropreguntas' => '10',
         'limiterespuestaserroneas' => '10',
         'puntosporrespuesta' => '1',
-        'tiempo' => '60',
+        'tiempolimite' => '60',
     ];
 });

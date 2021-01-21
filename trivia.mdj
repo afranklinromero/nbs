@@ -1883,7 +1883,7 @@
 											"top": 922,
 											"width": 209.52978515625,
 											"height": 13,
-											"text": "-tiempo: Integer",
+											"text": "-tiempolimite: Integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9077,7 +9077,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1fMFzKt7CviA="
 							},
-							"name": "tiempo",
+							"name": "tiempolimite",
 							"visibility": "private",
 							"type": "Integer"
 						},

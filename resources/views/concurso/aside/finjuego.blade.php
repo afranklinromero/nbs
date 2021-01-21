@@ -17,13 +17,17 @@
         	<tr>
         		<td width='50%' class="text-right"><strong>Respuestas incorrectas:</strong></td>
         		<td>{{ $participacion->incorrectas }}</td>
+			</tr>
+			<tr>
+        		<td width='50%' class="text-right"><strong>Puntos por respuesta:</strong></td>
+        		<td>{{ $participacion->concurso->configuracion->puntosporrespuesta }}</td>
         	</tr>
         	<tr>
         		<td width='50%' class="text-right"><strong>Puntos:</strong></td>
         		<td>{{ $participacion->puntos }}</td>
 			</tr>
 			<tr>
-        		<td width='50%' class="text-right"><strong>Puntos Clasificacion:</strong></td>
+        		<td width='50%' class="text-right"><strong>Puntos Acumulados:</strong></td>
         		<td>{{ $clasificacion->puntos }}</td>
         	</tr>
 		</table>

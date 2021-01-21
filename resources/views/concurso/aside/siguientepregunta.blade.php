@@ -1,6 +1,6 @@
 <div class="card mx-auto" >
     <div class="card-header bg-success">
-        <h3 class="text-white"> <strong id="index"> {{$index}} </strong>.- {{$pregunta->pregunta}} </h3>
+        <h3 class="text-white"> <strong id="index"> {{$index}}</strong> de {{$temaconcurso->concurso->configuracion->nropreguntas}} .- {{$pregunta->pregunta}} </h3>
         {!! Form::hidden('pregunta_id', $pregunta->id, ['id' => 'pregunta_id']) !!}
     </div>
     <div class="card-body">

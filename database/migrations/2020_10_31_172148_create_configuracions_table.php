@@ -19,7 +19,7 @@ class CreateConfiguracionsTable extends Migration
             $table->integer('nropreguntas');
             $table->integer('limiterespuestaserroneas');
             $table->integer('puntosporrespuesta');
-            $table->integer('tiempo');
+            $table->integer('tiempolimite')->default(60);
             $table->timestamps();
             $table->integer('estado')->default(1);
         });

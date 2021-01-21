@@ -12,8 +12,10 @@
             <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated bg-default" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">00:00</div>
         </div>
         {!! Form::hidden('tiempo', '0', ['id' => 'tiempo']) !!}
+        {!! Form::hidden('tiempolimite', $temaconcurso->concurso->configuracion->tiempolimite, ['id' => 'tiempolimite']) !!}
         {!! Form::hidden('concurso_id', $temaconcurso->concurso->id) !!}
         {!! Form::hidden('tema_id', $temaconcurso->tema->id) !!}
+        {!! Form::hidden('nropreguntas', $temaconcurso->concurso->configuracion->nropreguntas) !!}
         @for ($i = 0; $i < $n; $i++)
             {!! Form::hidden('preguntas[]', '0', ['id' => 'pregunta'.$i]) !!}
             {!! Form::hidden('respuestas[]', '0', ['id' => 'respuesta'.$i]) !!}
@@ -39,12 +41,12 @@
     window.onload = iniciarCronometro();
     var t;
     var i = 1;
-    var n = 60;
+    var tiempolimite = $('#tiempolimite').val();
     var enjuego = true;
     var timer;
 
     function proceso(){
-        if (t<=60  && enjuego){
+        if (t<=tiempolimite  && enjuego){
             //document.getElementById("testdiv").innerHTML= Math.floor(t/60).toString() + ':' + (t%60).toString();
             min = Math.floor(t/60);
             sec = (t%60);
@@ -52,11 +54,11 @@
             ssec = sec.toString();
             if (min<10){ smin = '0'+smin}
             if (sec<10){ ssec = '0'+ssec}
-            document.getElementById("progress").innerHTML=  smin + ':' + ssec;
-            $('#progress').attr('style',  'width: '+(t*100/n).toString() + '%')
+            document.getElementById("progress").innerHTML=  t + ' / ' + tiempolimite;
+            $('#progress').attr('style',  'width: '+(t*100/tiempolimite).toString() + '%')
             t++;
         } else {
-            if (t>=60){
+            if (t>=tiempolimite){
                 terminarjuego();
             }
             finalizarCronometro(timer);

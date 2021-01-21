@@ -37,9 +37,10 @@ class ConcursoController extends Controller
     }
 
     public function jugar(Request $request, $temaconcurso_id){
-        $n = $this->n;
-        $index = 1;
+        
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
+        $n = $temaconcurso->concurso->configuracion->nropreguntas;
+        $index = 1;
         $preguntas = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->inRandomOrder()->limit(10);
         $pregunta = $preguntas->first();
         $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
@@ -47,9 +48,10 @@ class ConcursoController extends Controller
     }
 
     public function siguientepregunta(Request $request, $index, $temaconcurso_id, $preguntaanterior_id){
-        $n = $this->n;
+        
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
-        if ($index <10){
+        $n = $temaconcurso->concurso->configuracion->nropreguntas;
+        if ($index < $n){
             do {
                 $pregunta = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->orderByRaw('rand()')->take(1)->get()->first();
             }
