@@ -14,7 +14,7 @@
                       <a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ route('concurso.index') }}">CONCURSOS</a>
+                        <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{{ route('clasificacion.index') }}">CLASIFICACIONES</a>

@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="container">
 
-    <h1 class="text-primary">Olimpiada Normas de Salud</h1>
+    <h1 class="text-primary">OLIMPIADAS DE CONOCIMIENTO</h1>
     @include('concurso.aside.asaide')
     @include('concurso.aside.info')
 
@@ -12,7 +12,7 @@
             <div class="card mb-3 shadow">
                 <img src="{{ asset('img/imagen2.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Olimpiada Normas de Salud</h5>
+                  <h5 class="card-title">Olimpiadas de Conocimiento en Normas de Salud</h5>
                   <p class="card-text">Participa de esta olimpiada, respondiendo 10 preguntas en un determinado tiempo, mientras mas participes tendras mas oportunidad de ganar</p>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                   <a href="{{ route('concurso.juegos') }}" class="btn btn-outline-success">Ingresar</a>

@@ -10,9 +10,12 @@
         @foreach($temaconcursos as $temaconcurso)
         <div class="col-md-4">
             <div class="card mb-3 shadow">
+                <div class="card-header bg-primary" >
+                    <h5 class="card-title text-white" ><strong>Tema: </strong>{{ $temaconcurso->concurso->nombre }}</h5>
+                </div>
                 <img src="http://lorempixel.com/400/200/nightlife" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $temaconcurso->concurso->nombre }}</h5>
+                    
                     <p class="card-text"> <strong>Fecha de inicio: </strong> {{ $temaconcurso->concurso->fechaini }}  </p>
                     <p class="card-text"> <strong>Fecha de Finalizacion: </strong> {{ $temaconcurso->concurso->fechafin }}  </p>
                     <p class="card-text"> <strong>Tema: </strong> {{ $temaconcurso->tema->nombre }}  </p>
