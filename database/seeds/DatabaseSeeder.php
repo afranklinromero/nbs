@@ -47,6 +47,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TipomarcadorSeeder::class);
         $this->call(MarcadorSeeder::class);
         $this->call(Marcadorid2Seeder::class);
+        $this->call(Marcador4Seeder::class);
+        $this->call(Marcador5Seeder::class);
+        $this->call(Marcador6Seeder::class);
         $this->call(TemaSeeder::class);
         $this->call(PreguntaSeeder::class);
         $this->call(RespuestaSeeder::class);
