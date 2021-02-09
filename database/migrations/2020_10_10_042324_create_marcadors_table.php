@@ -18,13 +18,13 @@ class CreateMarcadorsTable extends Migration
             $table->id();
             $table->bigInteger('libro_id')->unsigned();
             //$table->bigInteger('padre_id')->unsigned();
-            $table->bigInteger('tipomarcador_id')->unsigned();
-            $table->integer('numero');
+            $table->bigInteger('tipomarcador_id')->unsigned()->default(1);
+            $table->string('numero', 8);
             $table->integer('nivel')->default(1);
             //$table->integer('espadre')->default(1);
             $table->string('nombre', 256);
             $table->integer('pagina');
-            $table->string('vistaprevia', 256);
+            $table->string('vistaprevia', 256)->default('vista.png');
             $table->timestamps();
             $table->integer('estado')->default(1);
 

@@ -47,7 +47,21 @@ class DatabaseSeeder extends Seeder
         $this->call(TipomarcadorSeeder::class);
         $this->call(MarcadorSeeder::class);
         $this->call(Marcador2Seeder::class);
+        $this->call(Marcador2Seeder::class);
+        $this->call(Marcador3Seeder::class);
+        $this->call(Marcador4Seeder::class);
+        $this->call(Marcador5Seeder::class);
         $this->call(Marcador6Seeder::class);
+        $this->call(Marcador7Seeder::class);
+        $this->call(Marcador8Seeder::class);
+        $this->call(Marcador9Seeder::class);
+        $this->call(Marcador10Seeder::class);
+        $this->call(Marcador11Seeder::class);
+        $this->call(Marcador12Seeder::class);
+        $this->call(Marcador13Seeder::class);
+        $this->call(Marcador14Seeder::class);
+        $this->call(Marcador15Seeder::class);
+        $this->call(Marcador2Seeder::class);
         $this->call(Marcador25Seeder::class);
         $this->call(Marcador27Seeder::class);
 

@@ -12,7 +12,7 @@ class LibroController extends Controller
     //
     public function index(Request $request){
 
-        $libros = Libro::where('estado', '9')->paginate(5);
+        $libros = Libro::where('estado', '1')->paginate(15);
         if(isset($request->titulo) && ($request->titulo != "")){
             $titulo = str_replace(' ', '%', $request->titulo);
             $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate(5);
