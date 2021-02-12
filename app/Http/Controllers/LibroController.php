@@ -12,13 +12,15 @@ class LibroController extends Controller
     //
     public function index(Request $request){
 
-        $libros = Libro::where('estado', '1')->paginate(15);
+        $paginate = 100;
+        $top = 20;
+        $libros = Libro::where('estado', '1')->paginate($paginate);
         if(isset($request->titulo) && ($request->titulo != "")){
             $titulo = str_replace(' ', '%', $request->titulo);
-            $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate(5);
+            $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate($paginate);
             //dd($libros->items());
         }
-        $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
+        $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
         $mensaje=null;
         if ($request->ajax()){
             if(sizeof($libros->items()) > 0){
@@ -33,7 +35,7 @@ class LibroController extends Controller
                     $busqueda->frase = $request->titulo;
                     $busqueda->save();
                 }
-                $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take(10)->get();
+                $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
             } else {
                 $mensaje = "No se encontraron coincidencias!!!";
             }

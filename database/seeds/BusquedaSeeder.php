@@ -21,7 +21,11 @@ class BusquedaSeeder extends Seeder
         Busqueda::create(['frase' => 'Dengue', 'frecuencia' => 100]);
         Busqueda::create(['frase' => 'Zika', 'frecuencia' => 100]);
         Busqueda::create(['frase' => 'Chagas', 'frecuencia' => 100]);
-        Busqueda::create(['frase' => 'Anconceptivos', 'frecuencia' => 100]);
+        Busqueda::create(['frase' => 'Anticonceptivos', 'frecuencia' => 100]);
+        Busqueda::create(['frase' => 'Expediente', 'frecuencia' => 100]);
+        Busqueda::create(['frase' => 'Mujer embarazada', 'frecuencia' => 100]);
+        Busqueda::create(['frase' => 'PAI', 'frecuencia' => 100]);
+        Busqueda::create(['frase' => 'Acreditacion', 'frecuencia' => 100]);
         //factory(Busqueda::class, 100)->create();
 
     }
