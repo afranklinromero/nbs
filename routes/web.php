@@ -20,6 +20,8 @@ Route::resource('/', 'LibroController');
 
 Route::resource('autor', 'AutorController');
 
+Route::get('libro/editarcorreo', 'LibroController@editarcorreo')->name('libro.editarcorreo');
+Route::post('libro/enviarcorreo', 'LibroController@enviarcorreo')->name('libro.enviarcorreo');
 Route::get('libro/buscar', 'LibroController@buscar')->name('libro.buscar');
 Route::get('libro/pagination/{page}', 'LibroController@pagination')->name('libro.pagination');
 Route::get('libro/download/{id}', 'LibroController@download')->name('libro.download');
@@ -41,5 +43,8 @@ Route::resource('concurso', 'ConcursoController');
 Route::resource('participacion', 'ParticipacionController');
 
 Route::resource('clasificacion', 'ClasificacionController');
+
+Route::resource('sugerenciasnbs', 'SugerenciasNBSController');
+
 
 

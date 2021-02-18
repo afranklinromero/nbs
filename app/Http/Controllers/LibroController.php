@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnviarComentario;
 use App\Modelos\Busqueda;
 use App\Modelos\Libro;
 use App\Modelos\Marcador;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class LibroController extends Controller
 {
@@ -181,4 +183,5 @@ class LibroController extends Controller
         $pathToFile = "libros/".$libro->documentopdf;
         return response()->download($pathToFile);
     }
+
 }
