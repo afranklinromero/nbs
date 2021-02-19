@@ -12,7 +12,7 @@ class MailSugerenciasNBS extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $sugerenciasNBS;
+    public $sugerenciasnbs;
     public $subject;
 
     /**
@@ -20,11 +20,11 @@ class MailSugerenciasNBS extends Mailable
      *
      * @return void
      */
-    public function __construct( SugerenciasNBS $sugerenciasNBS)
+    public function __construct( SugerenciasNBS $sugerenciasnbs)
     {
         //
-        $this->sugerenciasNBS = $sugerenciasNBS;
-        $this->subject = $sugerenciasNBS->subject;
+        $this->sugerenciasnbs = $sugerenciasnbs;
+        $this->subject = $sugerenciasnbs->subject;
     }
 
     /**

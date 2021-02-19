@@ -11,23 +11,41 @@ class SugerenciasNBSController extends Controller
 {
     //
 
+    public function index(Request $request){
+
+        $sugerenciasnbss = SugerenciasNBS::orderby('id', 'DESC')->paginate(5);
+        /*
+        if ($request->ajax())
+            return view('sugerenciasnbs.aside.index', compact('sugerenciasnbss'))
+            ->with('info', 'Aqui se muestran los mensajes de sujerencias')
+            ->render();
+            */
+        return view('sugerenciasnbs.index', compact('sugerenciasnbss'))->with('info', 'hoa hola');
+    }
+
     public function show(Request $request, $id){
-        $sugerenciasNBS = SugerenciasNBS::find($id);
-        return view('sugerenciasnbs.show', compact('sugerenciasNBS'));
+        $sugerenciasnbs = SugerenciasNBS::find($id);
+        if ($request->ajax())
+            return view('sugerenciasnbs.aside.show', compact('sugerenciasnbs'))->render();
+        return view('sugerenciasnbs.show', compact('sugerenciasnbs'));
     }
 
     public function create(Request $request)
     {
-
+        if ($request->ajax())
+            return view('sugerenciasnbs.aside.create')->render();
         return view('sugerenciasnbs.create');
     }
 
     public function store(Request $request)
     {
-        $sugerenciasNBS = new SugerenciasNBS($request->all());
+        $sugerenciasnbs = new SugerenciasNBS($request->all());
         //dd($sugerenciasNBS);
-        $sugerenciasNBS->save();
-        Mail::to('info@nbs.com')->queue(new MailSugerenciasNBS($sugerenciasNBS));
-        return 'Correo enviado correctamente';
+        $sugerenciasnbs->save();
+        Mail::to('info@nbs.com')->queue(new MailSugerenciasNBS($sugerenciasnbs));
+
+        if ($request->ajax())
+            return view('sugerenciasnbs.aside.create')->render();
+        return view('sugerenciasnbs.create');
     }
 }

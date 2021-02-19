@@ -18,7 +18,7 @@
             <button class="btn btn-success btn-sm" type="submit"><i class="fas fa-trash"> </i> Buscar</button>
             </div> -->
         </p>
-        
+
     </form>
 
     @include('libro.aside.asaide')
@@ -35,7 +35,7 @@
             event.preventDefault();
             var form = $(this).parent().parent().parent();
             console.log("ruta busqueda tecla enter: " + form.attr('action'));
-            
+
             $.get(form.attr('action'), form.serialize(), function(result){
                 //console.log(result);
                 $('#datos').html(result);
@@ -47,7 +47,7 @@
         event.preventDefault();
         var form = $(this).parent();
         console.log("ruta busqueda click: " + form.attr('action'));
-        
+
         $.get(form.attr('action'), form.serialize(), function(result){
             //console.log(result);
             $('#datos').html(result);
@@ -56,19 +56,20 @@
 
     $(document).on('click', '.pagination a', function(e) {
         event.preventDefault();
-        
+
         page = $(this).attr('href').split('page=')[1];;
         console.log('pagina: '+ page);
         var route = $('#paginationlink').attr('href');
-        console.log(route);
+        //var route = $(this).attr('href');
+        console.log('ruta: ' + route);
         //alert(route);
-        
+
         $.get(route,  function(result){
             //console.log(result);
             $('#pagination').html(result);
             //$('pagination').html(result);
         });
-        
+
     });
 </script>
 @endsection
