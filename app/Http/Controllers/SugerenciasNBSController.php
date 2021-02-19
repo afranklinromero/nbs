@@ -37,6 +37,21 @@ class SugerenciasNBSController extends Controller
         return view('sugerenciasnbs.create');
     }
 
+    public function update(Request $request, $id)
+    {
+        $sugerenciasnbs = SugerenciasNBS::find($id);
+        $sugerenciasnbs->estado = 0;
+        $sugerenciasnbs->save();
+        $sugerenciasnbss = SugerenciasNBS::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
+        if ($request->ajax()){
+
+            
+            return view('sugerenciasnbs.aside.index', compact('sugerenciasnbss'))->render();
+        }
+        
+        return redirect()->route('sugerenciasnbs.index');
+    }
+
     public function store(Request $request)
     {
         $sugerenciasnbs = new SugerenciasNBS($request->all());

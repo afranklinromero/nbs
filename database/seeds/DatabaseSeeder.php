@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             'participacion',
             'detalleparticipacion',
             'clasificacion',
+            'sugerenciasnbs',
         ]);
 
         $this->call(RoleTableSeeder::class);
@@ -77,6 +78,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ParticipacionSeeder::class);
         $this->call(DetalleparticipacionSeeder::class);
         $this->call(ClasificacionSeeder::class);
+        $this->call(SugerenciasnbsSeeder::class);
     }
 
     protected function truncateTables(array $tables){

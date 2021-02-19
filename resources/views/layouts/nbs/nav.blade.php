@@ -20,6 +20,9 @@
                         <a class="nav-link" href="{{ route('clasificacion.index') }}">CLASIFICACIONES</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
+                      </li>
+                      <li class="nav-item">
                       </li>
                      
                      @else

@@ -2,6 +2,7 @@
 
 @section('contenido')
 <div class="container">
+    
     <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
         <p class="text-center">

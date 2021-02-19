@@ -1,7 +1,6 @@
 <h3>
     Bandeja de Sugerencias NBS
 </h3>
-@include('sugerenciasnbs.aside.aside')
 @include('sugerenciasnbs.aside.info')
 
 <div class="row">
@@ -39,9 +38,9 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
-                <td>{{ $item->subject }}</td>
+                <td>{{ $item->sugject }}</td>
                 <td>{{ $item->created_at }}</td>
-                <td>{!! Form::checkbox('estado', $item->estado, ($item->estado==1)?false:true, ['disabled'] ) !!}</td>
+                <td>{{ $item->created_at }}</td>
                 <td>
                     <a href="{{route('sugerenciasnbs.show', $item->id)}}" class="btn btn-success show" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver mensaje">Ver</a>
                     
