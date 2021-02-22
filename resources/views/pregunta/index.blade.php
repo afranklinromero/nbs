@@ -2,9 +2,9 @@
 
 @section('contenido')
 
-    <div class="container" id="sugerenciasnbs">
+    <div class="container" id="pregunta">
 
-        @include('sugerenciasnbs.aside.index')
+        @include('pregunta.aside.index')
     </div>
 
 @endsection
@@ -22,7 +22,7 @@
         //alert(route);
 
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 
     });
@@ -38,7 +38,7 @@
         //alert(route);
 
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 
     });
@@ -48,7 +48,7 @@
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 
     });
@@ -58,7 +58,7 @@
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 
     });
@@ -69,7 +69,7 @@
         console.log(form.attr('action'));
 
         $.post(form.action, form.serialize(), function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 
     });
@@ -80,7 +80,7 @@
         console.log('ruta update:' + form.attr('action'));
 /*
         $.post(form.action, form.serialize(), function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 */
     });

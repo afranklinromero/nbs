@@ -22,7 +22,7 @@ class PreguntaController extends Controller
     }
 
     public function show(Request $request, $id){
-        $pregunta = pregunta::find($id);
+        $pregunta = Pregunta::find($id);
         if ($request->ajax())
             return view('pregunta.aside.show', compact('pregunta'))->render();
         return view('pregunta.show', compact('pregunta'));

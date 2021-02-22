@@ -2,9 +2,9 @@
 
 @section('contenido')
 
-    <div class="container" id="sugerenciasnbs">
+    <div class="container" id="pregunta">
 
-        @include('sugerenciasnbs.aside.show')
+        @include('pregunta.aside.show')
     </div>
 
 @endsection
@@ -22,7 +22,7 @@
         //alert(route);
 
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
     });
 
@@ -31,7 +31,7 @@
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
     });
 
@@ -39,7 +39,7 @@
         event.preventDefault();
         var route = $(this).attr('href');
         $.get(route,  function(result){
-            $('#sugerenciasnbs').html(result);
+            $('#pregunta').html(result);
         });
 
     });
