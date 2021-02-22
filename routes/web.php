@@ -46,7 +46,7 @@ Route::resource('clasificacion', 'ClasificacionController');
 
 Route::resource('pregunta', 'PreguntaController');
 
-Route::resource('sugerenciasnbs', 'SugerenciasNBSController');
+Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
 
 
 
