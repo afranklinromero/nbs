@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Modelos\Pregunta;
+use App\Modelos\Tema;
 use App\Modelos\Concurso;
+use App\Http\Requests\PreguntaRequest;
 use Illuminate\Http\Request;
 
 class PreguntaController extends Controller
@@ -30,10 +32,11 @@ class PreguntaController extends Controller
 
     public function create(Request $request)
     {
+        $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
         $request->session()->put('info', 'Ingrese los datos requeridos');
         if ($request->ajax())
-            return view('pregunta.aside.create')->render();
-        return view('pregunta.create');
+            return view('pregunta.aside.create', compact('temas'))->render();
+        return view('pregunta.create', compact('temas'));
     }
 
     public function update(Request $request, $id)
@@ -51,12 +54,13 @@ class PreguntaController extends Controller
         return redirect()->route('pregunta.index');
     }
 
-    public function store(Request $request)
+    public function store(PreguntaRequest $request)
     {
         $pregunta = new pregunta($request->all());
+        
         //dd($pregunta);
+        dd($pregunta);
         $pregunta->save();
-        Mail::to('info@nbs.com')->queue(new Mailpregunta($pregunta));
 
         if ($request->ajax())
             return view('pregunta.aside.create')->render();

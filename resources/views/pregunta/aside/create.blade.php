@@ -1,10 +1,15 @@
 @include('pregunta.aside.info')
+@include('pregunta.aside.error')
     <div class="row">
         <div class="col-md-6">
 
             {!! Form::open(['route'=>'pregunta.store']) !!}
                 <div class="card">
                     <div class="card-body">
+                        <h4 class="card-title">
+                            {!! Form::label('tema_id', 'Id Tema:', ['class' => 'form-label']) !!}
+                            {!! Form::text('tema_id', null, ['class' => 'form-control']) !!}
+                        </h4>
                         <h4 class="card-title">
                             {!! Form::label('pregunta', 'Enunciado pregunta:', ['class' => 'form-label']) !!}
                             {!! Form::text('pregunta', null, ['class' => 'form-control']) !!}
