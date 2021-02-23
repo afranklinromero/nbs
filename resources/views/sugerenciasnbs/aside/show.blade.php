@@ -1,3 +1,7 @@
+@include('sugerenciasnbs.aside.aside')
+@include('sugerenciasnbs.aside.info')
+@include('sugerenciasnbs.aside.error')
+
 <h3>{{$sugerenciasnbs->subject}}</h3>
 <div class="row">
     <div class="col-md-6">

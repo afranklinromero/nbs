@@ -2,9 +2,11 @@
 
 @section('contenido')
 
-    <div class="container" id="pregunta">
+    <div class="container" id="pregunta-head">
+        <div class="container" id="pregunta-body">
+            @include('pregunta.aside.show')
+        </div>
 
-        @include('pregunta.aside.show')
     </div>
 
 @endsection

@@ -1,3 +1,7 @@
+@include('sugerenciasnbs.aside.aside')
+@include('sugerenciasnbs.aside.info')
+@include('sugerenciasnbs.aside.error')
+
 <h3>Enviar Sugerencia</h3>
     <div class="row">
         <div class="col-md-6">
@@ -5,22 +9,22 @@
             {{ csrf_field() }}
             <div class="mb-3">
             {!! Form::label('name', 'Nombre:', ['class' => 'form-label']) !!}
-            {!! Form::text('name', 'Alfredo', ['class' => 'form-control']) !!}
+            {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="mb-3">
             {!! Form::label('email', 'Correo:', ['class' => 'form-label']) !!}
-            {!! Form::text('email', 'micorreo@nbs.com', ['class' => 'form-control']) !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="mb-3">
             {!! Form::label('subject', 'Asunto:', ['class' => 'form-label']) !!}
-            {!! Form::text('subject', 'Este es mi asunto', ['class' => 'form-control']) !!}
+            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="mb-3">
             {!! Form::label('content', 'Contenido:', ['class' => 'form-label']) !!}
-            {!! Form::textarea('content', 'este es mi contenido', ['class' => 'form-control']) !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="mb-3">

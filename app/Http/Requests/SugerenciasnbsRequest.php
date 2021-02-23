@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SugerenciasnbsRequest extends FormRequest
 {
+
+    protected $redirectRoute = 'sugerenciasnbs.create';
     /**
      * Determine if the user is authorized to make this request.
      *

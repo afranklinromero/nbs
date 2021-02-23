@@ -2,9 +2,15 @@
 
 @section('contenido')
 
-    <div class="container" id="pregunta">
+    <div class="container" id="pregunta-head">
+        <h3>
+            Preguntas para las olimpiadas de conocimiento
+        </h3>
+        @include('pregunta.aside.aside')
+        <div class="container" id="pregunta-body">
+            @include('pregunta.aside.index')
+        </div>
 
-        @include('pregunta.aside.index')
     </div>
 
 @endsection
@@ -22,7 +28,7 @@
         //alert(route);
 
         $.get(route,  function(result){
-            $('#pregunta').html(result);
+            $('#pregunta-body').html(result);
         });
 
     });
@@ -38,7 +44,7 @@
         //alert(route);
 
         $.get(route,  function(result){
-            $('#pregunta').html(result);
+            $('#pregunta-body').html(result);
         });
 
     });
@@ -48,7 +54,7 @@
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
-            $('#pregunta').html(result);
+            $('#pregunta-body').html(result);
         });
 
     });
@@ -58,7 +64,7 @@
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
-            $('#pregunta').html(result);
+            $('#pregunta-body').html(result);
         });
 
     });
@@ -69,7 +75,7 @@
         console.log(form.attr('action'));
 
         $.post(form.action, form.serialize(), function(result){
-            $('#pregunta').html(result);
+            $('#pregunta-body').html(result);
         });
 
     });

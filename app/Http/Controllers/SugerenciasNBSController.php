@@ -15,17 +15,18 @@ class SugerenciasnbsController extends Controller
     public function index(Request $request){
 
         $sugerenciasnbss = SugerenciasNBS::orderby('id', 'DESC')->paginate(5);
-        /*
+        $request->session()->put('info', 'Listado de sugerencias desde la mas reciente a la mas antigua');
+
         if ($request->ajax())
             return view('sugerenciasnbs.aside.index', compact('sugerenciasnbss'))
-            ->with('info', 'Aqui se muestran los mensajes de sujerencias')
             ->render();
-            */
-        return view('sugerenciasnbs.index', compact('sugerenciasnbss'))->with('info', 'hoa hola');
+
+        return view('sugerenciasnbs.index', compact('sugerenciasnbss'));
     }
 
     public function show(Request $request, $id){
         $sugerenciasnbs = SugerenciasNBS::find($id);
+        $request->session()->put('info', 'Detalle registro');
         if ($request->ajax())
             return view('sugerenciasnbs.aside.show', compact('sugerenciasnbs'))->render();
         return view('sugerenciasnbs.show', compact('sugerenciasnbs'));
@@ -33,6 +34,7 @@ class SugerenciasnbsController extends Controller
 
     public function create(Request $request)
     {
+        $request->session()->put('info', 'Ingrese los datos requeridos');
         if ($request->ajax())
             return view('sugerenciasnbs.aside.create')->render();
         return view('sugerenciasnbs.create');
@@ -55,20 +57,19 @@ class SugerenciasnbsController extends Controller
 
     public function store(SugerenciasnbsRequest $request)
     {
-        if ($request->validate()){
+
             $sugerenciasnbs = new SugerenciasNBS($request->all());
             //dd($sugerenciasNBS);
             $sugerenciasnbs->save();
+            $request->session()->put('info', 'Sujerencia enviada!!');
             Mail::to('info@nbs.com')->queue(new MailSugerenciasNBS($sugerenciasnbs));
 
-            if ($request->ajax())
+            if ($request->ajax()){
                 return view('sugerenciasnbs.aside.create')->render();
+            }
+
             return view('sugerenciasnbs.create');
-        } else {
-            if ($request->ajax())
-                return redirect()->route('sugerenciasnbs.aside.create');
-            return redirect()->route('sugerenciasnbs.create');
-        }
+
     }
 
 

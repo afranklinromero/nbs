@@ -52,7 +52,7 @@
         });
 
     });
-
+/*
     $(document).on('click', '.create', function(e) {
         event.preventDefault();
         var route = $(this).attr('href');
@@ -70,10 +70,16 @@
 
         $.post(form.action, form.serialize(), function(result){
             $('#sugerenciasnbs').html(result);
+        }).done(function(){
+
+        }).fail(function(request){
+            $('#sugerenciasnbs').html(request);
+        }).always(function(){
+
         });
 
     });
-
+*/
     $(document).on('click', '.update', function(e) {
         event.preventDefault();
         var form = $(this).parent().parent();

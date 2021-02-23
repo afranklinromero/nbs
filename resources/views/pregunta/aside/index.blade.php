@@ -1,6 +1,4 @@
-<h3>
-    Bandeja de Sugerencias NBS
-</h3>
+
 @include('pregunta.aside.info')
 
 <div class="row">

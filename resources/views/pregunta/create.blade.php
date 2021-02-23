@@ -2,7 +2,8 @@
 
 @section('contenido')
 <div class="container">
-    @include('sugerenciasnbs.aside.create')
+    <h3>Sugerir pregunta</h3>
+    @include('pregunta.aside.create')
 </div>
 
 @endsection

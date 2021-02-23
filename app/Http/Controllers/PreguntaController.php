@@ -12,17 +12,17 @@ class PreguntaController extends Controller
     public function index(Request $request){
 
         $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
-        /*
+        $request->session()->put('info', 'Listado de preguntas');
         if ($request->ajax())
             return view('pregunta.aside.index', compact('preguntas'))
-            ->with('info', 'Aqui se muestran los mensajes de sujerencias')
             ->render();
-            */
-        return view('pregunta.index', compact('preguntas'))->with('info', 'hoa hola');
+
+        return view('pregunta.index', compact('preguntas'));
     }
 
     public function show(Request $request, $id){
         $pregunta = Pregunta::find($id);
+        $request->session()->put('info', 'Detalle pregunta');
         if ($request->ajax())
             return view('pregunta.aside.show', compact('pregunta'))->render();
         return view('pregunta.show', compact('pregunta'));
@@ -30,6 +30,7 @@ class PreguntaController extends Controller
 
     public function create(Request $request)
     {
+        $request->session()->put('info', 'Ingrese los datos requeridos');
         if ($request->ajax())
             return view('pregunta.aside.create')->render();
         return view('pregunta.create');
@@ -43,10 +44,10 @@ class PreguntaController extends Controller
         $preguntas = pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
         if ($request->ajax()){
 
-            
+
             return view('pregunta.aside.index', compact('preguntas'))->render();
         }
-        
+
         return redirect()->route('pregunta.index');
     }
 
