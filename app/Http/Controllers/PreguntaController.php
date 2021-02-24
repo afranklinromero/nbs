@@ -8,6 +8,7 @@ use App\Modelos\Concurso;
 use App\Http\Requests\PreguntaRequest;
 use App\Modelos\Respuesta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PreguntaController extends Controller
 {
@@ -56,7 +57,8 @@ class PreguntaController extends Controller
     public function store(PreguntaRequest $request)
     {
         $pregunta = new Pregunta($request->all());
-        $pregunta->estado = 2;//estado pendiente revision
+
+        $pregunta->estado = (Auth::user()->hasRole('admin'))?1: 2;//estado pendiente revision
         $pregunta->save();
         $valrespuestas = $request->respuestas;
 
