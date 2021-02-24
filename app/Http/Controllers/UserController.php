@@ -56,7 +56,7 @@ public function destroy ($id){
 
 public function store (Request $request){
 
-    
+        $role_user=1;
         $users = new User;
         $users->name = $request->nombre;
         $users->email = $request->correo;
@@ -66,7 +66,7 @@ public function store (Request $request){
         $users->password = bcrypt($request['password']);
         $users->save();
 
-
+        $users->roles()->attach($role_user);
         
        
         return redirect()->route('users.index')
