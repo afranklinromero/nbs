@@ -25,7 +25,9 @@ class PreguntaRequest extends FormRequest
         return [
             //
             'tema_id' => 'required|numeric',
-            'pregunta' => 'required|min:1|max:512',
+            'user_id' => 'required|numeric',
+            'pregunta' => 'required',
+            'respuestas.*' => 'required',
         ];
     }
 
@@ -33,15 +35,24 @@ class PreguntaRequest extends FormRequest
         return [
             'tema_id.required' => 'El :attribute es obligatorio.',
             'tema_id.numeric' => 'El :attribute debe ser numérico.',
+            'user_id.required' => 'El :attribute es obligatorio.',
+            'user_id.numeric' => 'El :attribute debe ser numérico.',
             'pregunta.required' => 'El :attribute es obligatorio.',
-            'pregunta.min' => 'El :attribute debe ser mínimo 3',
-            'pregunta.max' => 'El :attribute debe ser máximo 512',
+            'pregunta.size' => 'La :attribute debe tener maximo 512 caracteres',
+            'respuestas.*.required' => 'La :attribute es obligatorio',
+
         ];
     }
     public function attributes()
     {
         return [
+            'user_id' => 'id usuario',
+            'tema_id' => 'id tema',
             'pregunta' => 'pregunta',
+            'respuestas.0' => 'respuesta 1',
+            'respuestas.1' => 'respuesta 2',
+            'respuestas.2' => 'respuesta 3',
+            'respuestas.3' => 'respuesta 4',
         ];
     }
 }

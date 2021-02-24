@@ -59,7 +59,7 @@
 
     });
 
-    $(document).on('click', '.create', function(e) {
+    $(document).on('click', '.createx', function(e) {
         event.preventDefault();
         var route = $(this).attr('href');
         console.log(route);

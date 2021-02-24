@@ -6,6 +6,7 @@ use App\Modelos\Pregunta;
 use App\Modelos\Tema;
 use App\Modelos\Concurso;
 use App\Http\Requests\PreguntaRequest;
+use App\Modelos\Respuesta;
 use Illuminate\Http\Request;
 
 class PreguntaController extends Controller
@@ -46,8 +47,6 @@ class PreguntaController extends Controller
         $pregunta->save();
         $preguntas = pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
         if ($request->ajax()){
-
-
             return view('pregunta.aside.index', compact('preguntas'))->render();
         }
 
@@ -56,14 +55,26 @@ class PreguntaController extends Controller
 
     public function store(PreguntaRequest $request)
     {
-        $pregunta = new pregunta($request->all());
-        
-        //dd($pregunta);
-        dd($pregunta);
+        $pregunta = new Pregunta($request->all());
+        $pregunta->estado = 2;//estado pendiente revision
         $pregunta->save();
+        $valrespuestas = $request->respuestas;
+
+
+        foreach ($valrespuestas as $key => $valrespuesta) {
+            $respuesta = new Respuesta([
+                'pregunta_id' => $pregunta->id,
+                'respuesta' => $valrespuesta,
+                'escorrecta' => (($key==$request->escorrecta)? 1 : 0),
+            ]);
+
+            $respuesta->save();
+        }
+
+        //$pregunta->save();
 
         if ($request->ajax())
-            return view('pregunta.aside.create')->render();
-        return view('pregunta.create');
+            return redirect()->route('pregunta.show', $pregunta->id);
+        return redirect()->route('pregunta.show', $pregunta->id);
     }
 }

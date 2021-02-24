@@ -8,10 +8,18 @@ class Pregunta extends Model
 {
     //
     protected $table = 'pregunta';
-    protected $fillable = ['pregunta', 'tema_id', 'respuestas'];
+    protected $fillable = ['user_id', 'pregunta', 'tema_id',];
+
+    protected $with = ['respuestas'];
+
+    protected $withCount = ['respuestas'];
 
     public function tema(){
         return $this->belongsTo('App\Modelos\Tema', 'tema_id','id');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id','id');
     }
 
 

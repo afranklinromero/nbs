@@ -3,13 +3,30 @@
 <div class="row">
     <div class="col-md-6">
         <div class="d-grid gap-2 d-md-flex justify-content-md-star">
-            <h4 class="me-md-2"><strong>{{$pregunta->pregunta}}</strong></h4>
+            <h4 class="me-md-2"><span class="text-muted"> Enunciado:</span> <strong>{{$pregunta->pregunta}}</strong></h4>
         </div>
     </div>
     <div class="col-md-6">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <p class="text-muted"><strong>Tema </strong>{{ $pregunta->tema->nombre }}</p> |
-            <p class="text-muted"><strong>Autor </strong>{{ $pregunta->tema->nombre }}</p>
+            <p class="text-muted"><strong>Tema </strong>{{ $pregunta->tema->nombre }}</p> &nbsp;|&nbsp;
+            <p class="text-muted"><strong>Autor </strong>{{ $pregunta->user->name }}</p> &nbsp;|&nbsp;
+            <p class="text-muted">
+                <strong>Estado </strong>
+                @switch($pregunta->estado)
+                    @case(0)
+                        Anulado
+                        @break
+                    @case(1)
+                        Activo
+                        @break
+                    @case(2)
+                        Pendiente
+                        @break
+                    @default
+
+                @endswitch
+                &nbsp;|&nbsp;
+            </p>
         </div>
     </div>
 </div>

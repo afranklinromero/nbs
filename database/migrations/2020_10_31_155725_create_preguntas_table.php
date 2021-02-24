@@ -17,11 +17,13 @@ class CreatePreguntasTable extends Migration
             $table->engine = 'InnoDB'; //para db relacional
             $table->id();
             $table->bigInteger('tema_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->default(1);
             $table->string('pregunta', 512);
             $table->timestamps();
             $table->integer('estado')->default(1);
 
             $table->foreign('tema_id')->references('id')->on('tema');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

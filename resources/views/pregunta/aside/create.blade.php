@@ -7,30 +7,35 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
+                            {!! Form::hidden('user_id',  Auth::user()->id ) !!}
                             {!! Form::label('tema_id', 'Id Tema:', ['class' => 'form-label']) !!}
-                            {!! Form::text('tema_id', null, ['class' => 'form-control']) !!}
+                            {!! Form::select('tema_id', $temas->pluck('nombre', 'id'), null, ['class'=>'form-control']) !!}
                         </h4>
                         <h4 class="card-title">
                             {!! Form::label('pregunta', 'Enunciado pregunta:', ['class' => 'form-label']) !!}
-                            {!! Form::text('pregunta', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('pregunta', null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>512]) !!}
                         </h4>
-                        @for ($i = 0; $i < 4; $i++)
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">{!! Form::label('respuestas[]', 'Respuesta '. ($i+1) . '?: ', ['class' => 'form-label']) !!}</h5>
-                                    <p class="card-text">
-                                        {!! Form::text('respuestas[]', null, ['class' => 'form-control']) !!}
-                                    </p>
-                                    <div class="form-check">
-                                        {!! Form::radio('escorrecto[]', null, false, ['class' => 'form-check-input']) !!}
-                                        {!! Form::label('escorrecto[]', 'Es correcto ? ', ['class' => 'form-check-label']) !!}
+                        <table class="table table-light">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Pregunta</th>
+                                    <th>Es correcta?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for ($i = 0; $i < 4; $i++)
+                                <tr>
+                                    <th>{{ ($i+1) }}</th>
+                                    <td>{!! Form::text('respuestas[]', null, ['class' => 'form-control']) !!}</td>
+                                    <td class="text-center">
+                                        {!! Form::radio('escorrecta', ($i) , ($i==0)?true:false, ['class' => 'form-check-input']) !!}
+                                    </td>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        @endfor
-                        <br>
+                                </tr>
+                                @endfor
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
