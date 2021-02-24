@@ -69,7 +69,7 @@ public function store (Request $request){
         $users->roles()->attach($role_user);
         
        
-        return redirect()->route('users.index')
+        return redirect()->route('login.index')
                         ->with('info','El Usuario fue guardado');
 
 
