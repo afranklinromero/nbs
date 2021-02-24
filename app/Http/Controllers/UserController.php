@@ -49,33 +49,27 @@ public function update (UserRequest $request, $id){
 public function destroy ($id){
     $users = User::find($id);
     $users->delete();
-    return back ()->with('info', 'El Distribuidor fue eliminado');
+    return back ()->with('info', 'El Usuario fue eliminado');
      }
 
 
 
-public function store (UserRequest $request){
+public function store (Request $request){
 
-
-    $role_user = Role::where('name', 'user')->first();
-    $role_admin = Role::where('name', 'admin')->first();
-
+        $role_user=1;
         $users = new User;
-        $users->name = $request->name;
-        $users->email = $request->email;
+        $users->name = $request->nombre;
+        $users->email = $request->correo;
+        $users->telefono = $request->telefono;
+        $users->ocupacion = $request->ocupacion;
+        $users->direccion = $request->direccion;
         $users->password = bcrypt($request['password']);
         $users->save();
 
-
-        if( $request->rol == 1){
-
-            $users->roles()->attach($role_admin);}
-
-       else{
-            $users->roles()->attach($role_user);}
-
-
-        return redirect()->route('users.index')
+        $users->roles()->attach($role_user);
+        
+       
+        return redirect()->route('login.index')
                         ->with('info','El Usuario fue guardado');
 
 
