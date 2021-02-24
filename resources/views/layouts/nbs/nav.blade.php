@@ -8,7 +8,7 @@
                 @if( Auth::check())
                      @if(Auth::user()->hasRole('admin'))
                      <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('home') }}">INICIO...</a>
+                        <a class="nav-link" href="{{ route('home') }}">INICIO</a>
                       </li>
                       <li class="nav-item">
                       <a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a>
@@ -39,7 +39,7 @@
                 @guest
                     <li style="margin-bottom: -25px;" class="nav-item ">
                         <a class="text-muted nav-link" href="{{ route('login') }}">
-                            <span class="menu_usuario mr-2" style="float:left;" > Menu|Usuario </span> 
+                            <span class="menu_usuario mr-2" style="float:left;" > CONCURSA </span> 
                             <i class="fas fa-user-circle fa-2x"> </i>
                         </a>
                     </li>
