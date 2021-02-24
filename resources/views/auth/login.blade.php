@@ -55,9 +55,9 @@
                                     Ingresar
                                 </button>
 
-                                <button type="submit" class="btn btn-primary">
-                                    Registrarme
-                                </button>
+                                
+                                <a href="{{ route('users.create') }}" class="btn btn-primary">registrarme</a></th>                                    Registrarme
+                               
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Me Olvide mi contraseña?
