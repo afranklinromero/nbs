@@ -62,7 +62,6 @@ class PreguntaController extends Controller
         $pregunta->save();
         $valrespuestas = $request->respuestas;
 
-
         foreach ($valrespuestas as $key => $valrespuesta) {
             $respuesta = new Respuesta([
                 'pregunta_id' => $pregunta->id,

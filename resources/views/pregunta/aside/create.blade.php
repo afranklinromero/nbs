@@ -19,7 +19,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Pregunta</th>
+                                    <th>Respuesta</th>
                                     <th>Es correcta?</th>
                                 </tr>
                             </thead>

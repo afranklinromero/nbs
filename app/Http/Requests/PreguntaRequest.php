@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PreguntaRequest extends FormRequest
 {
@@ -22,12 +23,21 @@ class PreguntaRequest extends FormRequest
      * @return array
      */
     public function rules(){
+        //($this);
+        $respuesta1 = $this->respuestas[0];
+        $respuesta2 = $this->respuestas[1];
+        $respuesta3 = $this->respuestas[2];
+        $respuesta4 = $this->respuestas[3];
         return [
             //
             'tema_id' => 'required|numeric',
             'user_id' => 'required|numeric',
             'pregunta' => 'required',
             'respuestas.*' => 'required',
+            'respuestas.0' => Rule::notIn([$respuesta2,  $respuesta3, $respuesta4]),
+            'respuestas.1' => Rule::notIn([$respuesta1,  $respuesta3, $respuesta4]),
+            'respuestas.2' => Rule::notIn([$respuesta2,  $respuesta1, $respuesta4]),
+            'respuestas.3' => Rule::notIn([$respuesta2,  $respuesta3, $respuesta1]),
         ];
     }
 
@@ -40,6 +50,7 @@ class PreguntaRequest extends FormRequest
             'pregunta.required' => 'El :attribute es obligatorio.',
             'pregunta.size' => 'La :attribute debe tener maximo 512 caracteres',
             'respuestas.*.required' => 'La :attribute es obligatorio',
+            'respuestas.*.not_in' => 'La :attribute debe ser diferente a las demas',
 
         ];
     }
