@@ -17,9 +17,10 @@
 
 @section('scriptlocal')
 <script>
+
     $(document).on('click', '.pagination a', function(e) {
         event.preventDefault();
-
+        console.log('pagination');
         page = $(this).attr('href').split('page=')[1];;
         console.log('pagina: '+ page);
         //var route = $('#paginationlink').attr('href');
@@ -35,7 +36,7 @@
 
     $(document).on('click', '.show', function(e) {
         event.preventDefault();
-
+        console.log('show');
         //page = $(this).attr('href').split('page=')[1];;
         //console.log('pagina: '+ page);
         //var route = $('#paginationlink').attr('href');
@@ -51,6 +52,7 @@
 
     $(document).on('click', '.index', function(e) {
         event.preventDefault();
+        console.log('index');
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
@@ -61,6 +63,7 @@
 
     $(document).on('click', '.createx', function(e) {
         event.preventDefault();
+
         var route = $(this).attr('href');
         console.log(route);
         $.get(route,  function(result){
