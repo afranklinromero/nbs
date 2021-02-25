@@ -56,7 +56,7 @@ public function destroy ($id){
 
 public function store (Request $request){
 
-        $role_user=1;
+        $role_user=2;
         $users = new User;
         $users->name = $request->nombre;
         $users->email = $request->correo;
@@ -69,7 +69,7 @@ public function store (Request $request){
         $users->roles()->attach($role_user);
         
        
-        return redirect()->route('login.index')
+        return redirect()->route('login')
                         ->with('info','El Usuario fue guardado');
 
 

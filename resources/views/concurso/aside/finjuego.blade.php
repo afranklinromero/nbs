@@ -60,7 +60,8 @@
 			</tbody>
 		</table>
 		<div class="text-center">
-			<a class="btn btn-primary" href="{{ route('concurso.jugar', $participacion->concurso_id) }}">Volver a jugar</a>
+			<a class="btn btn-primary" href="{{route('concurso.jugar', $participacion->concurso_id) }}">Volver a jugar</a>
+			<a class="btn btn-primary" href="{{route('concurso.index') }}">SALIR</a>
 		</div>
 		
     </div>
