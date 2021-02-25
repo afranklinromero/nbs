@@ -7,25 +7,28 @@
         </div>
     </div>
     <div class="col-md-6">
+        @php
+        $btn = "";
+        $testado = "";
+            switch($pregunta->estado){
+                case 0:
+                    $btn = "btn-danger";
+                    $testado = "Anulado";
+                    break;
+                case 1:
+                    $btn = "btn-success";
+                    $testado = "Activo";
+                    break;
+                case 2:
+                    $btn = "btn-warning";
+                    $testado = "Pendiente";
+                    break;
+            }
+        @endphp
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <p class="text-muted"><strong>Tema </strong>{{ $pregunta->tema->nombre }}</p> &nbsp;|&nbsp;
             <p class="text-muted"><strong>Autor </strong>{{ $pregunta->user->name }}</p> &nbsp;|&nbsp;
-            <p class="text-muted">
-                <strong>Estado </strong>
-                @switch($pregunta->estado)
-                    @case(0)
-                        Anulado
-                        @break
-                    @case(1)
-                        Activo
-                        @break
-                    @case(2)
-                        Pendiente
-                        @break
-                    @default
-
-                @endswitch
-                &nbsp;|&nbsp;
+            <p class="btn btn-sm {{ $btn }} text-white"><strong>Estado </strong> {{ $testado }}
             </p>
         </div>
     </div>
