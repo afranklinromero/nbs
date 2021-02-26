@@ -1,0 +1,171 @@
+<?php
+
+use App\Modelos\Marcador;
+use Illuminate\Database\Seeder;
+
+class Marcador1Seeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+        Marcador::create([	'libro_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Contenido', 	'pagina'=>'2',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'I. ASPECTOS Y ANTIVIDADES DE APLICACIÓN FUNDAMENTAL', 	'pagina'=>'3',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'3', 	'nivel'=>'2', 	'nombre'=>'1. PREVENCION DE ESTILOS DE VIDA NO SALUDABLES', 	'pagina'=>'3',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'4', 	'nivel'=>'3', 	'nombre'=>'ANTECEDENTES', 	'pagina'=>'3',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'5', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS RELACIONADAS CON ESTILOS DE VIDA NO SALUDABLES', 	'pagina'=>'4',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'6', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS EN ADOLESCENTES', 	'pagina'=>'4',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'7', 	'nivel'=>'1', 	'nombre'=>'II. NORMAS DE ATENCION CLINICA', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'8', 	'nivel'=>'2', 	'nombre'=>'1. ABDOMEN AGUDO QUIRURGICO', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'9', 	'nivel'=>'3', 	'nombre'=>'DEFINICION', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'10', 	'nivel'=>'3', 	'nombre'=>'ETIOLOGIA', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'11', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'12', 	'nivel'=>'4', 	'nombre'=>'CRITERIOS CLINIDOS: de acuerdo a etiologia', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'13', 	'nivel'=>'3', 	'nombre'=>'EXAMENES COMPLEMENTARIOS', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'14', 	'nivel'=>'4', 	'nombre'=>'Laboratorioi (nivel II ó III)', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'15', 	'nivel'=>'4', 	'nombre'=>'Prueba de gaginete (nivel II ó III)', 	'pagina'=>'5',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'16', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO DIFERENCIAL', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'17', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'18', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'19', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS GENERALES', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'20', 	'nivel'=>'5', 	'nombre'=>'Nivel I', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'21', 	'nivel'=>'5', 	'nombre'=>'Tratemiento pre-referencia', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'22', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS ESPECIFICAS', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'23', 	'nivel'=>'5', 	'nombre'=>'Nivel II ó III', 	'pagina'=>'6',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'24', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO PRE QUIRURGICO', 	'pagina'=>'7',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'25', 	'nivel'=>'4', 	'nombre'=>'CUADRO N°1: LÍQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'7',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'26', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO QUIRURGICO', 	'pagina'=>'8',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'27', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO POSTQUIRURGICO', 	'pagina'=>'8',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'28', 	'nivel'=>'4', 	'nombre'=>'CUADRO N| 2: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'8',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'29', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES POST OPERATORIAS', 	'pagina'=>'9',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'30', 	'nivel'=>'3', 	'nombre'=>'CRITERIO DE REFERENCIA', 	'pagina'=>'10',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'31', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE ALTA', 	'pagina'=>'10',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'32', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE CONTRARREFERENCIA', 	'pagina'=>'10',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'33', 	'nivel'=>'3', 	'nombre'=>'RECOMENDACIONES', 	'pagina'=>'10',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'34', 	'nivel'=>'3', 	'nombre'=>'OBSERVACIONES', 	'pagina'=>'10',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'35', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS HIGIENICO DIETETICAS Y ORIENTACION EN SERVICIO FAMILIA O CUMUNIDAD', 	'pagina'=>'10',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'36', 	'nivel'=>'2', 	'nombre'=>'2. APENDICITIS AGUDA NO COMPLICADA', 	'pagina'=>'11',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'37', 	'nivel'=>'3', 	'nombre'=>'DEFINICION', 	'pagina'=>'11',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'38', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO', 	'pagina'=>'11',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'39', 	'nivel'=>'4', 	'nombre'=>'CRITERIOS CLINICOS', 	'pagina'=>'11',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'40', 	'nivel'=>'3', 	'nombre'=>'EXAMENES COMPLEMENTARIOS', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'41', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO DIFERENCIAL', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'42', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'43', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'44', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS GENERALES', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'45', 	'nivel'=>'5', 	'nombre'=>'Nivel I', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'46', 	'nivel'=>'5', 	'nombre'=>'Tratamiento pre-referencia', 	'pagina'=>'12',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'47', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS ESPECIFICAS', 	'pagina'=>'13',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'48', 	'nivel'=>'4', 	'nombre'=>'TRATAMIENTO PRE-QUIRURICO', 	'pagina'=>'13',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'49', 	'nivel'=>'5', 	'nombre'=>'CUADRO N°1: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'13',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'50', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO QUIRURGICO', 	'pagina'=>'13',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'51', 	'nivel'=>'4', 	'nombre'=>'MANEJO DEL MUÑON APENDICULAR', 	'pagina'=>'14',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'52', 	'nivel'=>'4', 	'nombre'=>'EN CASO EXCEPCIONAL CON SEVERO COMPROMISO CECAL RECURRIR A RESECCION ILEO-CECAL O HEMICOLECTOMIA DERECHA CON ILEO-COLO ANASTOMOSIS', 	'pagina'=>'14',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'53', 	'nivel'=>'3', 	'nombre'=>'TRATEMIENTO POSTQUIRURGICO INMEDIATO', 	'pagina'=>'14',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'54', 	'nivel'=>'4', 	'nombre'=>'CUADRO N°2: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'14',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'55', 	'nivel'=>'3', 	'nombre'=>'CUIDADOS O MEDIDAS GENERALES POST OPERATORIOS', 	'pagina'=>'15',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'56', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES POST OPERATORIAS', 	'pagina'=>'15',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'57', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE REFERENCIA', 	'pagina'=>'16',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'58', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE ALTA MEDICA', 	'pagina'=>'16',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'59', 	'nivel'=>'3', 	'nombre'=>'RECOMEDACIONES', 	'pagina'=>'16',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'60', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE CONTRARREFERENCIA', 	'pagina'=>'16',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'61', 	'nivel'=>'3', 	'nombre'=>'OBSERVACIONES', 	'pagina'=>'16',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'62', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS HIGIENICO DIETETICAS Y ORIENTACION EN SERVICIO FAMILIA O CUMUNIDAD', 	'pagina'=>'16',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'63', 	'nivel'=>'2', 	'nombre'=>'3. PERITONITIS AGUDA GENERALIZADA', 	'pagina'=>'17',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'64', 	'nivel'=>'3', 	'nombre'=>'DEFINICION', 	'pagina'=>'17',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'65', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO', 	'pagina'=>'17',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'66', 	'nivel'=>'4', 	'nombre'=>'CRITERIOS CLINICOS', 	'pagina'=>'17',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'67', 	'nivel'=>'3', 	'nombre'=>'EXAMENES COMPLEMENTARIOS', 	'pagina'=>'18',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'68', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO DIFERENCIAL', 	'pagina'=>'18',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'69', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES', 	'pagina'=>'18',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'70', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO', 	'pagina'=>'18',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'71', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS GENERALES', 	'pagina'=>'18',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'72', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS ESPECIFICAS', 	'pagina'=>'19',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'73', 	'nivel'=>'4', 	'nombre'=>'TRATAMIENTO PRE QUIRURGICO', 	'pagina'=>'19',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'74', 	'nivel'=>'5', 	'nombre'=>'CUADRO N°1: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'19',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'75', 	'nivel'=>'4', 	'nombre'=>'TRATAMIENTO QUIRURGICO', 	'pagina'=>'20',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'76', 	'nivel'=>'4', 	'nombre'=>'TRATAMIENTO POST QUIRURGICO', 	'pagina'=>'20',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'77', 	'nivel'=>'5', 	'nombre'=>'CUADRO N°2: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'21',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'78', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES POST OPERATORIAS', 	'pagina'=>'22',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'79', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE REFERENCIA', 	'pagina'=>'22',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'80', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE ALTA MEDICA', 	'pagina'=>'22',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'81', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE CONTRARREFERENCIA', 	'pagina'=>'22',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'82', 	'nivel'=>'3', 	'nombre'=>'RECOMENDACIONES', 	'pagina'=>'23',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'83', 	'nivel'=>'3', 	'nombre'=>'OBSERVACIONES', 	'pagina'=>'23',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'84', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS HIGIENICO DIETETICAS Y ORIENTACION EN SERVICIO FAMILIA O CUMUNIDAD', 	'pagina'=>'23',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'85', 	'nivel'=>'2', 	'nombre'=>'4. COLECISTITIS AGUDA', 	'pagina'=>'24',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'86', 	'nivel'=>'3', 	'nombre'=>'DEFINICION', 	'pagina'=>'24',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'87', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO', 	'pagina'=>'24',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'88', 	'nivel'=>'4', 	'nombre'=>'CRITERIOS CLINICOS', 	'pagina'=>'24',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'89', 	'nivel'=>'3', 	'nombre'=>'EXAMENES COMPLEMENTARIOS', 	'pagina'=>'24',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'90', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO DIFERENCIAL', 	'pagina'=>'25',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'91', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES', 	'pagina'=>'25',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'92', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO', 	'pagina'=>'25',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'93', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS GENERALES', 	'pagina'=>'25',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'94', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS ESPECIFICAS', 	'pagina'=>'25',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'95', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO PRE QUIRURGICO', 	'pagina'=>'25',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'96', 	'nivel'=>'4', 	'nombre'=>'CUADRO N°1: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'26',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'97', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO QUIRURGICO', 	'pagina'=>'26',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'98', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO POST QUIRURGICO', 	'pagina'=>'27',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'99', 	'nivel'=>'4', 	'nombre'=>'CUADRO N°2: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'27',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'100', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS GENERALES POST OPERATORIAS', 	'pagina'=>'28',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'101', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES POST OPERATORIAS', 	'pagina'=>'28',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'102', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE REFERENCIA', 	'pagina'=>'28',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'103', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE ALTA', 	'pagina'=>'28',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'104', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE CONTRARREFERENCIA', 	'pagina'=>'28',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'105', 	'nivel'=>'3', 	'nombre'=>'RECOMENDACIONES', 	'pagina'=>'29',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'106', 	'nivel'=>'3', 	'nombre'=>'OBSERVACIONES', 	'pagina'=>'29',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'107', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS HIGIENICO DIETETICAS Y ORIENTACION EN SERVICIO FAMILIA O CUMUNIDAD', 	'pagina'=>'29',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'108', 	'nivel'=>'2', 	'nombre'=>'5. SINDROME ICTERICO OBSTRUCTIVO', 	'pagina'=>'30',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'109', 	'nivel'=>'3', 	'nombre'=>'DEFINICION', 	'pagina'=>'30',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'110', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO', 	'pagina'=>'30',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'111', 	'nivel'=>'4', 	'nombre'=>'CRITERIOS CLINICOS', 	'pagina'=>'30',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'112', 	'nivel'=>'3', 	'nombre'=>'EXAMENES COMPLEMENTARIOS', 	'pagina'=>'30',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'113', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO DIFERENCIAL', 	'pagina'=>'31',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'114', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES', 	'pagina'=>'31',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'115', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO', 	'pagina'=>'31',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'116', 	'nivel'=>'4', 	'nombre'=>'MEDIDAS GENERALES', 	'pagina'=>'31',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'117', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS ESPECIFICAS', 	'pagina'=>'31',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'118', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO PRE QUIRURGICO', 	'pagina'=>'31',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'119', 	'nivel'=>'4', 	'nombre'=>'CUADRO N°1: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'32',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'120', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO ENDOSCOPICO', 	'pagina'=>'32',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'121', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO QUIRURGICO', 	'pagina'=>'32',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'122', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO POST QUIRURGICO', 	'pagina'=>'33',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'123', 	'nivel'=>'4', 	'nombre'=>'CUADRO N°2: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'33',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'124', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES POST OPERATORIAS', 	'pagina'=>'34',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'125', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE REFERENCIA', 	'pagina'=>'35',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'126', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE ALTA MEDICA', 	'pagina'=>'35',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'127', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE CONTRARREFERENCIA', 	'pagina'=>'35',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'128', 	'nivel'=>'3', 	'nombre'=>'RECOMENDACIONES', 	'pagina'=>'35',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'129', 	'nivel'=>'3', 	'nombre'=>'OBSERVACIONES', 	'pagina'=>'35',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'130', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS HIGIENICO DIETETICAS Y ORIENTACION EN SERVICIO FAMILIA O CUMUNIDAD', 	'pagina'=>'35',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'131', 	'nivel'=>'2', 	'nombre'=>'6. PANCREATITIS AGUDA (TRATAMIENTO QUIRURGICO)', 	'pagina'=>'36',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'132', 	'nivel'=>'3', 	'nombre'=>'DEFINICION', 	'pagina'=>'36',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'133', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO', 	'pagina'=>'36',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'134', 	'nivel'=>'4', 	'nombre'=>'CRITERIOS CLINICOS', 	'pagina'=>'36',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'135', 	'nivel'=>'3', 	'nombre'=>'EXAMENES COMPLEMENTARIOS', 	'pagina'=>'36',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'136', 	'nivel'=>'3', 	'nombre'=>'DIAGNOSTICO DIFERENCIAL', 	'pagina'=>'37',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'137', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES', 	'pagina'=>'37',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'138', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO', 	'pagina'=>'37',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'139', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS GENERALES', 	'pagina'=>'37',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'140', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS ESPECIFICAS', 	'pagina'=>'38',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'141', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO PRE QUIRURGICO', 	'pagina'=>'38',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'142', 	'nivel'=>'3', 	'nombre'=>'CUADRO N°1: LIQUIDOS IV DE MANTENIMIENTO EN NIÑOS/NIÑAS DE ACUERDO A SU PESO', 	'pagina'=>'38',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'143', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO QUIRURGICO', 	'pagina'=>'39',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'144', 	'nivel'=>'3', 	'nombre'=>'PROCEDIMIENTO QUIRURGICO', 	'pagina'=>'39',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'145', 	'nivel'=>'3', 	'nombre'=>'TRATAMIENTO POST QUIRURGICO', 	'pagina'=>'40',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'146', 	'nivel'=>'3', 	'nombre'=>'COMPLICACIONES POST OPERATORIAS', 	'pagina'=>'41',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'147', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE REFERENCIA', 	'pagina'=>'41',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'148', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE ALTA MEDICA', 	'pagina'=>'41',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'149', 	'nivel'=>'3', 	'nombre'=>'CRITERIOS DE CONTRARREFERENCIA', 	'pagina'=>'41',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'150', 	'nivel'=>'3', 	'nombre'=>'RECOMENDACIONES', 	'pagina'=>'41',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'151', 	'nivel'=>'3', 	'nombre'=>'OBSERVACIONES', 	'pagina'=>'42',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'152', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS HIGIENICO DIETETICAS Y ORIENTACION EN SERVICIO FAMILIA O CUMUNIDAD', 	'pagina'=>'42',]);
+Marcador::create([	'libro_id'=>'1', 	'numero'=>'153', 	'nivel'=>'2', 	'nombre'=>'7. HERNIA EPIGASTRICA', 	'pagina'=>'43',]);
+
+    }
+}
