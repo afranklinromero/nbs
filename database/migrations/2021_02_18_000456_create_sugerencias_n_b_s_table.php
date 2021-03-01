@@ -16,7 +16,7 @@ class CreateSugerenciasNBSTable extends Migration
         Schema::create('sugerenciasnbs', function (Blueprint $table) {
             $table->id();
             $table->string('name', 32);
-            $table->string('email', 32);
+            $table->string('email', 64);
             $table->string('subject', 128);
             $table->string('content', 512);
             $table->integer('estado')->default(1);
