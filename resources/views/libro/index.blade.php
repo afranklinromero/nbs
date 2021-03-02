@@ -6,6 +6,11 @@
     <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
         <p class="text-center">
+
+              <!-- Contador de visitas -->
+<a title="Contador De Visitas">
+<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=291311"></a><br><a href='http://www.websmultimedia.com/contador-de-visitas-gratis'></a><br><a href='http://www.websmultimedia.com/diseno-logotipos'></a>
+<!-- Fin Contador de visitas -->
             <div class="form-group text-center">
 
                 <a href="{{ route('libro.index') }}">

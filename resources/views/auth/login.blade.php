@@ -43,7 +43,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordar
                                     </label>
                                 </div>
                             </div>
@@ -56,7 +56,8 @@
                                 </button>
 
                                 
-                                <a href="{{ route('users.create') }}" class="btn btn-primary">registrarme</a></th>                                    Registrarme
+                                <a href="{{ route('users.create') }}" class="btn btn-primary">
+                                Registrarme</a></th>
                                
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">

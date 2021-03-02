@@ -18,6 +18,10 @@
               @endif
           @endif
       </ul>
+      <!-- Contador de visitas -->
+<a href="http://www.websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=291311"></a><br><a href='http://www.websmultimedia.com/contador-de-visitas-gratis'>Contador de visitas</a><br><a href='http://www.websmultimedia.com/diseno-logotipos'>logotipo para mi empresa</a>
+<!-- Fin Contador de visitas -->
       <form action="{{route ('libro.index') }}" method="GET" class="form-inline">
           {{ csrf_field() }}
           <div class="form-group col-md-12 text-center">
