@@ -18,6 +18,7 @@ class CreateConcursosTable extends Migration
             $table->id();
             $table->bigInteger('configuracion_id')->unsigned();
             $table->string('nombre', 256);
+            $table->string('picture', 256)->default('picture.jpg');
             $table->dateTime('fechaini')->default(now());
             $table->dateTime('fechafin')->default(now());
             $table->timestamps();

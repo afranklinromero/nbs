@@ -9,11 +9,11 @@
         @foreach ($respuestas as $respuesta)
             {!! Form::hidden('mirespuesta[]', $respuesta->id) !!}
             <a
-                href="{{ route('concurso.responder', ['mirespuesta_id' => $respuesta->id]) }}" 
-                class="btn btn-outline-primary responder btn-lg btn-block" 
-                id="{{ $respuesta->id }}"> 
-                    {{$respuesta->respuesta}} -> {{$respuesta->escorrecta}} 
-            </a> 
+                href="{{ route('concurso.responder', ['mirespuesta_id' => $respuesta->id]) }}"
+                class="btn btn-outline-primary responder btn-lg btn-block"
+                id="{{ $respuesta->id }}">
+                    {{$respuesta->respuesta}}
+            </a>
             <br>
         @endforeach
     </div>

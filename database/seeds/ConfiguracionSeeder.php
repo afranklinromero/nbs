@@ -13,6 +13,12 @@ class ConfiguracionSeeder extends Seeder
     public function run()
     {
         //
-        factory(Configuracion::class, 1)->create();
+        //factory(Configuracion::class, 1)->create();
+        Configuracion::create([
+            'nropreguntas' => '10',
+            'limiterespuestaserroneas' => '10',
+            'puntosporrespuesta' => '1',
+            'tiempolimite' => '90',
+        ]);
     }
 }
