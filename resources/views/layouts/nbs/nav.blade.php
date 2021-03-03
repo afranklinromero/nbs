@@ -27,7 +27,7 @@
                      
                      @else
                       <li class="nav-item ">
-                      <a class="nav-link" href="{{ route('concurso.index') }}">INICIO <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{{ route('libro.index') }}">INICIO <span class="sr-only">(current)</span></a>
                      </li>
                     
                       <li class="nav-item ">

@@ -9,19 +9,16 @@
           @if( Auth::check())
                @if(Auth::user()->hasRole('admin'))
                   <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">INICIO</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('libro.index') }}">LIBRITOS </a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a></li>
                   <li class="nav-item"><a class="nav-link" href="">USUARIOS</a></li>
                   <li class="nav-item"><a class="nav-link" href="">EXAMENES-.....</a></li>
                   <li class="nav-item"></li>
               @else
-                  <li class="nav-item active"><a class="nav-link" href="">EXAMENES <span class="sr-only">(current)</span></a></li>
+                  <li class="nav-item active"><a class="nav-link" href="{{ route('concurso.index') }}">CONCURSOS <span class="sr-only">(current)</span></a></li>
               @endif
           @endif
       </ul>
-      <!-- Contador de visitas -->
-<a href="http://www.websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
-<img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=291311"></a><br><a href='http://www.websmultimedia.com/contador-de-visitas-gratis'>Contador de visitas</a><br><a href='http://www.websmultimedia.com/diseno-logotipos'>logotipo para mi empresa</a>
-<!-- Fin Contador de visitas -->
+
       <form action="{{route ('libro.index') }}" method="GET" class="form-inline">
           {{ csrf_field() }}
           <div class="form-group col-md-12 text-center">
