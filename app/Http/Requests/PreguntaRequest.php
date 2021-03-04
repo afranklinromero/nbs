@@ -33,11 +33,10 @@ class PreguntaRequest extends FormRequest
             'tema_id' => 'required|numeric',
             'user_id' => 'required|numeric',
             'pregunta' => 'required',
-            'respuestas.*' => 'required',
-            'respuestas.0' => Rule::notIn([$respuesta2,  $respuesta3, $respuesta4]),
-            'respuestas.1' => Rule::notIn([$respuesta1,  $respuesta3, $respuesta4]),
-            'respuestas.2' => Rule::notIn([$respuesta2,  $respuesta1, $respuesta4]),
-            'respuestas.3' => Rule::notIn([$respuesta2,  $respuesta3, $respuesta1]),
+            'respuestas.0' => 'required|'.Rule::notIn([$respuesta2,  $respuesta3, $respuesta4]),
+            'respuestas.1' => 'required|'.Rule::notIn([$respuesta1,  $respuesta3, $respuesta4]),
+            'respuestas.2' => 'required|'.Rule::notIn([$respuesta2,  $respuesta1, $respuesta4]),
+            'respuestas.3' => 'required|'.Rule::notIn([$respuesta2,  $respuesta3, $respuesta1]),
         ];
     }
 

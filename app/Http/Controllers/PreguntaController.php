@@ -59,6 +59,7 @@ class PreguntaController extends Controller
         $pregunta = new Pregunta($request->all());
 
         $pregunta->estado = (Auth::user()->hasRole('admin'))?1: 2;//estado pendiente revision
+
         $pregunta->save();
         $valrespuestas = $request->respuestas;
 

@@ -41,7 +41,7 @@
 
 
                 {!! Form::submit('Enviar', ['class' => 'btn btn-primary store']) !!}
-                <a href="{{route('sugerenciasnbs.index')}}" class="btn btn-success index">Volver</a>
+                <a href="{{route('pregunta.index')}}" class="btn btn-success index">Volver</a>
 
             {!! Form::close() !!}
         </div>
