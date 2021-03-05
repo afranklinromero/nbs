@@ -15,8 +15,9 @@ class PreguntaController extends Controller
     //
     public function index(Request $request){
         $estado = $request->estado;
-        if (!isset($estado))
+        if (!isset($estado)){
             $estado = 1;
+        }
         $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $estado)->paginate(5);
         $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
         $request->session()->put('info', 'Listado de preguntas');
