@@ -33,7 +33,7 @@
         });
 
     });
-
+/*
     $(document).on('click', '.show', function(e) {
         event.preventDefault();
         console.log('show');
@@ -49,7 +49,7 @@
         });
 
     });
-
+*/
     $(document).on('click', '.index', function(e) {
         event.preventDefault();
         console.log('index');
@@ -74,7 +74,8 @@
 
     $(document).on('click', '.store', function(e) {
         event.preventDefault();
-        var form = $(this).parent().parent();
+        console.log('click store');
+        var form = $(this).parent();
         console.log(form.attr('action'));
 
         $.post(form.action, form.serialize(), function(result){

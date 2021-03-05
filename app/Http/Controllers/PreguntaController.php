@@ -14,14 +14,17 @@ class PreguntaController extends Controller
 {
     //
     public function index(Request $request){
-
-        $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
+        $estado = $request->estado;
+        if (!isset($estado))
+            $estado = 1;
+        $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $estado)->paginate(5);
+        $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
         $request->session()->put('info', 'Listado de preguntas');
         if ($request->ajax())
-            return view('pregunta.aside.index', compact('preguntas'))
+            return view('pregunta.aside.index', compact('preguntas', 'temas'))
             ->render();
 
-        return view('pregunta.index', compact('preguntas'));
+        return view('pregunta.index', compact('preguntas', 'temas'));
     }
 
     public function show(Request $request, $id){

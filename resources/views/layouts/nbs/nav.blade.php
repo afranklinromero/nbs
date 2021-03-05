@@ -20,16 +20,19 @@
                         <a class="nav-link" href="{{ route('clasificacion.index') }}">CLASIFICACIONES</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link" href="{{ route('pregunta.index') }}">PREGUNTAS</a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
                       </li>
                       <li class="nav-item">
                       </li>
-                     
+
                      @else
                       <li class="nav-item ">
                       <a class="nav-link" href="{{ route('libro.index') }}">INICIO <span class="sr-only">(current)</span></a>
                      </li>
-                    
+
                       <li class="nav-item ">
                       <a class="nav-link" href="{{ route('concurso.index') }}">LIBRO <span class="sr-only">(current)</span></a>
                      </li>
@@ -43,7 +46,7 @@
                 @guest
                     <li style="margin-bottom: -25px;" class="nav-item ">
                         <a class="text-muted nav-link" href="{{ route('login') }}">
-                            <span class="menu_usuario mr-2" style="float:left;" > CONCURSA </span> 
+                            <span class="menu_usuario mr-2" style="float:left;" > CONCURSA </span>
                             <i class="fas fa-user-circle fa-2x"> </i>
                         </a>
                     </li>

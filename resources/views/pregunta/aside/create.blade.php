@@ -1,19 +1,20 @@
 @include('pregunta.aside.info')
 @include('pregunta.aside.error')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
 
-            {!! Form::open(['route'=>'pregunta.store']) !!}
+            {!! Form::open(['route'=>'pregunta.store', 'id'=>'form-pregunta-create']) !!}
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
+                            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                             {!! Form::hidden('user_id',  Auth::user()->id ) !!}
                             {!! Form::label('tema_id', 'Id Tema:', ['class' => 'form-label']) !!}
                             {!! Form::select('tema_id', $temas->pluck('nombre', 'id'), null, ['class'=>'form-control']) !!}
                         </h4>
                         <h4 class="card-title">
                             {!! Form::label('pregunta', 'Enunciado pregunta:', ['class' => 'form-label']) !!}
-                            {!! Form::text('pregunta', null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>512]) !!}
+                            {!! Form::text('pregunta', null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>512, 'required']) !!}
                         </h4>
                         <table class="table table-light">
                             <thead>
