@@ -8,7 +8,7 @@ class Pregunta extends Model
 {
     //
     protected $table = 'pregunta';
-    protected $fillable = ['user_id', 'pregunta', 'tema_id',];
+    protected $fillable = ['user_id', 'pregunta', 'tema_id', 'estado'];
 
     protected $with = ['respuestas'];
 

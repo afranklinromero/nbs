@@ -10,7 +10,7 @@ use Faker\Generator as Faker;
 $factory->define(Pregunta::class, function (Faker $faker) {
     return [
         'tema_id' => 1,
-        'user_id' => 1,
+        'user_id' => 2,
         'pregunta' => $faker->text(128),
     ];
 });

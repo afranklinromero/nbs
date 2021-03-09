@@ -57,19 +57,25 @@
                                 <i class="text-danger fas fa-times-circle"></i>
                             @endif
                         </td>
-                        <td>
-
-                        </td>
+                        
                     </tr>
                 @endforeach
             </tbody>
     </table>
+    @if (Auth::user()->hasRole('admin'))
+        {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
+        {!! Form::hidden('_method', 'PUT') !!}
+        {!! Form::hidden('estado', '1') !!}
+        {!! Form::submit('Aprobar', ['class' => 'btn btn-success']) !!}
+        {!! Form::close() !!}
+        &nbsp;
+        {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
+        {!! Form::hidden('_method', 'PUT') !!}
+        {!! Form::hidden('estado', '0') !!}
+        {!! Form::submit('Rechazar', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
+    @endif
+    
 </div>
 
-<div class="row">
-    <div class="col">
-        <a href="{{ route('pregunta.index') }}" class="btn btn-warning text-white index">Editar</a>
-        <a href="{{ route('pregunta.index') }}" class="btn btn-success index">Volver</a>
-    </div>
-</div>
 

@@ -14,13 +14,15 @@ class PreguntaController extends Controller
 {
     //
     public function index(Request $request){
-        $estado = $request->estado;
-        if (!isset($estado)){
-            $estado = 1;
-        }
-        $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $estado)->paginate(5);
+        if (Auth::user()->hasRole('admin'))
+            $preguntas = Pregunta::orderby('id', 'DESC')->paginate(5);
+        else
+        $preguntas = Pregunta::orderby('id', 'DESC')->where('user_id', Auth::user()->id)->paginate(5);
+        
         $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
+
         $request->session()->put('info', 'Listado de preguntas');
+
         if ($request->ajax())
             return view('pregunta.aside.index', compact('preguntas', 'temas'))
             ->render();
@@ -48,9 +50,10 @@ class PreguntaController extends Controller
     public function update(Request $request, $id)
     {
         $pregunta = pregunta::find($id);
-        $pregunta->estado = 0;
+        $pregunta->estado = $request->estado;
         $pregunta->save();
         $preguntas = pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
+        
         if ($request->ajax()){
             return view('pregunta.aside.index', compact('preguntas'))->render();
         }

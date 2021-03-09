@@ -5,6 +5,12 @@
     <div class="container" id="pregunta-head">
         <div class="container" id="pregunta-body">
             @include('pregunta.aside.show')
+            <div class="row">
+                <div class="col">
+                    <a href="{{ route('pregunta.index') }}" class="btn btn-success">Volver</a>
+                </div>
+            </div>
+            
         </div>
 
     </div>
