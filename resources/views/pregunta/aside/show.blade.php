@@ -57,31 +57,41 @@
                                 <i class="text-danger fas fa-times-circle"></i>
                             @endif
                         </td>
-                        
+
                     </tr>
                 @endforeach
             </tbody>
     </table>
     @if (Auth::user()->hasRole('admin'))
-        {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
-        {!! Form::hidden('_method', 'PUT') !!}
-        {!! Form::hidden('estado', '1') !!}
-        {!! Form::submit('Aprobar', ['class' => 'btn btn-success']) !!}
-        {!! Form::close() !!}
+        @if ($pregunta->estado <> 1)
+            {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
+            {!! Form::hidden('_method', 'PUT') !!}
+            {!! Form::hidden('estado', '1') !!}
+            {!! Form::submit('Aprobar', ['class' => 'btn btn-success']) !!}
+            {!! Form::close() !!}
+        @endif
+
         &nbsp;
-        {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
-        {!! Form::hidden('_method', 'PUT') !!}
-        {!! Form::hidden('estado', '0') !!}
-        {!! Form::submit('Rechazar', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
+
+        @if ($pregunta->estado <> 0)
+            {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
+            {!! Form::hidden('_method', 'PUT') !!}
+            {!! Form::hidden('estado', '0') !!}
+            {!! Form::submit('Rechazar', ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!}
+        @endif
+
         &nbsp;
-        {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
-        {!! Form::hidden('_method', 'PUT') !!}
-        {!! Form::hidden('estado', '2') !!}
-        {!! Form::submit('Pendiente', ['class' => 'btn btn-warning']) !!}
-        {!! Form::close() !!}
+
+        @if ($pregunta->estado <> 2)
+            {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
+            {!! Form::hidden('_method', 'PUT') !!}
+            {!! Form::hidden('estado', '2') !!}
+            {!! Form::submit('Pasar a pendiente', ['class' => 'btn btn-warning']) !!}
+            {!! Form::close() !!}
+        @endif
     @endif
-    
+
 </div>
 
 

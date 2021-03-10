@@ -24,11 +24,11 @@
         page = $(this).attr('href').split('page=')[1];;
         console.log('pagina: '+ page);
         //var route = $('#paginationlink').attr('href');
-        var frm = $('frm-preguntas');
-        console.log(frm.attr('action'));
-        //alert(route);
+        var frm = $('#frm-preguntas');
+        action = frm.attr('action')+'?page='+page;
+        console.log('formulario: ' +  action);
 
-        $.get(frm.attr('action'), frm.serialize(), function(result){
+        $.get(action, frm.serialize(), function(result){
             $('#pregunta-body').html(result);
         });
 
@@ -52,7 +52,7 @@
 */
     $(document).on('change', '.index', function(e) {
         event.preventDefault();
-        
+
         console.log('index');
         var form = $(this).parent().parent();
         //alert(form.attr('action'));

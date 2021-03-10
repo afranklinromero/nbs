@@ -12,5 +12,6 @@ $factory->define(Pregunta::class, function (Faker $faker) {
         'tema_id' => 1,
         'user_id' => 2,
         'pregunta' => $faker->text(128),
+        'estado' => 2,
     ];
 });

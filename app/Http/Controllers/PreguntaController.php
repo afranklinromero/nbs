@@ -7,6 +7,7 @@ use App\Modelos\Tema;
 use App\Modelos\Concurso;
 use App\Http\Requests\PreguntaRequest;
 use App\Modelos\Respuesta;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,23 +15,26 @@ class PreguntaController extends Controller
 {
     //
     public function index(Request $request){
+
         $estado = 3;
         if (isset($request->estado)) $estado = $request->estado;
-        
-        if ($estado == 3) 
+
+        if ($estado == 3)
             $preguntas = Pregunta::orderby('id', 'DESC');
         else
             $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $estado);
 
         if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
-        
+
         $preguntas = $preguntas->paginate(5);
+
+        //dd($preguntas);
 
         $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
 
         $request->session()->put('info', 'Listado de preguntas');
 
-        
+
 
         if ($request->ajax())
             return view('pregunta.aside.index', compact('preguntas', 'temas', 'estado'))
@@ -62,7 +66,7 @@ class PreguntaController extends Controller
         $pregunta->estado = $request->estado;
         $pregunta->save();
         $preguntas = pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
-        
+
         if ($request->ajax()){
             return view('pregunta.aside.index', compact('preguntas'))->render();
         }
