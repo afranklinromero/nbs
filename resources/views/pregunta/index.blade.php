@@ -24,11 +24,11 @@
         page = $(this).attr('href').split('page=')[1];;
         console.log('pagina: '+ page);
         //var route = $('#paginationlink').attr('href');
-        var route = $(this).attr('href');
-        console.log(route);
+        var frm = $('frm-preguntas');
+        console.log(frm.attr('action'));
         //alert(route);
 
-        $.get(route,  function(result){
+        $.get(frm.attr('action'), frm.serialize(), function(result){
             $('#pregunta-body').html(result);
         });
 
@@ -50,12 +50,13 @@
 
     });
 */
-    $(document).on('click', '.index', function(e) {
+    $(document).on('change', '.index', function(e) {
         event.preventDefault();
+        
         console.log('index');
-        var route = $(this).attr('href');
-        console.log(route);
-        $.get(route,  function(result){
+        var form = $(this).parent().parent();
+        //alert(form.attr('action'));
+        $.get(form.attr('action'), form.serialize(),  function(result){
             $('#pregunta-body').html(result);
         });
 

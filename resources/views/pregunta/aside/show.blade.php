@@ -74,6 +74,12 @@
         {!! Form::hidden('estado', '0') !!}
         {!! Form::submit('Rechazar', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
+        &nbsp;
+        {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
+        {!! Form::hidden('_method', 'PUT') !!}
+        {!! Form::hidden('estado', '2') !!}
+        {!! Form::submit('Pendiente', ['class' => 'btn btn-warning']) !!}
+        {!! Form::close() !!}
     @endif
     
 </div>

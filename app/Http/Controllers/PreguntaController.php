@@ -14,20 +14,29 @@ class PreguntaController extends Controller
 {
     //
     public function index(Request $request){
-        if (Auth::user()->hasRole('admin'))
-            $preguntas = Pregunta::orderby('id', 'DESC')->paginate(5);
-        else
-        $preguntas = Pregunta::orderby('id', 'DESC')->where('user_id', Auth::user()->id)->paginate(5);
+        $estado = 3;
+        if (isset($request->estado)) $estado = $request->estado;
         
+        if ($estado == 3) 
+            $preguntas = Pregunta::orderby('id', 'DESC');
+        else
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $estado);
+
+        if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
+        
+        $preguntas = $preguntas->paginate(5);
+
         $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
 
         $request->session()->put('info', 'Listado de preguntas');
 
+        
+
         if ($request->ajax())
-            return view('pregunta.aside.index', compact('preguntas', 'temas'))
+            return view('pregunta.aside.index', compact('preguntas', 'temas', 'estado'))
             ->render();
 
-        return view('pregunta.index', compact('preguntas', 'temas'));
+        return view('pregunta.index', compact('preguntas', 'temas', 'estado'));
     }
 
     public function show(Request $request, $id){

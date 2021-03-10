@@ -7,26 +7,29 @@
             <a href="{{route('pregunta.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
             <!-- Button trigger modal -->
             
-            {!! Form::open() !!}
+            {!! Form::open(['route'=>['pregunta.index'], 'id' => 'frm-preguntas']) !!}
+            
             <div class="form-check form-check-inline">
-                {!! Form::radio('estado', 3, true, ['class' => 'form-check-input']) !!}
+                {!! Form::radio('estado', 3, (($estado==3)? true : false)  , ['class' => 'form-check-input index']) !!}
                 {!! Form::label('estado', 'Todos', ['class' => 'form-check-label']) !!}
             </div>
 
             <div class="form-check form-check-inline">
-                {!! Form::radio('estado', 1, false, ['class' => 'form-check-input']) !!}
+                {!! Form::radio('estado', 1,   (($estado==1)? true : false) , ['class' => 'form-check-input index']) !!}
                 {!! Form::label('estado', 'Activos', ['class' => 'form-check-label']) !!}
             </div>
 
             <div class="form-check form-check-inline">
-                {!! Form::radio('estado', 2, false, ['class' => 'form-check-input']) !!}
+                {!! Form::radio('estado', 2, (($estado==2)? true : false), ['class' => 'form-check-input index']) !!}
                 {!! Form::label('estado', 'Pendientes', ['class' => 'form-check-label']) !!}
             </div>
 
             <div class="form-check form-check-inline">
-                {!! Form::radio('estado', 0, false, ['class' => 'form-check-input']) !!}
+                {!! Form::radio('estado', 0,  (($estado==0)? true : false), ['class' => 'form-check-input index']) !!}
                 {!! Form::label('estado', 'Anulados', ['class' => 'form-check-label']) !!}
             </div>
+
+           
             {!! Form::close() !!}
         </div>
     </div>
