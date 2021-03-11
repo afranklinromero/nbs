@@ -17,7 +17,9 @@ class CreateConcursosTable extends Migration
             $table->engine = 'InnoDB'; //para db relacional
             $table->id();
             $table->bigInteger('configuracion_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->default(2);
             $table->string('nombre', 256);
+            $table->string('descripcion', 512)->default('Concurso para motivar el aprendizaje de las normas bolivianas de salud.');
             $table->string('picture', 256)->default('picture.jpg');
             $table->dateTime('fechaini')->default(now());
             $table->dateTime('fechafin')->default(now());
@@ -25,6 +27,7 @@ class CreateConcursosTable extends Migration
             $table->integer('estado')->default(1);
 
             $table->foreign('configuracion_id')->references('id')->on('configuracion');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

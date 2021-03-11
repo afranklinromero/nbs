@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Modelos\Concurso;
+use App\Modelos\Configuracion;
 use App\Modelos\Pregunta;
 use App\Modelos\Respuesta;
+use App\Modelos\Tema;
 use App\Modelos\Temaconcurso;
 use Illuminate\Http\Request;
 
@@ -14,9 +16,16 @@ class ConcursoController extends Controller
     public $n = 10;
     public $preguntas = null;
 
-    public function index(){
+    public function index(Request $request){
+        $estado = 1;
         $concursos=Concurso::orderBy('id', 'DESC')->paginate(10);
-        return view('concurso.index',compact('concursos'));
+
+
+
+        $request->session()->put('info', 'Listado de preguntas');
+
+
+        return view('concurso.index',compact('concursos', 'estado'));
     }
 
     public function buscar(Request $request){
@@ -37,7 +46,7 @@ class ConcursoController extends Controller
     }
 
     public function jugar(Request $request, $temaconcurso_id){
-        
+
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
         $n = $temaconcurso->concurso->configuracion->nropreguntas;
         $index = 1;
@@ -48,7 +57,7 @@ class ConcursoController extends Controller
     }
 
     public function siguientepregunta(Request $request, $index, $temaconcurso_id, $preguntaanterior_id){
-        
+
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
         $n = $temaconcurso->concurso->configuracion->nropreguntas;
         if ($index < $n){
@@ -86,24 +95,14 @@ class ConcursoController extends Controller
     }
 */
     public function create(){
-        return view('concurso.create');
+        $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
+        return view('concurso.create', compact('temas'));
     }
 
     public function store (Request $request){
 
-        $clasificacion = new Concurso();
-        $clasificacion->titulo = $request->titulo;
-        $clasificacion->fecha = $request->fecha;
-        $clasificacion->tapa = $request->tapa;
-        $clasificacion->documentopdf = $request->documentopdf;
-        $clasificacion->edicion = $request->edicion;
-        $clasificacion->serie = $request->serie;
-        $clasificacion->nropublicacion = $request->nropublicacion;
-        $clasificacion->lugarpublicacion = $request->lugarpublicacion;
-        $clasificacion->created_at = now();
-        $clasificacion->updated_at = now();
-        $clasificacion->estado = 1;
-        $clasificacion->save();
+        $configuracion = Configuracion::fill($request->all);
+        dd($configuracion);
 
         return redirect()->route('concurso.index')
                         ->with('info','El Tipoproducto fue guardado');

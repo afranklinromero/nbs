@@ -4,7 +4,7 @@
 <div class="container">
 
     <h1 class="text-primary">OLIMPIADAS DE CONOCIMIENTO</h1>
-    @include('concurso.aside.asaide')
+    @include('concurso.aside.aside')
     @include('concurso.aside.info')
 
     <div class="row">
@@ -41,6 +41,26 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3 shadow">
+                <img src="{{ asset('img/imagen2.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Crear una nueva Olimpiada <span class="bg-danger text-white">adm</span></h5>
+                  <p class="card-text">Participa de esta olimpiada, respondiendo 10 preguntas en un determinado tiempo, mientras mas participes tendras mas oportunidad de ganar</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <a href="{{ route('concurso.create') }}" class="btn btn-outline-success">Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container" id="concurso-body">
+        @include('concurso.aside.index')
     </div>
 </div>
 @endsection
