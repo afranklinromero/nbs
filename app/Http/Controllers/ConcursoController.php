@@ -20,8 +20,6 @@ class ConcursoController extends Controller
         $estado = 1;
         $concursos=Concurso::orderBy('id', 'DESC')->paginate(10);
 
-
-
         $request->session()->put('info', 'Listado de preguntas');
 
 
@@ -36,17 +34,20 @@ class ConcursoController extends Controller
     }
 
     public function show ($id){
-        $clasificacion = Concurso::find($id);
+        $concurso = Concurso::find($id);
+        
         return view('concurso.show', compact('concurso'));
     }
 
     public function juegos(Request $request){
-        $temaconcursos = Temaconcurso::where('estado', '1')->orderBy('id', 'DESC')->paginate(10);
+        //$temaconcursos = Temaconcurso::where('estado', '1')->orderBy('id', 'DESC')->;
+        $temaconcursos = Temaconcurso::join('concurso', 'temaconcurso.concurso_id', 'concurso.id')->where('concurso.estado', 1)->orderBy('concurso.id', 'DESC')->paginate();
+        //dd($temaconcursos);
         return view('concurso.juegos', compact('temaconcursos'));
     }
 
     public function jugar(Request $request, $temaconcurso_id){
-
+        //dd($temaconcurso_id);
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
         $n = $temaconcurso->concurso->configuracion->nropreguntas;
         $index = 1;
@@ -101,7 +102,7 @@ class ConcursoController extends Controller
 
     public function store (Request $request){
 
-        $configuracion = Configuracion::fill($request->all);
+        $configuracion = new Configuracion($request->all);
         dd($configuracion);
 
         return redirect()->route('concurso.index')
@@ -110,27 +111,19 @@ class ConcursoController extends Controller
 
    }
 
-
     public function edit($id){
-        $clasificacion = Concurso::find($id);
+        $concurso = Concurso::find($id);
         return view('concurso.edit', compact('concurso'));
     }
 
     public function update (Request $request, $id){
 
-        $clasificacion = Concurso::find($id);
+        $concurso = Concurso::find($id);
 
-        $clasificacion->titulo = $request->titulo;
-        $clasificacion->fecha = $request->fecha;
-        $clasificacion->tapa = $request->tapa;
-        $clasificacion->documentopdf = $request->documentopdf;
-        $clasificacion->edicion = $request->edicion;
-        $clasificacion->serie = $request->serie;
-        $clasificacion->nropublicacion = $request->nropublicacion;
-        $clasificacion->lugarpublicacion = $request->lugarpublicacion;
-        $clasificacion->updated_at = now();
+        $concurso->estado = $request->estado;
+        $concurso->updated_at = now();
 
-        $clasificacion->save();
+        $concurso->save();
 
         return redirect()->route('concurso.index')
                         ->with('info','El Tipoproducto fue actualizado');
@@ -139,13 +132,13 @@ class ConcursoController extends Controller
    }
 
    public function destroy ($id){
-       $clasificacion = Concurso::find($id);
-       $clasificacion->delete();
+       $concurso = Concurso::find($id);
+       $concurso->delete();
        return back ()->with('info', 'El Tipoproducto fue eliminado');
     }
 
     public function obtener(Request $request){
-        $clasificacions = Concurso::orderby('nombre', 'ASC')->get();
+        $concursos = Concurso::orderby('nombre', 'ASC')->get();
         if ($request->ajax()){
             //dd(view('ventas.aside.productos', compact('$precioproductos'))->render());
             return view('ventas.aside.libros', compact('concursos'))->render();

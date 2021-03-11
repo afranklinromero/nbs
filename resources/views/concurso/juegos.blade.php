@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="container">
 
-    @include('concurso.aside.asaide')
+    @include('concurso.aside.aside')
     @include('concurso.aside.info')
 
     <div class="row">
@@ -23,6 +23,7 @@
 
                     <p class="card-text"> <strong>Tiempo: </strong> {{ $temaconcurso->concurso->configuracion->tiempo }} seg. </p>
                     <p class="card-text"> <strong>Tema: </strong> {{ $temaconcurso->tema->nombre }}  </p>
+                    <p class="card-text"> <strong>Estado: </strong> {{ $temaconcurso->concurso->estado }}  </p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <a class="btn btn-danger" href="{{ route('concurso.jugar', $temaconcurso->id)}}">Ingresar</a>
                 </div>

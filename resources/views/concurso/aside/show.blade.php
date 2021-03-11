@@ -105,7 +105,7 @@
                 @if ($concurso->estado == 0)
                     {!! Form::open(['route'=>['concurso.update', $concurso->id]]) !!}
                     {!! Form::hidden('_method', 'PUT') !!}
-                    {!! Form::hidden('estado', '0') !!}
+                    {!! Form::hidden('estado', '1') !!}
                     {!! Form::submit('Habilitar', ['class' => 'btn btn-success']) !!}
                     {!! Form::close() !!}
                 @endif

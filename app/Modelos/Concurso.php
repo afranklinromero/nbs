@@ -13,8 +13,7 @@ class Concurso extends Model
         return $this->belongsTo('App\Modelos\Configuracion', 'configuracion_id','id');
     }
 
-    public function clasificaciones()
-    {
+    public function clasificaciones(){
         return $this->hasMany('App\Modelos\Clasificacion');
     }
 }
