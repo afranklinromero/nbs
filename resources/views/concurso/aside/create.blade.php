@@ -9,7 +9,6 @@
                         <h4 class="text-success">Datos Concurso</h4>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                                 {!! Form::hidden('user_id',  Auth::user()->id ) !!}
                                 {!! Form::label('tema_id', 'Id Tema:', ['class' => 'form-label font-weight-bold']) !!}
                                 {!! Form::select('tema_id', $temas->pluck('nombre', 'id'), null, ['class'=>'form-control']) !!}
@@ -34,11 +33,11 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 {!! Form::label('fechaini', 'Fecha de Inicio:', ['class' => 'form-label font-weight-bold']) !!}
-                                {!! Form::date('fechaini', null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                                {!! Form::date('fechaini', now(), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
                             </div>
                             <div class="form-group col-md-6">
                                 {!! Form::label('fechafin', 'Fecha Finalizacion:', ['class' => 'form-label font-weight-bold']) !!}
-                                {!! Form::date('fechafin', null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                                {!! Form::date('fechafin', now(), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
                             </div>
                         </div>
                         <h4 class="text-success">Configuracion</h4>
@@ -48,8 +47,8 @@
                                 {!! Form::number('nropreguntas', 10, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
                             </div>
                             <div class="form-group col-md-4">
-                                {!! Form::label('limiterespuestasincorrectas', 'Número respuestas incorrectas permitidas:', ['class' => 'form-label font-weight-bold']) !!}
-                                {!! Form::number('limiterespuestasincorrectas', 0, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                                {!! Form::label('limiterespuestaserroneas', 'Número respuestas incorrectas permitidas:', ['class' => 'form-label font-weight-bold']) !!}
+                                {!! Form::number('limiterespuestaserroneas', 0, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
                             </div>
                             <div class="form-group col-md-4">
                                 {!! Form::label('puntosporrespuesta', 'Puntos por respuesta correcta:', ['class' => 'form-label font-weight-bold']) !!}

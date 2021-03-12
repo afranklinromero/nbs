@@ -8,4 +8,5 @@ class Configuracion extends Model
 {
     //
     protected $table = 'configuracion';
+    protected $fillable = ['nropreguntas', 'limiterespuestaserroneas', 'puntosporrespuesta', 'tiempolimite'];
 }

@@ -12,6 +12,11 @@ class SugerenciasnbsController extends Controller
 {
     //
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request){
 
         $sugerenciasnbss = SugerenciasNBS::orderby('id', 'DESC')->paginate(5);

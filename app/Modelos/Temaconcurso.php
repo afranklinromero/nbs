@@ -8,6 +8,7 @@ class Temaconcurso extends Model
 {
     //
     protected $table = 'temaconcurso';
+    protected $fillable = ['tema_id', 'concurso_id', 'estado'];
 
     public function tema(){
         return $this->belongsTo('App\Modelos\Tema', 'tema_id','id');

@@ -8,6 +8,7 @@ class Concurso extends Model
 {
     //
     protected $table = 'concurso';
+    protected $fillable = ['user_id', 'configuracion_id', 'nombre', 'descripcion', 'picture', 'fechaini', 'fechafin', 'estado'];
 
     public function configuracion(){
         return $this->belongsTo('App\Modelos\Configuracion', 'configuracion_id','id');

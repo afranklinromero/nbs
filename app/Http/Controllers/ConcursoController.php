@@ -9,6 +9,7 @@ use App\Modelos\Respuesta;
 use App\Modelos\Tema;
 use App\Modelos\Temaconcurso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConcursoController extends Controller
 {
@@ -16,14 +17,24 @@ class ConcursoController extends Controller
     public $n = 10;
     public $preguntas = null;
 
+    public function __construct(Request $request)
+    {
+        $this->middleware('auth');
+        
+        if (!Auth::user()->hasRole('adm'))
+            abort(403);
+    }
+
     public function index(Request $request){
         $estado = 1;
-        $concursos=Concurso::orderBy('id', 'DESC')->paginate(10);
+        if (isset($request->estado)) $estado = $request->estado;
+        
+        $temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(10);
 
-        $request->session()->put('info', 'Listado de preguntas');
+        $request->session()->put('info', 'Listado de concursos');
 
 
-        return view('concurso.index',compact('concursos', 'estado'));
+        return view('concurso.index',compact('temaconcursos', 'estado'));
     }
 
     public function buscar(Request $request){
@@ -101,9 +112,21 @@ class ConcursoController extends Controller
     }
 
     public function store (Request $request){
+        $configuracion = new Configuracion($request->only(['nropreguntas', 'limiterespuestaserroneas', 'puntosporrespuesta', 'tiempolimite']));
+        $configuracion->save();
 
-        $configuracion = new Configuracion($request->all);
-        dd($configuracion);
+        $concurso = new Concurso($request->only(['nombre', 'descripcion', 'picture', 'fechaini', 'fechafin']));
+        $concurso->user_id = Auth::user()->id;
+        $concurso->configuracion_id = $configuracion->id;
+
+        $concurso->save();
+
+        $temaconcurso = new Temaconcurso([
+            'tema_id' => $request->tema_id,
+            'concurso_id' => $concurso->id
+        ]);
+
+        $temaconcurso->save();
 
         return redirect()->route('concurso.index')
                         ->with('info','El Tipoproducto fue guardado');

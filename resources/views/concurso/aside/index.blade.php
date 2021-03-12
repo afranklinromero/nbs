@@ -35,12 +35,12 @@
     </div>
     <div class="col-md-6">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            {{$concursos->links()}}
+            {{$temaconcursos->links()}}
         </div>
     </div>
 </div>
 
-<p class="text-success">{{ $concursos->total() }} registros encontrados, pagina {{ $concursos->currentPage() }} de {{ $concursos->lastPage() }}</p>
+<p class="text-success">{{ $temaconcursos->total() }} registros encontrados, pagina {{ $temaconcursos->currentPage() }} de {{ $temaconcursos->lastPage() }}</p>
 
 <table class="table table-striped">
     <thead>
@@ -56,11 +56,11 @@
     </thead>
     <tbody>
 
-        @foreach ($concursos as $key => $concurso)
+        @foreach ($temaconcursos as $key => $temaconcurso)
             @php
-            $color = "";
-            $testado = "";
-                switch($concurso->estado){
+                $color = "";
+                $testado = "";
+                switch($temaconcurso->estado){
                     case 0:
                         $color = "bg-danger";
                         $testado = "Anulado";
@@ -77,24 +77,24 @@
             @endphp
             <tr>
                 <th scope="row"> {{$key+1}}</th>
-                <td>{{ $concurso->id }}</td>
-                <td>{{ $concurso->configuracion_id }}</td>
-                <td>{{ $concurso->nombre }}</td>
-                <td>{{ $concurso->descripcion }}</td>
+                <td>{{ $temaconcurso->id }}</td>
+                <td>{{ $temaconcurso->concurso->user_id }}</td>
+                <td>{{ $temaconcurso->tema->nombre }}</td>
+                <td>{{ $temaconcurso->concurso->nombre }}</td>
                 <td > <span class="text-white {{ $color }}">{{ $testado }}</span></td>
-                <td>{{ $concurso->created_at }}</td>
+                <td>{{ $temaconcurso->created_at }}</td>
                 <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal{{ $concurso->id }}">
+                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal{{ $temaconcurso->id }}">
                         <i class="fas fa-eye"></i>
                     </button>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal{{ $concurso->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal{{ $temaconcurso->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">
-                                VER concurso ID: {{ $concurso->id }}
+                                VER concurso ID: {{ $temaconcurso->id }}
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -110,9 +110,9 @@
                         </div>
                         </div>
                     </div>
-                    <!-- {!! Form::open(['route'=>['concurso.update', $concurso->id]], ['class' =>'d-inline']) !!}
+                    <!-- {!! Form::open(['route'=>['concurso.update', $temaconcurso->id]], ['class' =>'d-inline']) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('id', $concurso->id) !!}
+                        {!! Form::hidden('id', $temaconcurso->id) !!}
                         {!! Form::submit('d', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}-->
                 </td>
