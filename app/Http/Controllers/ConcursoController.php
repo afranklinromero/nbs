@@ -20,21 +20,37 @@ class ConcursoController extends Controller
     public function __construct(Request $request)
     {
         $this->middleware('auth');
-        
-        if (!Auth::user()->hasRole('adm'))
-            abort(403);
+
+        /*if (!Auth::user()->hasRole('admin'))
+            abort(403);*/
     }
 
     public function index(Request $request){
-        $estado = 1;
-        if (isset($request->estado)) $estado = $request->estado;
-        
+
+        //CONCURSOS
+        $concursoEstado = 1;
+        if (isset($request->concursoEstado)) $concursoEstado = $request->concursoEstado;
+
         $temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(10);
 
         $request->session()->put('info', 'Listado de concursos');
 
+        //PREGUNTAS
+        $preguntaEstado = 3;
+        if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
 
-        return view('concurso.index',compact('temaconcursos', 'estado'));
+        if ($preguntaEstado == 3)
+            $preguntas = Pregunta::orderby('id', 'DESC');
+        else
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $preguntaEstado);
+
+        if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
+
+        $preguntas = $preguntas->paginate(5);
+
+
+
+        return view('concurso.index',compact('temaconcursos', 'concursoEstado', 'preguntas', 'preguntaEstado'));
     }
 
     public function buscar(Request $request){
@@ -46,7 +62,7 @@ class ConcursoController extends Controller
 
     public function show ($id){
         $concurso = Concurso::find($id);
-        
+
         return view('concurso.show', compact('concurso'));
     }
 

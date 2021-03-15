@@ -7,10 +7,10 @@
             @include('pregunta.aside.show')
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('pregunta.index') }}" class="btn btn-success">Volver</a>
+                    <a href="{{ route('concurso.index') }}#preguntas" class="btn btn-success">Volver</a>
                 </div>
             </div>
-            
+
         </div>
 
     </div>

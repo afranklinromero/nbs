@@ -18,16 +18,16 @@ class PreguntaController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index(Request $request){
 
-        $estado = 3;
-        if (isset($request->estado)) $estado = $request->estado;
+        $preguntaEstado = 3;
+        if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
 
-        if ($estado == 3)
+        if ($preguntaEstado == 3)
             $preguntas = Pregunta::orderby('id', 'DESC');
         else
-            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $estado);
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $preguntaEstado);
 
         if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
 
