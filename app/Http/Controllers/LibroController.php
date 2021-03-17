@@ -18,7 +18,7 @@ class LibroController extends Controller
         $top = 20;
         $libros = Libro::where('estado', '1')->paginate($paginate);
         if(isset($request->titulo) && ($request->titulo != "")){
-            $titulo = str_replace(' ', '%', $request->titulo);
+            $titulo = '%'. str_replace(' ', '%', $request->titulo) . '%' ;
             $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate($paginate);
             //dd($libros->items());
         }
