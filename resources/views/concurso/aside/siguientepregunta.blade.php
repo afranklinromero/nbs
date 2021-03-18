@@ -15,6 +15,8 @@
                     {{$respuesta->respuesta}}
             </a>
             <br>
+            
         @endforeach
+        <p>Autor: {{ $pregunta->user->name }}</p>
     </div>
 </div>
