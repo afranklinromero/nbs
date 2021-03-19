@@ -16,14 +16,51 @@ class LibroController extends Controller
 
         $paginate = 100;
         $top = 20;
-        $libros = Libro::where('estado', '1')->paginate($paginate);
+        
+        $titulos = ['malaria', 'diagnostico'];
+        //$libros = Libro::whereIn($titulos, 'titulo')->paginate($paginate);
+
+
+
+
+
+
+        
+        $libros = Libro::where(function ($query){
+            $query->where('titulo', 'like', '%malaria%')
+                    ->orWhere('titulo', 'like', '%diagnostico%');
+        })->paginate($paginate);
+        
+
+        /*
         if(isset($request->titulo) && ($request->titulo != "")){
-            $titulo = '%'. str_replace(' ', '%', $request->titulo) . '%' ;
-            $libros = Libro::where('titulo', 'like', '%'.$titulo.'%')->where('estado', '1')->orderBy('titulo', 'ASC')->paginate($paginate);
+            //$titulo = '%'. str_replace(' ', '%', $request->titulo) . '%' ;
+
+            $titulos = explode(" ", $request->titulo) ;
+
+            //dd($titulos);
+
+            //$libros = Libro::where('estado', '1');
+
+            //$libros = $libros->where('titulo', 'like', '%' . $request->titulo . '%');
+
+            foreach ($titulos as $key => $titulo) {
+                $libros = $libros->orWhere('titulo', 'like', $titulo);
+            }
+
+            //dd($libros);
+
+            
+            $libros = $libros->orderBy('titulo', 'ASC')->paginate($paginate);
             //dd($libros->items());
         }
+
+        */
+
         $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
+
         $mensaje=null;
+        
         if ($request->ajax()){
             if(sizeof($libros->items()) > 0){
                 $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
