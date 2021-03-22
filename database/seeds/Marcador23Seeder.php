@@ -12,7 +12,7 @@ class Marcador23Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //LEY 2027 DEL ESTATUTO DEL FUNCIONARIO PUBLICO DEL 27 DE OCTUBRE DE 1999
         Marcador::create([	'libro_id'=>'23', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ESTATUTO DE FUNCIONARIO PÚBLICO', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'TITULO PRELIMINAR - PRINCIPIOS', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1.1', 	'nivel'=>'3', 	'nombre'=>'ARTICULO 1 - PRINCIPIOS', 	'pagina'=>'1',]);
@@ -118,6 +118,7 @@ Marcador::create([	'libro_id'=>'23', 	'numero'=>'1.74', 	'nivel'=>'3', 	'nombre'
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1.75', 	'nivel'=>'3', 	'nombre'=>'ARTICULO 75 - ALCANCE DE LA CARRERA ADMINISTRATIVA', 	'pagina'=>'19',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1.76', 	'nivel'=>'3', 	'nombre'=>'ARTICULO 76 - DESARROLLO REGLAMENTARIO', 	'pagina'=>'19',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1.77', 	'nivel'=>'3', 	'nombre'=>'ARTIRULO 77 - VIGENCIA', 	'pagina'=>'19',]);
+/*
 Marcador::create([	'libro_id'=>'51', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRÓLOGO', 	'pagina'=>'10',]);
 Marcador::create([	'libro_id'=>'51', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'10',]);
 Marcador::create([	'libro_id'=>'51', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'OBJETIVO', 	'pagina'=>'11',]);
@@ -167,6 +168,6 @@ Marcador::create([	'libro_id'=>'51', 	'numero'=>'6', 	'nivel'=>'1', 	'nombre'=>'
 Marcador::create([	'libro_id'=>'51', 	'numero'=>'7', 	'nivel'=>'1', 	'nombre'=>'VII ANEXOS', 	'pagina'=>'37',]);
 Marcador::create([	'libro_id'=>'51', 	'numero'=>'8', 	'nivel'=>'1', 	'nombre'=>'BIBLIOGRAFÍA', 	'pagina'=>'52',]);
 Marcador::create([	'libro_id'=>'51', 	'numero'=>'9', 	'nivel'=>'1', 	'nombre'=>'AUTORES', 	'pagina'=>'54',]);
-
+*/
     }
 }

@@ -12,7 +12,7 @@ class Marcador30Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //MANUAL DE AUDITORIA Y NORMA TECNICA
         Marcador::create([	'libro_id'=>'30', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRIMERA PARTE - MANUAL DE AUDITORIA EN SALUD', 	'pagina'=>'14',]);
         Marcador::create([	'libro_id'=>'30', 	'numero'=>'1', 	'nivel'=>'2', 	'nombre'=>'I. INTRODUCCIÓN', 	'pagina'=>'16',]);
         Marcador::create([	'libro_id'=>'30', 	'numero'=>'2', 	'nivel'=>'2', 	'nombre'=>'II.  ANTECEDENTES', 	'pagina'=>'16',]);

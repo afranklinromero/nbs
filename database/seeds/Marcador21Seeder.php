@@ -12,7 +12,7 @@ class Marcador21Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //GUIA TECNICA DE MANEJO DE LA TUBERCULOSIS DROGORRESISTENTE
         Marcador::create([	'libro_id'=>'21', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO I MARCO NORMATIVO', 	'pagina'=>'21',]);
 Marcador::create([	'libro_id'=>'21', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO II ASPECTOS GENERALES DE LA TUBERCULOSIS', 	'pagina'=>'24',]);
 Marcador::create([	'libro_id'=>'21', 	'numero'=>'2.1', 	'nivel'=>'2', 	'nombre'=>'Definición de tuberculosis', 	'pagina'=>'24',]);

@@ -128,7 +128,7 @@ class LibroController extends Controller
         $libro = Libro::find($id);
         //if(isset($request->nombre)) dd($request->nombre);
         $pagina = (isset($request->pagina)? $request->pagina : 1);
-        $documentopdf = (isset($request->documentopdf)? $request->documentopdf : '');
+        $documentopdf = (isset($request->documentopdf)? $request->documentopdf : $libro->documentopdf);
 
         $marcadores = $libro->marcadores()->where('estado', '1')->where('nombre', 'like', '%'. (isset($request->nombre)? $request->nombre:'') .'%' )->paginate(5);
 

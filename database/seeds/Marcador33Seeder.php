@@ -12,7 +12,7 @@ class Marcador33Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //MANUAL DE NORMAS TECNICAS Y OPERATIVAS PARA EL TAMIZAJE, DIAGNOSTICO Y TRATAMIENTO DE LA ENFERMEDAD DE CHAGAS CRONIC
         Marcador::create([	'libro_id'=>'33', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'33', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Diagnostico y Tratamiento de la enfermedad de Chagas Crónica Reciente Infantil', 	'pagina'=>'13',]);
         Marcador::create([	'libro_id'=>'33', 	'numero'=>'1.1', 	'nivel'=>'2', 	'nombre'=>'Población objetivo para diagnóstico y tratamiento de Chagas', 	'pagina'=>'13',]);

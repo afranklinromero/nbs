@@ -12,7 +12,7 @@ class Marcador9Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //GUIA DE PROCEDIMIENTOS DE DESINFECCION PARA EL COVID 19
         Marcador::create([	'libro_id'=>'9', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ANTECEDENTES', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'9', 	'tipomarcador_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'OBJETIVO', 	'pagina'=>'2', 	'vistaprevia'=>'2.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'9', 	'tipomarcador_id'=>'1', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'ALCANCE', 	'pagina'=>'2', 	'vistaprevia'=>'2.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);

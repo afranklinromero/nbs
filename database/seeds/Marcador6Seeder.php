@@ -14,7 +14,8 @@ class Marcador6Seeder extends Seeder
     {
 
 
-
+        //GUIA DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD SEUNDO NIVEL DE ATENCIÓN
+        
         Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'AGRADECIMIENTO', 	'pagina'=>'5', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INSTITUCIONES PARTICIPANTES EN EL CONSENSO Y VALICACION DEL DOCUMENTO', 	'pagina'=>'6', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'7', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);
@@ -109,21 +110,9 @@ class Marcador6Seeder extends Seeder
 
 
 
+/*
 
 
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.3', 	'nivel'=>'2', 	'nombre'=>'Identificación del agente causal', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.4', 	'nivel'=>'2', 	'nombre'=>'Población objetivo de la vigilancia', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.5', 	'nivel'=>'2', 	'nombre'=>'Determinación del número de muestras para laboratorio', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.6', 	'nivel'=>'2', 	'nombre'=>'Duración y periodicidad de la vigilancia', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.7', 	'nivel'=>'2', 	'nombre'=>'Proceso de recolección de datos', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.7', 	'nivel'=>'3', 	'nombre'=>'Pasos para la recolección de datos', 	'pagina'=>'3', 	'vistaprevia'=>'3.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'5.8', 	'nivel'=>'2', 	'nombre'=>'Pasos para toma de muestra', 	'pagina'=>'3', 	'vistaprevia'=>'3.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'6', 	'nivel'=>'1', 	'nombre'=>'Producción y difusión de la información', 	'pagina'=>'5', 	'vistaprevia'=>'5.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'7', 	'nivel'=>'1', 	'nombre'=>'Supervisión de la vigilancia centinela de IRAG', 	'pagina'=>'8', 	'vistaprevia'=>'8.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'8', 	'nivel'=>'1', 	'nombre'=>'Indicadores', 	'pagina'=>'8', 	'vistaprevia'=>'8.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'8.1', 	'nivel'=>'2', 	'nombre'=>'Indicadores operativos de desempeño de los establecimientos de salud dentro del sistema de vigilancia', 	'pagina'=>'10', 	'vistaprevia'=>'10.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'9', 	'nivel'=>'1', 	'nombre'=>'Referencias Bibliográficas', 	'pagina'=>'14', 	'vistaprevia'=>'14.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-Marcador::create([	'libro_id'=>'16', 	'tipomarcador_id'=>'1', 	'numero'=>'10', 	'nivel'=>'1', 	'nombre'=>'Anexos', 	'pagina'=>'18', 	'vistaprevia'=>'18.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
 Marcador::create([	'libro_id'=>'17', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'7', 	'vistaprevia'=>'7.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
 Marcador::create([	'libro_id'=>'17', 	'tipomarcador_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Vigilancia centinela de infección respiratoria aguda grave (IRAG)', 	'pagina'=>'11', 	'vistaprevia'=>'11.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
 Marcador::create([	'libro_id'=>'17', 	'tipomarcador_id'=>'1', 	'numero'=>'2.1', 	'nivel'=>'2', 	'nombre'=>'Propósito de la vigilancia', 	'pagina'=>'11', 	'vistaprevia'=>'11.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
@@ -1318,6 +1307,6 @@ Marcador::create([	'libro_id'=>'50', 	'tipomarcador_id'=>'1', 	'numero'=>'6', 	'
 Marcador::create([	'libro_id'=>'50', 	'tipomarcador_id'=>'1', 	'numero'=>'7', 	'nivel'=>'1', 	'nombre'=>'VII ANEXOS', 	'pagina'=>'37', 	'vistaprevia'=>'37.PNG', 	'created_at'=>'2020-17-12', 	'updated_at'=>'2020-17-12', 	'estado'=>'1',]);
 Marcador::create([	'libro_id'=>'50', 	'tipomarcador_id'=>'1', 	'numero'=>'8', 	'nivel'=>'1', 	'nombre'=>'BIBLIOGRAFÍA', 	'pagina'=>'52', 	'vistaprevia'=>'52.PNG', 	'created_at'=>'2020-17-12', 	'updated_at'=>'2020-17-12', 	'estado'=>'1',]);
 Marcador::create([	'libro_id'=>'50', 	'tipomarcador_id'=>'1', 	'numero'=>'9', 	'nivel'=>'1', 	'nombre'=>'AUTORES', 	'pagina'=>'54', 	'vistaprevia'=>'54.PNG', 	'created_at'=>'2020-17-12', 	'updated_at'=>'2020-17-12', 	'estado'=>'1',]);
-
+*/
     }
 }

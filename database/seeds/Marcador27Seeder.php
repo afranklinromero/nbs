@@ -13,7 +13,7 @@ class Marcador27Seeder extends Seeder
     public function run()
     {
         //
-        //MALARIA
+        //NORMAS BOLIVIANAS DE DIAGNOSTICO Y TRATAMIENTO DE LA MALARIA
         Marcador::create([	'libro_id'=>'27', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'RESOLUCION MINISTERIAL 0243', 	'pagina'=>'4', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'27', 	'tipomarcador_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'6', 	'vistaprevia'=>'2.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'27', 	'tipomarcador_id'=>'1', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'ABREVIACIONES', 	'pagina'=>'7', 	'vistaprevia'=>'3.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);

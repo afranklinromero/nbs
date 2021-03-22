@@ -12,7 +12,7 @@ class Marcador26Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //LISTA NACIONAL DE MEDICAMENTOS ESENCIALES LINAME 2018-2020
         Marcador::create([	'libro_id'=>'26', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Lista de medicamentos esenciales LINAME 2018 - 2020 (Según orden alfabético)', 	'pagina'=>'23',]);
 Marcador::create([	'libro_id'=>'26', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Lista de medicamentos esenciales LINAME 2018 - 2020 (Según clasificacion internacional) Anátomo - Terapéutico - Químico ATQ)', 	'pagina'=>'59',]);
 Marcador::create([	'libro_id'=>'26', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'Anexo 1 - Medicamentos incluídos 2018 - 2020', 	'pagina'=>'109',]);

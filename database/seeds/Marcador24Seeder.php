@@ -12,7 +12,7 @@ class Marcador24Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //LEY 3131 LEY DEL EJERCICIO PROFESIONAL MEDICO
         Marcador::create([	'libro_id'=>'24', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I - OBJETO Y AMBITO DE APLICACIÓN', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1.1', 	'nivel'=>'2', 	'nombre'=>'ARTICULO 1 - OBJETO DE LA LEY', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1.2', 	'nivel'=>'2', 	'nombre'=>'ARTICULO 2 - AMBITO DE APLICACIÓN', 	'pagina'=>'1',]);
@@ -41,6 +41,7 @@ Marcador::create([	'libro_id'=>'24', 	'numero'=>'8', 	'nivel'=>'1', 	'nombre'=>'
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1.18', 	'nivel'=>'2', 	'nombre'=>'ARTICULO 18 - CONCILIACION Y ARBITRAJE MEDICO', 	'pagina'=>'6',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'9', 	'nivel'=>'1', 	'nombre'=>'CAPITULO IX - DISPOSICIONES FINALES', 	'pagina'=>'6',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1.19', 	'nivel'=>'2', 	'nombre'=>'ARTICULO UNICO', 	'pagina'=>'6',]);
+/*
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'GLOSARIO DE SIGLAS Y ABREVIATURAS  ', 	'pagina'=>'11',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRÓLOGO  ', 	'pagina'=>'15',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRIMERA PARTE: ASPECTOS GENERALES', 	'pagina'=>'17',]);
@@ -76,6 +77,6 @@ Marcador::create([	'libro_id'=>'24', 	'numero'=>'2.11', 	'nivel'=>'2', 	'nombre'
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'2.12', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 12 Enfermedades del sistema circulatorio  ', 	'pagina'=>'691',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'2.13', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 13 Enfermedades del sistema respiratorio  ', 	'pagina'=>'725',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'2.14', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 14 Enfermedades médicas del sistema digestivo  ', 	'pagina'=>'763',]);
-
+*/
     }
 }

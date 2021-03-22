@@ -12,7 +12,7 @@ class Marcador32Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //'MANUAL DE NORMAS TECNICAS EN TUBERCULOSIS
         Marcador::create([	'libro_id'=>'32', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO I SITUACIÓN EPIDEMIOLÓGICA Y MAGNITUD DEL PROBLEMA', 	'pagina'=>'15',]);
         Marcador::create([	'libro_id'=>'32', 	'numero'=>'2', 	'nivel'=>'2', 	'nombre'=>'CAPÍTULO II DEFINICIONES ACTUALES', 	'pagina'=>'19',]);
         Marcador::create([	'libro_id'=>'32', 	'numero'=>'3', 	'nivel'=>'3', 	'nombre'=>'CAPÍTULO III ASPECTOS GENERALES DE LA TUBERCULOSIS', 	'pagina'=>'22',]);

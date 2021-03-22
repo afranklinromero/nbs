@@ -12,7 +12,7 @@ class Marcador7Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //GUIA DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD TERCER NIVEL DE ATENCIÓN
         Marcador::create([	'libro_id'=>'7', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'AGRADECIMIENTO', 	'pagina'=>'5',]);
         Marcador::create([	'libro_id'=>'7', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INSTITUCIONES PARTICIPANTE EN EL CONSENSO Y VALIDACIÓN DEL DOCUMENTO', 	'pagina'=>'6',]);
         Marcador::create([	'libro_id'=>'7', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'7',]);

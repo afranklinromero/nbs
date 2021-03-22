@@ -13,7 +13,7 @@ class Marcador25Seeder extends Seeder
     public function run()
     {
         //
-        //ID=25 NORMAS NACIONALES DE ATENCION CLINICA
+        //NORMAS NACIONALES DE ATENCION CLINICA - TOMO 1
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'TAPA', 	'pagina'=>'1', 	'vistaprevia'=>'41.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'RESOLUSION MINISTERIAL Nº 0579', 	'pagina'=>'5', 	'vistaprevia'=>'42.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'7', 	'vistaprevia'=>'43.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
@@ -37,15 +37,15 @@ class Marcador25Seeder extends Seeder
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'21', 	'nivel'=>'2', 	'nombre'=>'La responsabilidad del sector en la Constituciòn Politica del estado', 	'pagina'=>'23', 	'vistaprevia'=>'61.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'22', 	'nivel'=>'2', 	'nombre'=>'Bases normativas del derecho a la salud', 	'pagina'=>'23', 	'vistaprevia'=>'62.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'23', 	'nivel'=>'2', 	'nombre'=>'Instrumentos internacionales y regionales del carácter general', 	'pagina'=>'23', 	'vistaprevia'=>'63.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'24', 	'nivel'=>'2', 	'nombre'=>'Universalidad', 	'pagina'=>'24', 	'vistaprevia'=>'64.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'25', 	'nivel'=>'2', 	'nombre'=>'Interdependencia e indivisibilidad', 	'pagina'=>'24', 	'vistaprevia'=>'65.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'26', 	'nivel'=>'2', 	'nombre'=>'Carácter individual y social', 	'pagina'=>'24', 	'vistaprevia'=>'66.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'27', 	'nivel'=>'2', 	'nombre'=>'progresividad e irreversibilidad', 	'pagina'=>'24', 	'vistaprevia'=>'67.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'28', 	'nivel'=>'2', 	'nombre'=>'Irrenunciabilidad', 	'pagina'=>'24', 	'vistaprevia'=>'68.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'29', 	'nivel'=>'2', 	'nombre'=>'Principios rectores', 	'pagina'=>'24', 	'vistaprevia'=>'69.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'30', 	'nivel'=>'2', 	'nombre'=>'Igualdad', 	'pagina'=>'24', 	'vistaprevia'=>'70.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'31', 	'nivel'=>'2', 	'nombre'=>'Accesibilidad', 	'pagina'=>'24', 	'vistaprevia'=>'71.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'32', 	'nivel'=>'2', 	'nombre'=>'Gratitud', 	'pagina'=>'24', 	'vistaprevia'=>'72.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'25', 	'nivel'=>'2', 	'nombre'=>'Universalidad', 	'pagina'=>'25', 	'vistaprevia'=>'64.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'25', 	'nivel'=>'2', 	'nombre'=>'Interdependencia e indivisibilidad', 	'pagina'=>'25', 	'vistaprevia'=>'65.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'26', 	'nivel'=>'2', 	'nombre'=>'Carácter individual y social', 	'pagina'=>'25', 	'vistaprevia'=>'66.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'27', 	'nivel'=>'2', 	'nombre'=>'progresividad e irreversibilidad', 	'pagina'=>'25', 	'vistaprevia'=>'67.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'28', 	'nivel'=>'2', 	'nombre'=>'Irrenunciabilidad', 	'pagina'=>'25', 	'vistaprevia'=>'68.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'29', 	'nivel'=>'2', 	'nombre'=>'Principios rectores', 	'pagina'=>'25', 	'vistaprevia'=>'69.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'30', 	'nivel'=>'2', 	'nombre'=>'Igualdad', 	'pagina'=>'25', 	'vistaprevia'=>'70.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'31', 	'nivel'=>'2', 	'nombre'=>'Accesibilidad', 	'pagina'=>'25', 	'vistaprevia'=>'71.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'32', 	'nivel'=>'2', 	'nombre'=>'Gratitud', 	'pagina'=>'25', 	'vistaprevia'=>'72.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'33', 	'nivel'=>'2', 	'nombre'=>'Equidad', 	'pagina'=>'25', 	'vistaprevia'=>'73.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'34', 	'nivel'=>'2', 	'nombre'=>'Responsabilidades generales del estado', 	'pagina'=>'25', 	'vistaprevia'=>'74.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'35', 	'nivel'=>'2', 	'nombre'=>'Positiva', 	'pagina'=>'25', 	'vistaprevia'=>'75.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
@@ -238,13 +238,20 @@ class Marcador25Seeder extends Seeder
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'222', 	'nivel'=>'1', 	'nombre'=>'SEGUNDA PARTE: NORMAS NACIONALES DE ATENCIÓN CLÍNICA', 	'pagina'=>'78', 	'vistaprevia'=>'262.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'223', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'78', 	'vistaprevia'=>'263.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'224', 	'nivel'=>'1', 	'nombre'=>'PARTICIPANTES EN LA ELABORACIÓN DE LAS NNAC', 	'pagina'=>'79', 	'vistaprevia'=>'264.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'225', 	'nivel'=>'1', 	'nombre'=>'UNIDAD 1. TRAUMATISMOS Y ENVENENAMIENTOS EMERGENCIAS/URGENCIAS', 	'pagina'=>'89', 	'vistaprevia'=>'265.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'226', 	'nivel'=>'1', 	'nombre'=>'CONTENIDO', 	'pagina'=>'90', 	'vistaprevia'=>'266.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'227', 	'nivel'=>'1', 	'nombre'=>'I. ASPECTOS Y ACTIVIDADES DE LA APLICACIÓN FUNDAMENTAL', 	'pagina'=>'91', 	'vistaprevia'=>'267.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'228', 	'nivel'=>'2', 	'nombre'=>'1. PREVENCIÓN DE ESTILOS DE VIDA NO SALUDABLES', 	'pagina'=>'91', 	'vistaprevia'=>'268.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'229', 	'nivel'=>'3', 	'nombre'=>'ANTECEDENTES', 	'pagina'=>'91', 	'vistaprevia'=>'269.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'230', 	'nivel'=>'4', 	'nombre'=>'CAMPOS DE SALUD DE LALONDE', 	'pagina'=>'91', 	'vistaprevia'=>'270.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'231', 	'nivel'=>'3', 	'nombre'=>'MEDIDAS PREVENTIVAS RELACIONADAS CON ESTILOS DE VIDA NO SALUDABLES', 	'pagina'=>'92', 	'vistaprevia'=>'271.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.1', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 1 Traumatismos y envenenamientos / emergencias / urgencias  ', 	'pagina'=>'89',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.2', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 2 Atención de la violencia y sus efectos  ', 	'pagina'=>'185',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.3', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 3 Enfermedades infecciosas y parasitarias  ', 	'pagina'=>'225',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.4', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 4 Tumores  ', 	'pagina'=>'375',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.5', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 5 Enfermedades de la sangre y de los órganos hematopoyéticos  ', 	'pagina'=>'397',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.6', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 6 Enfermedades endócrinas  ', 	'pagina'=>'423',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.7', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 7 Alimentación y nutrición  ', 	'pagina'=>'461',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.8', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 8 Trastornos mentales y del comportamiento  ', 	'pagina'=>'531',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.9', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 9 Enfermedades del sistema nervioso  ', 	'pagina'=>'599',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.1', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 10 Enfermedades del ojo y sus anexos  ', 	'pagina'=>'629',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.11', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 11 Enfermedades del oído y de la apófisis mastoides  ', 	'pagina'=>'679',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.12', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 12 Enfermedades del sistema circulatorio  ', 	'pagina'=>'691',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.13', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 13 Enfermedades del sistema respiratorio  ', 	'pagina'=>'725',]);
+Marcador::create([	'libro_id'=>'25', 	'numero'=>'2.14', 	'nivel'=>'2', 	'nombre'=>'UNIDAD 14 Enfermedades médicas del sistema digestivo  ', 	'pagina'=>'763',]);
 
     }
 }

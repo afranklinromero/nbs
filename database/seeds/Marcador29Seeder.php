@@ -12,7 +12,7 @@ class Marcador29Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //ATENCION INTEGRADA AL CONTINUO DEL CURSO DE LA VIDA ADOLESCENTE - MUJER EN EDAD FERTIL - MUJER DURANTE EL EMBARAZO,
         Marcador::create([	'libro_id'=>'29', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Enfoque del continuo de atención en el curso de la vida', 	'pagina'=>'3',]);
         Marcador::create([	'libro_id'=>'29', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Marco Legar que sustenta el enfoque del continuo de atencion', 	'pagina'=>'4',]);
         Marcador::create([	'libro_id'=>'29', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Contenido', 	'pagina'=>'5',]);

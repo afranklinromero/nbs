@@ -12,7 +12,7 @@ class Marcador37Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //MANUAL TECNICO PROGRAMA AMPLIADO INMUNAZIÓN FAMILIAR Y COMUNITARIA
         Marcador::create([	'libro_id'=>'37', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'MÓDULO I. Promoción de la Salud', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'37', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'MÓDULO II. Conociendo el PAI', 	'pagina'=>'35',]);
         Marcador::create([	'libro_id'=>'37', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'MÓDULO III. La Organización y Planificación del PAI', 	'pagina'=>'51',]);

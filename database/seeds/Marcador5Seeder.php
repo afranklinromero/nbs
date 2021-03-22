@@ -12,7 +12,7 @@ class Marcador5Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //ESTATUTO DEL TRABAJADOR EN SALUD DS. Nº 28909
         Marcador::create([	'libro_id'=>'5', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'TÍTULO 1 - DISPOSICIONES GENERALES', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'5', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO 1 - DE LA DEFINICIÓN, ÁMBITO DE APLICACIÓN, OBJETO Y PRINCIPIO', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'5', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ARTÍCULO 1.- DEFINICIÓN', 	'pagina'=>'1', 	'vistaprevia'=>'1.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);

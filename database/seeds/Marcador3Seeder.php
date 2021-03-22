@@ -11,6 +11,7 @@ class Marcador3Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //DECRETO SUPREMO N° 28562
+
     }
 }

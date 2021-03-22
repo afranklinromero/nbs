@@ -12,7 +12,7 @@ class Marcador34Seeder extends Seeder
      */
     public function run()
     {
-        //
+        //MANUAL DE APLICACIÓN DE PRESTACIONES
         Marcador::create([	'libro_id'=>'34', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Presentación', 	'pagina'=>'9',]);
         Marcador::create([	'libro_id'=>'34', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'34', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'Resolución Ministerial', 	'pagina'=>'10',]);
