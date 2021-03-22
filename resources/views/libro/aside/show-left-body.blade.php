@@ -11,7 +11,7 @@
             {!! Form::hidden('documentopdf', $marcadores[0]->libro->documentopdf, null) !!}
             {!! Form::hidden('pagina', '1', null) !!}
             
-            <a class="go-to-page-1" href="{{asset('libros') }}/{{$marcadores[0]->libro->documentopdf}}#page=1">
+            <a class="go-to-page-1" href="{{asset('libros') }}/{{$marcadores[0]->libro->documentopdf}}#page={{$pagina}}">
                 pagina1
             </a>
         {!! Form::close() !!}

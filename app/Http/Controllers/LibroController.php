@@ -17,53 +17,46 @@ class LibroController extends Controller
         $paginate = 100;
         $top = 20;
         
-        $titulos = ['malaria', 'diagnostico'];
-        //$libros = Libro::whereIn($titulos, 'titulo')->paginate($paginate);
-
-
-
-
-
-
+        $marcadores = Marcador::where('estado', '1');
+        if (isset($request->titulo)){
+            $marcadores = $marcadores->where('nombre', 'like', '%' . str_replace(' ', '%', $request->titulo) . '%');
+            $titulos = explode(' ', $request->titulo);
+            /*
+            foreach ($titulos as $key => $titulo) {
+                # code...
+                if ($key==0)
+                    $marcadores = $marcadores->where('nombre', 'like', '%' . $titulo . '%');
+                else
+                    $marcadores = $marcadores->orWhere('nombre', 'like', '%' . $titulo . '%');
+            }
+            */
+        }
         
-        $libros = Libro::where(function ($query){
-            $query->where('titulo', 'like', '%malaria%')
-                    ->orWhere('titulo', 'like', '%diagnostico%');
-        })->paginate($paginate);
-        
+        $marcadores = $marcadores->paginate($paginate);
+
+
+
+
 
         /*
-        if(isset($request->titulo) && ($request->titulo != "")){
-            //$titulo = '%'. str_replace(' ', '%', $request->titulo) . '%' ;
-
-            $titulos = explode(" ", $request->titulo) ;
-
-            //dd($titulos);
-
-            //$libros = Libro::where('estado', '1');
-
-            //$libros = $libros->where('titulo', 'like', '%' . $request->titulo . '%');
-
+        $libros = Libro::where(function ($query) {
+            $query->where('titulo', 'like', '%malaria%')
             foreach ($titulos as $key => $titulo) {
-                $libros = $libros->orWhere('titulo', 'like', $titulo);
+                # code...
+                $query = $query->orWhere('titulo', 'like', '%diagnostico%');
             }
-
-            //dd($libros);
-
-            
-            $libros = $libros->orderBy('titulo', 'ASC')->paginate($paginate);
-            //dd($libros->items());
-        }
-
+                    
+        })->paginate($paginate);
         */
 
         $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
 
         $mensaje=null;
-        
+
         if ($request->ajax()){
-            if(sizeof($libros->items()) > 0){
-                $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
+            
+            if(sizeof($marcadores->items()) > 0){
+                $mensaje = "Se encontraron ". sizeof($marcadores->items()) . ' coincidencias';
                 $busqueda = Busqueda::where('frase', $request->titulo)->first();
                 if (isset($busqueda)){
                     $busqueda->frecuencia = $busqueda->frecuencia + 1;
@@ -79,10 +72,10 @@ class LibroController extends Controller
                 $mensaje = "No se encontraron coincidencias!!!";
             }
 
-            return view('libro.aside.index-datos',compact('libros', 'busquedas', 'mensaje'))->render();
+            return view('libro.aside.index-datos',compact('marcadores', 'busquedas', 'mensaje'))->render();
         } else{
 
-            return view('libro.index',compact('libros', 'busquedas', 'mensaje'));
+            return view('libro.index',compact('marcadores', 'busquedas', 'mensaje'));
         }
     }
 
@@ -126,6 +119,7 @@ class LibroController extends Controller
     public function buscar(Request $request){
         //dd($request->dato);
         $dato = $request->dato;
+        
         $libros=Libro::where('titulo', 'like', '%'.$dato.'%')->orderBy('id', 'DESC')->paginate(10);
         return view('libro.index',compact('libros', 'dato'));
     }
@@ -133,13 +127,16 @@ class LibroController extends Controller
     public function show (Request $request, $id){
         $libro = Libro::find($id);
         //if(isset($request->nombre)) dd($request->nombre);
+        $pagina = (isset($request->pagina)? $request->pagina : 1);
+        $documentopdf = (isset($request->documentopdf)? $request->documentopdf : '');
+
         $marcadores = $libro->marcadores()->where('estado', '1')->where('nombre', 'like', '%'. (isset($request->nombre)? $request->nombre:'') .'%' )->paginate(5);
 
         if ($request->ajax()){
-            return view('libro.aside.show-left-body', compact('libro', 'marcadores'))->render();
+            return view('libro.aside.show-left-body', compact('libro', 'marcadores','documentopdf', 'pagina'))->render();
         }
         //$marcadores = Marcador::where('libro_id', $libro->id)->where('estado', '1')->paginate(10);
-        return view('libro.show', compact('libro', 'marcadores'));
+        return view('libro.show', compact('libro', 'marcadores', 'documentopdf', 'pagina'));
     }
 
 

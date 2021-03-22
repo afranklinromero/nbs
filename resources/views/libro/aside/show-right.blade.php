@@ -1,1 +1,1 @@
-<p></p>
+<embed class="embed" src="{{asset('libros') }}/{{$documentopdf}}#page={{$pagina}}" type="application/pdf" width="100%" height="100%" />

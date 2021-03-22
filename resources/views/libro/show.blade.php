@@ -15,15 +15,14 @@
 
 @section('scriptlocal')
 <script>
+    /*
     $(document).ready(function(){
-
         var height = $(window).height();
-
         $('#left-body').height(height/2);
-
         var $form = $('#frmirapagina1');
         cargarPagina($form);
     });
+    */
 
     $(document).on( "click", ".go-to-page", function() {
         event.preventDefault();
