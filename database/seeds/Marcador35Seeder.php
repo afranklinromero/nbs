@@ -13,7 +13,7 @@ class Marcador35Seeder extends Seeder
     public function run()
     {
         //MANUAL DE PROCESOS PARA LA DETECCION, DIAGNOSTICO, TRATAMIENTO Y SEGUIMIENTO DE ENFERMEDAD DE CHAGAS INFANTIL
-        Marcador::create([	'libro_id'=>'35', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'11',]);
+        Marcador::create([	'libro_id'=>'35', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'11','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'35', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'SECCIÓN I: ASPECTOS GENERALES, CLÍNICOS Y DE DIAGNÓSTICO DE LA ENFERMEDAD DE CHAGAS', 	'pagina'=>'13',]);
         Marcador::create([	'libro_id'=>'35', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Agente causal de la enfermedad', 	'pagina'=>'13',]);
         Marcador::create([	'libro_id'=>'35', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Modalidades de transmisión de T. cruzi', 	'pagina'=>'13',]);

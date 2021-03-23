@@ -14,7 +14,7 @@ class Marcador1Seeder extends Seeder
     {
         // NORMAS NACIONALES DE ATENCION CLINICA - TOMO 2
 
-        Marcador::create([	'libro_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'UNIDAD 15. ENFERMEDADES QUIRURGICAS DEL SISTEMA DIGESTIVO', 	'pagina'=>'1',]);
+        Marcador::create([	'libro_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'UNIDAD 15. ENFERMEDADES QUIRURGICAS DEL SISTEMA DIGESTIVO', 	'pagina'=>'1','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Contenido', 	'pagina'=>'2',]);
         Marcador::create([	'libro_id'=>'1', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'I. ASPECTOS Y ANTIVIDADES DE APLICACIÓN FUNDAMENTAL', 	'pagina'=>'3',]);
         Marcador::create([	'libro_id'=>'1', 	'numero'=>'4', 	'nivel'=>'2', 	'nombre'=>'1. PREVENCION DE ESTILOS DE VIDA NO SALUDABLES', 	'pagina'=>'3',]);

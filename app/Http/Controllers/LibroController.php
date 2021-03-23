@@ -16,7 +16,7 @@ class LibroController extends Controller
 
         $paginate = 100;
         $top = 20;
-        
+
         $marcadores = Marcador::where('estado', '1');
         if (isset($request->titulo)){
             $marcadores = $marcadores->where('nombre', 'like', '%' . str_replace(' ', '%', $request->titulo) . '%');
@@ -30,8 +30,10 @@ class LibroController extends Controller
                     $marcadores = $marcadores->orWhere('nombre', 'like', '%' . $titulo . '%');
             }
             */
+        } else {
+            $marcadores = Marcador::join('libro', 'libro.id', 'marcador.libro_id')->where('libro.estado', '1')->where('marcador.esprimero', 1)->orderBy('libro.orden', 'ASC');
         }
-        
+
         $marcadores = $marcadores->paginate($paginate);
 
 
@@ -45,7 +47,7 @@ class LibroController extends Controller
                 # code...
                 $query = $query->orWhere('titulo', 'like', '%diagnostico%');
             }
-                    
+
         })->paginate($paginate);
         */
 
@@ -54,7 +56,7 @@ class LibroController extends Controller
         $mensaje=null;
 
         if ($request->ajax()){
-            
+
             if(sizeof($marcadores->items()) > 0){
                 $mensaje = "Se encontraron ". sizeof($marcadores->items()) . ' coincidencias';
                 $busqueda = Busqueda::where('frase', $request->titulo)->first();
@@ -115,11 +117,11 @@ class LibroController extends Controller
 
     }
 
-    
+
     public function buscar(Request $request){
         //dd($request->dato);
         $dato = $request->dato;
-        
+
         $libros=Libro::where('titulo', 'like', '%'.$dato.'%')->orderBy('id', 'DESC')->paginate(10);
         return view('libro.index',compact('libros', 'dato'));
     }

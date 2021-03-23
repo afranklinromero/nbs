@@ -13,8 +13,8 @@ class Marcador17Seeder extends Seeder
     public function run()
     {
         //GUIA PARA LA VIGILANCIA CENTINELA DE LAS INFECCIONES RESPIRATURIAS AGUDAS GRAVES, IRAG PARTE 2
-        
-        Marcador::create([	'libro_id'=>'17', 	'numero'=>'5.3', 	'nivel'=>'2', 	'nombre'=>'Identificación del agente causal', 	'pagina'=>'27',]);
+
+        Marcador::create([	'libro_id'=>'17', 	'numero'=>'5.3', 	'nivel'=>'2', 	'nombre'=>'Identificación del agente causal', 	'pagina'=>'27','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'17', 	'numero'=>'5.4', 	'nivel'=>'2', 	'nombre'=>'Población objetivo de la vigilancia', 	'pagina'=>'27',]);
         Marcador::create([	'libro_id'=>'17', 	'numero'=>'5.5', 	'nivel'=>'2', 	'nombre'=>'Determinación del número de muestras para laboratorio', 	'pagina'=>'27',]);
         Marcador::create([	'libro_id'=>'17', 	'numero'=>'5.6', 	'nivel'=>'2', 	'nombre'=>'Duración y periodicidad de la vigilancia', 	'pagina'=>'27',]);

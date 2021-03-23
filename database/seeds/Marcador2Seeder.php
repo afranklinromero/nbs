@@ -13,7 +13,7 @@ class Marcador2Seeder extends Seeder
     public function run()
     {
         //NORMAS EN SALUD ORAL
-        Marcador::create([	'libro_id'=>'2', 	'tipomarcador_id'=>'1', 	'numero'=>'6', 	'nivel'=>'2', 	'nombre'=>'II.1. GENERALIDADES', 	'pagina'=>'14', 	'vistaprevia'=>'14.PNG', 	'created_at'=>'2020-11-24', 	'updated_at'=>'2020-11-24', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'2', 	'tipomarcador_id'=>'1', 	'numero'=>'6', 	'nivel'=>'2', 	'nombre'=>'II.1. GENERALIDADES', 	'pagina'=>'14', 	'vistaprevia'=>'14.PNG', 	'created_at'=>'2020-11-24', 	'updated_at'=>'2020-11-24', 	'estado'=>'1','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'2', 	'tipomarcador_id'=>'1', 	'numero'=>'7', 	'nivel'=>'2', 	'nombre'=>'II.2. CONTEXTO DE SALUD ORAL EN BOLIVIA', 	'pagina'=>'15', 	'vistaprevia'=>'15.PNG', 	'created_at'=>'2020-11-24', 	'updated_at'=>'2020-11-24', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'2', 	'tipomarcador_id'=>'1', 	'numero'=>'8', 	'nivel'=>'2', 	'nombre'=>'II.2. GRAFICO 1', 	'pagina'=>'16', 	'vistaprevia'=>'16.PNG', 	'created_at'=>'2020-11-24', 	'updated_at'=>'2020-11-24', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'2', 	'tipomarcador_id'=>'1', 	'numero'=>'9', 	'nivel'=>'2', 	'nombre'=>'II.2. GRAFICO 2', 	'pagina'=>'16', 	'vistaprevia'=>'16.PNG', 	'created_at'=>'2020-11-24', 	'updated_at'=>'2020-11-24', 	'estado'=>'1',]);

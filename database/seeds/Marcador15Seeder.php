@@ -13,7 +13,7 @@ class Marcador15Seeder extends Seeder
     public function run()
     {
         //GUIA PARA EL MANEJO DEL COVID 19
-        Marcador::create([	'libro_id'=>'15', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'5',]);
+        Marcador::create([	'libro_id'=>'15', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'5','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'15', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN MINISTERIAL 0116 09 MAR 2020', 	'pagina'=>'6',]);
         Marcador::create([	'libro_id'=>'15', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'8',]);
         Marcador::create([	'libro_id'=>'15', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'9',]);

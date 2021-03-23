@@ -13,7 +13,7 @@ class Marcador19Seeder extends Seeder
     public function run()
     {
         //GUIA PARA EL MANEJO DE COINFECCION TB/VIH
-        Marcador::create([	'libro_id'=>'19', 	'numero'=>'0', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'11',]);
+        Marcador::create([	'libro_id'=>'19', 	'numero'=>'0', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'11','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'19', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO 1 ASPECTOS EPIDEMIOLÓGICOS', 	'pagina'=>'21',]);
 Marcador::create([	'libro_id'=>'19', 	'numero'=>'1', 	'nivel'=>'2', 	'nombre'=>'VIH-Sida', 	'pagina'=>'21',]);
 Marcador::create([	'libro_id'=>'19', 	'numero'=>'2', 	'nivel'=>'2', 	'nombre'=>'Tuberculosis.', 	'pagina'=>'21',]);

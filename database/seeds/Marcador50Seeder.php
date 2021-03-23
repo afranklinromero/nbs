@@ -13,7 +13,7 @@ class Marcador50Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'50', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ANTECEDENTES', 	'pagina'=>'10',]);
+        Marcador::create([	'libro_id'=>'50', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ANTECEDENTES', 	'pagina'=>'10','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'50', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'DEFINICIONES', 	'pagina'=>'10',]);
 Marcador::create([	'libro_id'=>'50', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'ALCANCE', 	'pagina'=>'11',]);
 Marcador::create([	'libro_id'=>'50', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'OBJETIVOS', 	'pagina'=>'11',]);

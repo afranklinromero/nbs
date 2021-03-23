@@ -13,7 +13,7 @@ class Marcador28Seeder extends Seeder
     public function run()
     {
         //MANUAL DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD PRIMER NIVEL DE ATENCION
-        Marcador::create([	'libro_id'=>'28', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'12',]);
+        Marcador::create([	'libro_id'=>'28', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'12','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'28', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Antecedentes', 	'pagina'=>'12',]);
         Marcador::create([	'libro_id'=>'28', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'Justificación', 	'pagina'=>'12',]);
         Marcador::create([	'libro_id'=>'28', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'Marco conceptual', 	'pagina'=>'13',]);

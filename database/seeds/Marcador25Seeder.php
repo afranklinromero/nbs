@@ -14,7 +14,7 @@ class Marcador25Seeder extends Seeder
     {
         //
         //NORMAS NACIONALES DE ATENCION CLINICA - TOMO 1
-        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'TAPA', 	'pagina'=>'1', 	'vistaprevia'=>'41.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
+        Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'TAPA', 	'pagina'=>'1', 	'vistaprevia'=>'41.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'RESOLUSION MINISTERIAL Nº 0579', 	'pagina'=>'5', 	'vistaprevia'=>'42.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'7', 	'vistaprevia'=>'43.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'25', 	'tipomarcador_id'=>'1', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'INDICE GENERAL', 	'pagina'=>'9', 	'vistaprevia'=>'44.PNG', 	'created_at'=>'2020-17-10', 	'updated_at'=>'2020-17-10', 	'estado'=>'1',]);

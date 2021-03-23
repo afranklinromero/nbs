@@ -13,7 +13,7 @@ class Marcador31Seeder extends Seeder
     public function run()
     {
         //MANUAL DE NORMAS PARA EL DIAGNOSTICO Y TRATAMIENTO DE CHAGAS CONGENITO
-        Marcador::create([	'libro_id'=>'31', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'13',]);
+        Marcador::create([	'libro_id'=>'31', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN', 	'pagina'=>'13','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'31', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO I - MANEJO CLÍNICO DEL CHAGAS CONGÉNITO', 	'pagina'=>'15',]);
         Marcador::create([	'libro_id'=>'31', 	'numero'=>'1', 	'nivel'=>'2', 	'nombre'=>'ESTRATEGIA DE DIAGNÓSTICO Y TRATAMIENTO DE CHAGAS CONGÉNITO', 	'pagina'=>'15',]);
         Marcador::create([	'libro_id'=>'31', 	'numero'=>'1.1', 	'nivel'=>'3', 	'nombre'=>'DIAGNÓSTICO DE CHAGAS CONGÉNITO EN SERVICIOS DE SALUD CON LABORATORIO', 	'pagina'=>'16',]);

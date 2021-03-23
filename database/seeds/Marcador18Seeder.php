@@ -13,7 +13,7 @@ class Marcador18Seeder extends Seeder
     public function run()
     {
         //GUIA PARA LA VIGILANCIA CENTINELA DE LAS INFECCIONES RESPIRATURIAS AGUDAS GRAVES, IRAG PARTE 1
-        Marcador::create([	'libro_id'=>'18', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'7',]);
+        Marcador::create([	'libro_id'=>'18', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'7','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'18', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Vigilancia centinela de infección respiratoria aguda grave (IRAG)', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'18', 	'numero'=>'2.1', 	'nivel'=>'2', 	'nombre'=>'Propósito de la vigilancia', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'18', 	'numero'=>'2.2', 	'nivel'=>'2', 	'nombre'=>'Objetivo general', 	'pagina'=>'11',]);

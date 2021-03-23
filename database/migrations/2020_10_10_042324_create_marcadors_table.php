@@ -24,6 +24,7 @@ class CreateMarcadorsTable extends Migration
             //$table->integer('espadre')->default(1);
             $table->string('nombre', 256);
             $table->integer('pagina');
+            $table->integer('esprimero')->default(0);
             $table->string('vistaprevia', 256)->default('vista.png');
             $table->timestamps();
             $table->integer('estado')->default(1);

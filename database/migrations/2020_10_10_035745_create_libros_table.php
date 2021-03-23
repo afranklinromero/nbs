@@ -24,6 +24,7 @@ class CreateLibrosTable extends Migration
             $table->string('serie', 64);
             $table->string('nropublicacion');
             $table->string('lugarpublicacion', 64);
+            $table->integer('orden');
             $table->timestamps();
             $table->integer('estado')->default(1);
         });

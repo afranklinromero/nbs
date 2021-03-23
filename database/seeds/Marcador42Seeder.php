@@ -13,7 +13,7 @@ class Marcador42Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'42', 	'numero'=>'1', 	'nivel'=>'2', 	'nombre'=>'MARCO CONCEPTUAL', 	'pagina'=>'10',]);
+        Marcador::create([	'libro_id'=>'42', 	'numero'=>'1', 	'nivel'=>'2', 	'nombre'=>'MARCO CONCEPTUAL', 	'pagina'=>'10','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'42', 	'numero'=>'2', 	'nivel'=>'2', 	'nombre'=>'OBJETIVOS ESPECIFICOS', 	'pagina'=>'10',]);
 Marcador::create([	'libro_id'=>'42', 	'numero'=>'3', 	'nivel'=>'2', 	'nombre'=>'NORMATIVA LEGAL, OBLIGATORIEDAD Y CAMPO DE ACCION', 	'pagina'=>'11',]);
 Marcador::create([	'libro_id'=>'42', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I - CONTEXTO DE LA SALUD ORAL EN BOLIVIA', 	'pagina'=>'12',]);

@@ -13,7 +13,7 @@ class Marcador48Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'48', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'7',]);
+        Marcador::create([	'libro_id'=>'48', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'7','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'48', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN MINISTERIAL', 	'pagina'=>'9',]);
 Marcador::create([	'libro_id'=>'48', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'13',]);
 Marcador::create([	'libro_id'=>'48', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPÍTULO I - CONTEXTO NACIONAL DE LA SALUD EN EL ESTADO PLURINACIONAL DE BOLIVIA', 	'pagina'=>'17',]);

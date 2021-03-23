@@ -13,7 +13,7 @@ class Marcador20Seeder extends Seeder
     public function run()
     {
         //GUIA PRACTICA DE MONITOREO Y EVALUACION DEL PROGRAMA NACIONAL DE CONTROL DE LA TUBERCULOSIS
-        Marcador::create([	'libro_id'=>'20', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'15',]);
+        Marcador::create([	'libro_id'=>'20', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'15','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'20', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Introducción', 	'pagina'=>'15',]);
 Marcador::create([	'libro_id'=>'20', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Primera unidad: objetivos', 	'pagina'=>'19',]);
 Marcador::create([	'libro_id'=>'20', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Segunda unidad: conceptos y metodología', 	'pagina'=>'20',]);

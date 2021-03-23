@@ -13,7 +13,7 @@ class Marcador36Seeder extends Seeder
     public function run()
     {
         //MANUAL DE NORMAS Y PROCEDIMIENTOS PARA LA PREVENCION Y CONTROL DEL ANTAVIRUS
-        Marcador::create([	'libro_id'=>'36', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'I. ANTECEDENTES', 	'pagina'=>'11',]);
+        Marcador::create([	'libro_id'=>'36', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'I. ANTECEDENTES', 	'pagina'=>'11','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'36', 	'numero'=>'1.1', 	'nivel'=>'2', 	'nombre'=>'HANTA VIRUS DEL VIEJO MUNDO', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'36', 	'numero'=>'1.2', 	'nivel'=>'2', 	'nombre'=>'HANTA VIRUS DEL NUEVO MUNDO', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'36', 	'numero'=>'1.3', 	'nivel'=>'2', 	'nombre'=>'HISTORIA DEL HANTA VIRUS EN BOLIVIA', 	'pagina'=>'11',]);

@@ -13,7 +13,7 @@ class Marcador10Seeder extends Seeder
     public function run()
     {
         //GUIA DE TAMIZAJE DE CANCER DE CUELLO UTERINO DE MAMA
-        Marcador::create([	'libro_id'=>'10', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'7',]);
+        Marcador::create([	'libro_id'=>'10', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'7','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'10', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN MINISTERIAL 1773 20 NOV 2013', 	'pagina'=>'9',]);
         Marcador::create([	'libro_id'=>'10', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'10', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCIÓN  ', 	'pagina'=>'17',]);

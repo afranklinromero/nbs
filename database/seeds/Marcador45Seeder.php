@@ -13,7 +13,7 @@ class Marcador45Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'45', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Definición', 	'pagina'=>'6',]);
+        Marcador::create([	'libro_id'=>'45', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'Definición', 	'pagina'=>'6','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'45', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'Etiología', 	'pagina'=>'6',]);
 Marcador::create([	'libro_id'=>'45', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'Epidemiología', 	'pagina'=>'6',]);
 Marcador::create([	'libro_id'=>'45', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'Dengue es una sola enfermedad', 	'pagina'=>'8',]);

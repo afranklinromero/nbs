@@ -13,7 +13,7 @@ class Marcador49Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'49', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PROTOCOLO BASICO DEL AISLAMIENTO DEL PACIENTE', 	'pagina'=>'1',]);
+        Marcador::create([	'libro_id'=>'49', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PROTOCOLO BASICO DEL AISLAMIENTO DEL PACIENTE', 	'pagina'=>'1','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'49', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'CASOS SOPECHOSOS DE COVID-19', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'49', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'AISLAMIENTO DEL PACIENTE', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'49', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'TIPO DE ATENCION', 	'pagina'=>'2',]);

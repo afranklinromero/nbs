@@ -13,7 +13,7 @@ class Marcador38Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'38', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'7',]);
+        Marcador::create([	'libro_id'=>'38', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'7','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'38', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'INTRODCCION', 	'pagina'=>'9',]);
         Marcador::create([	'libro_id'=>'38', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'SALUD SEXUAL Y SALUD REPRODUCTIVA', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'38', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'DERECHOS HUMANOS, SEXUALES Y REPRODUCTIVOS', 	'pagina'=>'12',]);

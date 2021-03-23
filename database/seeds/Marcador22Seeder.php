@@ -13,7 +13,7 @@ class Marcador22Seeder extends Seeder
     public function run()
     {
         //LEVANTAMIENTO EPIDEMIOLOGICO INDICE CEO Y CPO-D
-        Marcador::create([	'libro_id'=>'22', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'MARCO CONCEPTUAL', 	'pagina'=>'15',]);
+        Marcador::create([	'libro_id'=>'22', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'MARCO CONCEPTUAL', 	'pagina'=>'15','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'22', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'ANTECEDENTES  ', 	'pagina'=>'17',]);
 Marcador::create([	'libro_id'=>'22', 	'numero'=>'3', 	'nivel'=>'1', 	'nombre'=>'JUSTIFICACIÓN  ', 	'pagina'=>'17',]);
 Marcador::create([	'libro_id'=>'22', 	'numero'=>'4', 	'nivel'=>'1', 	'nombre'=>'OBJETIVOS  ', 	'pagina'=>'18',]);

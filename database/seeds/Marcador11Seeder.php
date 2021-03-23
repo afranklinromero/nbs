@@ -13,7 +13,7 @@ class Marcador11Seeder extends Seeder
     public function run()
     {
         //GUIA DE TRATAMIENTO ANTIRRETROVIRAL EN ADULTOS
-        Marcador::create([	'libro_id'=>'11', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN OMINISTERIAL 0006 10 ENE 2008', 	'pagina'=>'6',]);
+        Marcador::create([	'libro_id'=>'11', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN OMINISTERIAL 0006 10 ENE 2008', 	'pagina'=>'6','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'11', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'8',]);
         Marcador::create([	'libro_id'=>'11', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'10',]);
         Marcador::create([	'libro_id'=>'11', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'LISTA DE CUADROS Y FIGURAS', 	'pagina'=>'12',]);

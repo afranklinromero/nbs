@@ -13,7 +13,7 @@ class Marcador23Seeder extends Seeder
     public function run()
     {
         //LEY 2027 DEL ESTATUTO DEL FUNCIONARIO PUBLICO DEL 27 DE OCTUBRE DE 1999
-        Marcador::create([	'libro_id'=>'23', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ESTATUTO DE FUNCIONARIO PÚBLICO', 	'pagina'=>'1',]);
+        Marcador::create([	'libro_id'=>'23', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'ESTATUTO DE FUNCIONARIO PÚBLICO', 	'pagina'=>'1','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'TITULO PRELIMINAR - PRINCIPIOS', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'1.1', 	'nivel'=>'3', 	'nombre'=>'ARTICULO 1 - PRINCIPIOS', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'23', 	'numero'=>'2', 	'nivel'=>'2', 	'nombre'=>'CAPITULO UNICO - DISPOSICIONES GENERALES', 	'pagina'=>'1',]);

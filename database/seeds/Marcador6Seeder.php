@@ -15,8 +15,8 @@ class Marcador6Seeder extends Seeder
 
 
         //GUIA DE EVALUACION Y ACREDITACION DE ESTABLECIMIENTOS DE SALUD SEUNDO NIVEL DE ATENCIÓN
-        
-        Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'AGRADECIMIENTO', 	'pagina'=>'5', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);
+
+        Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'AGRADECIMIENTO', 	'pagina'=>'5', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INSTITUCIONES PARTICIPANTES EN EL CONSENSO Y VALICACION DEL DOCUMENTO', 	'pagina'=>'6', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACION', 	'pagina'=>'7', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);
         Marcador::create([	'libro_id'=>'6', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCION MINISTERIAL 0090 26 FEB 2008', 	'pagina'=>'8', 	'created_at'=>'2021-02-08', 	'updated_at'=>'2021-02-08', 	'estado'=>'1',]);

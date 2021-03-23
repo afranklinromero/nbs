@@ -13,7 +13,7 @@ class Marcador24Seeder extends Seeder
     public function run()
     {
         //LEY 3131 LEY DEL EJERCICIO PROFESIONAL MEDICO
-        Marcador::create([	'libro_id'=>'24', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I - OBJETO Y AMBITO DE APLICACIÓN', 	'pagina'=>'1',]);
+        Marcador::create([	'libro_id'=>'24', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I - OBJETO Y AMBITO DE APLICACIÓN', 	'pagina'=>'1','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1.1', 	'nivel'=>'2', 	'nombre'=>'ARTICULO 1 - OBJETO DE LA LEY', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'1.2', 	'nivel'=>'2', 	'nombre'=>'ARTICULO 2 - AMBITO DE APLICACIÓN', 	'pagina'=>'1',]);
 Marcador::create([	'libro_id'=>'24', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'CAPITULO II - PRINCIPIOS Y DEFINICIONES', 	'pagina'=>'1',]);

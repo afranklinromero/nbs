@@ -13,7 +13,7 @@ class Marcador44Seeder extends Seeder
     public function run()
     {
         //
-        Marcador::create([	'libro_id'=>'44', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I - DISPOSICIONES GENERALES                                                                                                  1', 	'pagina'=>'14',]);
+        Marcador::create([	'libro_id'=>'44', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I - DISPOSICIONES GENERALES 1', 	'pagina'=>'14','esprimero' =>'1',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'1', 	'nivel'=>'2', 	'nombre'=>'Art. 1. FUNDAMENTACION', 	'pagina'=>'14',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'2', 	'nivel'=>'2', 	'nombre'=>'Art. 2. OBJETIVO GENERAL', 	'pagina'=>'14',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'3', 	'nivel'=>'2', 	'nombre'=>'Art. 3. OBJETIVOS ESPECIFICOS', 	'pagina'=>'14',]);
@@ -21,7 +21,7 @@ Marcador::create([	'libro_id'=>'44', 	'numero'=>'4', 	'nivel'=>'2', 	'nombre'=>'
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'5', 	'nivel'=>'2', 	'nombre'=>'Art. 5. DEFINICIONES', 	'pagina'=>'14',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'6', 	'nivel'=>'2', 	'nombre'=>'Art. 6. CONDICIONES BÁSICAS DEL EC', 	'pagina'=>'18',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'7', 	'nivel'=>'2', 	'nombre'=>'Art. 7. FINALIDADES', 	'pagina'=>'20',]);
-Marcador::create([	'libro_id'=>'44', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'CAPITULO II - TIPOS DE EXPEDIENTE CLINICO                                                                                             7', 	'pagina'=>'20',]);
+Marcador::create([	'libro_id'=>'44', 	'numero'=>'2', 	'nivel'=>'1', 	'nombre'=>'CAPITULO II - TIPOS DE EXPEDIENTE CLINICO 7', 	'pagina'=>'20',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'9', 	'nivel'=>'2', 	'nombre'=>'Art. 8. EXPEDIENTE CLINICO DE HOSPITALIZACION', 	'pagina'=>'20',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'9', 	'nivel'=>'2', 	'nombre'=>'Art. 9. EXPEDIENTE CLINICO DE CONSULTA EXTERNA', 	'pagina'=>'21',]);
 Marcador::create([	'libro_id'=>'44', 	'numero'=>'10', 	'nivel'=>'2', 	'nombre'=>'Art. 10. EXPEDIENTE CLINICO DE EMERGENCIA', 	'pagina'=>'21',]);

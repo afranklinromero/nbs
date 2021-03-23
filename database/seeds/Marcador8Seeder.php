@@ -13,7 +13,7 @@ class Marcador8Seeder extends Seeder
     public function run()
     {
         //GUIA DE MANEJO DE REACCIONES ADVERSAS A FARMACOS DE PRIMERA LINEA
-        Marcador::create([	'libro_id'=>'8', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'5',]);
+        Marcador::create([	'libro_id'=>'8', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'5','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'8', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'7',]);
         Marcador::create([	'libro_id'=>'8', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'CAPITULO I', 	'pagina'=>'11',]);
         Marcador::create([	'libro_id'=>'8', 	'numero'=>'1', 	'nivel'=>'1', 	'nombre'=>'INTRODUCCION', 	'pagina'=>'11',]);

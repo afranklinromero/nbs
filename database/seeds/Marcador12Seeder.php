@@ -13,7 +13,7 @@ class Marcador12Seeder extends Seeder
     public function run()
     {
         //GUIA DE TRATAMIENTO ANTIRRETROVIRAL EN NIÑOS
-        Marcador::create([	'libro_id'=>'12', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN MINISTERIAL 0006 10ENE 2008', 	'pagina'=>'6',]);
+        Marcador::create([	'libro_id'=>'12', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'RESOLUCIÓN MINISTERIAL 0006 10ENE 2008', 	'pagina'=>'6','esprimero' =>'1',]);
         Marcador::create([	'libro_id'=>'12', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'PRESENTACIÓN', 	'pagina'=>'8',]);
         Marcador::create([	'libro_id'=>'12', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'INDICE', 	'pagina'=>'10',]);
         Marcador::create([	'libro_id'=>'12', 	'numero'=>'-', 	'nivel'=>'1', 	'nombre'=>'Lista de cuadros y figuras', 	'pagina'=>'12',]);

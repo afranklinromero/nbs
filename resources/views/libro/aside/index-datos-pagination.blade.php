@@ -18,11 +18,11 @@
                                 {!! Form::hidden('marcador_id', $marcador->id) !!}
                                 {!! Form::hidden('pagina', $marcador->pagina) !!}
                                 {!! Form::hidden('documentopdf', $marcador->libro->documentopdf) !!}
-                                <p class="text-dark"> <strong>LIBRO ›  </strong> <span class="text-secondary"> {{$marcador->libro->documentopdf}}</span> &nbsp; <strong>id: </strong>{{$marcador->libro->id }}</p>
-                                <h4 class="text-info"><a href="{{ route('libro.show', $marcador->libro->id) }}"> {{ $marcador->libro->titulo }}</a> </h4>
+                                <h4 class="text-info"><a href="{{ route('libro.show', $marcador->libro->id) }}">TITULO: {{ $marcador->libro->titulo }}</a> </h4>
+                                <p class="text-dark"> <strong>Nombre archivo ›  </strong> <span class="text-secondary"> {{$marcador->libro->documentopdf}}</span> &nbsp; <strong>orden: </strong>{{$marcador->libro->orden }}</p>
                                 <h5 class="text-info">
-                                    {!! Form::submit($marcador->nombre . ' pag:' . $marcador->pagina, ['class' => 'btn btn-success']) !!} <br>
-                                    <a href="{{ route('libro.show', $marcador->libro->id) }}"> {{ $marcador->nombre }}</a> 
+                                    {!! Form::submit($marcador->nombre . ' pag:' . $marcador->pagina, ['class' => 'btn btn-link']) !!} <br>
+                                    <!--<a href="{{ route('libro.show', $marcador->libro->id) }}"> {{ $marcador->nombre }}</a>-->
                                 </h5>
                                 <p class="text-muted">
                                     <strong class="text-lowercase">serie › </strong> {{ $marcador->libro->serie}} <br>
@@ -30,13 +30,13 @@
                             {!! Form::close() !!}
                         </td>
                     </tr>
-                @endforeach    
+                @endforeach
             @else
-                
+
             @endif
-            
+
         </tbody>
     </table>
-    
-    {{ $marcadores->links() }} 
+
+    {{ $marcadores->links() }}
 </div>
