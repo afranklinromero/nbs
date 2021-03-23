@@ -2,7 +2,7 @@
 <h3><strong class="text-lowercase">Titulo › {{ $libro->titulo }}</strong></h3>
 <div class="row">
     <div class="col-md-4">
-        <img src="{{ asset('tapas/27.png')}}" alt="Malaria" srcset="" width="100%">
+        <img src="{{ asset('tapas/')}}/{{ $libro->tapa }}" alt="Malaria" srcset="" width="100%">
     </div>
     <div class="col-md-8">
         <strong class="text-lowercase">serie › </strong> {{ $libro->serie }} <br>

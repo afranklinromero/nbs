@@ -44,7 +44,7 @@
                 @guest
                     <li style="margin-bottom: -25px;" class="nav-item ">
                         <a class="text-muted nav-link" href="{{ route('login') }}">
-                            <span class="menu_usuario mr-2" style="float:left;" > CONCURSA </span>
+                            <span class="menu_usuario mr-2" style="float:left;" > OLIMPIADAS DE CONOCIMIENTO </span>
                             <i class="fas fa-user-circle fa-2x"> </i>
                         </a>
                     </li>

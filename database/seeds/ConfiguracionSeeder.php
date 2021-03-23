@@ -18,7 +18,7 @@ class ConfiguracionSeeder extends Seeder
             'nropreguntas' => '10',
             'limiterespuestaserroneas' => '10',
             'puntosporrespuesta' => '1',
-            'tiempolimite' => '90',
+            'tiempolimite' => '180',
         ]);
     }
 }
