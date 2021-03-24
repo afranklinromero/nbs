@@ -21,4 +21,17 @@
     <script src="{{ asset('dropzone.js')}}"></script>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <!--<script src="{{asset('js/app.js')}}"></script>-->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJWQ3NJ1EG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LJWQ3NJ1EG');
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
 </head>
