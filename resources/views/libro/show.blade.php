@@ -38,10 +38,18 @@
 
     $(document).on( "click", ".page-link", function() {
         event.preventDefault();
-        var route = $(this).attr('href');
-        $.get(route, function(result){
-            $('.show-left-body').html(result);
-        });
+        var frm = $('#frm-buscar');
+        var href = $(this).attr('href');
+        
+        if (href != null){
+            var page = href.split('page=')[1];
+            console.log(page);
+            $.get(frm.attr('action') + '?page=' + page, frm.serialize(), function(result){
+                $('.show-left-body').html(result);
+            });
+        } else {
+            console.log('href undefined');
+        }
     });
 
     $(document).on('keypress', '.nombre-libro', function(e) {

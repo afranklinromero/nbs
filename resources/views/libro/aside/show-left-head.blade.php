@@ -13,7 +13,7 @@
 <hr>
 <div class="row">
     <div class="col-md-12">
-        <form class="form-buscar" action="{{route('libro.show', $libro->id) }}" method="GET" class="form-inline">
+        <form class="form-buscar" id="frm-buscar" action="{{route('libro.show', $libro->id) }}" method="GET" class="form-inline">
             {{ csrf_field() }}
             <div class="form-group col-md-12 text-center">
                     {!! Form::hidden('libro_id', $libro->id) !!}
