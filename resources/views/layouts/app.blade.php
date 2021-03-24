@@ -28,6 +28,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="footer">
+            </div>
     <ul class="navbar-nav">
                 @if( Auth::check())
                      @if(Auth::user()->hasRole('admin'))

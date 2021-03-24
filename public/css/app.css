@@ -10907,3 +10907,10 @@ a.text-dark:focus {
   border-radius: 20px;
 }
 
+.publicidad {
+  width: 90%;
+  height: auto;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
