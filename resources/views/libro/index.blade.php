@@ -22,8 +22,7 @@ Launch demo modal
         </button>
         </div>
         <div class="modal-body">
-            <img src="<?php echo "http://127.0.0.1:8000/img/publicidad.jpg"; ?> ">
-
+            <img src="{{asset('img/publicidad.jpg')}}">
         </div>
     </div>
     </div>
