@@ -8,7 +8,7 @@
             @yield('contenido')
         </main>
     </div>
-
+    
     @include('layouts.nbs.script')
     
     @yield('scriptlocal')

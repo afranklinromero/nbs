@@ -6,7 +6,9 @@
         @include('layouts.nbs.nav-marcador')
         <main class="py-4">
             @yield('contenido')
+          
         </main>
+        
     </div>
 
     @include('layouts.nbs.script')

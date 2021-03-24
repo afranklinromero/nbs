@@ -1,10 +1,11 @@
 <div id="pagination">
+    
     <div>
         @if (isset($mensaje))
             <p> <strong> encontraron {{$marcadores->total()}} resultados, pagina {{$marcadores->currentPage()}} de {{$marcadores->lastPage()}} </strong></p>
         @endif
     </div>
-    <table class="table">
+    <table class="table-responsive">
         <tbody>
             @if (count($marcadores->items())>0)
                 @foreach($marcadores as $marcador)
@@ -39,4 +40,5 @@
     </table>
 
     {{ $marcadores->links() }}
+    
 </div>
