@@ -21,8 +21,8 @@ class CreateConcursosTable extends Migration
             $table->string('nombre', 256);
             $table->string('descripcion', 512)->default('Concurso para motivar el aprendizaje de las normas bolivianas de salud.');
             $table->string('picture', 256)->default('picture.jpg');
-            $table->dateTime('fechaini')->default(now());
-            $table->dateTime('fechafin')->default(now());
+            $table->timestamp('fechaini')->default(now());
+            $table->timestamp('fechafin')->default(now());
             $table->timestamps();
             $table->integer('estado')->default(1);
 

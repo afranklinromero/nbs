@@ -32,7 +32,8 @@
                 <div class="card-body">
                   <h5 class="card-title">Preguntas</h5><br>
                   <p class="card-text">Puedes sugerir algunas preguntas para las olimpiadas, tu pregunta será evaluada por nuestro equipo, y se mostrará con tu nombre en la olimpiada.</p>
-                  <a href="#preguntas" class="btn btn-outline-success">Ingresar</a>
+                  <a href="{{route('pregunta.create')}}" class="btn btn-outline-success">Registrar</a>
+                  <a href="#preguntas" class="btn btn-outline-success">Ver mis preguntas</a>
                 </div>
             </div>
         </div>
@@ -42,12 +43,12 @@
     <div class="container" id="concurso-body">
         @include('concurso.aside.index')
     </div>
-
-    @include('concurso.aside.index-olimpiadas')
+    
+    @include('concurso.index.concurso')
     <hr>
 
-    @include('pregunta.aside.index')
+    @include('concurso.index.pregunta')
     <hr>
-    @include('clasificacion.aside.index')
+    @include('concurso.index.clasificacion')
 </div>
 @endsection

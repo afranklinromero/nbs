@@ -1,5 +1,7 @@
 
 <h3 id="clasificacion" class="text-primary text-center">TABLAS DE CLASIFICACION</h3>
+@include('concurso.aside.aside.clasificacion')
+@include('concurso.aside.info.clasificacion')
 <div class="row">
     @foreach($temaconcursos as $temaconcurso)
     <div class="col-md-12">
