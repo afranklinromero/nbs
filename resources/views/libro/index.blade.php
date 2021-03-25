@@ -15,7 +15,7 @@
         </button>
         </div>
         <div class="modal-body">
-            <img class="publicidad text-center" src="<?php echo "img/publicidad.jpg"; ?> ">
+            <img src="{{asset('img/publicidad.jpg')}}">
         </div>
     </div>
     </div>

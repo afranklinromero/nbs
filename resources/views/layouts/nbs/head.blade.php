@@ -21,7 +21,7 @@
     <script src="{{ asset('dropzone.js')}}"></script>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <!--<script src="{{asset('js/app.js')}}"></script>-->
-
+    <link rel="icon" href="{{ URL::asset('/img/favicon.png') }}" type="image/x-icon"/>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJWQ3NJ1EG"></script>
 <script>
