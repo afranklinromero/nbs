@@ -37,12 +37,14 @@
         </div>
         <div class="col-md-6">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{route('pregunta.index')}}"></a>
                 {{$preguntas->links()}}
             </div>
         </div>
     </div>
 
     <p class="text-success">{{ $preguntas->total() }} registros encontrados, pagina {{ $preguntas->currentPage() }} de {{ $preguntas->lastPage() }}</p>
+
 
     <table class="table table-striped">
         <thead>
@@ -53,11 +55,11 @@
                 <th scope="col">tema</th>
                 <th scope="col">pregunta</th>
                 <th scope="col">estado</th>
+                <th scope="col">Fecha</th>
                 <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody>
-
             @foreach ($preguntas as $key => $pregunta)
                 @php
                 $color = "";
@@ -84,38 +86,33 @@
                     <td>{{ $pregunta->tema->nombre }}</td>
                     <td>{{ $pregunta->pregunta }}</td>
                     <td > <span class="text-white {{ $color }}">{{ $testado }}</span></td>
-                    <td>{{ $pregunta->created_at }}</td>
+                    <td>{{ $pregunta->created_at->format('d/m/Y') }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $pregunta->id }}">
-                            v
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal{{ $pregunta->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    VER PREGUNTA ID: {{ $pregunta->id }}
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <button type="button" class="btn btn-sm btn-primary ver-pregunta" data-toggle="modal" data-target="#exampleModal{{ $pregunta->id }}">
+                                Ver
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal{{ $pregunta->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        VER PREGUNTA ID: {{ $pregunta->id }}
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @include('pregunta.aside.show')
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    @include('pregunta.aside.show')
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        <!-- {!! Form::open(['route'=>['pregunta.update', $pregunta->id]], ['class' =>'d-inline']) !!}
-                            {!! Form::hidden('_method', 'PUT') !!}
-                            {!! Form::hidden('id', $pregunta->id) !!}
-                            {!! Form::submit('d', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}-->
                     </td>
                 </tr>
             @endforeach

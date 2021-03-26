@@ -44,11 +44,55 @@
         @include('concurso.aside.index')
     </div>
     
-    @include('concurso.index.concurso')
-    <hr>
+    <div id="temaconcurso"> @include('concurso.index.concurso') </div> <hr>
 
-    @include('concurso.index.pregunta')
-    <hr>
-    @include('concurso.index.clasificacion')
+    <div id='pregunta'> @include('concurso.index.pregunta') </div> <hr>
+
+    <div id='clasificacion'> @include('concurso.index.clasificacion') </div> <hr>
+    
 </div>
+@endsection
+
+@section('scriptlocal')
+<script>
+    $(document).on('click', '.page-link', function(e) {
+        event.preventDefault();
+        var href = $(this).attr('href');
+
+        //alert("href preguntas: " + href + " ");
+
+        if (href.indexOf('temaconcurso') > 0){
+            $.get(href, function(result){
+                //console.log(result);
+                $('#temaconcurso').html(result);
+            });
+        }
+
+        if (href.indexOf('pregunta') > 0){
+            $.get(href, function(result){
+                //console.log(result);
+                $('#pregunta').html(result);
+            });
+        }
+    });
+
+    $(document).on('click', '.btn-update', function(e) {
+        event.preventDefault();
+        var frm = $(this).parent();
+        console.log(frm.attr('action'));
+        var pag = $('#pagRespuesta').val();
+        
+        var preguntaPage = $('#preguntaPage');
+        console.log('preguntaPage:' + preguntaPage.attr('href'));
+        $.post(frm.attr('action'), frm.serialize(), function(result){
+            //console.log(result);
+            $('#pregunta').html(result);
+        });
+        
+        $(this).parent().parent().parent().parent().parent().parent().parent().parent().modal('hide');
+        //$(0·modal).show();
+    });
+     
+
+</script>
 @endsection
