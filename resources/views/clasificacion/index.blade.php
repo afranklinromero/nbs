@@ -3,11 +3,8 @@
 @section('contenido')
 <div class="container">
 
-    @include('clasificacion.aside.asaide')
-    @include('clasificacion.aside.info')
+    @include('clasificacion.aside.aside')
     @include('clasificacion.aside.index')
-
-
 
 </div>
 

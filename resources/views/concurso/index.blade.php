@@ -32,7 +32,8 @@
                 <div class="card-body">
                   <h5 class="card-title">Preguntas</h5><br>
                   <p class="card-text">Puedes sugerir algunas preguntas para las olimpiadas, tu pregunta será evaluada por nuestro equipo, y se mostrará con tu nombre en la olimpiada.</p>
-                  <a href="#preguntas" class="btn btn-outline-success">Ingresar</a>
+                  <a href="{{route('pregunta.create')}}" class="btn btn-outline-success">Registrar</a>
+                  <a href="#preguntas" class="btn btn-outline-success">Ver mis preguntas</a>
                 </div>
             </div>
         </div>
@@ -42,12 +43,56 @@
     <div class="container" id="concurso-body">
         @include('concurso.aside.index')
     </div>
+    
+    <div id="temaconcurso"> @include('concurso.index.concurso') </div> <hr>
 
-    @include('concurso.aside.index-olimpiadas')
-    <hr>
+    <div id='pregunta'> @include('concurso.index.pregunta') </div> <hr>
 
-    @include('pregunta.aside.index')
-    <hr>
-    @include('clasificacion.aside.index')
+    <div id='clasificacion'> @include('concurso.index.clasificacion') </div> <hr>
+    
 </div>
+@endsection
+
+@section('scriptlocal')
+<script>
+    $(document).on('click', '.page-link', function(e) {
+        event.preventDefault();
+        var href = $(this).attr('href');
+
+        //alert("href preguntas: " + href + " ");
+
+        if (href.indexOf('temaconcurso') > 0){
+            $.get(href, function(result){
+                //console.log(result);
+                $('#temaconcurso').html(result);
+            });
+        }
+
+        if (href.indexOf('pregunta') > 0){
+            $.get(href, function(result){
+                //console.log(result);
+                $('#pregunta').html(result);
+            });
+        }
+    });
+
+    $(document).on('click', '.btn-update', function(e) {
+        event.preventDefault();
+        var frm = $(this).parent();
+        console.log(frm.attr('action'));
+        var pag = $('#pagRespuesta').val();
+        
+        var preguntaPage = $('#preguntaPage');
+        console.log('preguntaPage:' + preguntaPage.attr('href'));
+        $.post(frm.attr('action'), frm.serialize(), function(result){
+            //console.log(result);
+            $('#pregunta').html(result);
+        });
+        
+        $(this).parent().parent().parent().parent().parent().parent().parent().parent().modal('hide');
+        //$(0·modal).show();
+    });
+     
+
+</script>
 @endsection

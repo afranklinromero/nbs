@@ -41,6 +41,8 @@ Route::get('concurso/responder/{mirespuesta_id}', 'ConcursoController@responder'
 //Route::get('concurso/calificar/{index}/{respuesta_id}/{respuesta_id}', 'ConcursoController@calificar')->name('concurso.calificar');
 Route::resource('concurso', 'ConcursoController');
 
+Route::resource('temaconcurso', 'TemaconcursoController');
+
 Route::resource('participacion', 'ParticipacionController');
 
 Route::resource('clasificacion', 'ClasificacionController');
