@@ -5,7 +5,7 @@
     <div class="card-body">
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                 <a href="{{route('pregunta.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
                 <!-- Button trigger modal -->
@@ -35,11 +35,12 @@
                 {!! Form::close() !!}
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{{route('pregunta.index')}}"></a>
-                {{$preguntas->links()}}
-            </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 fs-6">
+            <a href="{{route('pregunta.index')}}"></a>
+            {{$preguntas->onEachSide(0)->links()}}
         </div>
     </div>
 
@@ -50,13 +51,13 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">id</th>
-                <th scope="col">user id</th>
-                <th scope="col">tema</th>
+                <th scope="col" class="d-none d-md-table-cell">id</th>
+                <th scope="col" class="d-none d-md-table-cell">user id</th>
+                <th scope="col" class="d-none d-md-table-cell">tema</th>
                 <th scope="col">pregunta</th>
-                <th scope="col">estado</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Opciones</th>
+                <th scope="col" class="d-none d-md-table-cell">estado</th>
+                <th scope="col" class="d-none d-md-table-cell">fecha</th>
+                <th scope="col">opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -81,12 +82,12 @@
                 @endphp
                 <tr>
                     <th scope="row"> {{$key+1}}</th>
-                    <td>{{ $pregunta->id }}</td>
-                    <td>{{ $pregunta->user->email }}</td>
-                    <td>{{ $pregunta->tema->nombre }}</td>
+                    <td class="d-none d-md-table-cell">{{ $pregunta->id }}</td>
+                    <td class="d-none d-md-table-cell">{{ $pregunta->user->email }}</td>
+                    <td class="d-none d-md-table-cell">{{ $pregunta->tema->nombre }}</td>
                     <td>{{ $pregunta->pregunta }}</td>
-                    <td > <span class="text-white {{ $color }}">{{ $testado }}</span></td>
-                    <td>{{ $pregunta->created_at->format('d/m/Y') }}</td>
+                    <td class="d-none d-md-table-cell"> <span class="text-white {{ $color }}">{{ $testado }}</span></td>
+                    <td class="d-none d-md-table-cell">{{ $pregunta->created_at->format('d/m/y') }}</td>
                     <td>
                         <!-- Button trigger modal -->
                             <button type="button" class="btn btn-sm btn-primary ver-pregunta" data-toggle="modal" data-target="#exampleModal{{ $pregunta->id }}">

@@ -51,6 +51,7 @@ class ConcursoController extends Controller
 
         
         $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
+        
         //dd($preguntas);
 
 
