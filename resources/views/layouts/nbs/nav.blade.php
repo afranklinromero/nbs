@@ -1,17 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="{{ route('index') }}"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ">
                 @if( Auth::check())
                      @if(Auth::user()->hasRole('admin'))
                      <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('home') }}">INICIO</a>
+                        <img class="mb-3 mr-3 mt-1" src="{{ asset('img/logonobosa3.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="">
+                        <!--<a class="nav-link" href="{{ route('home') }}">INICIO</a>-->
                       </li>
                       <li class="nav-item">
-                      <a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a>
+                      <a class="nav-link btn-outline-success" href="{{ route('libro.index') }}">LIBROS </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>

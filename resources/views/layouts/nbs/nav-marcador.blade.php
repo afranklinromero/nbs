@@ -9,10 +9,10 @@
           @if( Auth::check())
                @if(Auth::user()->hasRole('admin'))
                   <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">INICIO</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a></li>
+                  <!--<li class="nav-item"><a class="nav-link" href="{{ route('libro.index') }}">LIBROS </a></li>
                   <li class="nav-item"><a class="nav-link" href="">USUARIOS</a></li>
                   <li class="nav-item"><a class="nav-link" href="">EXAMENES-.....</a></li>
-                  <li class="nav-item"></li>
+                  <li class="nav-item"></li>-->
               @else
                   <li class="nav-item active"><a class="nav-link" href="{{ route('concurso.index') }}">CONCURSOS <span class="sr-only">(current)</span></a></li>
               @endif
