@@ -109,7 +109,9 @@
                             <td class="d-none d-md-table-cell">{{ $temaconcurso->id }}</td>
                             <td class="d-none d-md-table-cell">{{ $temaconcurso->concurso->usuario->email }}</td>
                             <td class="d-none d-md-table-cell">{{ $temaconcurso->tema->nombre }}</td>
-                            <td>{{ $temaconcurso->concurso->nombre }}</td>
+                            <td> 
+                                <div class="text-truncate" style="max-width: 0;">{{ $temaconcurso->concurso->nombre }}</div>
+                            </td>
                             <td class="d-none d-md-table-cell"> <span class="text-{{ $color }}"> <i class='fas fa-check-circle'></i> </span></td>
                             <td class="d-none d-md-table-cell">{{ $temaconcurso->concurso->fechaini->format('d/m/Y') }}</td>
                             <td class="d-none d-md-table-cell">{{ $temaconcurso->concurso->fechafin->format('d/m/Y') }}</td>

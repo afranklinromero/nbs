@@ -85,7 +85,7 @@
                     <td class="d-none d-md-table-cell">{{ $pregunta->id }}</td>
                     <td class="d-none d-md-table-cell">{{ $pregunta->user->email }}</td>
                     <td class="d-none d-md-table-cell">{{ $pregunta->tema->nombre }}</td>
-                    <td>{{ $pregunta->pregunta }}</td>
+                    <td><span class="d-inline-block text-truncate" style="max-width: 100px;">{{ $pregunta->pregunta }}</span></td>
                     <td class="d-none d-md-table-cell"> <span class="text-white {{ $color }}">{{ $testado }}</span></td>
                     <td class="d-none d-md-table-cell">{{ $pregunta->created_at->format('d/m/y') }}</td>
                     <td>

@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="d-grid gap-2 d-md-flex justify-content-md-star">
-            <h4 class="me-md-2"><span class="text-muted"> Nombre:</span> <strong>{{$temaconcurso->nombre}}</strong></h4>
+            <h4 class="me-md-2"><span class="text-muted"> Nombre:</span> <strong>{{$temaconcurso->concurso->nombre}}</strong></h4>
         </div>
     </div>
     <div class="col-md-6">
