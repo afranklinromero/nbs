@@ -1,5 +1,5 @@
 
-<table class="table">
+<table class="table-responsive">
     <thead>
         <tr>
             <th scope="col">Indice</th>
@@ -24,7 +24,7 @@
                     {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
                     {!! Form::hidden('pagina', $marcador->pagina, null) !!}
                     
-                    <a class="go-to-page" href="{{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
+                    <a class="go-to-page" href="https://docs.google.com/gview?embedded=true&url={{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
                         {{$marcador->nombre}}
                     </a>
                     <p class="text-muted">

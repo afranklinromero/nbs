@@ -6,7 +6,7 @@
             <div class="col-md-4 show-left">
                 @include('libro.aside.show-left')
             </div>
-            <div class="col-15 col-md-8 show-right">
+            <div class="col-md-8 show-right tam">
                 @include('libro.aside.show-right')
             </div>
         </div>

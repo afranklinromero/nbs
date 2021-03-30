@@ -1,6 +1,8 @@
 @extends('layouts.nbs.app')
 
 @section('contenido')
+
+
 <div class="container">
     
     <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
