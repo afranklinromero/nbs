@@ -1,5 +1,6 @@
 
 <div id="marcadores" >
+
     <div class="show-left-head">
         @include('libro.aside.show-left-head')
     </div>
