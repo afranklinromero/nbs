@@ -1,3 +1,4 @@
+
 <h3 id="clasificacion" class="text-primary text-center">TABLAS DE CLASIFICACION</h3>
 <div class="row">
     @foreach($temaconcursos as $temaconcurso)
@@ -21,18 +22,36 @@
                     <tbody>
                         @php
                             $nro = 1;
+                            $topclasificacion = $temaconcurso->concurso->clasificaciones->sortByDesc('puntos');
+                            $entop = false;
                         @endphp
-                        @foreach($temaconcurso->concurso->clasificaciones->sortByDesc('puntos') as $clasificacion)
-                        <tr>
+                        @foreach($topclasificacion as $clasificacion)
                             @if ($nro<=10)
-                                <td> {{ $nro }}° </td>
-                                <td> {{ $clasificacion->usuario->name }} </td>
-                                <td> {{ $clasificacion->puntos }} </td>
+                                @if (Auth::user()->id == $clasificacion->usuario->id)
+                                    @php $entop = true; @endphp
+                                    <tr class="bg-success text-white">
+                                        <td> {{ $nro }}° </td>
+                                        <td>*** {{ $clasificacion->usuario->name }} 
+                                        <td> {{ $clasificacion->puntos }} </td>
+                                    </tr>
+                                    
+                                @else
+                                    <tr>
+                                        <td> {{ $nro }}° </td>
+                                        <td> {{ $clasificacion->usuario->name }} 
+                                        <td> {{ $clasificacion->puntos }} </td>
+                                    </tr>
+                                @endif
+                            @else
+                                @if (!$entop && Auth::user()->id == $clasificacion->usuario->id)
+                                    <tr class="bg-success text-white">
+                                        <td> {{ $nro }}° </td>
+                                        <td>*** {{ $clasificacion->usuario->name }} 
+                                        <td> {{ $clasificacion->puntos }} </td>
+                                    </tr>
+                                @endif
                             @endif
-
-                            @php
-                                $nro++;
-                            @endphp
+                            @php $nro++; @endphp
                         </tr>
                         @endforeach
                     </tbody>

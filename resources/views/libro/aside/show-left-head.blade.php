@@ -1,10 +1,10 @@
 
 <h3><strong class="text-lowercase">Titulo › {{ $libro->titulo }}</strong></h3>
 <div class="row">
-    <div class="col-md-4">
-        <img src="{{ asset('tapas/')}}/{{ $libro->tapa }}" alt="Malaria" srcset="" width="100%">
+    <div class="col-md-4 col-sm-4 text-center">
+        <img class="rounded img-thumbnail" src="{{ asset('tapas/')}}/{{ $libro->tapa }}" alt="Malaria" srcset="" width="200">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-4">
         <strong class="text-lowercase">serie › </strong> {{ $libro->serie }} <br>
         <strong class="text-lowercase">numero publicación › </strong>{{ $libro->nropublicacion }} <br>
         <a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a>
@@ -13,7 +13,7 @@
 <hr>
 <div class="row">
     <div class="col-md-12">
-        <form class="form-buscar" action="{{route('libro.show', $libro->id) }}" method="GET" class="form-inline">
+        <form class="form-buscar" id="frm-buscar" action="{{route('libro.show', $libro->id) }}" method="GET" class="form-inline">
             {{ csrf_field() }}
             <div class="form-group col-md-12 text-center">
                     {!! Form::hidden('libro_id', $libro->id) !!}

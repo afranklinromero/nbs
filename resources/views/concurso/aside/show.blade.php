@@ -41,7 +41,7 @@
                 </tr>
                 <tr>
                     <td><strong>Id: </strong></td>
-                    <td>{{ $temaconcurso->concurso_id }}</td>
+                    <td>{{ $temaconcurso->concurso->user }}</td>
                 </tr>
                 <tr>
                     <td><strong>Nombre: </strong></td>
@@ -53,11 +53,11 @@
                 </tr>
                 <tr>
                     <td><strong>Fecha Inicio:</strong></td>
-                    <td>{{ $temaconcurso->concurso->fechaini }}</td>
+                    <td>{{ $temaconcurso->concurso->fechaini->format('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <td><strong>Fecha Finalizacion</strong></td>
-                    <td>{{ $temaconcurso->concurso->fechafin }}</td>
+                    <td>{{ $temaconcurso->concurso->fechafin->format('d/m/Y') }}</td>
                 </tr>
                 <tr>
                     <td><strong>Estado</strong></td>

@@ -8,8 +8,11 @@ use App\Modelos\Pregunta;
 use App\Modelos\Respuesta;
 use App\Modelos\Tema;
 use App\Modelos\Temaconcurso;
+use DateTime;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Mime\Message;
 
 class ConcursoController extends Controller
 {
@@ -31,9 +34,9 @@ class ConcursoController extends Controller
         $concursoEstado = 1;
         if (isset($request->concursoEstado)) $concursoEstado = $request->concursoEstado;
 
-        $temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(10);
+        $temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(5)->setPath(route('temaconcurso.index'));;
 
-        $request->session()->put('info', 'Listado de concursos');
+        //$request->session()->put('info', 'Listado de concursos');
 
         //PREGUNTAS
         $preguntaEstado = 3;
@@ -46,7 +49,10 @@ class ConcursoController extends Controller
 
         if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
 
-        $preguntas = $preguntas->paginate(5);
+        
+        $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
+        
+        //dd($preguntas);
 
 
 
@@ -74,14 +80,34 @@ class ConcursoController extends Controller
     }
 
     public function jugar(Request $request, $temaconcurso_id){
-        //dd($temaconcurso_id);
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
-        $n = $temaconcurso->concurso->configuracion->nropreguntas;
-        $index = 1;
-        $preguntas = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->inRandomOrder()->limit(10);
-        $pregunta = $preguntas->first();
-        $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
-        return view('concurso.jugar', compact('pregunta', 'respuestas', 'index', 'n', 'temaconcurso'));
+
+        $enfecha = $temaconcurso->concurso->fechaini < now() && now() < $temaconcurso->concurso->fechafin;
+        
+
+        $pregunta = null;
+        $respuestas = null;
+        if(!isset($temaconcurso)) return redirect()->route('concurso.index')->with('info-concurso', 'registro no encontrado');
+        $paymentDate = new DateTime($temaconcurso->concurso->fechaini);
+        //dd($paymentDate);
+        //if(!isset($temaconcurso) && $temaconcurso->concurso->fechaini) return redirect()->route('concurso.index')->with('info-concurso', 'registro no encontrado');
+
+        
+            $n = $temaconcurso->concurso->configuracion->nropreguntas;
+            $index = 1;
+            $preguntas = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->inRandomOrder()->limit(10);
+            
+            if(isset($preguntas) && count($preguntas->get()) > 0){
+                $pregunta = $preguntas->first();
+                $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
+                return view('concurso.jugar', compact('pregunta', 'respuestas', 'index', 'n', 'temaconcurso'));
+            } else {
+                $request->session()->put('info-concurso', 'No existen las preguntas suficientes para el concurso');
+                $request->session()->put('info', 'Listado de concursos');
+                
+                return redirect()->route('concurso.index');
+            }
+
     }
 
     public function siguientepregunta(Request $request, $index, $temaconcurso_id, $preguntaanterior_id){
@@ -156,13 +182,14 @@ class ConcursoController extends Controller
     }
 
     public function update (Request $request, $id){
+        $temaconcurso = Temaconcurso::find($id);
 
-        $concurso = Concurso::find($id);
+        $temaconcurso->estado = $request->estado;
+        $temaconcurso->concurso->estado = $request->estado;
+        $temaconcurso->updated_at = now();
+        $temaconcurso->concurso->updated_at = now();
 
-        $concurso->estado = $request->estado;
-        $concurso->updated_at = now();
-
-        $concurso->save();
+        $temaconcurso->save();
 
         return redirect()->route('concurso.index')
                         ->with('info','El Tipoproducto fue actualizado');

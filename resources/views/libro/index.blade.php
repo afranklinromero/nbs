@@ -9,7 +9,7 @@
         {{ csrf_field() }}
 
 <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -17,7 +17,7 @@
         </button>
         </div>
         <div class="modal-body">
-            <img class="publicidad text-center" src="<?php echo "img/publicidad.jpg"; ?> ">
+            <img src="{{asset('img/publicidad.jpg')}}" class="img-fluid" >
         </div>
     </div>
     </div>

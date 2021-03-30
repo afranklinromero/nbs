@@ -31,21 +31,12 @@ class PreguntaController extends Controller
 
         if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
 
-        $preguntas = $preguntas->paginate(5);
-
-        //dd($preguntas);
-
-        $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
-
-        $request->session()->put('info', 'Listado de preguntas');
-
-
+        $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
 
         if ($request->ajax())
-            return view('pregunta.aside.index', compact('preguntas', 'temas', 'estado'))
+            return view('concurso.index.pregunta', compact('preguntas', 'preguntaEstado'))
             ->render();
-
-        return view('pregunta.index', compact('preguntas', 'temas', 'estado'));
+        
     }
 
     public function show(Request $request, $id){
@@ -73,10 +64,8 @@ class PreguntaController extends Controller
         $preguntas = pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
 
         if ($request->ajax()){
-            return view('pregunta.aside.index', compact('preguntas'))->render();
+            return redirect()->route('pregunta.index', ['page' => $request->pagePregunta]);
         }
-
-        return redirect()->route('pregunta.index');
     }
 
     public function store(PreguntaRequest $request)
