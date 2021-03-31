@@ -84,7 +84,7 @@
         });
     });
 
-/*
+
     $(document).on('click', '#submit-marcador', function(e) {
         event.preventDefault();
         //alert('ok')
@@ -97,27 +97,6 @@
             $('.container').html(result);
         });
     });
-*/
-    $(document).on('click', '.pagination a', function(e) {
-        event.preventDefault();
-
-        page = $(this).attr('href').split('page=')[1];;
-        console.log('pagina: '+ page);
-        var route = $('#paginationlink').attr('href');
-        //var route = $(this).attr('href');
-        console.log('ruta: ' + route);
-        //alert(route);
-
-        $.get(route,  function(result){
-            //console.log(result);
-            $('#pagination').html(result);
-            //$('pagination').html(result);
-        });
-
-    });
-
-    
-     
 
 </script>
 @endsection
