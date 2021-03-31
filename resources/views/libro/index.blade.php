@@ -84,6 +84,20 @@
         });
     });
 
+/*
+    $(document).on('click', '#submit-marcador', function(e) {
+        event.preventDefault();
+        //alert('ok')
+        var form = $(this).parent().parent();
+        //alert(form.attr('action'));
+        console.log("ruta libro marcador: " + form.attr('action'));
+
+        $.get(form.attr('action'), form.serialize(), function(result){
+            //console.log(result);
+            $('.container').html(result);
+        });
+    });
+*/
     $(document).on('click', '.pagination a', function(e) {
         event.preventDefault();
 

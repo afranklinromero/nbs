@@ -135,7 +135,7 @@ class LibroController extends Controller
         $marcadores = $libro->marcadores()->where('estado', '1')->where('nombre', 'like', '%'. (isset($request->nombre)? $request->nombre:'') .'%' )->paginate(5);
 
         if ($request->ajax()){
-            return view('libro.aside.show-left-body', compact('libro', 'marcadores','documentopdf', 'pagina'))->render();
+            return view('libro.show', compact('libro', 'marcadores','documentopdf', 'pagina'))->render();
         }
         //$marcadores = Marcador::where('libro_id', $libro->id)->where('estado', '1')->paginate(10);
         return view('libro.show', compact('libro', 'marcadores', 'documentopdf', 'pagina'));
