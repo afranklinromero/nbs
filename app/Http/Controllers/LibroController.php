@@ -16,9 +16,10 @@ class LibroController extends Controller
 
         $paginate = 100;
         $top = 20;
-
+        $titulos[] = "";
         $marcadores = Marcador::where('estado', '1');
         if (isset($request->titulo)){
+            
             $marcadores = $marcadores->where('nombre', 'like', '%' . str_replace(' ', '%', $request->titulo) . '%');
             $titulos = explode(' ', $request->titulo);
             /*
@@ -74,10 +75,10 @@ class LibroController extends Controller
                 $mensaje = "No se encontraron coincidencias!!!";
             }
 
-            return view('libro.aside.index-datos',compact('marcadores', 'busquedas', 'mensaje'))->render();
+            return view('libro.aside.index-datos',compact('marcadores', 'busquedas', 'mensaje', 'titulos'))->render();
         } else{
 
-            return view('libro.index',compact('marcadores', 'busquedas', 'mensaje'));
+            return view('libro.index',compact('marcadores', 'busquedas', 'mensaje', 'titulos'));
         }
     }
 

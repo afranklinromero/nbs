@@ -117,7 +117,10 @@ class MarcadorController extends Controller
 
         if ($request->ajax()){
             //<embed class="embed" src="{{asset('libros') }}/MALARIA.pdf#page=4" type="application/pdf" width="100%" height="100%" />
-            return "<embed src='". asset('libros') . "/".$request->documentopdf."#page=".$request->pagina."' type='application/pdf' width='100%' height='100%'/>";
+            //return "<embed src='". asset('libros') . "/".$request->documentopdf."#page=".$request->pagina."' type='application/pdf' width='100%' height='100%'/>";
+            $documentopdf = $request->documentopdf;
+            $pagina = $request->pagina;
+            return view('libro.aside.show-right', compact('documentopdf', 'pagina'))->render();
             //return"<iframe src='https://docs.google.com/gview?embedded=true&url=" + asset('libros') . "/". $request->documentopdf . "#page=" . $request->pagina . "style='width:100%;' height='100%' frameborder='0'></iframe>";
             //return 'okok';
         } else {

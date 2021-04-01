@@ -32,7 +32,6 @@
 <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=291311"></a><br><a href='http://www.websmultimedia.com/contador-de-visitas-gratis'></a><br><a href='http://www.websmultimedia.com/diseno-logotipos'></a>
 <!-- Fin Contador de visitas -->
             <div class="form-group text-center">
-
                 <a href="{{ route('libro.index') }}">
                     <img class="mb-3" src="{{ asset('img/logo.nobosa.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="40%">
                 </a>
@@ -84,7 +83,7 @@
         });
     });
 
-
+    /*
     $(document).on('click', '#submit-marcador', function(e) {
         event.preventDefault();
         //alert('ok')
@@ -97,6 +96,7 @@
             $('.container').html(result);
         });
     });
+    */
 
 </script>
 @endsection

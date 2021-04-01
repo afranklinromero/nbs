@@ -18,14 +18,27 @@
                         <div class="col-8">
                             
                             {!! Form::open(['route' => ['libro.show', $marcador->libro->id], 'method' => 'GET', 'id' => 'frmlibroshow']) !!}
-                                
-                                <h5 class="text-success">LIBRO: {{ $marcador->libro->titulo }}</h5>
-                                <h5> <a id="submitshow" href="#" onclick="document.getElementById('frmlibroshow').submit()"> {{ $marcador->nombre }} pag: {{$marcador->pagina}}</a></h5>
                                 <!--{!! Form::submit($marcador->nombre . ' pag:' . $marcador->pagina, ['class' => 'btn btn-outline-info']) !!}-->
                                 {!! Form::hidden('id', $marcador->libro->id) !!}
                                 {!! Form::hidden('marcador_id', $marcador->id) !!}
                                 {!! Form::hidden('pagina', $marcador->pagina) !!}
                                 {!! Form::hidden('documentopdf', $marcador->libro->documentopdf) !!}
+                                <h5 class="text-success">LIBRO: {{ $marcador->libro->titulo }}</h5>
+                                <h5> <a id="submitshow" href="#" onclick="document.getElementById('frmlibroshow').submit()">
+                                    @php
+                                        $titulomarcado = strtoupper($marcador->nombre);
+
+                                        if (isset($titulos)){
+                                            foreach ($titulos as $key => $value) {
+                                                $titulomarcado = str_replace(strtoupper($value), "<span class='bg-warning'>" .strtoupper($value) . "</span>", $titulomarcado);
+                                            }
+                                        }
+                                        echo $titulomarcado;
+                                    @endphp  
+                                    pag: {{$marcador->pagina}} 
+                                    </a>
+                                </h5>
+                                
                                 
                                 <p class="text-dark"> <strong>Nombre archivo ›  </strong> <span class="text-secondary"> {{$marcador->libro->documentopdf}}</span> &nbsp; <strong>orden: </strong>{{$marcador->libro->orden }}</p>
                                 <!--<p class="text-muted">
