@@ -23,10 +23,8 @@
                     {{ csrf_field() }}
                     {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
                     {!! Form::hidden('pagina', $marcador->pagina, null) !!}
-                    
-                    <a class="go-to-page" href="https://docs.google.com/gview?embedded=true&url={{asset('libros') }}/{{$marcador->libro->documentopdf}}#page={{$marcador->pagina}}">
-                        {{$marcador->nombre}}
-                    </a>
+                    <a class="go-to-page text-success d-none d-sm-none d-md-block" href='#'>{{$marcador->nombre}} [web]</a>
+                    <a class="text-primary d-block d-sm-block d-md-none" target="_blank" href="{{ asset('libros')}}/{{$libro->documentopdf}}#page={{$marcador->pagina}}">{{$marcador->nombre}} [mobil]</a>
                     <p class="text-muted">
                         <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
                         <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
