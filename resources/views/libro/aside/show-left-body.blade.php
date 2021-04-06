@@ -10,12 +10,12 @@
             {{ csrf_field() }}
             {!! Form::hidden('documentopdf', $marcadores[0]->libro->documentopdf, null) !!}
             {!! Form::hidden('pagina', '1', null) !!}
-            
+
             <a class="go-to-page-1" href="{{asset('libros') }}/{{$marcadores[0]->libro->documentopdf}}#page={{$pagina}}" hidden>
                 pagina1
             </a>
         {!! Form::close() !!}
-        
+
         @foreach($marcadores as $marcador)
         <tr>
             <td>
@@ -23,8 +23,8 @@
                     {{ csrf_field() }}
                     {!! Form::hidden('documentopdf', $marcador->libro->documentopdf, null) !!}
                     {!! Form::hidden('pagina', $marcador->pagina, null) !!}
-                    <a class="go-to-page text-success d-none d-sm-none d-md-block" href='#'>{{$marcador->nombre}}</a>
-                    <a class="text-primary d-block d-sm-block d-md-none" target="_blank" href="{{ asset('libros')}}/{{$libro->documentopdf}}#page={{$marcador->pagina}}">{{$marcador->nombre}}</a>
+                    <a class="go-to-page text-success d-none d-sm-none d-md-block" href='#'>{{$marcador->nombre}}[web]</a>
+                    <a class="text-primary d-block d-sm-block d-md-none" target="_blank" href="{{ asset('libros')}}/{{$libro->documentopdf}}#page={{$marcador->pagina}}">{{$marcador->nombre}}[mobil]</a>
                     <p class="text-muted">
                         <strong class="text-lowercase">Numero › </strong> {{ $marcador->numero}} &nbsp;&nbsp;&nbsp;
                         <strong class="text-lowercase">pagina › </strong> {{ $marcador->pagina}} &nbsp;&nbsp;&nbsp;
@@ -34,6 +34,6 @@
             </td>
         </tr>
         @endforeach
-    </tbody>    
+    </tbody>
 </table>
 {{ $marcadores->links() }}

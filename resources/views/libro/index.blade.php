@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    
+
     <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
 
@@ -83,20 +83,23 @@
         });
     });
 
-    /*
-    $(document).on('click', '#submit-marcador', function(e) {
+
+    $(document).on('click', '.submitshow', function(e) {
         event.preventDefault();
         //alert('ok')
         var form = $(this).parent().parent();
         //alert(form.attr('action'));
+        form.submit();
+        /*
         console.log("ruta libro marcador: " + form.attr('action'));
 
         $.get(form.attr('action'), form.serialize(), function(result){
             //console.log(result);
             $('.container').html(result);
         });
+        */
     });
-    */
+
 
 </script>
 @endsection

@@ -1,5 +1,5 @@
 <div id="pagination">
-    
+
     <div>
         @if (isset($mensaje))
             <p> <strong> encontraron {{$marcadores->total()}} resultados, pagina {{$marcadores->currentPage()}} de {{$marcadores->lastPage()}} </strong></p>
@@ -16,7 +16,7 @@
                             </div>
                         </div>
                         <div class="col-8">
-                            
+
                             {!! Form::open(['route' => ['libro.show', $marcador->libro->id], 'method' => 'GET', 'id' => 'frmlibroshow']) !!}
                                 <!--{!! Form::submit($marcador->nombre . ' pag:' . $marcador->pagina, ['class' => 'btn btn-outline-info']) !!}-->
                                 {!! Form::hidden('id', $marcador->libro->id) !!}
@@ -24,7 +24,7 @@
                                 {!! Form::hidden('pagina', $marcador->pagina) !!}
                                 {!! Form::hidden('documentopdf', $marcador->libro->documentopdf) !!}
                                 <h5 class="text-success">LIBRO: {{ $marcador->libro->titulo }}</h5>
-                                <h5> <a id="submitshow" href="#" onclick="document.getElementById('frmlibroshow').submit()">
+                                <h5> <a class="submitshow" href="#">
                                     @php
                                         $titulomarcado = strtoupper($marcador->nombre);
 
@@ -34,12 +34,12 @@
                                             }
                                         }
                                         echo $titulomarcado;
-                                    @endphp  
-                                    pag: {{$marcador->pagina}} 
+                                    @endphp
+                                    pag: {{$marcador->pagina}}
                                     </a>
                                 </h5>
-                                
-                                
+
+
                                 <p class="text-dark"> <strong>Nombre archivo ›  </strong> <span class="text-secondary"> {{$marcador->libro->documentopdf}}</span> &nbsp; <strong>orden: </strong>{{$marcador->libro->orden }}</p>
                                 <!--<p class="text-muted">
                                     <strong class="text-lowercase">serie › </strong> {{ $marcador->libro->serie}} <br>
@@ -53,5 +53,5 @@
             @endif
 
     {{ $marcadores->links() }}
-    
+
 </div>
