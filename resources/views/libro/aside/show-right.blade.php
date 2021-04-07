@@ -5,6 +5,7 @@
 <embed class="d-none d-sm-none d-md-block" src="{{asset('libros')}}/{{$documentopdf}}#page={{$pagina}}" type='application/pdf' width='100%' height='100%'/>
 
 <div class="text-primary d-block d-sm-block d-md-none">
+<!--<div class="text-primary">-->
     <button class="btn btn-sma btn-success" id="anterior"><</button>
     <span id="info"></span>
     <button class="btn btn-small btn-success" id="siguiente">></button>
