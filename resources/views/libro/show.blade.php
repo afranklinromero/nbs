@@ -14,26 +14,73 @@
 @endsection
 
 @section('scriptlocal')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>
+
 <script>
-    /*
-    $(document).ready(function(){
-        var height = $(window).height();
-        $('#left-body').height(height/2);
-        var $form = $('#frmirapagina1');
-        cargarPagina($form);
+    console.log( "n pagina: " + $("#pagina").val());
+    var index = parseInt($("#pagina").val());
+    var pages = 1;
+    var documentopdf = $("#srcdocumentopdf").val();
+    mostrarPagina(index);
+
+    function mostrarPagina(index){
+        console.log("documento: " + documentopdf);
+        pdfjsLib.getDocument(documentopdf).then(doc => {
+            pages = doc._pdfInfo.numPages
+            console.log("el documento contiene " + doc._pdfInfo.numPages + " paginas") ;
+            
+            doc.getPage(index).then((page) => {
+                var canvas = document.getElementById('my_canvas');
+                var context = canvas.getContext('2d');
+                var viewport = page.getViewport(1);
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                });
+                info();
+
+            });
+
+            
+        });
+    }
+
+    function info(){
+        $("#info").text(index + "/" + pages);
+    }
+
+    $(document).on('click', '#anterior', function(e) {
+        event.preventDefault();
+        index = (index>1)? index - 1: index;
+        mostrarPagina(index);            
     });
-    */
+
+    $(document).on('click', '#siguiente', function(e) {
+        event.preventDefault();
+        index = (index<pages)? index + 1: index;
+        mostrarPagina(index);            
+    });
 
     $(document).on( "click", ".go-to-page", function() {
         event.preventDefault();
         var $form = $(this).parent();
+        index = parseInt($(this).prev().val());
         cargarPagina($form);
+        
+        
     });
 
     function cargarPagina($form){
         $.get($form.attr('action'), $form.serialize(), function(result){
             $('.show-right').html(result);
         });
+
+        console.log(' cargando pagina index pagina: ' + index);
+        mostrarPagina(index);
     }
 
     $(document).on( "click", ".page-link", function() {
