@@ -17,11 +17,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>
 
 <script>
-    console.log( "n pagina: " + parametroURL('pagina'));
-    var index = parseInt(parametroURL('pagina'));
-    var pages = 1;
+    var myState = {
+        pdf : null,
+        currentPage: parseInt(parametroURL('pagina')),
+        zoom: 1
+    }
+
+    console.log( "n pagina: " + myState.currentPage);
+
     var documentopdf = $("#srcdocumentopdf").val();
-    mostrarPagina(index);
+    console.log("documento pdf: " + documentopdf);
+
+
+    //render();
 
     function parametroURL(_par) {
         var _p = null;
@@ -42,46 +50,100 @@
         return _p;
     }
 
-    function mostrarPagina(index){
-        console.log("documento: " + documentopdf);
-        pdfjsLib.getDocument(documentopdf).then(doc => {
-            pages = doc._pdfInfo.numPages
-            console.log("el documento contiene " + doc._pdfInfo.numPages + " paginas") ;
-            
-            doc.getPage(index).then((page) => {
-                var canvas = document.getElementById('my_canvas');
-                var context = canvas.getContext('2d');
-                var viewport = page.getViewport(1);
+    pdfjsLib.getDocument(documentopdf).then(pdf => {
+        console.log("hello");
+        console.log("paginas documento: " + pdf._pdfInfo.numPages);
+        $("#numPages").text(pdf._pdfInfo.numPages);
+        $("#current_page").attr("max", pdf._pdfInfo.numPages);
+        myState.pdf = pdf;
 
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
+        render();
+    });
 
-                page.render({
-                    canvasContext: context,
-                    viewport: viewport
-                });
-                info();
+    function render(){
+        myState.pdf.getPage(myState.currentPage).then(page => {
+            var canvas = document.getElementById("pdf_renderer");
+            var ctx = canvas.getContext("2d");
+            var viewport = page.getViewport(myState.zoom);
 
-            });
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
 
-            
+            page.render({
+                canvasContext: ctx,
+                viewport: viewport
+            })
         });
     }
 
-    function info(){
-        $("#info").text(index + "/" + pages);
-    }
 
-    $(document).on('click', '#anterior', function(e) {
+    $(document).on('click', '#go_previous', function(e) {
         event.preventDefault();
-        index = (index>1)? index - 1: index;
-        mostrarPagina(index);            
+
+        if (myState.pdf == null || myState.currentPage == 1) return;
+
+        myState.currentPage--;
+        document.getElementById("current_page").value = myState.currentPage;
+        render();
     });
 
-    $(document).on('click', '#siguiente', function(e) {
+    $(document).on('click', '#go_next', function(e) {
         event.preventDefault();
-        index = (index<pages)? index + 1: index;
-        mostrarPagina(index);            
+
+        if (myState.pdf == null || myState.currentPage >= myState.pdf._pdfInfo.numPages) return;
+
+        myState.currentPage++;
+        document.getElementById("current_page").value = myState.currentPage;
+        render();
+    });
+
+    $(document).on('keypress', '#current_page', function(e) {
+        //event.preventDefault();
+
+        var code = (e.keyCode ? e.keyCode: e.which);
+
+        if (code == 13){
+            var desiredPage = document.getElementById("current_page").valueAsNumber;
+        }
+        if (desiredPage >= 1 && desiredPage <= myState.pdf._pdfInfo.numPages) {
+            myState.currentPage = desiredPage;
+            document.getElementById("current_page").value = myState.currentPage;
+            render();
+        }
+
+    });
+
+    $(document).on('change', '#current_page', function(e) {
+        //event.preventDefault();
+        desiredPage = document.getElementById("current_page").valueAsNumber;
+        console.log( "pagina: " + desiredPage);
+        if (desiredPage >= 1 && desiredPage <= myState.pdf._pdfInfo.numPages) {
+            myState.currentPage = desiredPage;
+            document.getElementById("current_page").value = myState.currentPage;
+            render();
+        }
+
+    });
+
+    $(document).on('click', '#zoom_in', function(e) {
+
+        if (myState.pdf == null ) return;
+
+        myState.zoom = myState.zoom + 0.1;
+        console.log("zoom: " + myState.zoom);
+        $("#zoom_pdf").text((myState.zoom * 100).toFixed() + "%");
+
+        render();
+    });
+
+    $(document).on('click', '#zoom_out', function(e) {
+
+        if (myState.pdf == null ) return;
+
+        myState.zoom = myState.zoom - 0.1;
+        console.log("zoom: " + myState.zoom);
+        $("#zoom_pdf").text((myState.zoom * 100).toFixed() + "%");
+        render();
     });
 
     $(document).on( "click", ".go-to-page", function() {
@@ -89,8 +151,8 @@
         var $form = $(this).parent();
         index = parseInt($(this).prev().val());
         cargarPagina($form);
-        
-        
+
+
     });
 
     function cargarPagina($form){
@@ -106,7 +168,7 @@
         event.preventDefault();
         var frm = $('#frm-buscar');
         var href = $(this).attr('href');
-        
+
         if (href != null){
             var page = href.split('page=')[1];
             console.log(page);
@@ -123,7 +185,7 @@
             event.preventDefault();
             var form = $(this).parent().parent();
             console.log(form.attr('action'));
-            
+
             $.get(form.attr('action'), form.serialize(), function(result){
                 $('.show-left-body').html(result);
             });
@@ -135,14 +197,29 @@
             event.preventDefault();
             var form = $(this).parent().parent();
             console.log(form.attr('action'));
-            
+
             $.get(form.attr('action'), form.serialize(), function(result){
                 console.log(result);
                 $('.show').html(result);
             });
-            
+
         }
     });
+    $(document).on('click', '.submitshow', function(e) {
+        event.preventDefault();
+        //alert('ok')
+        var form = $(this).parent().parent();
+        //alert(form.attr('action'));
+        form.submit();
+        /*
+        console.log("ruta libro marcador: " + form.attr('action'));
+
+        $.get(form.attr('action'), form.serialize(), function(result){
+            //console.log(result);
+            $('.container').html(result);
+        });
+        */
+    });
 </script>
-    
+
 @endsection
