@@ -3,10 +3,10 @@
 <!--<iframe id="iframe1" src="http://docs.google.com/gview?url=normasbolivianasdesalud/libros/{{ $documentopdf }}&embedded=true#:0.page.{{ $pagina }}">-->
 <!--<iframe src="http://docs.google.com/gview?embedded=true&url=https://normasbolivianasdesalud.com/libros/{{ $documentopdf }}#:0.page.15" style="width:100%;" height="100%">-->
 
-<embed class="d-none d-sm-none d-md-block" src="{{asset('libros')}}/{{$documentopdf}}#page={{$pagina}}" type='application/pdf' width='100%' height='100%'/>
+<!--<embed class="d-none d-sm-none d-md-block" src="{{asset('libros')}}/{{$documentopdf}}#page={{$pagina}}" type='application/pdf' width='100%' height='100%'/>-->
 
-<div class="text-white d-block d-sm-block d-md-none">
-<!--<div class="text-white">-->
+<!--<div class="text-white d-block d-sm-block d-md-none">-->
+<div class="text-white">
     <div id="navigation" class="controls text-center bg-dark">
         <button class="btn btn-dark" id="go_previous"><i class="fas fa-chevron-left"></i></button>
         <input type="number" value="1" id="current_page" size="2" min=1 max=10 style="width: 50px">/<span id="numPages">30</span>
