@@ -149,8 +149,8 @@
     $(document).on( "click", ".go-to-page", function() {
         event.preventDefault();
         var $form = $(this).parent();
-        index = parseInt($(this).prev().val());
-        cargarPagina($form);
+        myState.currentPage = parseInt($(this).prev().val());
+        render();
 
 
     });
@@ -160,8 +160,8 @@
             $('.show-right').html(result);
         });
 
-        console.log(' cargando pagina index pagina: ' + index);
-        mostrarPagina(index);
+        console.log(' cargando pagina index pagina: ' + myState.currentPage);
+        render();
     }
 
     $(document).on( "click", ".page-link", function() {
