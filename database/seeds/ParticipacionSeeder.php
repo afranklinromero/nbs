@@ -13,6 +13,6 @@ class ParticipacionSeeder extends Seeder
     public function run()
     {
         //
-        factory(Participacion::class, 200)->create();
+        factory(Participacion::class, 500)->create();
     }
 }
