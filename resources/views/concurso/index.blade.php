@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-3 shadow">
-                <img src="{{ asset('img/imagen2.png') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('img/img2.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Olimpiadas de Conocimiento en Normas de Salud</h5>
                   <p class="card-text">Participa de esta olimpiada, respondiendo 10 preguntas en un determinado tiempo, mientras mas participes tendras mas oportunidad de ganar</p>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-4">
             <div class="card mb-3 shadow">
-                <img src="{{ asset('img/imagen1.png') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('img/img1.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Ver la clasificacion</h5> <br>
                   <p class="card-text">Mira la clasificación en linea, y ve en que lugar estas, tus puntos son acumulativos, mientras mas participes tendras mas oportunidades de ganar.</p>
