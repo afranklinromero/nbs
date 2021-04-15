@@ -17,31 +17,30 @@ class LibroController extends Controller
         $paginate = 100;
         $top = 20;
         $titulos[] = "";
-        $marcadores = Marcador::where('estado', '1');
+        $libros = Libro::where('estado', '1');
         if (isset($request->titulo)){
 
-            $titulos = preg_split("/[\s,]+/", $request->titulo);
+            $titulos = preg_split("/[\s,]+/", trim($request->titulo));
             $tituloinvertido = implode(" ", array_reverse($titulos));
-            $marcadores = $marcadores->where('nombre', 'like', '%' . str_replace(' ', '%', $request->titulo) . '%')
-                                    ->orWhere('nombre', 'like', '%' . str_replace(' ', '%', $tituloinvertido) . '%');
+
+            $libros = $libros->where('titulo', 'like', '%' . str_replace(' ', '%', $request->titulo) . '%')
+                                    ->orWhere('titulo', 'like', '%' . str_replace(' ', '%', $tituloinvertido) . '%');
 
 
             foreach ($titulos as $key => $titulo) {
                 # code...
                 if (!in_array($titulo, ['de', 'los', 'en'])){
-                    $marcadores2 = Marcador::where('estado', 1)->where('nombre', 'like', '%' . $titulo . '%');
-                    $marcadores = $marcadores->union($marcadores2);
+                    $libros2 = Libro::where('estado', 1)->where('titulo', 'like', '%' . $titulo . '%');
+                    $libros = $libros->union($libros2);
                 }
             }
 
         } else {
-            $marcadores = Marcador::join('libro', 'libro.id', 'marcador.libro_id')
-                                    ->where('libro.estado', '1')
-                                    ->where('marcador.esprimero', 1)
-                                    ->orderBy('libro.orden', 'ASC');
+            $libros = Libro::where('estado', '1')
+                            ->orderBy('orden', 'ASC');
         }
 
-        $marcadores = $marcadores->paginate($paginate);
+        $libros = $libros->paginate($paginate);
 
         $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
 
@@ -49,9 +48,9 @@ class LibroController extends Controller
 
         if ($request->ajax()){
 
-            if(sizeof($marcadores->items()) > 0){
+            if(sizeof($libros->items()) > 0){
                 //dd($marcadores2);
-                $mensaje = "Se encontraron ". sizeof($marcadores->items()) . ' coincidencias';
+                $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
                 $busqueda = Busqueda::where('frase', $request->titulo)->first();
                 if (isset($busqueda)){
                     $busqueda->frecuencia = $busqueda->frecuencia + 1;
@@ -68,10 +67,10 @@ class LibroController extends Controller
             }
 
             //dd($marcadores);
-            return view('libro.aside.index-datos',compact('marcadores', 'busquedas', 'mensaje', 'titulos'))->render();
+            return view('libro.aside.index-datos',compact('libros', 'busquedas', 'mensaje', 'titulos'))->render();
         } else{
 
-            return view('libro.index',compact('marcadores', 'busquedas', 'mensaje', 'titulos'));
+            return view('libro.index',compact('libros', 'busquedas', 'mensaje', 'titulos'));
         }
     }
 

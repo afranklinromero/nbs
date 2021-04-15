@@ -4,8 +4,18 @@
 <!--<iframe src="http://docs.google.com/gview?embedded=true&url=https://normasbolivianasdesalud.com/libros/{{ $documentopdf }}#:0.page.15" style="width:100%;" height="100%">-->
 
 <!--<embed class="d-none d-sm-none d-md-block" src="{{asset('libros')}}/{{$documentopdf}}#page={{$pagina}}" type='application/pdf' width='100%' height='100%'/>-->
+<iframe 
+    class='pdfembed' 
+    src= '{{ asset('pdfjs/web/viewer.html') }}?file={{asset('libros/30-Manual de Auditoria y Norma Tecnica.pdf')}}' 
+    width='100%' 
+    height='720px' 
+    style="width: 100%"
+    >
+</iframe>
 
 <!--<div class="text-white d-block d-sm-block d-md-none">-->
+
+<!--
 <div class="text-white">
     <div id="navigation" class="controls text-center bg-dark">
         <button class="btn btn-dark" id="go_previous"><i class="fas fa-chevron-left"></i></button>
@@ -19,7 +29,6 @@
         <div id="canvas_container" style="background: #333; overflow: auto; text-align: center; border: 3px solid;">
             <canvas id="pdf_renderer"></canvas>
         </div>
-
-
     </div>
 </div>
+-->

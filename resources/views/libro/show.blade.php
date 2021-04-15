@@ -3,10 +3,8 @@
 @section('contenido')
     <div class="container">
         <div class="row show">
-            <div class="col-md-4 show-left">
-                @include('libro.aside.show-left')
-            </div>
-            <div class="col-md-8 show-right tam">
+            <div class="col-md-2 show-left"> @include('libro.aside.show-left')</div>
+            <div class="col-md-10 show-right tam">
                 @include('libro.aside.show-right')
             </div>
         </div>
@@ -17,6 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>
 
 <script>
+    $('.pdfembed').attr('height', screen.height -250)
     var myState = {
         pdf : null,
         currentPage: parseInt(parametroURL('pagina')),
