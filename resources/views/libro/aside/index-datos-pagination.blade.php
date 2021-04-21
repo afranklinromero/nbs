@@ -1,57 +1,45 @@
 <div id="pagination">
 
     <div>
-        @if (isset($mensaje))
+        @if (count($libros->items())>0)
             <p> <strong> encontraron {{$libros->total()}} resultados, pagina {{$libros->currentPage()}} de {{$libros->lastPage()}} </strong></p>
         @endif
     </div>
             @if (count($libros->items())>0)
-                @foreach($libros as $libro)
-                <hr>
-                    <div class="row row-cols-2">
-                        <div class="col-2">
-                            <div class="text-center">
-                                <a href="#">
-                                    <img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" class="rounded img-thumbnail" width="150" alt="" srcset="">
-                                </a>
+                <div class="row">
+                    @foreach($libros as $libro)
+                        @php
+                            $titulomarcado = strtoupper($libro->titulo);
+                            if (isset($titulos)){
+                                foreach ($titulos as $key => $value) {
+                                    $titulomarcado = str_replace(strtoupper($value), "<span class='bg-warning'>" .strtoupper($value) . "</span>", $titulomarcado);
+                                }
+                            }
+                            //echo ucwords(strtolower($titulomarcado));
+                        @endphp
+                        
+                        <div class="col-sm-12 col-md-4">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="text-center">
+                                        <a href="{{ route('libro.show', $libro->id) }}">
+                                            <img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" class="rounded img-thumbnail"  alt="" srcset="">
+                                        </a>
+                                        <hr class="bg-info" width="250%">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                        <h5> 
+                                            <a class="text-primary" href="{{ route('libro.show', $libro->id) }}">
+                                                @php echo ucwords(strtolower($titulomarcado)); @endphp
+                                            </a>
+                                        </h5>
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div class="col-8">
-
-                            {!! Form::open(['route' => ['libro.show', $libro->id], 'method' => 'GET', 'id' => 'frmlibroshow']) !!}
-                                <!--{!! Form::submit($libro->titulo . ' pag:' . $libro->id, ['class' => 'btn btn-outline-info']) !!}-->
-                                {!! Form::hidden('id', $libro->id) !!}
-                                {!! Form::hidden('marcador_id', $libro->id) !!}
-                                {!! Form::hidden('pagina', $libro->id) !!}
-                                {!! Form::hidden('documentopdf', $libro->documentopdf) !!}
-                                <!--<h5 class="text-success">{{ $libro->titulo }}</h5>-->
-                                <h5> <a class="submitshow-1" href="{{ route('libro.show', $libro->id) }}">
-                                    @php
-                                        $titulomarcado = strtoupper($libro->titulo);
-
-                                        if (isset($titulos)){
-                                            foreach ($titulos as $key => $value) {
-                                                $titulomarcado = str_replace(strtoupper($value), "<span class='bg-warning'>" .strtoupper($value) . "</span>", $titulomarcado);
-                                            }
-                                        }
-                                        echo $titulomarcado;
-                                    @endphp
-                                    <!--pag: {{$libro->id}}-->
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eligendi similique optio eveniet sint, qui at quibusdam soluta ipsam earum, harum obcaecati cum consequatur voluptatum doloremque, a nisi libero sapiente!
-                                </p>
-
-
-                                <p class="text-dark"> <strong>Nombre archivo ›  </strong> <span class="text-secondary"> {{$libro->documentopdf}}</span> &nbsp; <strong>orden: </strong>{{$libro->orden }}</p>
-                                <!--<p class="text-muted">
-                                    <strong class="text-lowercase">serie › </strong> {{ $libro->serie}} <br>
-                                </p>-->
-                            {!! Form::close() !!}
-                            </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             @else
 
             @endif
