@@ -49,27 +49,27 @@ class LibroController extends Controller
         if ($request->ajax()){
 
             if(sizeof($libros->items()) > 0){
-                //dd($marcadores2);
                 $mensaje = "Se encontraron ". sizeof($libros->items()) . ' coincidencias';
-                $busqueda = Busqueda::where('frase', $request->titulo)->first();
-                if (isset($busqueda)){
-                    $busqueda->frecuencia = $busqueda->frecuencia + 1;
-                    $busqueda->updated_at = now();
-                    $busqueda->save();
-                } else {
-                    $busqueda = new Busqueda();
-                    $busqueda->frase = $request->titulo;
-                    $busqueda->save();
+                if (isset($request->titulo)){
+                    $busqueda = Busqueda::where('frase', $request->titulo)->first();
+                    if (isset($busqueda)){
+                        $busqueda->frecuencia = $busqueda->frecuencia + 1;
+                        $busqueda->updated_at = now();
+                        $busqueda->save();
+                    } else {
+                        $busqueda = new Busqueda();
+                        $busqueda->frase = $request->titulo;
+                        $busqueda->save();
+                    }
+                    $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
                 }
-                $busquedas = Busqueda::where('estado', '1')->orderBy('frecuencia', 'desc')->take($top)->get();
+
             } else {
                 $mensaje = "No se encontraron coincidencias!!!";
             }
 
-            //dd($marcadores);
             return view('libro.aside.index-datos',compact('libros', 'busquedas', 'mensaje', 'titulos'))->render();
         } else{
-
             return view('libro.index',compact('libros', 'busquedas', 'mensaje', 'titulos'));
         }
     }

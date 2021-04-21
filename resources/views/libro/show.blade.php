@@ -18,14 +18,14 @@
     $('.pdfembed').attr('height', screen.height -250)
     var myState = {
         pdf : null,
-        currentPage: parseInt(parametroURL('pagina')),
+        currentPage: 1,//parseInt(parametroURL('pagina')),
         zoom: 1
     }
 
     console.log( "n pagina: " + myState.currentPage);
 
-    var documentopdf = $("#srcdocumentopdf").val();
-    console.log("documento pdf: " + documentopdf);
+    //var documentopdf = $("#srcdocumentopdf").val();
+    //console.log("documento pdf: " + documentopdf);
 
 
     //render();

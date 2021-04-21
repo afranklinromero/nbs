@@ -8,6 +8,7 @@
         <strong class="text-lowercase">titulo › </strong> {{ $libro->titulo }} <br>
         <strong class="text-lowercase">numero publicación › </strong>{{ $libro->lugarpublicacion }} <br>
         <a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a>
+        {!! Form::hidden('documentopdf', $marcadores[0]->libro->documentopdf, ['id'=>'documentopdf']) !!}
     </div>
 </div>
 <hr>

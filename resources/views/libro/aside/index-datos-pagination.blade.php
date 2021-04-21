@@ -25,7 +25,7 @@
                                 {!! Form::hidden('pagina', $libro->id) !!}
                                 {!! Form::hidden('documentopdf', $libro->documentopdf) !!}
                                 <!--<h5 class="text-success">{{ $libro->titulo }}</h5>-->
-                                <h5> <a class="submitshow" href="#">
+                                <h5> <a class="submitshow-1" href="{{ route('libro.show', $libro->id) }}">
                                     @php
                                         $titulomarcado = strtoupper($libro->titulo);
 
