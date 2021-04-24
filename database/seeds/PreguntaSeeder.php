@@ -16,7 +16,7 @@ class PreguntaSeeder extends Seeder
 
 //factory(Pregunta::class, 5)->make(['estado'=> '0']);
 
-        factory(Pregunta::class, 50)->create();
+        //factory(Pregunta::class, 50)->create();
 
         Pregunta::create([	'PREGUNTA'=>'NO es un objetivo del programa de tuberculosis', 	'tema_id'=>'2', 	]);
 Pregunta::create([	'PREGUNTA'=>'Es una META del Programa de Tuberculosis ', 	'tema_id'=>'2', 	]);

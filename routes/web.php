@@ -51,5 +51,7 @@ Route::resource('pregunta', 'PreguntaController');
 
 Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
 
+Route::resource('blog', 'BlogController');
+
 
 

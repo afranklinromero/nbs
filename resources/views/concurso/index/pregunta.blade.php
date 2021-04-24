@@ -50,9 +50,9 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <!--<th scope="col">#</th>-->
                 <th scope="col" class="d-none d-md-table-cell">id</th>
-                <th scope="col" class="d-none d-md-table-cell">user id</th>
+                <!--<th scope="col" class="d-none d-md-table-cell">user id</th>-->
                 <th scope="col" class="d-none d-md-table-cell">tema</th>
                 <th scope="col">pregunta</th>
                 <th scope="col" class="d-none d-md-table-cell">estado</th>
@@ -81,11 +81,11 @@
                     }
                 @endphp
                 <tr>
-                    <th scope="row"> {{$key+1}}</th>
+                    <!--<th scope="row"> {{$key+1}}</th>-->
                     <td class="d-none d-md-table-cell">{{ $pregunta->id }}</td>
-                    <td class="d-none d-md-table-cell">{{ $pregunta->user->email }}</td>
+                    <!--<td class="d-none d-md-table-cell">{{ $pregunta->user->email }}</td>-->
                     <td class="d-none d-md-table-cell">{{ $pregunta->tema->nombre }}</td>
-                    <td><span class="d-inline-block text-truncate" style="max-width: 100px;">{{ $pregunta->pregunta }}</span></td>
+                    <td><span>{{ $pregunta->pregunta }}</span></td>
                     <td class="d-none d-md-table-cell"> <span class="text-white {{ $color }}">{{ $testado }}</span></td>
                     <td class="d-none d-md-table-cell">{{ $pregunta->created_at->format('d/m/y') }}</td>
                     <td>

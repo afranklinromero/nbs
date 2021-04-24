@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AutorlibroSeeder::class);
         $this->call(BusquedaSeeder::class);
         $this->call(TipomarcadorSeeder::class);
-        $this->call(Marcador1Seeder::class);
+        /*$this->call(Marcador1Seeder::class);
         $this->call(Marcador2Seeder::class);
         $this->call(Marcador3Seeder::class);
         $this->call(Marcador4Seeder::class);
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Marcador50Seeder::class);
         $this->call(Marcador51Seeder::class);
         $this->call(Marcador52Seeder::class);
-
+*/
         $this->call(TemaSeeder::class);
         $this->call(PreguntaSeeder::class);
         $this->call(RespuestaSeeder::class);
@@ -112,6 +112,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DetalleparticipacionSeeder::class);
         $this->call(ClasificacionSeeder::class);
         $this->call(SugerenciasnbsSeeder::class);
+        $this->call(BlogSeeder::class);
     }
 
     protected function truncateTables(array $tables){

@@ -17,7 +17,7 @@
                             }
                             //echo ucwords(strtolower($titulomarcado));
                         @endphp
-                        
+
                         <div class="col-sm-12 col-md-4">
                             <div class="row">
                                 <div class="col-5">
@@ -29,12 +29,12 @@
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                        <h5> 
+                                        <h5>
                                             <a class="text-primary" href="{{ route('libro.show', $libro->id) }}">
                                                 @php echo ucwords(strtolower($titulomarcado)); @endphp
                                             </a>
                                         </h5>
-                                    
+
                                 </div>
                             </div>
                         </div>

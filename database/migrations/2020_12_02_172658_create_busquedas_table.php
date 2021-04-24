@@ -14,6 +14,7 @@ class CreateBusquedasTable extends Migration
     public function up()
     {
         Schema::create('busqueda', function (Blueprint $table) {
+            $table->engine = 'InnoDB'; //para db relacional
             $table->id();
             $table->string('frase', 256);
             $table->bigInteger('frecuencia')->default(1);
