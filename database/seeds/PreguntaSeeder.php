@@ -16,7 +16,7 @@ class PreguntaSeeder extends Seeder
 
 //factory(Pregunta::class, 5)->make(['estado'=> '0']);
 
-        //factory(Pregunta::class, 50)->create();
+
 
         Pregunta::create([	'PREGUNTA'=>'NO es un objetivo del programa de tuberculosis', 	'tema_id'=>'2', 	]);
 Pregunta::create([	'PREGUNTA'=>'Es una META del Programa de Tuberculosis ', 	'tema_id'=>'2', 	]);
@@ -119,6 +119,7 @@ Pregunta::create([	'PREGUNTA'=>'Es una indicación para terapia preventiva con c
 Pregunta::create([	'PREGUNTA'=>'Es un factor de riesgo para desarrollar Sindrome Inflamatorio de Reconstitución Inmune los siguientes, EXCEPTO', 	'tema_id'=>'2', 	]);
 Pregunta::create([	'PREGUNTA'=>'El tratamiento del Sindrome Inflamatorio de Reconstitución Inmune se realiza con', 	'tema_id'=>'2', 	]);
 
+    //factory(Pregunta::class, 50)->create();
 
     }
 }

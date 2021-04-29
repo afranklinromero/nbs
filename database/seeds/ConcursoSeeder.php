@@ -21,8 +21,10 @@ class ConcursoSeeder extends Seeder
         Temaconcurso::create(['tema_id'=> 1, 'concurso_id'=>1,]);
         //Temaconcurso::create(['tema_id'=> 2, 'concurso_id'=>2,]);
 
-        //factory(Concurso::class, 10)->create();
-        //factory(Temaconcurso::class, 10)->create();
+
+
+        //factory(Concurso::class, 50)->create();
+        //factory(Temaconcurso::class, 50)->create();
 
     }
 }

@@ -9,29 +9,26 @@
             <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                 <a href="{{route('pregunta.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
                 <!-- Button trigger modal -->
-
                 {!! Form::open(['route'=>['pregunta.index'], 'id' => 'frm-preguntas']) !!}
-
                     <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 3, (($preguntaEstado==3)? true : false)  , ['class' => 'form-check-input index']) !!}
+                        {!! Form::radio('preguntaEstado', 3, (($preguntaEstado==3)? true : false)  , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
                         {!! Form::label('preguntaEstado', 'Todos', ['class' => 'form-check-label']) !!}
                     </div>
 
                     <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 1,   (($preguntaEstado==1)? true : false) , ['class' => 'form-check-input index']) !!}
+                        {!! Form::radio('preguntaEstado', 1,   (($preguntaEstado==1)? true : false) , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
                         {!! Form::label('preguntaEstado', 'Activos', ['class' => 'form-check-label']) !!}
                     </div>
 
                     <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 2, (($preguntaEstado==2)? true : false), ['class' => 'form-check-input index']) !!}
+                        {!! Form::radio('preguntaEstado', 2, (($preguntaEstado==2)? true : false), ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
                         {!! Form::label('preguntaEstado', 'Pendientes', ['class' => 'form-check-label']) !!}
                     </div>
 
                     <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 0,  (($preguntaEstado==0)? true : false), ['class' => 'form-check-input index']) !!}
+                        {!! Form::radio('preguntaEstado', 0,  (($preguntaEstado==0)? true : false), ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
                         {!! Form::label('preguntaEstado', 'Anulados', ['class' => 'form-check-label']) !!}
                     </div>
-
                 {!! Form::close() !!}
             </div>
         </div>

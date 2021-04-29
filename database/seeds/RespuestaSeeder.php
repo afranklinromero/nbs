@@ -421,5 +421,11 @@ class RespuestaSeeder extends Seeder
         Respuesta::create([	'pregunta_id'=>'100', 	'respuesta'=>'Cotrimoxazol', 	'escorrecta'=>'0', 	]);
         Respuesta::create([	'pregunta_id'=>'100', 	'respuesta'=>'Isoniacida', 	'escorrecta'=>'0', 	]);
 
+
+        /*for ($i=101; $i <= 150 ; $i++) {
+            # code...
+            factory(Respuesta::class, 1)->create(['pregunta_id' => $i, 'escorrecta' => 1]);
+            factory(Respuesta::class, 3)->create(['pregunta_id' => $i, 'escorrecta' => 0]);
+        }*/
     }
 }

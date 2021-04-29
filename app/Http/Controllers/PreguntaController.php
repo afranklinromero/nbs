@@ -20,8 +20,14 @@ class PreguntaController extends Controller
     }
 
     public function index(Request $request){
-
         $preguntaEstado = 3;
+
+        /*if (isset($request->preguntaEstado)){
+            $preguntaEstado = $request->preguntaEstado;
+            dd($preguntaEstado);
+        }*/
+
+
         if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
 
         if ($preguntaEstado == 3)
@@ -36,7 +42,7 @@ class PreguntaController extends Controller
         if ($request->ajax())
             return view('concurso.index.pregunta', compact('preguntas', 'preguntaEstado'))
             ->render();
-        
+
     }
 
     public function show(Request $request, $id){
