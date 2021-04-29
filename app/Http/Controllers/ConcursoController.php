@@ -31,16 +31,25 @@ class ConcursoController extends Controller
     public function index(Request $request){
 
         //CONCURSOS
-        $concursoEstado = 1;
+        $concursoEstado = 3;
         if (isset($request->concursoEstado)) $concursoEstado = $request->concursoEstado;
 
-        $temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(5)->setPath(route('temaconcurso.index'));;
+        if ($concursoEstado == 3)
+            $temaconcursos = Temaconcurso::orderby('id', 'DESC');
+        else
+            $temaconcursos = Temaconcurso::orderby('id', 'DESC')->where('estado', $concursoEstado);
+
+
+        //$temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(5)->setPath(route('temaconcurso.index'));;
+        $temaconcursos = $temaconcursos->paginate(5)->setPath(route('temaconcurso.index'));;
 
         //$request->session()->put('info', 'Listado de concursos');
 
         //PREGUNTAS
         $preguntaEstado = 3;
         if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
+
+
 
         if ($preguntaEstado == 3)
             $preguntas = Pregunta::orderby('id', 'DESC');
@@ -49,9 +58,9 @@ class ConcursoController extends Controller
 
         if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
 
-        
+
         $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
-        
+
         //dd($preguntas);
 
 
@@ -83,7 +92,7 @@ class ConcursoController extends Controller
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
 
         $enfecha = $temaconcurso->concurso->fechaini < now() && now() < $temaconcurso->concurso->fechafin;
-        
+
 
         $pregunta = null;
         $respuestas = null;
@@ -92,11 +101,11 @@ class ConcursoController extends Controller
         //dd($paymentDate);
         //if(!isset($temaconcurso) && $temaconcurso->concurso->fechaini) return redirect()->route('concurso.index')->with('info-concurso', 'registro no encontrado');
 
-        
+
             $n = $temaconcurso->concurso->configuracion->nropreguntas;
             $index = 1;
             $preguntas = Pregunta::where('tema_id', $temaconcurso->tema->id)->where('estado', '1')->inRandomOrder()->limit(10);
-            
+
             if(isset($preguntas) && count($preguntas->get()) > 0){
                 $pregunta = $preguntas->first();
                 $respuestas = $pregunta->respuestas()->inRandomOrder()->get();
@@ -104,7 +113,7 @@ class ConcursoController extends Controller
             } else {
                 $request->session()->put('info-concurso', 'No existen las preguntas suficientes para el concurso');
                 $request->session()->put('info', 'Listado de concursos');
-                
+
                 return redirect()->route('concurso.index');
             }
 

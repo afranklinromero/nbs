@@ -43,13 +43,13 @@
     <div class="container" id="concurso-body">
         @include('concurso.aside.index')
     </div>
-    
+
     <div id="temaconcurso"> @include('concurso.index.concurso') </div> <hr>
 
     <div id='pregunta'> @include('concurso.index.pregunta') </div> <hr>
 
     <div id='clasificacion'> @include('concurso.index.clasificacion') </div> <hr>
-    
+
 </div>
 @endsection
 
@@ -59,19 +59,40 @@
         event.preventDefault();
         var href = $(this).attr('href');
 
-        //alert("href preguntas: " + href + " ");
-
         if (href.indexOf('temaconcurso') > 0){
-            $.get(href, function(result){
-                //console.log(result);
+            var frm = $('#frm-concursos');
+            $.get(href, frm.serialize(), function(result){
                 $('#temaconcurso').html(result);
             });
         }
 
         if (href.indexOf('pregunta') > 0){
-            $.get(href, function(result){
-                //console.log(result);
+            var frm = $('#frm-preguntas');
+            $.get(href, frm.serialize(), function(result){
                 $('#pregunta').html(result);
+            });
+        }
+    });
+
+    $(document).on('change', '#preguntaEstado', function(e) {
+        //event.preventDefault();
+        if (this.checked){
+            //href = $(this).parent()
+            var frm = $('#frm-preguntas');
+            $.get(frm.attr('action'), frm.serialize(), function(result){
+                $('#pregunta').html(result);
+            });
+        }
+
+
+    });
+
+    $(document).on('change', '#concursoEstado', function(e) {
+        //event.preventDefault();
+        if (this.checked){
+            var frm = $('#frm-concursos');
+            $.get(frm.attr('action'), frm.serialize(), function(result){
+                $('#temaconcurso').html(result);
             });
         }
     });
@@ -81,18 +102,18 @@
         var frm = $(this).parent();
         console.log(frm.attr('action'));
         var pag = $('#pagRespuesta').val();
-        
+
         var preguntaPage = $('#preguntaPage');
         console.log('preguntaPage:' + preguntaPage.attr('href'));
         $.post(frm.attr('action'), frm.serialize(), function(result){
             //console.log(result);
             $('#pregunta').html(result);
         });
-        
+
         $(this).parent().parent().parent().parent().parent().parent().parent().parent().modal('hide');
         //$(0·modal).show();
     });
-     
+
 
 </script>
 @endsection

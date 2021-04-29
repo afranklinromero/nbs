@@ -11,45 +11,33 @@
                     <a href="{{route('concurso.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
                     @endif
 
-                    {!! Form::open(['route'=>['concurso.index'], 'id' => 'frm-concursos', 'class' => 'row row-cols-lg-auto g-2 align-items-center']) !!}
+                    {!! Form::open(['route'=>['temaconcurso.index'], 'id' => 'frm-concursos', 'class' => 'row row-cols-lg-auto g-2 align-items-center']) !!}
+
                         <div class="col-auto">
                             <div class="form-check">
-                                {!! Form::radio('concursoEstado', 3, (($concursoEstado==3)? true : false)  , ['class' => 'form-check-input index']) !!}
-                                {!! Form::label('concursoEstado-', 'Todos', ['class' => 'form-check-label']) !!}    
+                                {!! Form::radio('concursoEstado', 3, (($concursoEstado==3)? true : false)  , ['class' => 'form-check-input index', 'id'=> 'concursoEstado']) !!}
+                                {!! Form::label('concursoEstado-', 'Todos', ['class' => 'form-check-label']) !!}
                             </div>
                         </div>
 
                         <div class="col-auto">
                             <div class="form-check">
-                                {!! Form::radio('concursoEstado', 1,   (($concursoEstado==1)? true : false) , ['class' => 'form-check-input index']) !!}
+                                {!! Form::radio('concursoEstado', 1,   (($concursoEstado==1)? true : false) , ['class' => 'form-check-input index', 'id'=> 'concursoEstado']) !!}
                                 {!! Form::label('concursoEstado', 'Activos', ['class' => 'form-check-label']) !!}
                             </div>
                         </div>
 
                         <div class="col-auto">
                             <div class="form-check">
-                                {!! Form::radio('concursoEstado', 2, (($concursoEstado==2)? true : false), ['class' => 'form-check-input index']) !!}
+                                {!! Form::radio('concursoEstado', 2, (($concursoEstado==2)? true : false), ['class' => 'form-check-input index', 'id'=> 'concursoEstado']) !!}
                                 {!! Form::label('concursoEstado', 'Pendientes', ['class' => 'form-check-label']) !!}
                             </div>
                         </div>
 
                         <div class="col-auto">
                             <div class="form-check">
-                                {!! Form::radio('concursoEstado', 0,  (($concursoEstado==0)? true : false), ['class' => 'form-check-input index']) !!}
+                                {!! Form::radio('concursoEstado', 0,  (($concursoEstado==0)? true : false), ['class' => 'form-check-input index', 'id'=> 'concursoEstado']) !!}
                                 {!! Form::label('concursoEstado', 'Anulados', ['class' => 'form-check-label']) !!}
-                            </div>
-                        </div>
-
-                        <div class="col-auto">
-                            <div class="form-check">
-                                {!! Form::radio('concursoEstado', 0,  (($concursoEstado==0)? true : false), ['class' => 'form-check-input index']) !!}
-                                {!! Form::label('concursoEstado', 'Anulados', ['class' => 'form-check-label']) !!}
-                            </div>
-                        </div>
-
-                        <div class="col-auto">
-                            <div class="form-select">
-                                {!! Form::select('tema_id', ['Uno', 'Dos', 'Tres'], null, ['class'=> "form-control"]) !!}
                             </div>
                         </div>
 
@@ -102,7 +90,7 @@
                                     $testado = "<i class='text-success fas fa-check-circle'></i>";
                                     break;
                             }
-                            
+
                         @endphp
                         <tr>
                             <th scope="row"> {{$key+1}}</th>
