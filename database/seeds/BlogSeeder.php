@@ -1,8 +1,8 @@
 <?php
 
-use App\Modelos\Blog;
-use Illuminate\Database\Seeder;
 
+use Illuminate\Database\Seeder;
+use App\Modelos\Blog;
 class BlogSeeder extends Seeder
 {
     /**

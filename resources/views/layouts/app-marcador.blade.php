@@ -14,7 +14,7 @@
     @include('layouts.nbs.script')
     
     @yield('scriptlocal')
-
+    
 </body>
 
 </html>
