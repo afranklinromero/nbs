@@ -12,4 +12,13 @@ class BlogController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->paginate(10);
         return view('blog.index', compact('blogs'));
     }
+
+    public function show(Request $request, $id){
+        $blog = Blog::find($id);
+        return view('blog.show', compact('blog'));
+    }
+
+    public function create(Request $request){
+        return view('blog.create');
+    }
 }
