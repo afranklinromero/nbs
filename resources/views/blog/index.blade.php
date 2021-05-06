@@ -5,7 +5,7 @@
     <h2 class="text-primary"><a href="{{ route('blog.index') }}">BLOGS</a>
     @if (Auth::user()!=null)
         @if (Auth::user()->hasRole('admin'))
-            <a href="#" class="btn btn-primary float-right">Nuevo articulo</a>
+            <a href="{{ route('blog.create') }}" class="btn btn-primary float-right">Nuevo articulo</a>
             <br>
         @endif
     @endif

@@ -28,12 +28,20 @@ class BlogController extends Controller
 
         $blog->estado = 1;
 
-        $blog->save();
-        //dd($request->multimedia);
-        $request->file('multimedia')->store('public/img/blog/');
+        
 
+        
+        
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        //Storage::put($nombre, $file);
+
+        $blog->save();
+
+        $request->file('multimedia')->storeAs('public/img/blog/', 'articulo' . $blog->id . '.png');
+        
         if ($request->ajax())
             return redirect()->route('blog.show', $blog->id);
+
         return redirect()->route('blog.show', $blog->id);
     }
 }
