@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     //
     public function index(Request $request){
-        $blogs = Blog::orderBy('id', 'desc')->paginate(10);
+        $blogs = Blog::orderBy('id', 'desc')->paginate(12);
         return view('blog.index', compact('blogs'));
     }
 
@@ -28,17 +28,17 @@ class BlogController extends Controller
 
         $blog->estado = 1;
 
-        
-
-        
-        
-        //indicamos que queremos guardar un nuevo archivo en el disco local
-        //Storage::put($nombre, $file);
-
         $blog->save();
 
-        $request->file('multimedia')->storeAs('public/img/blog/', 'articulo' . $blog->id . '.png');
         
+        //$request->file('multimedia')->storeAs('public/blog/', $blog->id . '.png');
+        $image = $request->file('multimedia');
+        $imagen = $image->getClientOriginalName();
+        $formato = $image->getClientOriginalExtension();
+        $image->move(public_path().'/img/blog/', $blog->id . '.png');
+        //dd($image);
+        //Storage::put('/public/blog/'.$blog->id . '.png', \File::get);
+
         if ($request->ajax())
             return redirect()->route('blog.show', $blog->id);
 

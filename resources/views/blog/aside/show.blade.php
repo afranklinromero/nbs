@@ -10,7 +10,7 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <img class='img-fluid rounded float-left mr-3' src="{{asset('img/blog')}}/{{$blog->id}}.png" alt="">
+                    <img class='img-fluid rounded float-left mr-3' src="{{asset('img/blog/'. $blog->id. '.png')}}" alt="">
                     <p>{{ $blog->contenido }}</p>
                 </div>
             </div>

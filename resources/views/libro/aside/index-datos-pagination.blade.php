@@ -7,7 +7,7 @@
     </div>
             @if (count($libros->items())>0)
                 <div class="row">
-                    @foreach($libros as $libro)
+                    @foreach($libros as $i=>$libro)
                         @php
                             $titulomarcado = strtoupper($libro->titulo);
                             if (isset($titulos)){
@@ -17,7 +17,15 @@
                             }
                             //echo ucwords(strtolower($titulomarcado));
                         @endphp
-
+                        @if (($i%9)==0)
+                        <div class="col-12">
+                            <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
+                                <a href="https://bit.ly/3b53H2K">
+                                    <img src="{{ asset('img/Asesoria Tesis en Salud - Nobosa.jpg') }}" class="img-fluid rounded" alt="">
+                                </a>
+                            </p>
+                        </div>
+                        @endif
                         <div class="col-sm-12 col-md-4">
                             <div class="row">
                                 <div class="col-5">
@@ -29,12 +37,11 @@
                                     </div>
                                 </div>
                                 <div class="col-7">
-                                        <h5>
-                                            <a class="text-primary" href="{{ route('libro.show', $libro->id) }}">
-                                                @php echo ucwords(strtolower($titulomarcado)); @endphp
-                                            </a>
-                                        </h5>
-
+                                    <h5>
+                                        <a class="text-primary" href="{{ route('libro.show', $libro->id) }}">
+                                            @php echo ucwords(strtolower($titulomarcado)); @endphp
+                                        </a>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
