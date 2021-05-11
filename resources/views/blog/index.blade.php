@@ -47,7 +47,7 @@
         @if (($i>0) && ($i%6)==0)
                         <div class="col-12">
                             <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
-                                <a href="https://bit.ly/3b53H2K">
+                                <a target="_blank" href="https://bit.ly/3b53H2K">
                                     <img src="{{ asset('img/Asesoria Tesis en Salud - Nobosa.jpg') }}" class="img-fluid rounded" alt="">
                                 </a>
                             </p>

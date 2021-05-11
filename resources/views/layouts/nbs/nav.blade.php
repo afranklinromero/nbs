@@ -5,40 +5,43 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ">
-                @if( Auth::check())
-                     @if(Auth::user()->hasRole('admin'))
-                     <li class="nav-item ">
-                        <img class="mb-3 mr-3 mt-1" src="{{ asset('img/logonobosa3.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="">
-                        <!--<a class="nav-link" href="{{ route('home') }}">INICIO</a>-->
-                      </li>
-                      <li class="nav-item">
-                      <a class="nav-link btn-outline-success" href="{{ route('libro.index') }}">LIBROS </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
-                      </li>
-                      <li class="nav-item">
-                      </li>
-                      <li class="nav-item">
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
-                      </li>
-                      <li class="nav-item">
-                      </li>
+        <li class="nav-item ">
+            <a href="{{ route('libro.index') }}">
+                <img class="mb-3 mr-3 mt-1" src="{{ asset('img/logonobosa3.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="">
+            </a>
+            <!--<a class="nav-link" href="{{ route('home') }}">INICIO</a>-->
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn-outline-light" href="{{ route('libro.index') }}">LIBROS </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn-outline-light" href="{{ route('blog.index') }}">BLOG </a>
+        </li>
+            @if( Auth::check())
+                @if(Auth::user()->hasRole('admin'))
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
 
-                     @else
-                      <li class="nav-item ">
-                      <a class="nav-link" href="{{ route('libro.index') }}">INICIO <span class="sr-only">(current)</span></a>
-                     </li>
+                @else
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('libro.index') }}">INICIO <span class="sr-only">(current)</span></a>
+                    </li>
 
-                      <li class="nav-item ">
-                      <a class="nav-link" href="{{ route('concurso.index') }}">LIBRO <span class="sr-only">(current)</span></a>
-                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ route('concurso.index') }}">LIBRO <span class="sr-only">(current)</span></a>
+                    </li>
                 @endif
-
-
-               @endif
+            @endif
                </ul>
                 <ul class="navbar-nav ml-auto">
                 <ul class="navbar-nav mr-auto">
