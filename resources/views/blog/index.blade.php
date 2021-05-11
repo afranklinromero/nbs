@@ -4,14 +4,14 @@
 <div class="container">
     <section>
     <div class="row">
-        
+
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                     <div class="col-7">
                         <h2 class="text-primary"><a href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
                         <br>
-                        <h4 class="mr-3 ml-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae hic soluta, dolores maiores fugit sit nobis eaque alias. Cum ullam exercitationem beatae est illum, sit repellat voluptates ipsa temporibus. Est?</h4>
+                        <h4 class="mr-3 ml-3">hola....Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae hic soluta, dolores maiores fugit sit nobis eaque alias. Cum ullam exercitationem beatae est illum, sit repellat voluptates ipsa temporibus. Est?</h4>
                         <br>
                         <p class="text-center">
                             @if (Auth::user()!=null)
@@ -28,7 +28,7 @@
                               </div>
                         </p>
 
-                        
+
                     </div>
                     <div class="col-5">
                         <img class="img-round" src="{{ asset('img/bloglogo.jpg') }}" alt="">
@@ -109,7 +109,7 @@
     <div class="text-center">
         {{ $blogs->links() }}
     </div>
-    
+
 </div>
 @endsection
 
