@@ -53,5 +53,7 @@ Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
 
 Route::resource('blog', 'BlogController');
 
+Route::resource('publicidad', 'PublicidadController');
+
 
 
