@@ -114,6 +114,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ClasificacionSeeder::class);
         $this->call(SugerenciasnbsSeeder::class);
         $this->call(BlogSeeder::class);
+        $this->call(PublicidadSeeder::class);
     }
 
     protected function truncateTables(array $tables){
