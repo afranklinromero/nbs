@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             'clasificacion',
             'sugerenciasnbs',
             'blog',
+            'publicidad'
         ]);
 
         $this->call(RoleTableSeeder::class);
