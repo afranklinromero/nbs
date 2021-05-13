@@ -5,36 +5,53 @@
     <section>
     <div class="row">
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                    <div class="col-7">
-                        <h2 class="text-primary"><a href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
-                        <br>
-                        <h4 class="mr-3 ml-3">hola....Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae hic soluta, dolores maiores fugit sit nobis eaque alias. Cum ullam exercitationem beatae est illum, sit repellat voluptates ipsa temporibus. Est?</h4>
-                        <br>
-                        <p class="text-center">
-                            @if (Auth::user()!=null)
-                                @if (Auth::user()->hasRole('admin'))
-                                    <a href="{{ route('blog.create') }}" class="btn btn-primary">Nuevo articulo</a>
-                                    <br>
-                                @endif
-                            @endif
-                        </p>
-                        <p>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
-                              </div>
-                        </p>
-
-
-                    </div>
-                    <div class="col-5">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
                         <img class="img-round" src="{{ asset('img/bloglogo.jpg') }}" alt="">
+                      </div>
+
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="text-primary"><a href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
+                                    <br>
+                                    <h4 class="mr-3 ml-3">Blog de articulos sobre normas de bolivianas de salud, y medicina en gral.</h4>
+                                    <br>
+                                    <p class="text-center">
+                                        @if (Auth::user()!=null)
+                                            @if (Auth::user()->hasRole('admin'))
+                                                <a href="{{ route('blog.create') }}" class="btn btn-primary">Nuevo articulo</a>
+                                                <br>
+                                            @endif
+                                        @endif
+                                    </p>
+                                    <p>
+                                        <div class="row">
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-6">
+                                                {!! Form::open(['route'=>'blog.index', 'id'=>'form-blog-index', 'method' => 'GET']) !!}
+                                                <div class="input-group mb-3">
+
+                                                    <input id="titulo" name="titulo" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+
+                                                </div>
+                                                {!! Form::close() !!}
+                                            </div>
+                                        </div>
+
+                                    </p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
+
             </div>
     </div>
     <br>

@@ -11,7 +11,12 @@ class BlogController extends Controller
 {
     //
     public function index(Request $request){
-        $blogs = Blog::orderBy('id', 'desc')->paginate(12);
+        $blogs = Blog::orderBy('id', 'desc')->where('estado', '1');
+        if (isset($request->titulo) && strlen(trim($request->titulo)) > 0)
+            $blogs = $blogs->where('titulo','like', '%'.$request->titulo.'%');
+
+        $blogs = $blogs->paginate(12);
+
         $publicidades = Publicidad::all();
         return view('blog.index', compact('blogs', 'publicidades'));
     }
