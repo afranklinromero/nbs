@@ -37,40 +37,39 @@ class UserController extends Controller
 
         }
 
-public function update (UserRequest $request, $id){
+    public function update (UserRequest $request, $id){
 
-            $users = User::find($id);
+                $users = User::find($id);
+                $users->name = $request->name;
+
+
+                return redirect()->route('users.index')
+                ->with('info','El Producto fue actualizado');
+    }
+    public function destroy ($id){
+        $users = User::find($id);
+        $users->delete();
+        return back ()->with('info', 'El Usuario fue eliminado');
+        }
+
+
+
+    public function store (UserRequest $request){
+            $role_user=2;
+            $users = new User;
             $users->name = $request->name;
+            $users->email = $request->email;
+            $users->telefono = $request->telefono;
+            $users->ocupacion = $request->ocupacion;
+            $users->direccion = $request->direccion;
+            $users->password = bcrypt($request['password']);
+            $users->save();
+
+            $users->roles()->attach($role_user);
 
 
-            return redirect()->route('users.index')
-            ->with('info','El Producto fue actualizado');
-}
-public function destroy ($id){
-    $users = User::find($id);
-    $users->delete();
-    return back ()->with('info', 'El Usuario fue eliminado');
-     }
-
-
-
-public function store (Request $request){
-
-        $role_user=2;
-        $users = new User;
-        $users->name = $request->nombre;
-        $users->email = $request->correo;
-        $users->telefono = $request->telefono;
-        $users->ocupacion = $request->ocupacion;
-        $users->direccion = $request->direccion;
-        $users->password = bcrypt($request['password']);
-        $users->save();
-
-        $users->roles()->attach($role_user);
-        
-       
-        return redirect()->route('login')
-                        ->with('info','El Usuario fue guardado');
+            return redirect()->route('login')
+                            ->with('info','El Usuario fue guardado');
 
 
    }
