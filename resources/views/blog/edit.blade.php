@@ -6,8 +6,9 @@
     {!! Form::open(['route'=>['blog.update', $blog->id], 'id'=>'form-blog-create', 'enctype'=>"multipart/form-data"]) !!}
         @method('PUT')
         @include('blog.aside.form')
+        <br>
         {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
-        <a href="{{route('concurso.index')}}#blogs" class="btn btn-success index">Volver</a>
+        <a href="{{route('blog.index')}}#blogs" class="btn btn-success index">Volver</a>
 
     {!! Form::close() !!}
 </div>

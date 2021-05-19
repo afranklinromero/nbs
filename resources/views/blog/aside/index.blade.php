@@ -40,6 +40,7 @@
             </div>
         </div>
     </div>
+    
 
     <p class="text-success">{{ $preguntas->total() }} registros encontrados, pagina {{ $preguntas->currentPage() }} de {{ $preguntas->lastPage() }}</p>
 
@@ -56,7 +57,7 @@
             </tr>
         </thead>
         <tbody>
-
+            
             @foreach ($preguntas as $key => $pregunta)
                 @php
                 $color = "";

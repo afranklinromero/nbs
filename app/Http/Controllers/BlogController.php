@@ -12,13 +12,14 @@ class BlogController extends Controller
     //
     public function index(Request $request){
         $blogs = Blog::orderBy('id', 'desc')->where('estado', '1');
+        $titulo = $request->titulo;
         if (isset($request->titulo) && strlen(trim($request->titulo)) > 0)
             $blogs = $blogs->where('titulo','like', '%'.$request->titulo.'%');
 
         $blogs = $blogs->paginate(12);
 
         $publicidades = Publicidad::all();
-        return view('blog.index', compact('blogs', 'publicidades'));
+        return view('blog.index', compact('blogs', 'publicidades', 'titulo'));
     }
 
     public function show(Request $request, $id){
@@ -80,5 +81,14 @@ class BlogController extends Controller
             return redirect()->route('blog.show', $blog->id);
 
         return redirect()->route('blog.show', $blog->id);
+    }
+
+    public function destroy(Request $request, $id){
+        $blog = Blog::find($id);
+        $blog->estado = 0;
+        $blog->update_at = now();
+        $blog->save();
+
+        return redirect()->route('blog.index');
     }
 }

@@ -7,7 +7,7 @@
             @include('blog.aside.show')
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('blog.index') }}#blogs" class="btn btn-success">Volver</a>
+                    <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
                 </div>
             </div>
 
