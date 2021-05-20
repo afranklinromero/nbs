@@ -9,7 +9,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <a href="{{ route('blog.index') }}">
-                            <img class="img-round" src="{{ asset('img/bloglogo.jpg') }}" alt="">
+                            <img class="img-round img-fluid" src="{{ asset('img/bloglogo.jpg') }}" alt="">
                         </a>
                       </div>
 
@@ -55,9 +55,15 @@
     <br>
 
 </section>
-    <H2 class="text-danger text-center">ARTICULOS</H2>
+    <a id="articulo"><H2 class="text-danger text-center">ARTICULOS</H2></a>
 
     @if (isset($blogs) && sizeof($blogs) > 0)
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+                &times;
+            </button>
+            <p> se encontraron <strong>{{$blogs->total()}}</strong> resultados, pagina <strong>{{$blogs->currentPage()}}</strong> de <strong>{{$blogs->lastPage()}} </strong></p>
+        </div>
         <div class="row">
             @php
                 $j = 0;
@@ -82,7 +88,7 @@
                             <img class="card-img-top" src="{{ asset('img/blog/'.$blog->id . '.png') }}" alt="">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="{{route('blog.show', $blog->id)}}" class="text-success" data-toggle="modal" data-target="#exampleModal{{ $blog->id }}">
+                                    <a href="{{route('blog.show', $blog->id)}}" class="text-success">
                                         {{ $blog->titulo }}
                                     </a>
                                 </h5>
@@ -92,34 +98,41 @@
                                 </p>
                                 @if (Auth::user()!=null)
                                     @if (Auth::user()->hasRole('admin'))
-                                        <p class="float-right">
-                                            <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
-                                            <a href="{{ route('blog.destroy', $blog->id) }}" class="btn btn-sm btn-secondary"  data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo"><i class="far fa-trash-alt"></i></a>
-                                        </p>
+
+                                                <p class="float-right">
+                                                    <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver articulo"><i class="far fa-eye"></i></a>
+                                                    <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
+                                                    <button type="submit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#exampleModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo"><i class="far fa-trash-alt"></i></button>
+                                                </p>
+
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar articulo: {{ $blog->title }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Desea Eliminar el articulo?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form class="d-inline" method="POST" action="{{ route('blog.destroy', $blog->id) }}">
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
+                                                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+
                                     @endif
                                 @endif
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h3 class="modal-title text-success" id="exampleModalLabel">
-                                    {{ $blog->titulo }}
-                                </h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    @include('blog.aside.show')
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -135,7 +148,7 @@
 
         </div>
     @else
-        <div class="alert alert-warning">
+        <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">
                 &times;
             </button>

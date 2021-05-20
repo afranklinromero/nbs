@@ -86,9 +86,8 @@ class BlogController extends Controller
     public function destroy(Request $request, $id){
         $blog = Blog::find($id);
         $blog->estado = 0;
-        $blog->update_at = now();
+        $blog->updated_at = now();
         $blog->save();
-
         return redirect()->route('blog.index');
     }
 }

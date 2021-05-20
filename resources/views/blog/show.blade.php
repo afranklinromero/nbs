@@ -6,8 +6,10 @@
         <div class="container" id="blog-body">
             @include('blog.aside.show')
             <div class="row">
-                <div class="col">
-                    <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
+                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                        <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
+                    </div>
                 </div>
             </div>
 
