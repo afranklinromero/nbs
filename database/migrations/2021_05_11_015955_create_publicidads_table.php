@@ -20,6 +20,7 @@ class CreatePublicidadsTable extends Migration
             $table->string('titulo', 64);
             $table->string('contenido', 3074);
             $table->string('link', 128);
+            $table->string('lugar', 128);
             $table->integer('estado')->default(1);
             $table->timestamp('fechaini')->default(now());
             $table->timestamp('fechafin')->default(now());

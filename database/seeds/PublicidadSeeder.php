@@ -13,6 +13,6 @@ class PublicidadSeeder extends Seeder
     public function run()
     {
         //
-        factory(Publicidad::class, 10)->create();
+        factory(Publicidad::class, 50)->create();
     }
 }

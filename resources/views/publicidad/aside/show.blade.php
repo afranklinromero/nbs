@@ -10,13 +10,21 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <img class='img-fluid rounded float-left mr-3' src="{{asset('img/publicidad/'. $publicidad->id. '.png')}}" alt="">
-                    <p>{{ $publicidad->contenido }}</p>
+                    <img class='img-fluid rounded float-left mr-3' src="{{asset('img/publicidad/'. $publicidad->id. '.png')}}" width="50%" alt="">
+                    <p><strong >Contenido: </strong> {{ $publicidad->contenido }}</p>
+                    
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                     <strong>fecha:</strong>  {{ $publicidad->created_at->format('d/m/Y') }}
+                <div class="col-md-12 m-3">
+                    <p>
+                        <strong>Enlace:</strong>  {{ $publicidad->link }}<br>
+                        <strong>Lugar:</strong>  {{ $publicidad->lugar }}<br>
+                        <strong>fecha inicio:</strong>  {{ $publicidad->fechaini->format('d/m/Y') }}<br>
+                        <strong>fecha fin:</strong>  {{ $publicidad->fechafin->format('d/m/Y') }}<br>
+                        <strong>fecha creación:</strong>  {{ $publicidad->created_at->format('d/m/Y') }}<br>
+                        <strong>fecha actualización:</strong>  {{ $publicidad->updated_at->format('d/m/Y') }}<br>
+                    </p>
                 </div>
             </div>
     </div>
@@ -44,7 +52,7 @@
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
                         {!! Form::hidden('estado', '0') !!}
-                        {!! Form::submit('Rechazar', ['class' => 'btn btn-danger btn-update']) !!}
+                        {!! Form::submit('Bloquear', ['class' => 'btn btn-danger btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
 
@@ -54,7 +62,7 @@
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
                         {!! Form::hidden('estado', '2') !!}
-                        {!! Form::submit('Pasar a pendiente', ['class' => 'btn btn-warning btn-update']) !!}
+                        {!! Form::submit('Desbloquear', ['class' => 'btn btn-warning btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
                 @endif

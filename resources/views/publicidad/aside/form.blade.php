@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <p class="card-title">
                                     {!! Form::label('link', 'Enlace:', ['class' => 'form-label']) !!}
                                     {!! Form::text('link', isset($publicidad->link) ? $publicidad->link : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
@@ -37,14 +37,20 @@
                             </div>
                             <div class="col-md-3">
                                 <p class="card-title">
+                                    {!! Form::label('lugar', 'Lugar:', ['class' => 'form-label']) !!}
+                                    {!! Form::select('lugar', ['libro' => 'libro', 'blog' => 'blog'], 'libro', ['class'=>'form-control','placeholder'=>'Seleccione lugar']) !!}
+                                </p>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="card-title">
                                     {!! Form::label('fechaini', 'Fecha inicio:', ['class' => 'form-label']) !!}
-                                    {!! Form::date('fechaini', isset($publicidad->fechaini) ? $publicidad->fechafin : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                                    {!! Form::date('fechaini', isset($publicidad->fechaini) ? $publicidad->fechaini : now(), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
                                 </p>
                             </div>
                             <div class="col-md-3">
                                 <p class="card-title">
                                     {!! Form::label('fechafin', 'Fecha fin:', ['class' => 'form-label']) !!}
-                                    {!! Form::date('fechafin', isset($publicidad->fechaini) ? $publicidad->fechafin : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                                    {!! Form::date('fechafin', isset($publicidad->fechafin) ? $publicidad->fechafin : now(), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
                                 </p>
                             </div>
                         </div>

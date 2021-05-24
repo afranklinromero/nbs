@@ -1,3 +1,4 @@
+
 @extends('layouts.nbs.app')
 
 @section('contenido')
@@ -75,7 +76,9 @@
                         <div class="col-12">
                             <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
                                 <a href="https://bit.ly/3b53H2K">
-                                    <img src="{{ asset('img/publicidad/'.$publicidades[$j]->id.'.png') }}" class="img-fluid rounded" alt="">
+                                    
+                                        <img src="{{ asset('img/publicidad/'.$publicidades[$j]->id.'.png') }}" class="img-fluid rounded" alt="">
+                                    
                                 </a>
                             </p>
                         </div>
@@ -85,7 +88,10 @@
                 <div class="col-sm-12 col-md-4">
                     <div>
                         <div class="card">
-                            <img class="card-img-top" src="{{ asset('img/blog/'.$blog->id . '.png') }}" alt="">
+                            <div class="contenedorimg">
+                                <img class="imagen card-img-top" src="{{ asset('img/blog/'.$blog->id . '.png') }}" alt="">
+                            </div>
+                            
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a href="{{route('blog.show', $blog->id)}}" class="text-success">

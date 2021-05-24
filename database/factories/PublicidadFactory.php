@@ -13,6 +13,9 @@ $factory->define(Publicidad::class, function (Faker $faker) {
         'user_id' => User::all('id')->random(),
         'titulo' => $faker->text(32),
         'contenido' => $faker->text(1024),
+        'fechaini' => now(),
+        'fechafin' => now(),
+        'lugar' => 'libro',
         'link' => $faker->url,
     ];
 });

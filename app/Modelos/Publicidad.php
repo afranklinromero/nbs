@@ -8,5 +8,6 @@ class Publicidad extends Model
 {
     //
     protected $table = 'publicidad';
-    protected $fillable = ['user_id', 'titulo',  'contenido', 'link', 'estado'];
+    protected $fillable = ['user_id', 'titulo',  'contenido', 'link', 'fechaini', 'fechafin', 'lugar',  'estado'];
+    protected $dates = ['created_at', 'updated_at', 'fechaini', 'fechafin'];
 }
