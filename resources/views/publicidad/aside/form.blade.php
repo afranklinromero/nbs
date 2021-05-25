@@ -16,7 +16,8 @@
                             <div class="col-md-6">
                                 <p class="card-title">
                                     {!! Form::label('multimedia', 'Portada articulo:', ['class' => 'form-label']) !!}
-                                    {!! Form::file('multimedia', ['class' => 'form-control-file']) !!}
+                                    {!! Form::file('multimedia', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                                    <div id="preview"><img class="img-fluid rounded" src="{{ asset('img/publicidad') }}/{{ isset($publicidad->id)? $publicidad->id : null}}.png" alt=""></div>
                                 </p>
                             </div>
                         </div>
@@ -38,7 +39,7 @@
                             <div class="col-md-3">
                                 <p class="card-title">
                                     {!! Form::label('lugar', 'Lugar:', ['class' => 'form-label']) !!}
-                                    {!! Form::select('lugar', ['libro' => 'libro', 'blog' => 'blog'], 'libro', ['class'=>'form-control','placeholder'=>'Seleccione lugar']) !!}
+                                    {!! Form::select('lugar', ['libro' => 'libro', 'blog' => 'blog', 'concurso' => 'concurso'], 'libro', ['class'=>'form-control','placeholder'=>'Seleccione lugar']) !!}
                                 </p>
                             </div>
                             <div class="col-md-3">

@@ -10,7 +10,7 @@ class publicidadController extends Controller
 {
     //
     public function index(Request $request){
-        $publicidades = Publicidad::orderBy('id', 'desc')->where('estado', '1');
+        $publicidades = Publicidad::orderBy('id', 'desc');//->where('estado', '1');
         $titulo = $request->titulo;
         if (isset($request->titulo) && strlen(trim($request->titulo)) > 0)
             $publicidades = $publicidades->where('titulo','like', '%'.$request->titulo.'%');
@@ -61,10 +61,13 @@ class publicidadController extends Controller
         $publicidad = publicidad::find($id);
         $tipo = $request->tipo;
         //dd($tipo);
-        if (isset($tipo) && $tipo == 'bloquear'){
+        if (isset($tipo) && $tipo == 'baja'){
             $publicidad->estado = 0;
             $publicidad->updated_at = now();
-        } else {
+        } else if (isset($tipo) && $tipo == 'alta'){
+            $publicidad->estado = 1;
+            $publicidad->updated_at = now();
+        } else{
             $publicidad->titulo = $request->titulo;
             if (isset($request->multimedia)){
                 $image = $request->file('multimedia');

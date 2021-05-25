@@ -10,7 +10,7 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <img class='img-fluid rounded float-left mr-3' src="{{asset('img/publicidad/'. $publicidad->id. '.png')}}" width="50%" alt="">
+                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('img/publicidad/'. $publicidad->id. '.png')}}" width="50%" alt=""></a> 
                     <p><strong >Contenido: </strong> {{ $publicidad->contenido }}</p>
                     
                 </div>
@@ -38,31 +38,22 @@
         <div class="row justify-content-center">
             @if (Auth::user()!=null)
                 @if (Auth::user()->hasRole('admin'))
-                    @if ($publicidad->estado <> 1)
+
+                    @if ($publicidad->estado == 1)
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('estado', '1') !!}
-                        {!! Form::submit('Aprobar', ['class' => 'btn btn-success btn-update']) !!}
+                        {!! Form::hidden('tipo', 'baja') !!}
+                        {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
 
                     &nbsp;
 
-                    @if ($publicidad->estado <> 0)
+                    @if ($publicidad->estado == 0)
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('estado', '0') !!}
-                        {!! Form::submit('Bloquear', ['class' => 'btn btn-danger btn-update']) !!}
-                        {!! Form::close() !!}
-                    @endif
-
-                    &nbsp;
-
-                    @if ($publicidad->estado <> 2)
-                        {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
-                        {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('estado', '2') !!}
-                        {!! Form::submit('Desbloquear', ['class' => 'btn btn-warning btn-update']) !!}
+                        {!! Form::hidden('tipo', 'alta') !!}
+                        {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
                 @endif

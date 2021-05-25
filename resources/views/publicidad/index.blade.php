@@ -42,7 +42,7 @@
     <br>
 
 </section>
-    <H2 class="text-center" style="color: #d86304">LISTA PUBLICIDADES</H2>
+    <H2 class="text-center" style="color: #d86304">ANUNCIOS PUBLICITARIOS</H2>
     <div class="row">
         @foreach ($publicidades as $i=>$publicidad)
             <div class="col-sm-12 col-md-4">
@@ -64,7 +64,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="text-muted fst-italic float-left"><small>fin: {{ $publicidad->fechafin->format('d/m/Y') }}</small></p>
+                                    <p class="text-muted fst-italic">
+                                        <strong>fin:</strong> <small>{{ $publicidad->fechafin->format('d/m/Y') }}</small><br>
+                                        <strong>lugar:</strong> {{ $publicidad->lugar }}</small><br>
+                                        <strong>estado:</strong> <span class="{{ ($publicidad->estado==1) ? ' text-success' : ' text-danger' }} ">{{ $publicidad->estado==1? 'activo': 'inactivo' }}</span><br>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -72,7 +76,8 @@
                                 @if (Auth::user()!=null)
                                     @if (Auth::user()->hasRole('admin'))
                                         <p class="float-right">
-                                            <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
+                                            <a href="{{ route('publicidad.show', $publicidad->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver anuncio publicitario"><i class="far fa-eye"></i></a>
+                                            <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar anuncio publicitario"><i class="far fa-edit"></i></a>
                                             
                                             <a href="#" class="btn btn-sm btn-secondary"  data-toggle="modal" data-target="#exampleModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Baja anuncio publicitario"><i class="far fa-trash-alt"></i></a>
                                         </p>
@@ -93,7 +98,7 @@
                                                     <form class="d-inline" method="POST" action="{{ route('publicidad.update', $publicidad->id) }}">
                                                         {{ csrf_field() }}
                                                         {{ method_field('PUT') }}
-                                                        {!! Form::hidden('tipo','bloquear', null) !!}
+                                                        {!! Form::hidden('tipo','baja', null) !!}
                                                     <button type="submit" class="btn btn-primary">Confirmar</button>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                 </form>
