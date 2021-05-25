@@ -15,8 +15,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                     <strong>fecha:</strong>  {{ $blog->created_at->format('d/m/Y') }}
+                <div class="col-md-12 font-italic text-muted">
+                     <strong>fecha:</strong>  {{ $blog->created_at->format('d/m/Y') }} |
+                     <strong>ref:</strong>  {{ $blog->referencia }} |
+                     <strong>autor:</strong>  {{ $blog->autor }} 
                 </div>
             </div>
     </div>
@@ -44,7 +46,7 @@
                         {!! Form::open(['route'=>['blog.update', $blog->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
                         {!! Form::hidden('estado', '0') !!}
-                        {!! Form::submit('Rechazar', ['class' => 'btn btn-danger btn-update']) !!}
+                        {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
 
@@ -54,7 +56,7 @@
                         {!! Form::open(['route'=>['blog.update', $blog->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
                         {!! Form::hidden('estado', '2') !!}
-                        {!! Form::submit('Pasar a pendiente', ['class' => 'btn btn-warning btn-update']) !!}
+                        {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
                 @endif

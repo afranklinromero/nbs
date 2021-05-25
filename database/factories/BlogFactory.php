@@ -13,7 +13,7 @@ $factory->define(Blog::class, function (Faker $faker) {
         'user_id' => User::all('id')->random(),
         'titulo' => $faker->text(32),
         'multimedia' => $faker->text(15),
-        'contenido' => $faker->text(1024),
+        'contenido' => $faker->text(2048),
         'autor' => $faker->name(),
         'referencia' =>$faker->name(),
     ];

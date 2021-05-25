@@ -11,9 +11,7 @@
                     <a href="{{ route('publicidad.index') }}#publicidades" class="btn btn-link">Volver</a>
                 </div>
             </div>
-
         </div>
-
     </div>
 
 @endsection
