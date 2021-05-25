@@ -52,7 +52,7 @@
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
                         {!! Form::hidden('estado', '0') !!}
-                        {!! Form::submit('Bloquear', ['class' => 'btn btn-danger btn-update']) !!}
+                        {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
 
@@ -62,7 +62,7 @@
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
                         {!! Form::hidden('estado', '2') !!}
-                        {!! Form::submit('Desbloquear', ['class' => 'btn btn-warning btn-update']) !!}
+                        {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
                         {!! Form::close() !!}
                     @endif
                 @endif

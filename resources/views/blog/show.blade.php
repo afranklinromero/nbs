@@ -4,11 +4,12 @@
 
     <div class="container" id="blog-head">
         <div class="container" id="blog-body">
+        <h3 class="text-success text-uppercase"> {{ $blog->titulo }}</h3>
             @include('blog.aside.show')
             <div class="row">
                 <div class="col-md-12">
                     <div class="row justify-content-center">
-                        <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
+                        <a href="{{ route('blog.index') }}" class="btn btn-link">Volver</a>
                     </div>
                 </div>
             </div>

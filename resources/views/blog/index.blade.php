@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h2 class="text-primary"><a href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
+                                    <h2><a class="text-success" href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
                                     <br>
                                     <h4 class="mr-3 ml-3">Blog de articulos sobre normas de bolivianas de salud, y medicina en gral.</h4>
                                     <br>
@@ -32,8 +32,7 @@
                                     </p>
                                     <p>
                                         <div class="row">
-                                            <div class="col-md-3"></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-12 mr-3 ml-3">
                                                 {!! Form::open(['route'=>'blog.index', 'id'=>'form-blog-index', 'method' => 'GET']) !!}
                                                 <div class="input-group mb-3">
                                                     <input id="titulo" name="titulo" value="{{ isset($titulo) ? $titulo : ''}}" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -75,7 +74,7 @@
                     @if ($j < $n)
                         <div class="col-12">
                             <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
-                                <a href="https://bit.ly/3b53H2K">
+                                <a href="https://bit.ly/3b53H2K" target="_blank">
                                     
                                         <img src="{{ asset('img/publicidad/'.$publicidades[$j]->id.'.png') }}" class="img-fluid rounded" alt="">
                                     
