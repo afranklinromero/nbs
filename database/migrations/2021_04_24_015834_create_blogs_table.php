@@ -18,7 +18,10 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('titulo', 64);
-            $table->string('multimedia', 128);
+            $table->string('imagen', 128)->nullable();
+            $table->string('documentopdf', 128)->nullable();
+            $table->string('youtube', 128)->nullable();
+            $table->string('ext', 6)->nullable();
             $table->string('contenido', 3074);
             $table->string('autor', 64);
             $table->string('referencia', 64);

@@ -8,5 +8,5 @@ class Blog extends Model
 {
     //
     protected $table = 'blog';
-    protected $fillable = ['user_id', 'titulo', 'multimedia', 'contenido', 'autor', 'referencia', 'estado'];
+    protected $fillable = ['user_id', 'titulo', 'imagen', 'ext', 'documentopdf', 'youtube', 'contenido', 'autor', 'referencia', 'estado'];
 }

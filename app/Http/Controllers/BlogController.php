@@ -34,16 +34,31 @@ class BlogController extends Controller
     public function store(Request $request){
         $blog = new Blog($request->all());
 
+        //dd($blog);
+
         $blog->estado = 1;
 
-        $blog->save();
+        
 
 
         //$request->file('multimedia')->storeAs('public/blog/', $blog->id . '.png');
-        $image = $request->file('multimedia');
-        $imagen = $image->getClientOriginalName();
-        $formato = $image->getClientOriginalExtension();
-        $image->move(public_path().'/img/blog/', $blog->id . '.png');
+        $fileimagen = $request->file('imagen');
+        if (isset($fileimagen)){
+            $blog->imagen = $fileimagen->getClientOriginalName();
+            $blog->ext = $fileimagen->getClientOriginalExtension();
+        } else {
+            $blog->imagen = null;
+        }
+
+        
+        $filepdf = $request->file('documentopdf');
+        if (isset($filepdf)) $blog->documentopdf = $filepdf->getClientOriginalName(); else $blog->documentopdf = null;
+
+        $blog->save();
+
+        if (isset($fileimagen)) $fileimagen->move(public_path().'/img/blog/', $blog->id . '.' . $fileimagen->getClientOriginalExtension());
+        if (isset($filepdf)) $filepdf->move(public_path().'/img/blog/doc', $blog->id . '.' .$filepdf->getClientOriginalExtension());
+
         //dd($image);
         //Storage::put('/public/blog/'.$blog->id . '.png', \File::get);
 
@@ -89,5 +104,12 @@ class BlogController extends Controller
         $blog->updated_at = now();
         $blog->save();
         return redirect()->route('blog.index');
+    }
+
+    public function download($id)
+    {
+        $blog = Blog::find($id);
+        $pathToFile = "img/blog/doc/".$blog->id.'.pdf';
+        return response()->download($pathToFile);
     }
 }

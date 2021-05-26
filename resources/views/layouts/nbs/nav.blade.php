@@ -17,18 +17,20 @@
         <li class="nav-item">
             <a class="nav-link btn-outline-light" href="{{ route('blog.index') }}">BLOG </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
+        </li>
             @if( Auth::check())
                 @if(Auth::user()->hasRole('admin'))
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('publicidad.index') }}">ANUNCIOS</a>
                     </li>
                     <li class="nav-item">
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
-                    </li>
+                    
                     <li class="nav-item">
                     </li>
 

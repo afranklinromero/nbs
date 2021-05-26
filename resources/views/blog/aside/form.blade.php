@@ -14,10 +14,28 @@
                                 </p>
                             </div>
                             <div class="col-md-6">
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <p class="card-title">
-                                    {!! Form::label('multimedia', 'Portada articulo:', ['class' => 'form-label']) !!}
-                                    {!! Form::file('multimedia', ['class' => 'form-control-file']) !!}
+                                    {!! Form::label('imagen', 'Imagen/Video:', ['class' => 'form-label']) !!}
+                                    {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                                    <div id="preview"><img class="img-fluid rounded" src="{{ asset('img/publicidad') }}/{{ isset($blog->id)? $blog->id : null}}.png" alt=""></div>
                                 </p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="card-title">
+                                    {!! Form::label('documentopdf', 'Documento formato PDF:', ['class' => 'form-label']) !!}
+                                    {!! Form::file('documentopdf', ['class' => 'form-control-file', 'accept' => '.pdf']) !!}
+                                    <div id="preview"><img class="img-fluid rounded" src="{{ asset('img/publicidad') }}/{{ isset($blog->id)? $blog->id : null}}.png" alt=""></div>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                {!! Form::label('youtube', 'URL video youbute:', ['class' => 'form-label']) !!}
+                                {!! Form::url('youtube', isset($blog->titulo) ? $blog->titulo : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64']) !!}
+                                
                             </div>
                         </div>
                         <div class="row">

@@ -12,7 +12,10 @@ $factory->define(Blog::class, function (Faker $faker) {
         //
         'user_id' => User::all('id')->random(),
         'titulo' => $faker->text(32),
-        'multimedia' => $faker->text(15),
+        'imagen' => $faker->text(16) . '.png',
+        'ext' => 'png',
+        'documentopdf' => $faker->text(15),
+        //'youtube' => $faker->url,
         'contenido' => $faker->text(2048),
         'autor' => $faker->name(),
         'referencia' =>$faker->name(),

@@ -13,6 +13,6 @@ class BlogSeeder extends Seeder
     public function run()
     {
         //
-        factory(Blog::class, 50)->create();
+        factory(Blog::class, 10)->create();
     }
 }
