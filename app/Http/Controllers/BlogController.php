@@ -75,26 +75,44 @@ class BlogController extends Controller
 
     public function update(Request $request, $id){
         $blog = Blog::find($id);
+        if (isset($request->tipo) && $request->tipo=='update'){
 
-        $blog->titulo = $request->titulo;
-        if (isset($request->multimedia)){
-            $image = $request->file('multimedia');
-            $imagen = $image->getClientOriginalName();
-            $formato = $image->getClientOriginalExtension();
-            $image->move(public_path().'/img/blog/', $blog->id . '.png');
-        }
-        $blog->contenido = $request->contenido;
-        $blog->autor = $request->autor;
-        $blog->referencia = $request->referencia;
+            $blog->titulo = $request->titulo;
+            if (isset($request->imagen)){
+                $image = $request->file('imagen');
+                $imagen = $image->getClientOriginalName();
+                $ext = $image->getClientOriginalExtension();
+                $image->move(public_path().'/img/blog/', $blog->id . '.'.$ext);
+                $blog->imagen = $imagen;
+                $blog->ext = $ext;
+            }
 
-        //$blog->estado = 1;
+            if (isset($request->documentopdf)){
+                $pdf = $request->file('documentopdf');
+                $documentopdf = $pdf->getClientOriginalName();
+                $ext = $pdf->getClientOriginalExtension();
+                $pdf->move(public_path().'/img/blog/doc/', $blog->id . '.' . $ext);
+                $blog->documentopdf = $documentopdf;
+            }
 
+            $blog->youtube = $request->youtube;
+            $blog->contenido = $request->contenido;
+            $blog->autor = $request->autor;
+            $blog->referencia = $request->referencia;
+
+        } elseif (isset($request->tipo) && $request->tipo=='alta') $blog->estado=1;
+        elseif (isset($request->tipo) && $request->tipo=='baja') $blog->estado=0;
+        
+        $blog->updated_at = now();
         $blog->save();
 
 
         if ($request->ajax())
             return redirect()->route('blog.show', $blog->id);
 
+        if ($request->tipo=='update')
+            return redirect()->route('blog.show', $blog->id);
+        else
         return redirect()->route('blog.show', $blog->id);
     }
 

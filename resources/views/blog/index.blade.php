@@ -75,9 +75,7 @@
                         <div class="col-12">
                             <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
                                 <a href="https://bit.ly/3b53H2K" target="_blank">
-                                    
-                                        <img src="{{ asset('img/publicidad/'.$publicidades[$j]->id.'.png') }}" class="img-fluid rounded" alt="">
-                                    
+                                    <img src="{{ asset('img/publicidad/'.$publicidades[$j]->id.'.png') }}" class="img-fluid rounded" alt="">
                                 </a>
                             </p>
                         </div>
@@ -88,7 +86,12 @@
                     <div>
                         <div class="card">
                             <div class="contenedorimg">
-                                <img class="imagen card-img-top" src="{{ asset('img/blog/'.$blog->id . '.png') }}" alt="">
+                                @if (isset($blog->imagen))
+                                    <img class="imagen card-img-top" src="{{ asset('img/blog/'.$blog->id . '.' . $blog->ext) }}" alt="">    
+                                @else
+                                    <img class="imagen card-img-top" src="{{ asset('img/default.png') }}" alt="">    
+                                @endif
+                                
                             </div>
                             
                             <div class="card-body">
@@ -99,7 +102,13 @@
                                 </h5>
                                 <p class="card-text">{{ substr($blog->contenido, 0, 128) }}...</p>
                                 <p class="text-muted fst-italic">
-                                    <small> {{ $blog->created_at->format('d/m/Y') }}</small>
+                                    <small> {{ $blog->created_at->format('d/m/Y') }}</small> <br>
+                                    @if (Auth::user()!=null)
+                                        @if (Auth::user()->hasRole('admin'))
+                                            <strong>id:</strong> <small> {{ $blog->id }}</small><br>
+                                            <strong>id:</strong> <small> {{ $blog->id }}</small><br>
+                                        @endif 
+                                    @endif
                                 </p>
                                 @if (Auth::user()!=null)
                                     @if (Auth::user()->hasRole('admin'))
