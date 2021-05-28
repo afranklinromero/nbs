@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Modelos\Blog;
 use App\Modelos\Publicidad;
+use App\Http\Requests\BlogRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,7 +32,7 @@ class BlogController extends Controller
         return view('blog.create');
     }
 
-    public function store(Request $request){
+    public function store(BlogRequest $request){
         $blog = new Blog($request->all());
 
         //dd($blog);
@@ -73,7 +74,7 @@ class BlogController extends Controller
         return view('blog.edit', compact('blog'));
     }
 
-    public function update(Request $request, $id){
+    public function update(BlogRequest $request, $id){
         $blog = Blog::find($id);
         if (isset($request->tipo) && $request->tipo=='update'){
 

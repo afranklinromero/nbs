@@ -3,23 +3,22 @@
 @section('contenido')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Ingreso</div>
-
-                <div class="panel-body">
+        <div class="col-md-12">
+            <div class="card" style="float: aut; width: 500px;" >
+                <div class="card-body">
+                    <h3>Ingreso</h3>
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Usuario</label>
+                        <div class="row"></div>
+                        <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Número teléfono</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('telefono'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('telefono') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -48,23 +47,21 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
+                        <div class="row">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Ingresar
-                                </button>
+                                <div class="form-group">
+                                    <p class="text-center"><button type="submit" class="btn btn-success">Ingresar</button></p>
+                                    
 
-                                
-                                <a href="{{ route('users.create') }}" class="btn btn-primary">
-                                Registrarme</a></th>
-                               
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Me Olvide mi contraseña?
-                                </a>
+                                    <a href="{{ route('users.create') }}"><strong class="text-danger">Registrarme</strong></a></th>
+    
+                                    <!--<a class="btn btn-link" href="{{ route('password.request') }}">
+                                        Me Olvide mi contraseña?
+                                    </a>-->
+                                </div>
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>

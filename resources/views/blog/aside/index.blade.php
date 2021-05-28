@@ -42,7 +42,7 @@
     </div>
     
 
-    <p class="text-success">{{ $preguntas->total() }} registros encontrados, pagina {{ $preguntas->currentPage() }} de {{ $preguntas->lastPage() }}</p>
+    <p class="text-success">{{ $preguntas->total() }} registros encontrados, {{ $preguntas->currentPage() }} de {{ $preguntas->lastPage() }}</p>
 
     <table class="table table-striped">
         <thead>
