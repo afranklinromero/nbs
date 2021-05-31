@@ -61,8 +61,11 @@
                         </a>
 
                         <ul class="dropdown-menu">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{ route('users.show', Auth::user()->id) }}">Datos de usuario <span class="sr-only">(current)</span></a>
+                            </li>
                             <li>
-                                <a href="{{ route('logout') }}"
+                                <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                     Logout

@@ -9,6 +9,7 @@
 
 @section('scriptlocal')
 <script>
+    /*
     $(document).on("click", ".pagination a", function() {
         event.preventDefault();
         var route = $(this).attr('href');
@@ -57,6 +58,7 @@
         return false;
 
     });
+    */
  </script>
 
 @endsection

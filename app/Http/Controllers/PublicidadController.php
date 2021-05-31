@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Auth;
 class publicidadController extends Controller
 {
     //
+
+    public function __construct(Request $request)
+    {
+        $this->middleware('auth');
+
+        /*if (!Auth::user()->hasRole('admin'))
+            abort(403);*/
+    }
+
+    
     public function index(Request $request){
         $publicidades = Publicidad::orderBy('id', 'desc');//->where('estado', '1');
         $titulo = $request->titulo;

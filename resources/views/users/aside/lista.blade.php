@@ -16,7 +16,7 @@
                 <td> {{$user->ocupacion}} </td>
                 <td>
                     <a href="{{route('users.show', $user->id)}}" class="btn btn-primary show">ver</a>
-                    <a href="{{route('users.show', $user->id)}}" class="btn btn-warning edit">editar</a>
+                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning edit">editarrrr</a>
                 </td>
             </tr>
         @endforeach
