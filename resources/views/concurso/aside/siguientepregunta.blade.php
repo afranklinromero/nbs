@@ -8,12 +8,16 @@
         <a id="siguientepregunta" href="{{route('concurso.siguientepregunta', ['index' => $index, 'temaconcurso_id'=> $temaconcurso->id, 'preguntaanterior_id' => $pregunta->id])}}"></a>
         @foreach ($respuestas as $respuesta)
             {!! Form::hidden('mirespuesta[]', $respuesta->id) !!}
+            <p>
             <a
                 href="{{ route('concurso.responder', ['mirespuesta_id' => $respuesta->id]) }}"
-                class="btn btn-outline-primary responder btn-lg btn-block"
+                class="btn btn-outline-primary responder btn-block btn-lg"
+                style="white-space: normal"
                 id="{{ $respuesta->id }}">
                     {{$respuesta->respuesta}}
+                
             </a>
+        </p>
             <br>
             
         @endforeach

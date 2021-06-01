@@ -20,6 +20,7 @@ class CreateLibrosTable extends Migration
             $table->date('fecha');
             $table->string('tapa', 512);
             $table->string('documentopdf', 512);
+            $table->string('autor', 128)->default('Ministerio de Salud y Depeortes - Estado Plurinacional de Bolivia');
             $table->string('edicion', 64);
             $table->string('serie', 64);
             $table->string('nropublicacion');

@@ -17,23 +17,43 @@
                             }
                             //echo ucwords(strtolower($titulomarcado));
                         @endphp
-                        @if (($i%9)==0)
-                        <div class="col-12">
-                            <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
-                                <a target="_blank" href="https://bit.ly/3b53H2K">
-                                    <img src="{{ asset('img/Asesoria Tesis en Salud - Nobosa.jpg') }}" class="img-fluid rounded" alt="">
-                                </a>
-                            </p>
-                        </div>
+                        @if (($i%10)==0)
+                            <div class="col-12">
+                                <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
+                                    <a target="_blank" href="https://bit.ly/3b53H2K">
+                                        <img src="{{ asset('img/Asesoria Tesis en Salud - Nobosa.jpg') }}" class="img-fluid rounded" alt="">
+                                    </a>
+                                </p>
+                            </div>
                         @endif
-                        <div class="col-sm-12 col-md-4">
+                        
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="card mb-3 shadow-sm" style="max-width: 540px;">
+                                <div class="row g-0">
+                                  <div class="col-4">
+                                    <a href="{{ route('libro.show', $libro->id) }}">
+                                        <img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" class="rounded img-fluid"  alt="" srcset="">
+                                    </a>
+                                  </div>
+                                  <div class="col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a class="text-primary" href="{{ route('libro.show', $libro->id) }}">
+                                            @php echo ucwords(strtolower($titulomarcado)); @endphp
+                                        </a>
+                                        </h5>
+                                      <p class="card-text"><strong>autor:</strong> <small class="text-muted">{{ $libro->autor }}</small></p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--
                             <div class="row">
                                 <div class="col-5">
-                                    <div class="text-center">
+                                    <div class="text-left">
                                         <a href="{{ route('libro.show', $libro->id) }}">
                                             <img src="{{ asset('tapas/') }}/{{ $libro->tapa}}" class="rounded img-thumbnail"  alt="" srcset="">
                                         </a>
-                                        <hr class="bg-info" width="250%">
+                                        
                                     </div>
                                 </div>
                                 <div class="col-7">
@@ -42,8 +62,11 @@
                                             @php echo ucwords(strtolower($titulomarcado)); @endphp
                                         </a>
                                     </h5>
+                                    <p><strong>autor: </strong>{{ $libro->autor }}</p>
                                 </div>
                             </div>
+                            <br>
+                            <hr class="bg-danger" width="100%">-->
                         </div>
                     @endforeach
                 </div>
