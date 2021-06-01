@@ -1,10 +1,11 @@
 <div class="card mx-auto">
     <div class="card-header text-white bg-success">
-        <h3> RONDA TERMINADA </h3>
+        <h3> Ronda terminada </h3>
 
     </div>
     <div class="card-body">
         <h1 class="display-1 text-center">{{ $participacion->correctas }}/{{ $participacion->concurso->configuracion->nropreguntas }}</h1>
+		<div class="alert alert-success">
         <table class="table">
         	<tr>
         		<td width='50%' class="text-right"><strong>Tiempo:</strong> </td>
@@ -31,7 +32,9 @@
         		<td>{{ $clasificacion->puntos }}</td>
         	</tr>
 		</table>
-		<p class="card-text"><small class="text-muted">Clasificación top 10</small></p>
+	</div>
+	<div class="alert alert-success">
+		<p class="card-text"><strong class="text-center">Clasificación top 10</strong></p>
 		<table class="table table-sm table-striped">
 			<thead>
 				<tr>
@@ -45,23 +48,31 @@
 					$nro = 1;
 				@endphp
 				@foreach($participacion->concurso->clasificaciones->sortByDesc('puntos') as $clasificacion)
-				<tr>
-					@if ($nro<=10)
+					@if (Auth::user()->id == $clasificacion->usuario->id)
+					<tr class="bg-success text-white">
 						<td> {{ $nro }}° </td>
 						<td> {{ $clasificacion->usuario->name }} </td>
 						<td> {{ $clasificacion->puntos }} </td>
+					</tr>	
 					@endif
-
+					@if ($nro<=10)
+					<tr>
+						<td> {{ $nro }}° </td>
+						<td> {{ $clasificacion->usuario->name }} </td>
+						<td> {{ $clasificacion->puntos }} </td>
+					</tr>					
+					@endif
 					@php
 						$nro++;
 					@endphp
-				</tr>
+				
 				@endforeach
 			</tbody>
 		</table>
+	</div>
 		<div class="text-center">
-			<a class="btn btn-primary" href="{{route('concurso.jugar', $participacion->concurso_id) }}">Volver a jugar</a>
-			<a class="btn btn-primary" href="{{route('concurso.index') }}">SALIR</a>
+			<a class="btn btn-success" href="{{route('concurso.jugar', $participacion->concurso_id) }}">Volver a jugar</a>
+			<a class="btn btn-danger" href="{{route('concurso.index') }}">Salir</a>
 		</div>
 		
     </div>

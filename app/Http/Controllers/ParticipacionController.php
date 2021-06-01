@@ -40,18 +40,18 @@ class ParticipacionController extends Controller
 
     public function store (Request $request){
 
-        $participacion = new Participacion();
+        
         
         $concurso = Concurso::find($request->concurso_id);
 
+        $participacion = new Participacion();
         $participacion->concurso_id = $concurso->id;
         $participacion->user_id = Auth::user()->id;
-
         $participacion->tiempo = intdiv($request->tiempo, 60). ':'. ($request->tiempo % 60);
         $participacion->correctas = 0;
         $participacion->incorrectas = 0;
         $participacion->puntos = 0;
-
+        //dd($request->respuestas);
 
         foreach ($request->respuestas as $i => $respuesta) {
             $detalleparticipacion = new Detalleparticipacion();
@@ -68,9 +68,6 @@ class ParticipacionController extends Controller
                 $detalleparticipacion->respuesta_id = 1;
                 $detalleparticipacion->escorrecto = 0;
             }
-
-
-
             if ($detalleparticipacion->escorrecto == 1){
                 $participacion->correctas = $participacion->correctas + 1;
             } else {

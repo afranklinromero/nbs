@@ -15,6 +15,7 @@ class CreateLibrosTable extends Migration
     {
         Schema::create('libro', function (Blueprint $table) {
             $table->engine = 'InnoDB'; //para db relacional
+            //$table->collate = 'utf8_unicode_ci'; //para db relacional
             $table->id();
             $table->string('titulo', 256);
             $table->date('fecha');

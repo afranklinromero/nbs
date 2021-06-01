@@ -21,6 +21,6 @@
             <br>
             
         @endforeach
-        <p>Autor: {{ $pregunta->user->name }}</p>
+        <p class="text-muted">Autor: <strong>{{ $pregunta->user->name }}</strong></p>
     </div>
 </div>

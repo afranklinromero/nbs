@@ -2,6 +2,11 @@
 
 @section('contenido')
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4><strong class="text-lowercase">titulo › </strong> <span class="text-lowercase">{{ $libro->titulo }} </span></h4>
+            </div>
+        </div>
         <div class="row show">
             <div class="col-md-2 show-left"> @include('libro.aside.show-left')</div>
             <div class="col-md-10 show-right tam">
@@ -11,25 +16,30 @@
     </div>
 @endsection
 
+
+
 @section('scriptlocal')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>-->
 
 <script>
+    /*
     $('.pdfembed').attr('height', screen.height -250)
     var myState = {
-        pdf : null,
+        pdf : 'help.pdf',
         currentPage: 1,//parseInt(parametroURL('pagina')),
         zoom: 1
     }
+    */
 
-    console.log( "n pagina: " + myState.currentPage);
+    //console.log( "n pagina: " + myState.currentPage);
 
     //var documentopdf = $("#srcdocumentopdf").val();
     //console.log("documento pdf: " + documentopdf);
 
 
     //render();
-
+/*
     function parametroURL(_par) {
         var _p = null;
         if (location.search) location.search.substr(1).split("&").forEach(function(pllv) {
@@ -74,8 +84,9 @@
             })
         });
     }
+    */
 
-
+/*
     $(document).on('click', '#go_previous', function(e) {
         event.preventDefault();
 
@@ -153,7 +164,10 @@
 
 
     });
+*/
 
+
+/*
     function cargarPagina($form){
         $.get($form.attr('action'), $form.serialize(), function(result){
             $('.show-right').html(result);
@@ -204,6 +218,7 @@
 
         }
     });
+
     $(document).on('click', '.submitshow', function(e) {
         event.preventDefault();
         //alert('ok')
@@ -217,8 +232,11 @@
             //console.log(result);
             $('.container').html(result);
         });
-        */
+        
     });
+
+    */
+
 </script>
 
 @endsection

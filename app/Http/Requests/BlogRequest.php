@@ -28,7 +28,7 @@ class BlogRequest extends FormRequest
             'titulo' => 'required|min:8|max:64',
             //'imagen' => 'required|min:5|max:128',
             //'ext' => 'required|min:1|max:6',
-            'documentopdf' => 'max:128',
+            //'documentopdf' => 'max:128',
             'youtube' => 'max:128',
             'contenido' => 'required|min:8|max:3024',
             'autor' => 'required|min:3|max:64',

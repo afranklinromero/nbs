@@ -3,6 +3,10 @@
 @section('contenido')
 <div class="container">
     <h2 class="text-primary"></i>Concursando</h2>
+    <div class="alert alert-primary" role="alert">
+        <p>Tiene <strong>{{$temaconcurso->concurso->configuracion->tiempolimite}} seg. </strong> para responder <strong>{{ $temaconcurso->concurso->configuracion->nropreguntas }} </strong>preguntas</p>
+    </div>
+    
 
     @include('concurso.aside.error')
 
@@ -102,7 +106,7 @@
 
         $("input[name='respuestas[]']").map( function(key){
             if (key == (index-1)){
-                var respuesta_id = ruta_respuesta.split("/")[5];
+                var respuesta_id = ruta_respuesta.split("/")[7];
                 $(this).val(respuesta_id);
                 console.log('respuesta_id: ' + respuesta_id);
             }
@@ -192,5 +196,6 @@
 </script>
 
 @endsection
+
 
 
