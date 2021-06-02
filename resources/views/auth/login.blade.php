@@ -6,7 +6,12 @@
         <div class="col-md-12 p-3" style="display: flex; justify-content: center; align-items:center;">
             <div class="card" style="float: aut; width: 500px;" >
                 <div class="card-body">
-                    <h3>Ingreso</h3>
+                    <div class="text-center">
+                        <a href="{{route('libro.index')}}"><img class="img-fluid" src="{{asset('img/logonobosa3.png')}}" alt=""></a>
+                        <h3>Iniciar sesión</h3>
+                        <p class="text-muted">Utiliza tu cuenta con número de teléfono</p>
+                    </div>
+                    
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="row"></div>
@@ -38,7 +43,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <div class="col-md-12">
                                 <div class="checkbox">
                                     <label>
@@ -46,7 +51,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <div class="col-md-12">
                                 <div class="form-group">

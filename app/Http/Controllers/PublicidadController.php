@@ -13,13 +13,13 @@ class publicidadController extends Controller
     public function __construct(Request $request)
     {
         $this->middleware('auth');
-
-        /*if (!Auth::user()->hasRole('admin'))
-            abort(403);*/
+        
     }
 
     
     public function index(Request $request){
+        Auth::user()->authorizeRoles(['admin']);
+
         $publicidades = Publicidad::orderBy('id', 'desc');//->where('estado', '1');
         $titulo = $request->titulo;
         if (isset($request->titulo) && strlen(trim($request->titulo)) > 0)
@@ -32,15 +32,21 @@ class publicidadController extends Controller
     }
 
     public function show(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
+
         $publicidad = publicidad::find($id);
         return view('publicidad.show', compact('publicidad'));
     }
 
     public function create(Request $request){
+        Auth::user()->authorizeRoles(['admin']);
+
         return view('publicidad.create');
     }
 
     public function store(Request $request){
+        Auth::user()->authorizeRoles(['admin']);
+
         $publicidad = new publicidad($request->all());
 
         $publicidad->estado = 1;
@@ -63,11 +69,15 @@ class publicidadController extends Controller
     }
 
     public function edit(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
+
         $publicidad = publicidad::find($id);
         return view('publicidad.edit', compact('publicidad'));
     }
 
     public function update(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
+        
         $publicidad = publicidad::find($id);
         $tipo = $request->tipo;
         //dd($tipo);

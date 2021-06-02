@@ -11,6 +11,7 @@
 
 @section('scriptlocal')
 <script>
+    /*
     $(document).on('click', '.pagination a', function(e) {
         event.preventDefault();
 
@@ -79,7 +80,7 @@
         });
 
     });
-*/
+
     $(document).on('click', '.update', function(e) {
         event.preventDefault();
         var form = $(this).parent().parent();
@@ -88,7 +89,8 @@
         $.post(form.action, form.serialize(), function(result){
             $('#sugerenciasnbs').html(result);
         });
-*/
+
     });
+    */
 </script>
 @endsection

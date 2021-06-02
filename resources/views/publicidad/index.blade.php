@@ -15,7 +15,7 @@
                             <p class="text-center">
                                 @if (Auth::user()!=null)
                                     @if (Auth::user()->hasRole('admin'))
-                                        <a href="{{ route('publicidad.create') }}" class="btn btn-warning">Nueva publicidad</a>
+                                        <a href="{{ route('publicidad.create') }}" class="btn text-white" style="background-color: #d86304">Nueva publicidad</a>
                                         <br>
                                     @endif
                                 @endif
@@ -24,7 +24,10 @@
                                 {!! Form::open(['route'=>'publicidad.index', 'id'=>'form-publicidad-index', 'method' => 'GET']) !!}
                                 <div class="input-group m-3">
                                     <input id="titulo" name="titulo" value="{{ isset($titulo) ? $titulo : ''}}" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline text-white" style="background-color: #d86304" type="submit" id="button-addon2">Buscar</button>
+                                    </div>
+                                    
                                 </div>
                                 {!! Form::close() !!}
                             </p>
@@ -48,7 +51,7 @@
             <div class="col-sm-12 col-md-4">
                 <div>
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('img/publicidad/'.$publicidad->id . '.png') }}" alt="">
+                        <a href="{{route('publicidad.show', $publicidad->id)}}"><img class="card-img-top" src="{{ asset('img/publicidad/'.$publicidad->id . '.png') }}" alt=""></a>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{{route('publicidad.show', $publicidad->id)}}" style="color: #d86304">
@@ -76,10 +79,10 @@
                                 @if (Auth::user()!=null)
                                     @if (Auth::user()->hasRole('admin'))
                                         <p class="float-right">
-                                            <a href="{{ route('publicidad.show', $publicidad->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver anuncio publicitario"><i class="far fa-eye"></i></a>
-                                            <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar anuncio publicitario"><i class="far fa-edit"></i></a>
+                                            <a href="{{ route('publicidad.show', $publicidad->id) }}" class="btn btn-sm text-white" style="background-color: #d86304" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver anuncio publicitario"><i class="far fa-eye"></i></a>
+                                            <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-sm text-white" style="background-color: #d86304" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar anuncio publicitario"><i class="far fa-edit"></i></a>
                                             
-                                            <a href="#" class="btn btn-sm btn-secondary"  data-toggle="modal" data-target="#exampleModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Baja anuncio publicitario"><i class="far fa-trash-alt"></i></a>
+                                            <a href="#" class="btn btn-sm text-white" style="background-color: #d86304" data-toggle="modal" data-target="#exampleModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Baja anuncio publicitario"><i class="far fa-trash-alt"></i></a>
                                         </p>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{ $publicidad->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

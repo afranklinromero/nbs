@@ -1,7 +1,4 @@
-@include('sugerenciasnbs.aside.aside')
 @include('sugerenciasnbs.aside.info')
-@include('sugerenciasnbs.aside.error')
-
 <h3>{{$sugerenciasnbs->subject}}</h3>
 <div class="row">
     <div class="col-md-6">
@@ -25,7 +22,11 @@
 
 <div class="row">
     <div class="col">
-        <a href="{{ route('sugerenciasnbs.index') }}" class="btn btn-success index">Volver</a>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{{ route('sugerenciasnbs.index') }}" class="btn btn-primary index">Responder</a>
+            <a href="{{ route('sugerenciasnbs.index') }}" class="btn btn-success index">Volver</a>
+        </div>
+        
     </div>
 </div>
 

@@ -19,7 +19,7 @@ class BlogController extends Controller
 
         $blogs = $blogs->paginate(12);
 
-        $publicidades = Publicidad::all();
+        $publicidades = Publicidad::where('estado', 1)->where('lugar', 'blog')->orderBy('id')->get();
         return view('blog.index', compact('blogs', 'publicidades', 'titulo'));
     }
 

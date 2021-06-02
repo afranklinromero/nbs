@@ -49,6 +49,7 @@ Route::resource('clasificacion', 'ClasificacionController');
 
 Route::resource('pregunta', 'PreguntaController');
 
+Route::put('sugerenciasnbs/showme/{id}', 'SugerenciasnbsController@showme')->name('sugerenciasnbs.showme');
 Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
 
 Route::resource('blog', 'BlogController');

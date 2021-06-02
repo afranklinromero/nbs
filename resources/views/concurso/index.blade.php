@@ -38,7 +38,13 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            @include('publicidad.aside.carrousel')
+        </div>
+        <div class="col-md-3"></div>
+    </div>
     <hr>
     <div class="container" id="concurso-body">
         @include('concurso.aside.index')

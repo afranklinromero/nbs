@@ -8,6 +8,7 @@ use App\Modelos\Pregunta;
 use App\Modelos\Respuesta;
 use App\Modelos\Tema;
 use App\Modelos\Temaconcurso;
+use App\Modelos\Publicidad;
 use DateTime;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
@@ -63,9 +64,9 @@ class ConcursoController extends Controller
 
         //dd($preguntas);
 
+        $publicidades = Publicidad::where('estado', 1)->where('lugar', 'concurso')->orderBy('id')->get();
 
-
-        return view('concurso.index',compact('temaconcursos', 'concursoEstado', 'preguntas', 'preguntaEstado'));
+        return view('concurso.index',compact('temaconcursos', 'concursoEstado', 'preguntas', 'preguntaEstado', 'publicidades'));
     }
 
     public function buscar(Request $request){

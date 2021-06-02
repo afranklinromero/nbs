@@ -38,9 +38,8 @@ class User extends Authenticatable
 
     public function authorizeRoles($roles)
     {
-        if ($this->hasAnyRole($roles)) {
+        if ($this->hasAnyRole($roles)) 
             return true;
-        }
         abort(401, 'Esta acción no está autorizada.');
     }
     public function hasAnyRole($roles)
@@ -65,6 +64,8 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    
 
 
 

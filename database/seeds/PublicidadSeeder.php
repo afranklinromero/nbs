@@ -13,6 +13,7 @@ class PublicidadSeeder extends Seeder
     public function run()
     {
         //
-        factory(Publicidad::class, 50)->create();
+        Publicidad::create(['user_id'=>1, 'titulo'=>'Asesoria tesis', 'contenido'=>'Asesoria de tesis y consultoria de salud', 'link'=>'https://bit.ly/3b53H2K', 'lugar'=>'libro', 'fechaini'=>'2021-01-01', 'fechafin'=>'2021-12-01']);
+        factory(Publicidad::class, 10)->create();
     }
 }

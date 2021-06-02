@@ -17,14 +17,13 @@
                             }
                             //echo ucwords(strtolower($titulomarcado));
                         @endphp
-                        @if (($i%10)==0)
-                            <div class="col-12">
-                                <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
-                                    <a target="_blank" href="https://bit.ly/3b53H2K">
-                                        <img src="{{ asset('img/Asesoria Tesis en Salud - Nobosa.jpg') }}" class="img-fluid rounded" alt="">
-                                    </a>
-                                </p>
+
+                        @if (($i%10)==0 && $i>0)
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                @include('publicidad.aside.carrousel')
                             </div>
+                            <div class="col-md-3"></div>
                         @endif
                         
                         <div class="col-sm-12 col-md-12 col-lg-6">

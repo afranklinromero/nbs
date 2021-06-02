@@ -1,4 +1,3 @@
-@include('sugerenciasnbs.aside.aside')
 @include('sugerenciasnbs.aside.info')
 @include('sugerenciasnbs.aside.error')
 
@@ -24,12 +23,14 @@
 
             <div class="mb-3">
             {!! Form::label('content', 'Contenido:', ['class' => 'form-label']) !!}
-            {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+            {!! Form::textarea('content', null, ['class' => 'form-control', 'rows'=>'3']) !!}
             </div>
 
             <div class="mb-3">
-            {!! Form::submit('Enviar', ['class' => 'btn btn-primary store']) !!}
-            <a href="{{route('sugerenciasnbs.index')}}" class="btn btn-success index">Volver</a>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    {!! Form::submit('Enviar', ['class' => 'btn btn-primary store']) !!}
+                    <a href="{{route('libro.index')}}" class="btn btn-success index">Volver</a>
+                </div>
             </div>
 
         {!! Form::close() !!}

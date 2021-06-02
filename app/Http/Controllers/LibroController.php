@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\EnviarComentario;
 use App\Modelos\Busqueda;
 use App\Modelos\Libro;
+use App\Modelos\Publicidad;
 use App\Modelos\Marcador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -46,6 +47,8 @@ class LibroController extends Controller
 
         $mensaje=null;
 
+        $publicidades = Publicidad::where('estado', 1)->where('lugar', 'libro')->orderBy('id')->get();
+
         if ($request->ajax()){
 
             if(sizeof($libros->items()) > 0){
@@ -68,9 +71,9 @@ class LibroController extends Controller
                 $mensaje = "No se encontraron coincidencias!!!";
             }
 
-            return view('libro.aside.index-datos',compact('libros', 'busquedas', 'mensaje', 'titulos'))->render();
+            return view('libro.aside.index-datos',compact('libros', 'publicidades', 'busquedas', 'mensaje', 'titulos'))->render();
         } else{
-            return view('libro.index',compact('libros', 'busquedas', 'mensaje', 'titulos'));
+            return view('libro.index',compact('libros', 'publicidades', 'busquedas', 'mensaje', 'titulos'));
         }
     }
 

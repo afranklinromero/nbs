@@ -70,24 +70,20 @@
                 $n = sizeof($publicidades);
             @endphp
             @foreach ($blogs as $i=>$blog)
-                @if (($i>0) && ($i%6)==0)
-                    @if ($j < $n)
-                        <div class="col-12">
-                            <p class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Publicidad auspiciadores">
-                                <a href="https://bit.ly/3b53H2K" target="_blank">
-                                    <img src="{{ asset('img/publicidad/'.$publicidades[$j]->id.'.png') }}" class="img-fluid rounded" alt="">
-                                </a>
-                            </p>
-                        </div>
-                        @php $j++; @endphp
-                    @endif
-                @endif
+                    @if (($i%6)==0 && $i>0)
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                @include('publicidad.aside.carrousel')
+                                <br>
+                            </div>
+                            <div class="col-md-3"></div>
+                        @endif
                 <div class="col-sm-12 col-md-4">
                     <div>
                         <div class="card">
                             <div class="contenedorimg">
                                 @if (isset($blog->imagen))
-                                    <img class="imagen card-img-top" src="{{ asset('img/blog/'.$blog->id . '.' . $blog->ext) }}" alt="">    
+                                    <a href="{{route('blog.show', $blog->id)}}"> <img class="imagen card-img-top" src="{{ asset('img/blog/'.$blog->id . '.' . $blog->ext) }}" alt=""></a>
                                 @else
                                     <img class="imagen card-img-top" src="{{ asset('img/default.png') }}" alt="">    
                                 @endif
@@ -106,7 +102,7 @@
                                     @if (Auth::user()!=null)
                                         @if (Auth::user()->hasRole('admin'))
                                             <strong>id:</strong> <small> {{ $blog->id }}</small><br>
-                                            <strong>id:</strong> <small> {{ $blog->id }}</small><br>
+                                            <strong>autor:</strong> <small> {{ $blog->autor }}</small><br>
                                         @endif 
                                     @endif
                                 </p>
@@ -114,9 +110,9 @@
                                     @if (Auth::user()->hasRole('admin'))
 
                                                 <p class="float-right">
-                                                    <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver articulo"><i class="far fa-eye"></i></a>
-                                                    <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
-                                                    <button type="submit" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#exampleModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo"><i class="far fa-trash-alt"></i></button>
+                                                    <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver articulo"><i class="far fa-eye"></i></a>
+                                                    <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
+                                                    <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo"><i class="far fa-trash-alt"></i></button>
                                                 </p>
 
 

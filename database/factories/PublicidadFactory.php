@@ -8,6 +8,7 @@ use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Publicidad::class, function (Faker $faker) {
+    $lugar = ['libro', 'concurso', 'blog'];
     return [
         //
         'user_id' => User::all('id')->random(),
@@ -15,7 +16,7 @@ $factory->define(Publicidad::class, function (Faker $faker) {
         'contenido' => $faker->text(1024),
         'fechaini' => now(),
         'fechafin' => now(),
-        'lugar' => 'libro',
+        'lugar' => $lugar[array_rand($lugar)],
         'link' => $faker->url,
     ];
 });
