@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 m-3">
+                <div class="col-md-12 m-3 alert alert-secondary">
                     <p>
                         <strong>Enlace:</strong>  {{ $publicidad->link }}<br>
                         <strong>Lugar:</strong>  {{ $publicidad->lugar }}<br>
@@ -31,35 +31,29 @@
 </div>
 
 @if (isset($publicidad))
-    
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="row justify-content-center">
-            @if (Auth::user()!=null)
-                @if (Auth::user()->hasRole('admin'))
-
-                    @if ($publicidad->estado == 1)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row justify-content-center">
+                @if (Auth::user()!=null)
+                    @if (Auth::user()->hasRole('admin'))
                         {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
-                        {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('tipo', 'baja') !!}
-                        {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
-                        {!! Form::close() !!}
-                    @endif
-
-                    &nbsp;
-
-                    @if ($publicidad->estado == 0)
-                        {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
-                        {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('tipo', 'alta') !!}
-                        {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
+                            {!! Form::hidden('_method', 'PUT') !!}
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="btn btn-warning" href="{{ route('publicidad.edit', $publicidad->id) }}">Editar</a>
+                                @if ($publicidad->estado == 1)
+                                    {!! Form::hidden('tipo', 'baja') !!}
+                                    {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
+                                @endif
+                                @if ($publicidad->estado == 0)
+                                    {!! Form::hidden('tipo', 'alta') !!}
+                                    {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
+                                @endif
+                            </div>
                         {!! Form::close() !!}
                     @endif
                 @endif
-            @endif
-            
+                
+            </div>
         </div>
     </div>
-</div>
 @endif

@@ -14,7 +14,7 @@ $factory->define(Blog::class, function (Faker $faker) {
         'titulo' => $faker->text(32),
         'imagen' => $faker->text(16) . '.png',
         'ext' => 'png',
-        'documentopdf' => $faker->text(15),
+        //'documentopdf' => $faker->text(15),
         //'youtube' => $faker->url,
         'contenido' => $faker->text(2048),
         'autor' => $faker->name(),

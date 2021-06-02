@@ -1,4 +1,5 @@
 @include('blog.aside.info')
+@include('blog.aside.error')
 <!--<h3 class="text-success">{{$blog->titulo}}</h3>-->
 <div class="row">
     <div class="col-md-12">
@@ -26,8 +27,10 @@
                             height = '300'
                             >
                         </iframe>
-                        <a class="btn btn-link" target="_blank" href="{{ asset('img/blog/doc') }}/{{ $blog->id }}.pdf">abrir documento pdf</a>
-                        <a href="{{ route('blog.download', $blog->id) }}" class="btn btn-success btn-sm">descargar documento pdf</a>    
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary btn-sm" target="_blank" href="{{ asset('img/blog/doc') }}/{{ $blog->id }}.pdf">abrir documento pdf</a>
+                            <a class="btn btn-success btn-sm" href="{{ route('blog.download', $blog->id) }}" >descargar documento pdf</a>    
+                        </div>
                     @endif
                     
                     
@@ -36,50 +39,42 @@
                     <p>{{ $blog->contenido }}</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 font-italic text-muted">
-                     <strong>fecha:</strong>  {{ $blog->created_at->format('d/m/Y') }} |
-                     <strong>ref:</strong>  {{ $blog->referencia }} |
-                     <strong>autor:</strong>  {{ $blog->autor }} |
-                     <strong>estado:</strong> <span class={{($blog->estado==1)?'text-success':'text-danger'}}>{{ ($blog->estado==1)?'activo':'anulado' }} </span> 
-                </div>
-            </div>
+            
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 font-italic text-muted float-center">
+         <strong>fecha:</strong>  {{ $blog->created_at->format('d/m/Y') }} |
+         <strong>ref:</strong>  {{ $blog->referencia }} |
+         <strong>autor:</strong>  {{ $blog->autor }} |
+         <strong>estado:</strong> <span class={{($blog->estado==1)?'text-success':'text-danger'}}>{{ ($blog->estado==1)?'activo':'anulado' }} </span> 
     </div>
 </div>
 
 @if (isset($blog))
-
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="row justify-content-center">
-            @if (Auth::user()!=null)
-                @if (Auth::user()->hasRole('admin'))
-                    <a class="btn btn-warning" href="{{ route('blog.edit', $blog->id) }}">Editar</a>
-                    &nbsp;
-
-                    @if ($blog->estado == 1)
-                        {!! Form::open(['route'=>['blog.update', $blog->id]]) !!}
-                        {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('tipo', 'baja') !!}
-                        {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
-                        {!! Form::close() !!}
-                    @endif
-
-                    &nbsp;
-
-                    @if ($blog->estado == 0)
-                        {!! Form::open(['route'=>['blog.update', $blog->id]]) !!}
-                        {!! Form::hidden('_method', 'PUT') !!}
-                        {!! Form::hidden('tipo', 'alta') !!}
-                        {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row justify-content-center">
+                @if (Auth::user()!=null)
+                    @if (Auth::user()->hasRole('admin'))
+                        {!! Form::open(['route'=>['blog.altabaja', $blog->id]]) !!}
+                            {!! Form::hidden('_method', 'PUT') !!}
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="btn btn-warning" href="{{ route('blog.edit', $blog->id) }}">Editar</a>
+                                @if ($blog->estado == 1)
+                                    {!! Form::hidden('estado', '0') !!}
+                                    {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
+                                @endif
+                                @if ($blog->estado == 0)
+                                    {!! Form::hidden('estado', '1') !!}
+                                    {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
+                                @endif
+                            </div>
                         {!! Form::close() !!}
                     @endif
                 @endif
-            @endif
-
+                
+            </div>
         </div>
     </div>
-</div>
-<br>
 @endif

@@ -8,8 +8,8 @@
             @include('blog.aside.show')
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row justify-content-center">
-                        <a href="{{ route('blog.index') }}" class="btn btn-link">Volver</a>
+                    <div class="row justify-content-end">
+                        <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
                     </div>
                 </div>
             </div>

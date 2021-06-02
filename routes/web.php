@@ -54,4 +54,5 @@ Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
 Route::resource('blog', 'BlogController');
 
 Route::get('publicidad/download/{id}', 'BlogController@download')->name('blog.download');
+Route::put('publicidad/altabaja/{id}', 'BlogController@altabaja')->name('blog.altabaja');
 Route::resource('publicidad', 'PublicidadController');

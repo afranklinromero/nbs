@@ -77,7 +77,6 @@ class BlogController extends Controller
     public function update(BlogRequest $request, $id){
         $blog = Blog::find($id);
         if (isset($request->tipo) && $request->tipo=='update'){
-
             $blog->titulo = $request->titulo;
             if (isset($request->imagen)){
                 $image = $request->file('imagen');
@@ -101,9 +100,10 @@ class BlogController extends Controller
             $blog->autor = $request->autor;
             $blog->referencia = $request->referencia;
 
-        } elseif (isset($request->tipo) && $request->tipo=='alta') $blog->estado=1;
+        } 
+        elseif (isset($request->tipo) && $request->tipo=='alta') $blog->estado=1;
         elseif (isset($request->tipo) && $request->tipo=='baja') $blog->estado=0;
-        
+
         $blog->updated_at = now();
         $blog->save();
 
@@ -114,9 +114,16 @@ class BlogController extends Controller
         if ($request->tipo=='update')
             return redirect()->route('blog.show', $blog->id);
         else
-        return redirect()->route('blog.show', $blog->id);
+            return redirect()->route('blog.show', $blog->id);
     }
 
+    public function altabaja(Request $request, $id){
+        $blog = Blog::find($id);
+        $blog->estado = $request->estado;
+        $blog->save();
+        $mensaje = ($blog->estado==1)? 'articulo dado de alta': ' articulo dado de baja';
+        return redirect()->route('blog.show', $blog->id)->with('info',  $mensaje);
+    }
     public function destroy(Request $request, $id){
         $blog = Blog::find($id);
         $blog->estado = 0;
