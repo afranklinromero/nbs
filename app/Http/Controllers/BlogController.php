@@ -12,6 +12,8 @@ class BlogController extends Controller
 {
     //
     public function index(Request $request){
+        //Auth::user()->authorizeRoles(['admin', 'user']);
+
         $blogs = Blog::orderBy('id', 'desc')->where('estado', '1');
         $titulo = $request->titulo;
         if (isset($request->titulo) && strlen(trim($request->titulo)) > 0)
@@ -24,15 +26,20 @@ class BlogController extends Controller
     }
 
     public function show(Request $request, $id){
+        //Auth::user()->authorizeRoles(['admin', 'user']);
+
         $blog = Blog::find($id);
         return view('blog.show', compact('blog'));
     }
 
     public function create(Request $request){
+        Auth::user()->authorizeRoles(['admin']);
         return view('blog.create');
     }
 
     public function store(BlogRequest $request){
+        Auth::user()->authorizeRoles(['admin']);
+
         $blog = new Blog($request->all());
 
         //dd($blog);
@@ -66,15 +73,18 @@ class BlogController extends Controller
         if ($request->ajax())
             return redirect()->route('blog.show', $blog->id);
 
-        return redirect()->route('blog.show', $blog->id);
+        return redirect()->route('blog.show', $blog->id)->with('info', 'Articulo creado.');
     }
 
     public function edit(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
         $blog = Blog::find($id);
         return view('blog.edit', compact('blog'));
     }
 
     public function update(BlogRequest $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
+
         $blog = Blog::find($id);
         if (isset($request->tipo) && $request->tipo=='update'){
             $blog->titulo = $request->titulo;
@@ -112,12 +122,14 @@ class BlogController extends Controller
             return redirect()->route('blog.show', $blog->id);
 
         if ($request->tipo=='update')
-            return redirect()->route('blog.show', $blog->id);
+            return redirect()->route('blog.show', $blog->id)->with('info', 'Articulo actualizado.');
         else
-            return redirect()->route('blog.show', $blog->id);
+            return redirect()->route('blog.show', $blog->id)->with('info', 'Articulo actualizado.');
     }
 
     public function altabaja(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
+
         $blog = Blog::find($id);
         $blog->estado = $request->estado;
         $blog->save();
@@ -125,6 +137,8 @@ class BlogController extends Controller
         return redirect()->route('blog.show', $blog->id)->with('info',  $mensaje);
     }
     public function destroy(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin']);
+
         $blog = Blog::find($id);
         $blog->estado = 0;
         $blog->updated_at = now();

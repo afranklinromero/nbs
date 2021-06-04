@@ -39,9 +39,6 @@ class ParticipacionController extends Controller
     }
 
     public function store (Request $request){
-
-        
-        
         $concurso = Concurso::find($request->concurso_id);
 
         $participacion = new Participacion();
@@ -52,6 +49,8 @@ class ParticipacionController extends Controller
         $participacion->incorrectas = 0;
         $participacion->puntos = 0;
         //dd($request->respuestas);
+
+
 
         foreach ($request->respuestas as $i => $respuesta) {
             $detalleparticipacion = new Detalleparticipacion();

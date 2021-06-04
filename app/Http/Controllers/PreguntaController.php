@@ -20,6 +20,7 @@ class PreguntaController extends Controller
     }
 
     public function index(Request $request){
+        Auth::user()->authorizeRoles(['admin', 'user']);
         $preguntaEstado = 3;
 
         /*if (isset($request->preguntaEstado)){
@@ -46,6 +47,7 @@ class PreguntaController extends Controller
     }
 
     public function show(Request $request, $id){
+        Auth::user()->authorizeRoles(['admin', 'user']);
         $pregunta = Pregunta::find($id);
         $request->session()->put('info', 'Detalle pregunta');
         if ($request->ajax())
@@ -55,6 +57,8 @@ class PreguntaController extends Controller
 
     public function create(Request $request)
     {
+        Auth::user()->authorizeRoles(['admin', 'user']);
+
         $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
         $request->session()->put('info', 'Ingrese los datos requeridos');
         if ($request->ajax())
@@ -64,6 +68,7 @@ class PreguntaController extends Controller
 
     public function update(Request $request, $id)
     {
+        Auth::user()->authorizeRoles(['admin', 'user']);
         $pregunta = pregunta::find($id);
         $pregunta->estado = $request->estado;
         $pregunta->save();
@@ -76,6 +81,8 @@ class PreguntaController extends Controller
 
     public function store(PreguntaRequest $request)
     {
+        Auth::user()->authorizeRoles(['admin', 'user']);
+        
         $pregunta = new Pregunta($request->all());
 
         $pregunta->estado = (Auth::user()->hasRole('admin'))?1: 2;//estado pendiente revision

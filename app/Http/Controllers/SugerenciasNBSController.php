@@ -12,28 +12,26 @@ use Illuminate\Support\Facades\Auth;
 class SugerenciasnbsController extends Controller
 {
     //
-
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
     
     public function index(Request $request){
         Auth::user()->authorizeRoles(['admin']);
 
-            $sugerenciasnbss = SugerenciasNBS::where('estado', '<>','0')->orderby('id', 'DESC')->paginate(5);
-            $request->session()->put('info', 'Listado de sugerencias desde la mas reciente a la mas antigua');
+        $sugerenciasnbss = SugerenciasNBS::where('estado', '<>','0')->orderby('id', 'DESC')->paginate(5);
+        $request->session()->put('info', 'Listado de sugerencias desde la mas reciente a la mas antigua');
 
-            if ($request->ajax())
-                return view('sugerenciasnbs.aside.index', compact('sugerenciasnbss'))
-                ->render();
+        if ($request->ajax())
+            return view('sugerenciasnbs.aside.index', compact('sugerenciasnbss'))
+            ->render();
 
-            return view('sugerenciasnbs.index', compact('sugerenciasnbss'));
-        } 
+        return view('sugerenciasnbs.index', compact('sugerenciasnbss'));
+    
     }
 
     public function show(Request $request, $id){
-        Auth::user()->authorizeRoles(['admin', 'user']);
+        Auth::user()->authorizeRoles(['admin']);
         
             $sugerenciasnbs = SugerenciasNBS::find($id);
             if ($request->ajax())
@@ -52,7 +50,7 @@ class SugerenciasnbsController extends Controller
 
     public function create(Request $request)
     {
-        Auth::user()->authorizeRoles(['user','admin']);
+        Auth::user()->authorizeRoles(['admin','user']);
         if ($request->ajax())
             return view('sugerenciasnbs.aside.create')->render();
         return view('sugerenciasnbs.create');
@@ -74,7 +72,6 @@ class SugerenciasnbsController extends Controller
     public function store(SugerenciasnbsRequest $request)
     {
         Auth::user()->authorizeRoles(['user', 'admin']);
-        if (Auth::user()->hasRole('admin')){
             $sugerenciasnbs = new SugerenciasNBS($request->all());
             //dd($sugerenciasNBS);
             $sugerenciasnbs->save();
@@ -86,8 +83,6 @@ class SugerenciasnbsController extends Controller
             }
 
             return  redirect()->route('sugerenciasnbs.create')->with('info', 'Hemos recibido su mensaje, muchas gracias por sus sugerencias!');
-        }
-        else return redirect()->route('sugerenciasnbs.create');
     }
 
 

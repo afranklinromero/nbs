@@ -41,7 +41,7 @@
                 </tr>
                 <tr>
                     <td><strong>Id: </strong></td>
-                    <td>{{ $temaconcurso->concurso->user }}</td>
+                    <td>{{ $temaconcurso->id }}</td>
                 </tr>
                 <tr>
                     <td><strong>Nombre: </strong></td>
@@ -61,7 +61,21 @@
                 </tr>
                 <tr>
                     <td><strong>Estado</strong></td>
-                    <td>{{ $temaconcurso->concurso->estado }}</td>
+                    <td>
+                        @switch($temaconcurso->estado)
+                                            @case(0)
+                                                <p class="badge badge-danger text-wrap">anulado</p>
+                                                @break
+                                            @case(1)
+                                            <p class="badge badge-success text-wrap">activo</p>
+                                                @break
+                                            @case(2)
+                                                <p class="badge badge-danger text-wrap">proximamente</p>
+                                                @break
+                                            @default
+                                                
+                                        @endswitch
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2">&nbsp;</strong></td>
@@ -93,24 +107,31 @@
 <div class="row">
     <div class="col-md-12">
         <div class="row justify-content-center">
-            @if (Auth::user()->hasRole('admin'))
-                @if ($temaconcurso->estado == 1)
-                    {!! Form::open(['route'=>['concurso.update', $temaconcurso->id]]) !!}
-                    {!! Form::hidden('_method', 'PUT') !!}
-                    {!! Form::hidden('estado', '0') !!}
-                    {!! Form::submit('Finalizar', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
-                @endif
+                @if (Auth::user()->hasRole('admin'))
+                    @if ($temaconcurso->estado == 1)
+                        {!! Form::open(['route'=>['concurso.update', $temaconcurso->id]]) !!}
+                        {!! Form::hidden('_method', 'PUT') !!}
+                        {!! Form::hidden('estado', '0') !!}
+                        <div class="btn-group">
+                        <a class="btn btn-success" href="{{route('concurso.jugar', $temaconcurso->concurso->id)}}">jugar</a>
+                        {!! Form::submit('Finalizar', ['class' => 'btn btn-danger']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    @endif
 
-                @if ($temaconcurso->estado == 0)
-                    {!! Form::open(['route'=>['concurso.update', $temaconcurso->id]]) !!}
-                    {!! Form::hidden('_method', 'PUT') !!}
-                    {!! Form::hidden('estado', '1') !!}
-                    {!! Form::submit('Habilitar', ['class' => 'btn btn-success']) !!}
-                    {!! Form::close() !!}
+                    @if ($temaconcurso->estado == 0)
+                        {!! Form::open(['route'=>['concurso.update', $temaconcurso->id]]) !!}
+                        {!! Form::hidden('_method', 'PUT') !!}
+                        {!! Form::hidden('estado', '1') !!}
+                        <div class="btn-group">
+                        <a class="btn btn-success" href="{{route('concurso.jugar', $temaconcurso->concurso->id)}}">jugar</a>
+                        {!! Form::submit('Habilitar', ['class' => 'btn btn-success']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    @endif
+                @else
+                <a class="btn btn-success" href="{{route('concurso.jugar', $temaconcurso->concurso->id)}}">jugar</a>
                 @endif
-
-            @endif
         </div>
     </div>
 </div>

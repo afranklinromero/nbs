@@ -106,7 +106,8 @@
 
         $("input[name='respuestas[]']").map( function(key){
             if (key == (index-1)){
-                var respuesta_id = ruta_respuesta.split("/")[7];
+                array = ruta_respuesta.split("/");
+                var respuesta_id = array[array.length -1];
                 $(this).val(respuesta_id);
                 console.log('respuesta_id: ' + respuesta_id);
             }
@@ -132,7 +133,6 @@
 
     $(document).on("click", ".responder", function() {
         event.preventDefault();
-
         var ruta_respuesta = this.href;   
         console.log('ruta respuesta: '+ruta_respuesta);
         var elemento = this; 

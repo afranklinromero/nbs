@@ -9,7 +9,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                     @if (Auth::user()->hasRole('admin'))
                     <a href="{{route('concurso.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
-                    @endif
+                    
 
                     {!! Form::open(['route'=>['temaconcurso.index'], 'id' => 'frm-concursos', 'class' => 'row row-cols-lg-auto g-2 align-items-center']) !!}
 
@@ -42,6 +42,7 @@
                         </div>
 
                     {!! Form::close() !!}
+                    @endif
                 </div>
             </div>
         </div>
@@ -55,90 +56,75 @@
 
         <p class="text-success">{{ $temaconcursos->total() }} registros encontrados, pagina {{ $temaconcursos->currentPage() }} de {{ $temaconcursos->lastPage() }}</p>
         <!--<div class="table-responsive">-->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col" class="d-none d-md-table-cell">id</th>
-                        <th scope="col" class="d-none d-md-table-cell">usuario</th>
-                        <th scope="col" class="d-none d-md-table-cell">tema</th>
-                        <th scope="col">concurso</th>
-                        <th scope="col" class="d-none d-md-table-cell">estado</th>
-                        <th scope="col" class="d-none d-md-table-cell">fecha inicio</th>
-                        <th scope="col" class="d-none d-md-table-cell">fecha fin</th>
-                        <th scope="col">opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="row">
+            @foreach ($temaconcursos as $key => $temaconcurso)
+                <div class="col-md-4">
+                    <div class="card border-success mb-3 shadow">
+                        <div class="card-header bg-success text-white">
+                            <h5>{{$temaconcurso->concurso->nombre}}</h5>
+                        </div>
+                        <div class="card-body bg-white">
+                            <p class="card-text">
+                                <table class="table table-sm">
+                                    @if (Auth::user()->hasRole('admin'))
+                                    <tr><td class="text-right">id:</td> <td><strong>{{$temaconcurso->id}}</strong></td> </tr>
+                                    <tr><td class="text-right">usuario:</td> <td><strong>{{$temaconcurso->concurso->usuario->email}}</strong></td> </tr>    
+                                    @endif
+                                    <tr><td class="text-right">tema:</td> <td><strong>{{$temaconcurso->tema->nombre}}</strong></td> </tr>
+                                    <tr><td class="text-right">concurso:</td> <td><strong>{{$temaconcurso->concurso->nombre}}</strong></td> </tr>
+                                    <tr><td class="text-right">inicio:</td> <td><strong>{{$temaconcurso->concurso->fechaini->format('d/m/Y')}}</strong></td> </tr>
+                                    <tr><td class="text-right">fin:</td> <td><strong>{{$temaconcurso->concurso->fechafin->format('d/m/Y')}}</strong></td> </tr>
+                                    <tr>
+                                        <td class="text-right">estado:</td> 
+                                        <td>
+                                            <strong>
+                                                @switch($temaconcurso->estado)
+                                                    @case(0)
+                                                        <p class="badge badge-danger text-wrap">anulado</p>
+                                                        @break
+                                                    @case(1)
+                                                    <p class="badge badge-success text-wrap">activo</p>
+                                                        @break
+                                                    @case(2)
+                                                        <p class="badge badge-danger text-wrap">proximamente</p>
+                                                        @break
+                                                    @default
+                                                        
+                                                @endswitch
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </p>
+                            <div>
+                                <div class="btn-group float-right" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal{{ $temaconcurso->id }}">ver</button>
+                                    <a class="float-right btn btn-primary" href="{{route('concurso.jugar', $temaconcurso->id)}}">jugar</a>
+                                </div>
 
-                    @foreach ($temaconcursos as $key => $temaconcurso)
-                        @php
-                            $enfecha = ($temaconcurso->concurso->fechaini < now() && now() < $temaconcurso->concurso->fechafin)?1:0;
-                            $color = "";
-                            $testado = "";
-                            switch($temaconcurso->estado){
-                                case 0:
-                                    $color = "danger";
-                                    $testado = "<i class='text-success fas fa-check-circle'></i>";
-                                    break;
-                                case 1:
-                                    $color= "success";
-                                    $testado = "<i class='text-success fas fa-check-circle'></i>";
-                                    break;
-                                case 2:
-                                    $color = "warning";
-                                    $testado = "<i class='text-success fas fa-check-circle'></i>";
-                                    break;
-                            }
-
-                        @endphp
-                        <tr>
-                            <th scope="row"> {{$key+1}}</th>
-                            <td class="d-none d-md-table-cell">{{ $temaconcurso->id }}</td>
-                            <td class="d-none d-md-table-cell">{{ $temaconcurso->concurso->usuario->email }}</td>
-                            <td class="d-none d-md-table-cell">{{ $temaconcurso->tema->nombre }}</td>
-                            <td><span class="d-inline-block text-truncate" style="max-width: 100px;">{{ $temaconcurso->concurso->nombre }}</span></td>
-                            <td class="d-none d-md-table-cell"> <span class="text-{{ $color }}"> <i class='fas fa-check-circle'></i> </span></td>
-                            <td class="d-none d-md-table-cell">{{ $temaconcurso->concurso->fechaini->format('d/m/Y') }}</td>
-                            <td class="d-none d-md-table-cell">{{ $temaconcurso->concurso->fechafin->format('d/m/Y') }}</td>
-                            <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal{{ $temaconcurso->id }}">
-                                    <i class="fas fasEye"></i> Ver
-                                </button>
-                                <a class="btn btn-sm btn-success {{ ($enfecha==1)? "": "disabled" }}" href="{{ route('concurso.jugar', $temaconcurso->id) }}">Jugar</a>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal{{ $temaconcurso->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">
-                                            VER concurso ID: {{ $temaconcurso->id }}
-                                        </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel"> VER concurso ID: {{ $temaconcurso->id }}</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body"> @include('concurso.aside.show') </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                            @include('concurso.aside.show')
-
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
                                     </div>
                                 </div>
-                                <!-- {!! Form::open(['route'=>['concurso.update', $temaconcurso->id]], ['class' =>'d-inline']) !!}
-                                    {!! Form::hidden('_method', 'PUT') !!}
-                                    {!! Form::hidden('id', $temaconcurso->id) !!}
-                                    {!! Form::submit('d', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!}-->
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            </div>  
+                        </div>   
+                    </div>
+                </div>
+            @endforeach
+        </div>
         <!--</div>    -->
     </div>
 </div>

@@ -14,24 +14,24 @@
         $testado = "";
             switch($pregunta->estado){
                 case 0:
-                    $btn = "btn-danger";
+                    $btn = "danger";
                     $testado = "Anulado";
                     break;
                 case 1:
-                    $btn = "btn-success";
+                    $btn = "success";
                     $testado = "Activo";
                     break;
                 case 2:
-                    $btn = "btn-warning";
+                    $btn = "warning";
                     $testado = "Pendiente";
                     break;
             }
         @endphp
         <p class="text-muted">
             <div class="row">
-                <div class="col-md-5"><strong>Tema: </strong>{{ $pregunta->tema->nombre }}</div>
-                <div class="col-md-5"><strong>Autor: </strong>{{ $pregunta->user->name }}</div>
-                <div class="col-md-2"><strong class="btn btn-sm {{$btn}}"> {{ $testado }} </strong></div>
+                <div class="col-md-4"><strong>Tema: </strong>{{ $pregunta->tema->nombre }}</div>
+                <div class="col-md-4"><strong>Autor: </strong>{{ $pregunta->user->name }}</div>
+                <div class="col-md-4"><strong class="badge badge-{{$btn}} text-wrap"> {{ $testado }} </strong></div>
             </div>
         </p>
     </div>
@@ -77,7 +77,6 @@
             <a href="{{route('pregunta.index', ['page'=>$preguntas->currentPage()])}}" id="preguntaPage"></a>
             @if (Auth::user()->hasRole('admin'))
                 @if ($pregunta->estado <> 1)
-                    
                     {!! Form::open(['route'=>['pregunta.update', $pregunta->id]]) !!}
                     {!! Form::hidden('_method', 'PUT') !!}
                     {!! Form::hidden('pagePregunta', $preguntas->currentPage()) !!}

@@ -3,45 +3,44 @@
 @include('concurso.aside.info.pregunta')
 <div class="card mb-3 shadow">
     <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-star">
+                    <a href="{{route('pregunta.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
+                    <!-- Button trigger modal -->
+                    {!! Form::open(['route'=>['pregunta.index'], 'id' => 'frm-preguntas']) !!}
+                        <div class="form-check form-check-inline">
+                            {!! Form::radio('preguntaEstado', 3, (($preguntaEstado==3)? true : false)  , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
+                            {!! Form::label('preguntaEstado', 'Todos', ['class' => 'form-check-label']) !!}
+                        </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-star">
-                <a href="{{route('pregunta.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
-                <!-- Button trigger modal -->
-                {!! Form::open(['route'=>['pregunta.index'], 'id' => 'frm-preguntas']) !!}
-                    <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 3, (($preguntaEstado==3)? true : false)  , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
-                        {!! Form::label('preguntaEstado', 'Todos', ['class' => 'form-check-label']) !!}
-                    </div>
+                        <div class="form-check form-check-inline">
+                            {!! Form::radio('preguntaEstado', 1,   (($preguntaEstado==1)? true : false) , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
+                            {!! Form::label('preguntaEstado', 'Activos', ['class' => 'form-check-label']) !!}
+                        </div>
 
-                    <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 1,   (($preguntaEstado==1)? true : false) , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
-                        {!! Form::label('preguntaEstado', 'Activos', ['class' => 'form-check-label']) !!}
-                    </div>
+                        <div class="form-check form-check-inline">
+                            {!! Form::radio('preguntaEstado', 2, (($preguntaEstado==2)? true : false), ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
+                            {!! Form::label('preguntaEstado', 'Pendientes', ['class' => 'form-check-label']) !!}
+                        </div>
 
-                    <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 2, (($preguntaEstado==2)? true : false), ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
-                        {!! Form::label('preguntaEstado', 'Pendientes', ['class' => 'form-check-label']) !!}
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        {!! Form::radio('preguntaEstado', 0,  (($preguntaEstado==0)? true : false), ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
-                        {!! Form::label('preguntaEstado', 'Anulados', ['class' => 'form-check-label']) !!}
-                    </div>
-                {!! Form::close() !!}
+                        <div class="form-check form-check-inline">
+                            {!! Form::radio('preguntaEstado', 0,  (($preguntaEstado==0)? true : false), ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
+                            {!! Form::label('preguntaEstado', 'Anulados', ['class' => 'form-check-label']) !!}
+                        </div>
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-12 fs-6">
-            <a href="{{route('pregunta.index')}}"></a>
-            {{$preguntas->onEachSide(0)->links()}}
+        <br>
+        <div class="row">
+            <div class="col-md-12 fs-6">
+                <a href="{{route('pregunta.index')}}"></a>
+                {{$preguntas->onEachSide(0)->links()}}
+            </div>
         </div>
-    </div>
 
-    <p class="text-success">{{ $preguntas->total() }} registros encontrados, pagina {{ $preguntas->currentPage() }} de {{ $preguntas->lastPage() }}</p>
+        <p class="text-success">{{ $preguntas->total() }} registros encontrados, pagina {{ $preguntas->currentPage() }} de {{ $preguntas->lastPage() }}</p>
 
 
     <table class="table table-striped">
@@ -64,15 +63,15 @@
                 $testado = "";
                     switch($pregunta->estado){
                         case 0:
-                            $color = "bg-danger";
+                            $color = "danger";
                             $testado = "Anulado";
                             break;
                         case 1:
-                            $color= "bg-success";
+                            $color= "success";
                             $testado = "Activo";
                             break;
                         case 2:
-                            $color = "bg-warning";
+                            $color = "warning";
                             $testado = "Pendiente";
                             break;
                     }
@@ -83,7 +82,7 @@
                     <!--<td class="d-none d-md-table-cell">{{ $pregunta->user->email }}</td>-->
                     <td class="d-none d-md-table-cell">{{ $pregunta->tema->nombre }}</td>
                     <td><span>{{ $pregunta->pregunta }}</span></td>
-                    <td class="d-none d-md-table-cell"> <span class="text-white {{ $color }}">{{ $testado }}</span></td>
+                    <td class="d-none d-md-table-cell"> <span class="badge badge-{{$color}} text-wrap}">{{ $testado }}</span></td>
                     <td class="d-none d-md-table-cell">{{ $pregunta->created_at->format('d/m/y') }}</td>
                     <td>
                         <!-- Button trigger modal -->
@@ -116,7 +115,6 @@
             @endforeach
         </tbody>
     </table>
-</div>
 </div>
 
 

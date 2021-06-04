@@ -30,7 +30,7 @@ class ConcursoController extends Controller
     }
 
     public function index(Request $request){
-
+        Auth::user()->authorizeRoles(['admin', 'user']);
         //CONCURSOS
         $concursoEstado = 3;
         if (isset($request->concursoEstado)) $concursoEstado = $request->concursoEstado;
@@ -70,6 +70,7 @@ class ConcursoController extends Controller
     }
 
     public function buscar(Request $request){
+        Auth::user()->authorizeRoles(['admin', 'user']);
         //dd($request->dato);
         $dato = $request->dato;
         $concursos=Concurso::where('titulo', 'like', '%'.$dato.'%')->orderBy('id', 'DESC')->paginate(10);
@@ -77,12 +78,16 @@ class ConcursoController extends Controller
     }
 
     public function show ($id){
+        Auth::user()->authorizeRoles(['admin', 'user']);
+
         $concurso = Concurso::find($id);
 
         return view('concurso.show', compact('concurso'));
     }
 
     public function juegos(Request $request){
+        Auth::user()->authorizeRoles(['admin']);
+
         //$temaconcursos = Temaconcurso::where('estado', '1')->orderBy('id', 'DESC')->;
         $temaconcursos = Temaconcurso::join('concurso', 'temaconcurso.concurso_id', 'concurso.id')->where('concurso.estado', 1)->orderBy('concurso.id', 'DESC')->paginate();
         //dd($temaconcursos);
@@ -90,6 +95,7 @@ class ConcursoController extends Controller
     }
 
     public function jugar(Request $request, $temaconcurso_id){
+        Auth::user()->authorizeRoles(['admin', 'user']);
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
 
         $enfecha = $temaconcurso->concurso->fechaini < now() && now() < $temaconcurso->concurso->fechafin;
@@ -122,6 +128,8 @@ class ConcursoController extends Controller
 
     public function siguientepregunta(Request $request, $index, $temaconcurso_id, $preguntaanterior_id){
 
+        Auth::user()->authorizeRoles(['admin', 'user']);
+
         $temaconcurso = Temaconcurso::find($temaconcurso_id);
         $n = $temaconcurso->concurso->configuracion->nropreguntas;
         if ($index < $n){
@@ -143,6 +151,7 @@ class ConcursoController extends Controller
     }
 
     public function responder(Request $request, $mirespuesta_id){
+        Auth::user()->authorizeRoles(['admin', 'user']);
         if ($request->ajax()){
             $escorrecta = $mirespuesta = Respuesta::find($mirespuesta_id)->escorrecta;
             return $escorrecta;
@@ -159,11 +168,13 @@ class ConcursoController extends Controller
     }
 */
     public function create(){
+        Auth::user()->authorizeRoles(['admin']);
         $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
         return view('concurso.create', compact('temas'));
     }
 
     public function store (Request $request){
+        Auth::user()->authorizeRoles(['admin']);
         $configuracion = new Configuracion($request->only(['nropreguntas', 'limiterespuestaserroneas', 'puntosporrespuesta', 'tiempolimite']));
         $configuracion->save();
 
@@ -187,6 +198,7 @@ class ConcursoController extends Controller
    }
 
     public function edit($id){
+        Auth::user()->authorizeRoles(['admin']);
         $concurso = Concurso::find($id);
         return view('concurso.edit', compact('concurso'));
     }
@@ -208,12 +220,14 @@ class ConcursoController extends Controller
    }
 
    public function destroy ($id){
+    Auth::user()->authorizeRoles([]);
        $concurso = Concurso::find($id);
        $concurso->delete();
        return back ()->with('info', 'El Tipoproducto fue eliminado');
     }
 
     public function obtener(Request $request){
+        Auth::user()->authorizeRoles(['admin', 'user']);
         $concursos = Concurso::orderby('nombre', 'ASC')->get();
         if ($request->ajax()){
             //dd(view('ventas.aside.productos', compact('$precioproductos'))->render());

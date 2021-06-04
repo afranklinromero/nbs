@@ -50,11 +50,12 @@
         @include('concurso.aside.index')
     </div>
 
-    <div id="temaconcurso"> @include('concurso.index.concurso') </div> <hr>
-
-    <div id='pregunta'> @include('concurso.index.pregunta') </div> <hr>
-
-    <div id='clasificacion'> @include('concurso.index.clasificacion') </div> <hr>
+    <div id="temaconcurso"> @include('concurso.index.concurso') </div> 
+    <hr>
+    <div id='pregunta'> @include('concurso.index.pregunta') </div> 
+    <hr>
+    <div id='clasificacion'> @include('concurso.index.clasificacion') </div> 
+    <hr>
 
 </div>
 @endsection

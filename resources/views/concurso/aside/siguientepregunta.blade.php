@@ -22,5 +22,8 @@
             
         @endforeach
         <p class="text-muted">Autor: <strong>{{ $pregunta->user->name }}</strong></p>
+        <p class="text-center">
+            <a class="btn btn-danger text-center" href="{{route('concurso.index')}}">Salir</a>
+        </p>
     </div>
 </div>
