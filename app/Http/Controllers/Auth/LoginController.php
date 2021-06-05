@@ -37,7 +37,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    /*
+    
 
     function username(){
         return 'telefono';
@@ -46,5 +46,5 @@ class LoginController extends Controller
     function getAuthPassword(){
         return 'password';
     }
-    */
+    
 }

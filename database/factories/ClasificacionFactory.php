@@ -13,6 +13,6 @@ $factory->define(Clasificacion::class, function (Faker $faker) {
         //
         'concurso_id' => Concurso::all('id')->random(),
         'user_id' => User::all('id')->random(),
-        'puntos' => $faker->numberBetween(0, 600),
+        'puntos' => $faker->numberBetween(0, 50),
     ];
 });
