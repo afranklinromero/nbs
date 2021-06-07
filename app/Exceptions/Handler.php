@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         //dd($exception->status);
-        if ($exception->status == 401)  return redirect()->route('libro.index');     
+        //if ($exception->status == 401)  return redirect()->route('libro.index');     
 
         return parent::render($request, $exception);
     }

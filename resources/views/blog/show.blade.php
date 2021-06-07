@@ -9,7 +9,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row justify-content-end">
-                        <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
+                        <div class="btn-group" role="group">
+                            <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
+                            <a href="{{ route('blog.create') }}" class="btn btn-primary">Nuevo</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -48,6 +48,7 @@
                                     {!! Form::hidden('tipo', 'alta') !!}
                                     {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
                                 @endif
+                                <a class="btn btn-success" href="{{ route('publicidad.create') }}">Nuevo</a>
                             </div>
                         {!! Form::close() !!}
                     @endif

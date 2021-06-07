@@ -4,7 +4,7 @@
     <div class="col-xs-6 col-sm-6 col-md-6">
         <p>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="{{ route('libro.index') }}" class="btn btn-success">inicio</a>
+                <a href="{{ route('libro.index') }}" class="btn btn-success">volver</a>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ayuda</button>
             </div>
@@ -15,7 +15,20 @@
         
         <div class="alert alert-success"><strong class="text-lowercase">numero publicación › </strong> <span class="text-lowercase">{{ $libro->lugarpublicacion }} </span><br></div> 
         <div class="alert alert-success"><strong class="text-lowercase">autor › </strong> <span class="text-lowercase">{{ $libro->autor }} </span><br></div> 
-        <a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a>
+        <p class="text-center"><a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a></p>
+        <img class="img-fluid rounded img-thumbnail" src="{{ asset('tapas') }}/{{ $libro->id }}.{{ $libro->ext }}" alt="">
+
+        @if (Auth::check())
+            @if (Auth::user()->hasRole('admin'))
+            <p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-warning">Editar</a>
+                    <a href="{{ route('create') }}" class="btn btn-success">Nuevo</a>
+                </div>
+            </p>    
+            @endif
+       
+        @endif
         
         {!! Form::hidden('documentopdf', $libro->documentopdf, ['id'=>'documentopdf']) !!}
         <br>

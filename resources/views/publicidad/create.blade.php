@@ -2,12 +2,24 @@
 
 @section('contenido')
 <div class="container">
-    <h3 style="color: #d86304">Nueva publicidad</h3>
+    @include('libro.aside.error')
     {!! Form::open(['route'=>'publicidad.store', 'id'=>'form-publicidad-create', 'enctype'=>"multipart/form-data"]) !!}
+        <h3 style="color: #d86304" class="mb-3">
+            Nueva publicidad
+            <div class="float-right">
+                <div class="btn-group" role="group">
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                    <a href="{{route('publicidad.index')}}#publicidades" class="btn btn-success index">Cancelar</a>
+                </div>
+            </div>
+        </h3>
         @include('publicidad.aside.form')
-        {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
-        <a href="{{route('concurso.index')}}#publicidades" class="btn btn-success index">Volver</a>
-
+        <div class="text-right">
+            <div class="btn-group" role="group">
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                <a href="{{route('publicidad.index')}}#publicidades" class="btn btn-success index">Cancelar</a>
+            </div>
+        </div>
     {!! Form::close() !!}
 </div>
 

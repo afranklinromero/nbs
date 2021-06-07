@@ -54,10 +54,11 @@
 
 @section('scriptlocal')
 <script>
-
+    /*
     $(document).ready(function(){
          $("#mostrarmodal").modal("show");
     });
+    */
     
     $(document).on('keypress', '.input-titulo', function(e) {
         if(e.which == 13) {

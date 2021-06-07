@@ -33,23 +33,20 @@ class BlogController extends Controller
     }
 
     public function create(Request $request){
+        if(!Auth::check()) return redirect()->route('libro.index');
+
+        
         Auth::user()->authorizeRoles(['admin']);
         return view('blog.create');
+
     }
 
     public function store(BlogRequest $request){
+        if(!Auth::check()) return redirect()->route('libro.index');
+
         Auth::user()->authorizeRoles(['admin']);
 
         $blog = new Blog($request->all());
-
-        //dd($blog);
-
-        $blog->estado = 1;
-
-        
-
-
-        //$request->file('multimedia')->storeAs('public/blog/', $blog->id . '.png');
         $fileimagen = $request->file('imagen');
         if (isset($fileimagen)){
             $blog->imagen = $fileimagen->getClientOriginalName();
@@ -57,8 +54,6 @@ class BlogController extends Controller
         } else {
             $blog->imagen = null;
         }
-
-        
         $filepdf = $request->file('documentopdf');
         if (isset($filepdf)) $blog->documentopdf = $filepdf->getClientOriginalName(); else $blog->documentopdf = null;
 
@@ -77,12 +72,16 @@ class BlogController extends Controller
     }
 
     public function edit(Request $request, $id){
+        if(!Auth::check()) return redirect()->route('libro.index');
+
         Auth::user()->authorizeRoles(['admin']);
         $blog = Blog::find($id);
         return view('blog.edit', compact('blog'));
     }
 
     public function update(BlogRequest $request, $id){
+        if(!Auth::check()) return redirect()->route('libro.index');
+
         Auth::user()->authorizeRoles(['admin']);
 
         $blog = Blog::find($id);
@@ -128,6 +127,7 @@ class BlogController extends Controller
     }
 
     public function altabaja(Request $request, $id){
+        if(!Auth::check()) return redirect()->route('libro.index');
         Auth::user()->authorizeRoles(['admin']);
 
         $blog = Blog::find($id);
@@ -137,6 +137,7 @@ class BlogController extends Controller
         return redirect()->route('blog.show', $blog->id)->with('info',  $mensaje);
     }
     public function destroy(Request $request, $id){
+        if(!Auth::check()) return redirect()->route('libro.index');
         Auth::user()->authorizeRoles(['admin']);
 
         $blog = Blog::find($id);

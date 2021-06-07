@@ -17,9 +17,11 @@ class CreateLibrosTable extends Migration
             $table->engine = 'InnoDB'; //para db relacional
             //$table->collate = 'utf8_unicode_ci'; //para db relacional
             $table->id();
+            $table->bigInteger('user_id')->unsigned()->default(1);
             $table->string('titulo', 256);
             $table->date('fecha');
             $table->string('tapa', 512);
+            $table->string('ext', 4)->default('png');
             $table->string('documentopdf', 512);
             $table->string('autor', 128)->default('Ministerio de Salud y Depeortes - Estado Plurinacional de Bolivia');
             $table->string('edicion', 64);
@@ -29,6 +31,8 @@ class CreateLibrosTable extends Migration
             $table->integer('orden');
             $table->timestamps();
             $table->integer('estado')->default(1);
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

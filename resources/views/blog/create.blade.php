@@ -2,12 +2,29 @@
 
 @section('contenido')
 <div class="container">
-    <h3>Nuevo artitulo</h3>
+    
     {!! Form::open(['route'=>'blog.store', 'id'=>'form-blog-create', 'enctype'=>"multipart/form-data"]) !!}
-        @include('blog.aside.form')
-        {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
-        <a href="{{route('concurso.index')}}#blogs" class="btn btn-success index">Volver</a>
+        
+        <h3 class="text-success mb-3">
+            Nuevo artitulo
+            <div class="float-right">
+                <div class="btn-group" role="group">
+                    <a href="{{route('concurso.index')}}#blogs" class="btn btn-success index">Volver</a>
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                </div>
+            </div>
+        </h3>        
 
+        
+        @include('blog.aside.form')
+        <br>
+        <div class="text-right">
+            <div class="btn-group" role="group">
+                <a href="{{route('concurso.index')}}#blogs" class="btn btn-success index">Volver</a>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+            </div>
+        </div>
+        
     {!! Form::close() !!}
 </div>
 
