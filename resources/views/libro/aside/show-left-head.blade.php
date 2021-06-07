@@ -16,10 +16,11 @@
         <div class="alert alert-success"><strong class="text-lowercase">numero publicación › </strong> <span class="text-lowercase">{{ $libro->lugarpublicacion }} </span><br></div> 
         <div class="alert alert-success"><strong class="text-lowercase">autor › </strong> <span class="text-lowercase">{{ $libro->autor }} </span><br></div> 
         <p class="text-center"><a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a></p>
-        <img class="img-fluid rounded img-thumbnail" src="{{ asset('tapas') }}/{{ $libro->id }}.{{ $libro->ext }}" alt="">
+        
 
         @if (Auth::check())
             @if (Auth::user()->hasRole('admin'))
+            <img class="img-fluid rounded img-thumbnail" src="{{ asset('tapas') }}/{{ $libro->id }}.{{ $libro->ext }}" alt="">
             <p>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-warning">Editar</a>

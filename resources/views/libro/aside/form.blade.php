@@ -15,13 +15,13 @@
                 <div class="row">
                     <div class="col-md-4 form-group">
                         {!! Form::label('tapa', 'Imagen vista previa:', ['class' => 'form-label']) !!}
-                        {!! Form::file('tapa', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
-                        <div id="preview"><img class="img-fluid rounded img-thumbnail pl-5" src="{{ asset('tapas') }}/{{ isset($libro->id)? $libro->id : null}}.{{ $libro->ext }}" alt=""></div>
+                        {!! Form::file('tapa', ['class' => 'form-control-file', 'accept' => 'image/*', isset($libro->id)? '':'required']) !!}
+                        <div id="preview"><img class="img-fluid rounded img-thumbnail pl-5" src="{{ asset('tapas') }}/{{ isset($libro->id)? $libro->id : null}}.{{ isset($libro->ext)?$libro->ext:'' }}" alt=""></div>
                     </div>
                     
                     <div class="col-md-form-group">
                         {!! Form::label('documentopdf', 'Documento pdf:', ['class' => 'form-label']) !!}
-                        {!! Form::file('documentopdf', ['class' => 'form-control-file', 'accept' => '.pdf']) !!}
+                        {!! Form::file('documentopdf', ['class' => 'form-control-file', 'accept' => '.pdf', isset($libro->id)? '':'required']) !!}
                         <div id="viewpdf">
                             @if (isset($libro->documentopdf))
                                 <a id="urlpdf" href="{{ asset('tapas') }}/{{$libro->id}}.pdf"></a>

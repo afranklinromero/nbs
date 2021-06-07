@@ -158,9 +158,11 @@ class LibroController extends Controller
 
         Auth::user()->authorizeRoles(['admin']);
 
-        $max = Libro::max('id');
+        
         $libro = new Libro($request->all());
-
+        //dd($libro);
+        $libro->orden = $max = Libro::max('id') + 1;
+        //dd($libro);
         $fileimagen = $request->file('tapa');
         if (isset($fileimagen)){
             $libro->tapa = $fileimagen->getClientOriginalName();
@@ -170,14 +172,21 @@ class LibroController extends Controller
         }
 
         $filepdf = $request->file('documentopdf');
-        if (isset($filepdf)) $libro->documentopdf = $filepdf->getClientOriginalName(); else $libro->documentopdf = null;
+        if (isset($filepdf)) {
+            //$libro->nombredocumentopdf = $filepdf->getClientOriginalName();
+            $libro->documentopdf = $libro->orden . '.pdf';
+        }
 
         
-
+        //dd($libro);
         $libro->save();
 
         if (isset($fileimagen)) $fileimagen->move(public_path().'/tapas', $libro->id . '.' . $fileimagen->getClientOriginalExtension());
         if (isset($filepdf)) $filepdf->move(public_path().'/libros', $libro->id . '.' .$filepdf->getClientOriginalExtension());
+
+        //$libro->documentopdf = $libro->id . '.pdf';
+
+        //$libro->save();
 
         //dd('???');
 
@@ -227,6 +236,7 @@ class LibroController extends Controller
         }
 
         if (isset($filepdf)) {
+            //$libro->titulo = $fileimagen->getClientOriginalExtension();
             $nombre = $libro->id . '.' . $filepdf->getClientOriginalExtension();
             $libro->documentopdf = $nombre;
             $filepdf->move(public_path().'/libros', $nombre);
@@ -238,7 +248,7 @@ class LibroController extends Controller
         $libro->save();
 
         return redirect()->route('libro.show', $libro->id)
-                        ->with('info','El Tipoproducto fue actualizado');
+                        ->with('info','Libro actualizado');
 
 
    }

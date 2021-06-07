@@ -2,6 +2,7 @@
 
 @section('contenido')
     <div class="container">
+        @include('libro.aside.info')
         <div class="row">
             <div class="col">
                 <h4><strong class="text-lowercase">titulo › </strong> <span class="text-lowercase">{{ $libro->titulo }} </span></h4>

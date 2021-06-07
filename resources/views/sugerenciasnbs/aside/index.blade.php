@@ -22,6 +22,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">&nbsp;</th>
+            <th scope="col">usuario</th>
             <th scope="col">nombre</th>
             <th scope="col">correo</th>
             <th scope="col">asunto</th>
@@ -49,6 +50,7 @@
                         
                     {!! Form::close() !!}
                 </td>
+                <td>{{ $item->user->name }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->subject }}</td>

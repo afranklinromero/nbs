@@ -11,16 +11,56 @@
             </a>
             <!--<a class="nav-link" href="{{ route('home') }}">INICIO</a>-->
         </li>
-        <li class="nav-item">
-            <a class="nav-link btn-outline-light" href="{{ route('libro.index') }}">LIBROS </a>
-        </li>
+        @if (Auth::check())
+            @if (Auth::user()->hasRole('admin'))
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        LIBROS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('libro.index')}}">Busqueda</a>
+                        <a class="dropdown-item" href="{{route('libro.create')}}">Registrar documento</a>
+                    </div>
+                </li>    
+            @else
+                <li class="nav-item">
+                    <a class="nav-link btn-outline-light" href="{{ route('libro.index') }}">LIBROS </a>
+                </li>
+            @endif
+        @else
+            <li class="nav-item">
+                <a class="nav-link btn-outline-light" href="{{ route('libro.index') }}">LIBROS </a>
+            </li>
+        @endif
+        
         <li class="nav-item">
             <a class="nav-link btn-outline-light" href="{{ route('blog.index') }}">BLOG </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS</a>
-        </li>
-            @if( Auth::check())
+        @if (Auth::check())
+            @if (Auth::user()->hasRole('admin'))
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                SUGERENCIAS
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{route('sugerenciasnbs.create')}}">Enviar Sugerencia</a>
+                    <a class="dropdown-item" href="{{route('sugerenciasnbs.index')}}">Administrar Sugerencias</a>  
+                </div>
+            </li>    
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS </a>
+                </li>
+            @endif
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS </a>
+            </li>
+        @endif
+        
+        
+            @if(Auth::check())
+                
                 @if(Auth::user()->hasRole('admin'))
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
