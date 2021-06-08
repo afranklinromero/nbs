@@ -56,6 +56,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <p class="text-center float-right"><button type="submit" class="btn btn-success">Ingresar</button></p>
+                                    <p class="text-center float-right pr-1"><a class="btn btn-primary" href="{{ route('libro.index') }}">Cancelar</a></p>
                                     
 
                                     <a href="{{ route('users.create') }}"><strong class="text-danger">Registrarme</strong></a></th>
