@@ -24,7 +24,6 @@
     <script>
         $(document).ready(function(){
             var url = $('#urlpdf').attr('href');
-           
             
         });
         document.getElementById("imagen").onchange = function(e) {

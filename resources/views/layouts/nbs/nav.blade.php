@@ -60,11 +60,11 @@
         
         
             @if(Auth::check())
-                
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
+                </li>
                 @if(Auth::user()->hasRole('admin'))
-                    <li class="nav-item">
-                    <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('publicidad.index') }}">ANUNCIOS</a>
                     </li>
@@ -72,15 +72,6 @@
                     </li>
                     
                     <li class="nav-item">
-                    </li>
-
-                @else
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('libro.index') }}">INICIO <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('concurso.index') }}">LIBRO <span class="sr-only">(current)</span></a>
                     </li>
                 @endif
             @endif
@@ -112,7 +103,6 @@
                                             document.getElementById('logout-form').submit();">
                                     Cerrar session
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
