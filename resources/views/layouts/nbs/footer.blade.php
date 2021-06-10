@@ -40,9 +40,9 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
-                <h6 class="text-uppercase font-weight-bold">SALUD</h6>
+                <h6 class="text-uppercase font-weight-bold">OBJETIVO GENERAL DE LA PLATAFORMA</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p>Esta herramienta fue desarrollada para que puedan Lorem,  elit.temporibus ullam veniam iste fuga quo praesentium recusandae veritatis labore facilis esse in dolorum, ea numquam rerum minus?</p>
+                <p>Proporcionar el prestador de servicios de salud una herramienta que le permita acceder de manera oportuna y rápida a las Normas Nacionales de Salud, a artículos y noticias de interés y a medir sus conocimientos sobre una determinada Norma mediante las Olimpiadas Digitales, con el fin de fortalecer sus capacidades técnicas, absorber sus dudas en el menor tiempo posible y disminuir el riesgo de tener algún problema médico legal por incumplimiento de norma.</p>
                 
                 <!-- Button trigger modal -->
 
@@ -56,9 +56,9 @@
                 <h6 class="text-uppercase font-weight-bold">ACESSO</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
                 <p><a href="https://www.minsalud.gob.bo/" target="_blank">Ministerio de Salud y Deportes</a></p>
-                <p><a href="#seccion1">Gobierno Municipal</a></p>
-                <p><a href="#seccion1">Link2</a></p>
-                <p><a href="#seccion1">Link3</a></p>
+                <p><a href="https://gmsantacruz.gob.bo/" target="_blank">Gobierno Municipal de Santa Cruz de la Sierra</a></p>
+                <!--<p><a href="#seccion1">Link2</a></p>
+                <p><a href="#seccion1">Link3</a></p>-->
 
             </div>
             <!-- Grid column -->
@@ -68,10 +68,10 @@
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold">BLog</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p><a href="#!">EL CANCER</a></p>
-                <p><a href="#!">TU VIDA VALE</a></p>
+                <p><a href="{{route('blog.index')}}">Blog Normas Bolivianas de Salud</a></p>
+                <!--<p><a href="#!">TU VIDA VALE</a></p>
                 <p><a href="#!">NO LO HAGAS</a></p>
-                <p><a href="#!">SALUD</a></p>
+                <p><a href="#!">SALUD</a></p>-->
             </div>
             <!-- Grid column -->
 
@@ -80,9 +80,9 @@
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold" id="contactos">Contactanos</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p><i class="fa fa-home mr-3"></i>Edificio Cubo II, 3er Piso Sobre Cuarto Anillo, entre Marriot Hotel y Beauty Plaza, Equipetrol</p>
-                <p><i class="fa fa-envelope mr-3"></i> info@salud.com</p>
-                <p><i class="fa fa-phone mr-3"></i> 7811346</p>
+                <p><i class="fa fa-home mr-3"></i> Edificio Cubo II, 3er Piso Sobre Cuarto Anillo, entre Marriot Hotel y Beauty Plaza, Equipetrol</p>
+                <p><i class="fa fa-envelope mr-3"></i> <a href="mailto:luicobeto@gmail.com" target="_blank">luicobeto@gmail.com</p>
+                <p><i class="fa fa-phone mr-3"></i><a href="tel:+59179860030" target="_blank"> 798-60030</a></p>
             </div>
         <!-- Grid column -->
         </div>
@@ -91,8 +91,9 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-        © 2020 Copyright: <a href="https://www.sofcruz.com"> SofCruz.com</a>
+    <div class="footer-copyright text-center py-3 text-muted">
+        © 2021 Copyright: <a href="https://normasbolivianasdesalud.com" class="text-muted">normasbolivianasdesalud.com</a> | 
+        desarrollado por <a href="https://sofcruz.com" target="_blank" class="text-muted">sofcruz.com</a>
     </div>
     <!-- Copyright -->
 </footer>
