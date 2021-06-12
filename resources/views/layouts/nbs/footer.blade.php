@@ -42,7 +42,7 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">OBJETIVO GENERAL DE LA PLATAFORMA</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p>Proporcionar el prestador de servicios de salud una herramienta que le permita acceder de manera oportuna y rápida a las Normas Nacionales de Salud, a artículos y noticias de interés y a medir sus conocimientos sobre una determinada Norma mediante las Olimpiadas Digitales, con el fin de fortalecer sus capacidades técnicas, absorber sus dudas en el menor tiempo posible y disminuir el riesgo de tener algún problema médico legal por incumplimiento de norma.</p>
+                <p>Proporcionar al prestador de servicios de salud una herramienta que le permita acceder de manera oportuna y rápida a las Normas Nacionales de Salud, a artículos y noticias de interés y a medir sus conocimientos sobre una determinada Norma mediante las Olimpiadas Digitales, con el fin de fortalecer sus capacidades técnicas, absorber sus dudas en el menor tiempo posible y disminuir el riesgo de tener algún problema médico legal por incumplimiento de norma.</p>
                 
                 <!-- Button trigger modal -->
 
