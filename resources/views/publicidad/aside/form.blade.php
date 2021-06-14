@@ -15,9 +15,12 @@
                             </div>
                             <div class="col-md-6">
                                 <p class="card-title">
-                                    {!! Form::label('multimedia', 'Portada articulo:', ['class' => 'form-label']) !!}
-                                    {!! Form::file('multimedia', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
-                                    <div id="preview"><img class="img-fluid rounded" src="{{ asset('img/publicidad') }}/{{ isset($publicidad->id)? $publicidad->id : null}}.png" alt=""></div>
+                                    {!! Form::label('imagen', 'Portada articulo:', ['class' => 'form-label']) !!}
+                                    {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                                    @if (isset($publicidad->id))
+                                        <div id="preview"><img class="img-fluid rounded" src="{{ asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext) }}" alt=""></div>    
+                                    @endif
+                                    
                                 </p>
                             </div>
                         </div>
