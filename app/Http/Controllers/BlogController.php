@@ -7,6 +7,7 @@ use App\Modelos\Publicidad;
 use App\Http\Requests\BlogRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -59,8 +60,14 @@ class BlogController extends Controller
 
         $blog->save();
 
-        if (isset($fileimagen)) $fileimagen->move(public_path().'/img/blog/', $blog->id . '.' . $fileimagen->getClientOriginalExtension());
-        if (isset($filepdf)) $filepdf->move(public_path().'/img/blog/doc', $blog->id . '.' .$filepdf->getClientOriginalExtension());
+        if (isset($fileimagen)) {
+            Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $fileimagen, $blog->id . '.' . $fileimagen->getClientOriginalExtension());
+            //$fileimagen->move(public_path().'/img/blog/', $blog->id . '.' . $fileimagen->getClientOriginalExtension());
+        }
+        if (isset($filepdf)) {
+            //$filepdf->move(public_path().'/img/blog/doc', $blog->id . '.' .$filepdf->getClientOriginalExtension());
+            Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $filepdf, $blog->id . '.pdf');
+        }
 
         //dd($image);
         //Storage::put('/public/blog/'.$blog->id . '.png', \File::get);
@@ -88,11 +95,12 @@ class BlogController extends Controller
         if (isset($request->tipo) && $request->tipo=='update'){
             $blog->titulo = $request->titulo;
             if (isset($request->imagen)){
-                $image = $request->file('imagen');
-                $imagen = $image->getClientOriginalName();
-                $ext = $image->getClientOriginalExtension();
-                $image->move(public_path().'/img/blog/', $blog->id . '.'.$ext);
-                $blog->imagen = $imagen;
+                $fileimagen = $request->file('imagen');
+                $name = $fileimagen->getClientOriginalName();
+                $ext = $fileimagen->getClientOriginalExtension();
+                //$image->move(public_path().'/img/blog/', $blog->id . '.'.$ext);
+                Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $fileimagen, $blog->id . '.' . $fileimagen->getClientOriginalExtension());
+                $blog->imagen = $name;
                 $blog->ext = $ext;
             }
 
@@ -100,7 +108,8 @@ class BlogController extends Controller
                 $pdf = $request->file('documentopdf');
                 $documentopdf = $pdf->getClientOriginalName();
                 $ext = $pdf->getClientOriginalExtension();
-                $pdf->move(public_path().'/img/blog/doc/', $blog->id . '.' . $ext);
+                //$pdf->move(public_path().'/img/blog/doc/', $blog->id . '.' . $ext);
+                Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $filepdf, $blog->id . '.pdf');
                 $blog->documentopdf = $documentopdf;
             }
 
@@ -108,7 +117,6 @@ class BlogController extends Controller
             $blog->contenido = $request->contenido;
             $blog->autor = $request->autor;
             $blog->referencia = $request->referencia;
-
         } 
         elseif (isset($request->tipo) && $request->tipo=='alta') $blog->estado=1;
         elseif (isset($request->tipo) && $request->tipo=='baja') $blog->estado=0;

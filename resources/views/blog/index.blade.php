@@ -83,7 +83,7 @@
                         <div class="card">
                             <div class="contenedorimg">
                                 @if (isset($blog->imagen))
-                                    <a href="{{route('blog.show', $blog->id)}}"> <img class="imagen card-img-top" src="{{ asset('img/blog/'.$blog->id . '.' . $blog->ext) }}" alt=""></a>
+                                    <a href="{{route('blog.show', $blog->id)}}"> <img class="imagen card-img-top" src="{{ asset('storage/files/blog/'.$blog->id . '/' . $blog->id.'.'.$blog->ext) }}" alt="error img"></a>
                                 @else
                                     <img class="imagen card-img-top" src="{{ asset('img/default.png') }}" alt="">    
                                 @endif

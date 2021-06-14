@@ -51,7 +51,7 @@
             <div class="col-sm-12 col-md-4">
                 <div>
                     <div class="card">
-                        <a href="{{route('publicidad.show', $publicidad->id)}}"><img class="card-img-top" src="{{ asset('img/publicidad/'.$publicidad->id . '.png') }}" alt=""></a>
+                        <a href="{{route('publicidad.show', $publicidad->id)}}"><img class="card-img-top" src="{{ asset('storage/files/publicidad/'.$publicidad->id . '/'.$publicidad->id.'.'.$publicidad->ext) }}" alt=""></a>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{{route('publicidad.show', $publicidad->id)}}" style="color: #d86304">

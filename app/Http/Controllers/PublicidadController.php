@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Modelos\Publicidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class publicidadController extends Controller
 {
@@ -47,15 +48,14 @@ class publicidadController extends Controller
         $publicidad = new publicidad($request->all());
 
         $publicidad->estado = 1;
+        $fileimagen = $request->file('imagen');
+        $name = $fileimagen->getClientOriginalName();
+        $publicidad->imagen = $name;
+        $publicidad->ext = $fileimagen->getClientOriginalExtension();
 
         $publicidad->save();
-
-
-        //$request->file('multimedia')->storeAs('public/publicidad/', $publicidad->id . '.png');
-        $image = $request->file('multimedia');
-        $imagen = $image->getClientOriginalName();
-        $formato = $image->getClientOriginalExtension();
-        $image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
+        //$image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
+        Storage::disk('local')->putFileAs('public/files/publicidad/'.$publicidad->id, $fileimagen, $publicidad->id . '.' . $fileimagen->getClientOriginalExtension());
         //dd($image);
         //Storage::put('/public/publicidad/'.$publicidad->id . '.png', \File::get);
 
@@ -87,10 +87,11 @@ class publicidadController extends Controller
         } else{
             $publicidad->titulo = $request->titulo;
             if (isset($request->multimedia)){
-                $image = $request->file('multimedia');
-                $imagen = $image->getClientOriginalName();
-                $formato = $image->getClientOriginalExtension();
-                $image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
+                $fileimagen = $request->file('multimedia');
+                $name = $image->getClientOriginalName();
+                $ext = $image->getClientOriginalExtension();
+                //$image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
+                Storage::disk('local')->putFileAs('public/files/publicidad/'.$publicidad->id, $fileimagen, $publicidad->id . '.' . $fileimagen->getClientOriginalExtension());
             }
             $publicidad->contenido = $request->contenido;
             $publicidad->link = $request->link;

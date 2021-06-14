@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-6 text-justify">
                     @if (isset($blog->imagen))
-                        <img class='img-fluid rounded float-left mr-3 mb-3' src="{{asset('img/blog/'. $blog->id. '.' . $blog->ext)}}" alt="" width="100%">    
+                        <img class='img-fluid rounded float-left mr-3 mb-3' src="{{asset('storage/files/blog/'. $blog->id. '/' .$blog->id . '.' . $blog->ext)}}" alt="" width="100%">    
                     @endif
                     
                     @if (isset($blog->youtube))
@@ -22,7 +22,7 @@
                     @if (isset($blog->documentopdf))
                         <iframe
                             class='pdfembed'
-                            src= '{{ asset('pdfjs/web/viewer.html') }}?file={{asset('img/blog/doc')}}/{{ $blog->id . '.pdf'}}'
+                            src= '{{ asset('pdfjs/web/viewer.html') }}?file={{asset('storage/files/blog/'.$blog->id.'/'.$blog->id.'.pdf')}}'
                             width='100%'
                             height = '300'
                             >

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\LibroRequest;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class LibroController extends Controller
 {

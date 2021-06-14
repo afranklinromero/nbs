@@ -10,7 +10,7 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('img/publicidad/'. $publicidad->id. '.png')}}" width="50%" alt=""></a> 
+                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->id . '.' .$publicidad->ext)}}" width="50%" alt=""></a> 
                     <p><strong >Contenido: </strong> {{ $publicidad->contenido }}</p>
                     
                 </div>
