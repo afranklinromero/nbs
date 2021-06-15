@@ -2,14 +2,26 @@
 
 @section('contenido')
 <div class="container">
-    <h3>Editar articulo</h3>
     {!! Form::open(['route'=>['blog.update', $blog->id], 'id'=>'form-blog-create', 'enctype'=>"multipart/form-data"]) !!}
+        <h3 class="text-success mb-3">
+            Editar artitulo
+            <div class="float-right">
+                <div class="btn-group" role="group">
+                    <a href="{{route('blog.index')}}" class="btn btn-success index">Cancelar</a>
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                </div>
+            </div>
+        </h3>      
         @method('PUT')
         {!! Form::hidden('tipo', 'update', null) !!}
         @include('blog.aside.form')
         <br>
-        {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
-        <a href="{{route('blog.index')}}#blogs" class="btn btn-success index">Volver</a>
+        <div class="text-right">
+            <div class="btn-group" role="group">
+                <a href="{{route('blog.index')}}" class="btn btn-success index">Cancelar</a>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+            </div>
+        </div>
 
     {!! Form::close() !!}
 </div>
@@ -70,7 +82,7 @@
                     console.log("the pdf has ",pdf.numPages, "page(s).")
                     pdf.getPage(pdf.numPages).then(function(page) {
                         // you can now use *page* here
-                        var viewport = page.getViewport(0.25);
+                        var viewport = page.getViewport(0.5);
                         var canvas = document.querySelector("canvas")
                         canvas.height = viewport.height;
                         canvas.width = viewport.width;

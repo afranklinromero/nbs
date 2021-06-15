@@ -8,8 +8,8 @@
             Editar articulo
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                     <a href="{{route('publicidad.index')}}" class="btn btn-success index">Cancelar</a>
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                 </div>
             </div>
         </h3>
@@ -18,8 +18,8 @@
         <br>
         <div class="text-right">
             <div class="btn-group" role="group">
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                 <a href="{{route('publicidad.index')}}" class="btn btn-success index">Cancelar</a>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
             </div>
         </div>
     
@@ -31,7 +31,7 @@
 
 @section('scriptlocal')
     <script>
-        document.getElementById("multimedia").onchange = function(e) {
+        document.getElementById("imagen").onchange = function(e) {
             // Creamos el objeto de la clase FileReader
             let reader = new FileReader();
 

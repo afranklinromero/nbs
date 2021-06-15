@@ -105,12 +105,11 @@ class BlogController extends Controller
             }
 
             if (isset($request->documentopdf)){
-                $pdf = $request->file('documentopdf');
-                $documentopdf = $pdf->getClientOriginalName();
-                $ext = $pdf->getClientOriginalExtension();
+                $filepdf = $request->file('documentopdf');
+                $name = $filepdf->getClientOriginalName();
                 //$pdf->move(public_path().'/img/blog/doc/', $blog->id . '.' . $ext);
                 Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $filepdf, $blog->id . '.pdf');
-                $blog->documentopdf = $documentopdf;
+                $blog->documentopdf = $name;
             }
 
             $blog->youtube = $request->youtube;

@@ -8,16 +8,16 @@
             Nueva publicidad
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                     <a href="{{route('publicidad.index')}}#publicidades" class="btn btn-success index">Cancelar</a>
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                 </div>
             </div>
         </h3>
         @include('publicidad.aside.form')
         <div class="text-right">
             <div class="btn-group" role="group">
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                 <a href="{{route('publicidad.index')}}#publicidades" class="btn btn-success index">Cancelar</a>
+                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
             </div>
         </div>
     {!! Form::close() !!}
@@ -27,7 +27,7 @@
 
 @section('scriptlocal')
     <script>
-        document.getElementById("multimedia").onchange = function(e) {
+        document.getElementById("imagen").onchange = function(e) {
         // Creamos el objeto de la clase FileReader
         let reader = new FileReader();
 

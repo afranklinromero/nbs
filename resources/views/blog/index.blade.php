@@ -70,7 +70,7 @@
                 $n = sizeof($publicidades);
             @endphp
             @foreach ($blogs as $i=>$blog)
-                    @if (($i%6)==0 && $i>0)
+                    @if (($i%6)==0)
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
                                 @include('publicidad.aside.carrousel')

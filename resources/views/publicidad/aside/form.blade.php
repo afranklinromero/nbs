@@ -1,6 +1,6 @@
 @include('publicidad.aside.info')
 @include('publicidad.aside.error')
-    <div class="row">
+    <div class="row mb-2">
         <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
@@ -16,9 +16,14 @@
                             <div class="col-md-6">
                                 <p class="card-title">
                                     {!! Form::label('imagen', 'Portada articulo:', ['class' => 'form-label']) !!}
-                                    {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
                                     @if (isset($publicidad->id))
+                                        <!--EDITAR-->
+                                        {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
                                         <div id="preview"><img class="img-fluid rounded" src="{{ asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext) }}" alt=""></div>    
+                                    @else
+                                        <!--CREAR-->
+                                        {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*', 'required']) !!}
+                                        <div id="preview"></div>
                                     @endif
                                     
                                 </p>

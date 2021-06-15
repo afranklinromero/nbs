@@ -86,10 +86,11 @@ class publicidadController extends Controller
             $publicidad->updated_at = now();
         } else{
             $publicidad->titulo = $request->titulo;
-            if (isset($request->multimedia)){
-                $fileimagen = $request->file('multimedia');
-                $name = $image->getClientOriginalName();
-                $ext = $image->getClientOriginalExtension();
+            if (isset($request->imagen)){
+                $fileimagen = $request->file('imagen');
+                $name = $fileimagen->getClientOriginalName();
+                $publicidad->imagen = $name;
+                $publicidad->ext = $fileimagen->getClientOriginalExtension();
                 //$image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
                 Storage::disk('local')->putFileAs('public/files/publicidad/'.$publicidad->id, $fileimagen, $publicidad->id . '.' . $fileimagen->getClientOriginalExtension());
             }
@@ -108,6 +109,6 @@ class publicidadController extends Controller
         //if ($request->ajax())
           //  return redirect()->route('publicidad.show', $publicidad->id);
 
-        return redirect()->route('publicidad.index');
+        return redirect()->route('publicidad.show', $publicidad->id);
     }
 }

@@ -28,7 +28,9 @@
                         <p class="card-title">
                             {!! Form::label('imagen', '*Imagen:', ['class' => 'form-label']) !!}
                             {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*', isset($blog->imagen)? '': 'required']) !!}
-                            <div id="preview"><img class="img-fluid rounded pl-5" src="{{ asset('img/blog') }}/{{ isset($blog->id)? $blog->id . '.' . $blog->ext : null}}" alt=""></div>
+                            @if (isset($blog->id))
+                                <div id="preview"><img class="img-fluid rounded pl-5" src="{{ asset('storage/files/blog/'.$blog->id.'/'.$blog->id.'.'.$blog->ext) }}" alt=""></div>    
+                            @endif
                         </p>
                     </div>
                     <div class="col-md-4">
@@ -38,7 +40,10 @@
                             
                             <div id="viewpdf">
                                 @if (isset($blog->documentopdf))
-                                    <a id="urlpdf" href="{{ asset('img/blog/doc') }}/{{$blog->id}}.pdf"></a>
+                                    <p>mostrando documento</p>
+                                    <a id="urlpdf" href="{{ asset('storage/files/blog/'.$blog->id.'/'.$blog->id.'.pdf') }}"></a>
+                                @else
+                                    <p>no hay documento</p>
                                 @endif
                                 <canvas></canvas>
                             </div>

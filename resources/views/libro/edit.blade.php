@@ -78,7 +78,7 @@
                     console.log("the pdf has ",pdf.numPages, "page(s).")
                     pdf.getPage(pdf.numPages).then(function(page) {
                         // you can now use *page* here
-                        var viewport = page.getViewport(0.25);
+                        var viewport = page.getViewport(0.5);
                         var canvas = document.querySelector("canvas")
                         canvas.height = viewport.height;
                         canvas.width = viewport.width;
