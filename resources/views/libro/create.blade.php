@@ -2,21 +2,21 @@
 
 @section('contenido')
 <div class="container">
-    {!! Form::open([ 'route' => [ 'libro.store' ], 'files' => true, 'enctype' => 'multipart/form-data', 'id' => 'image-upload' ]) !!}
+    {!! Form::open([ 'route' => [ 'libro.store' ], 'files' => true, 'class'=>'needs-validation', 'novalidate', 'enctype' => 'multipart/form-data', 'id' => 'image-upload' ]) !!}
         <h3 class="text-success mb-3">
             Nuevo libro
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    <a href="{{ route('libro.index') }}" class="btn btn-warning"></i>Cancelar</a>
-                    {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
+                    <a href="{{ route('libro.index') }}" class="btn btn-success"></i>Cancelar</a>
+                    {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-primary']) !!}
                 </div>
             </div>
         </h3>
         @include('libro.aside.form')
         <div class="text-right">
             <div class="btn-group mt-3" role="group">
-                <a href="{{ route('libro.index') }}" class="btn btn-warning"></i>Cancelar</a>
-                {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
+                <a href="{{ route('libro.index') }}" class="btn btn-success"></i>Cancelar</a>
+                {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-primary']) !!}
             </div>
         </div>
     {!! Form::close() !!}
@@ -29,6 +29,9 @@
 @endsection
 
 @section('scriptlocal')
+
+
+
 <script type="text/javascript">
     Dropzone.options.imageUpload = {
         headers: "Hola Mundo",
@@ -39,6 +42,26 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>
     <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
         document.getElementById("tapa").onchange = function(e) {
             // Creamos el objeto de la clase FileReader
             let reader = new FileReader();

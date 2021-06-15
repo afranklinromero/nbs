@@ -4,31 +4,24 @@
     <div class="col-xs-6 col-sm-6 col-md-6">
         <p>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="{{ route('libro.index') }}" class="btn btn-success">volver</a>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ayuda</button>
+                <a href="{{ route('libro.download', ['documentopdf'=>$libro->documentopdf, 'titulo'=>$libro->titulo.'.pdf']) }}" class="btn btn-success">descargar</a>
             </div>
         </p>
     </div>
 
     <div class="col-sm-6 col-md-12">
         
-        <div class="alert alert-success"><strong class="text-lowercase">numero publicación › </strong> <span class="text-lowercase">{{ $libro->lugarpublicacion }} </span><br></div> 
+        <div class="alert alert-success"><strong class="text-lowercase">lugar publicación › </strong> <span class="text-lowercase">{{ $libro->lugarpublicacion }} </span><br></div> 
         <div class="alert alert-success"><strong class="text-lowercase">autor › </strong> <span class="text-lowercase">{{ $libro->autor }} </span><br></div> 
-        <p class="text-center"><a href="{{ route('libro.download', $libro->id) }}" class="btn btn-success btn-sm">descargar</a></p>
+        
         
 
         @if (Auth::check())
             @if (Auth::user()->hasRole('admin'))
-            <img class="img-fluid rounded img-thumbnail" src="{{ asset('tapas') }}/{{ $libro->id }}.{{ $libro->ext }}" alt="">
-            <p>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-warning">Editar</a>
-                    <a href="{{ route('create') }}" class="btn btn-success">Nuevo</a>
-                </div>
-            </p>    
+                <img class="img-fluid rounded img-thumbnail p-2" src="{{ asset('storage/files/libros/tapas/'.$libro->tapa) }}" alt="">
             @endif
-       
         @endif
         
         {!! Form::hidden('documentopdf', $libro->documentopdf, ['id'=>'documentopdf']) !!}

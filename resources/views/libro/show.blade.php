@@ -5,7 +5,18 @@
         @include('libro.aside.info')
         <div class="row">
             <div class="col">
-                <h4><strong class="text-lowercase">titulo › </strong> <span class="text-lowercase">{{ $libro->titulo }} </span></h4>
+                <h4 class="mb-3">
+                    <strong class="text-lowercase text-primary">titulo › </strong> <span class="text-lowercase">{{ $libro->titulo }} </span>
+                    <div class="float-right">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{{ route('libro.index') }}" class="btn btn-primary">volver</a>
+                            @if (Auth::check() && Auth::user()->hasRole('admin'))
+                                <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-warning">editar</a>
+                                <a href="{{ route('libro.create') }}" class="btn btn-success">nuevo</a>    
+                            @endif
+                        </div>
+                    </div>
+                </h4>
             </div>
         </div>
         <div class="row show">

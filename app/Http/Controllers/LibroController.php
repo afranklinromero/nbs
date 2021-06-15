@@ -181,9 +181,20 @@ class LibroController extends Controller
         
         //dd($libro);
         $libro->save();
+        $libro->tapa = $libro->id . '.' .$libro->ext;
+        $libro->documentopdf = $libro->id . '.pdf';
+        $libro->orden = $libro->id;
 
-        if (isset($fileimagen)) $fileimagen->move(public_path().'/tapas', $libro->id . '.' . $fileimagen->getClientOriginalExtension());
-        if (isset($filepdf)) $filepdf->move(public_path().'/libros', $libro->id . '.' .$filepdf->getClientOriginalExtension());
+        $libro->save();
+
+        if (isset($fileimagen)) {
+            Storage::disk('local')->putFileAs('public/files/libros/tapas', $fileimagen, $libro->tapa);
+            //$fileimagen->move(public_path().'/tapas', $libro->id . '.' . $fileimagen->getClientOriginalExtension());
+        }
+        if (isset($filepdf)) {
+            Storage::disk('local')->putFileAs('public/files/libros/pdfs', $filepdf, $libro->documentopdf);
+            //$filepdf->move(public_path().'/libros', $libro->id . '.' .$filepdf->getClientOriginalExtension());
+        }
 
         //$libro->documentopdf = $libro->id . '.pdf';
 
@@ -273,11 +284,15 @@ class LibroController extends Controller
         }
     }
 
-    public function download($id)
+    public function download($documentopdf, $titulo)
     {
-        $libro = Libro::find($id);
-        $pathToFile = "libros/".$libro->documentopdf;
-        return response()->download($pathToFile);
+        //$libro = Libro::find($id);
+        $pathToFile = "storage/files/libros/pdfs/".$documentopdf;
+        return response()->download($pathToFile, $titulo, [
+            'Content-Type' => 'pdf',
+            'X-Header-One' => 'Header Value',
+            'X-Header-Two' => 'Header Value',
+        ]);
     }
 
 }

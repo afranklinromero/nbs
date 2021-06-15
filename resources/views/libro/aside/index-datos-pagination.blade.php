@@ -31,7 +31,7 @@
                                 <div class="row g-0">
                                   <div class="col-4">
                                     <a href="{{ route('libro.show', $libro->id) }}">
-                                        <img src="{{ asset('tapas/') }}/{{ $libro->id}}.{{ $libro->ext }}" class="rounded img-fluid"  alt="" srcset="">
+                                        <img src="{{ asset('storage/files/libros/tapas/'.$libro->tapa) }}" class="rounded img-fluid"  alt="" srcset="">
                                     </a>
                                   </div>
                                   <div class="col-8">

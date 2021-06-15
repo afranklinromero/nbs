@@ -24,7 +24,7 @@ Route::get('libro/editarcorreo', 'LibroController@editarcorreo')->name('libro.ed
 Route::post('libro/enviarcorreo', 'LibroController@enviarcorreo')->name('libro.enviarcorreo');
 Route::get('libro/buscar', 'LibroController@buscar')->name('libro.buscar');
 Route::get('libro/pagination/{page}', 'LibroController@pagination')->name('libro.pagination');
-Route::get('libro/download/{id}', 'LibroController@download')->name('libro.download');
+Route::get('libro/download/{documentopdf}/{titulo}', 'LibroController@download')->name('libro.download');
 Route::get('libro/showmarcador/{id}/{marcador_id}', 'LibroController@showmarcador')->name('libro.showmarcador');
 Route::resource('libro', 'LibroController');
 

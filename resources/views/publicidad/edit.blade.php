@@ -5,7 +5,7 @@
     
     {!! Form::open(['route'=>['publicidad.update', $publicidad->id], 'id'=>'form-publicidad-create', 'enctype'=>"multipart/form-data"]) !!}
         <h3 style="color: #d86304" class="mb-3">
-            Editar articulo
+            Editar anuncion publicitario
             <div class="float-right">
                 <div class="btn-group" role="group">
                     <a href="{{route('publicidad.index')}}" class="btn btn-success index">Cancelar</a>
@@ -15,7 +15,6 @@
         </h3>
         @method('PUT')
         @include('publicidad.aside.form')
-        <br>
         <div class="text-right">
             <div class="btn-group" role="group">
                 <a href="{{route('publicidad.index')}}" class="btn btn-success index">Cancelar</a>

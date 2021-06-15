@@ -35,7 +35,7 @@
                     <img class="mb-3" src="{{ asset('img/logo.nobosa.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="20%">
                 </a>
                 <div>
-                    {!! Form::text('titulo', null,['class'=>'form-control caja input-  titulo','placeholder'=>' &#x1F50D; Introduzca su busqueda aqui', 'id' => 'input-titulo'])!!}
+                    {!! Form::text('titulo', null,['class'=>'form-control caja input-  titulo','placeholder'=>' &#x1F50D; Introduzca su busqueda aquí', 'id' => 'input-titulo'])!!}
                 </div>
             </div>
             <!-- <div class="form-group col-md-12 text-center" >

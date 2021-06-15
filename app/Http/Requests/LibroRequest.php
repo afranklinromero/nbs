@@ -32,10 +32,10 @@ class LibroRequest extends FormRequest
             //'imagen' => 'required|min:5|max:128',
             //'ext' => 'required|min:1|max:6',
             //'documentopdf' => 'max:128',
-            'nropublicacion' => 'required|numeric',
+            //'nropublicacion' => 'required|numeric',
             'autor' => 'required|min:8|max:128',
-            'edicion' => 'required|min:1|max:64',
-            'serie' => 'max:64',
+            //'edicion' => 'required|min:1|max:64',
+            //'serie' => 'max:64',
             'lugarpublicacion' => 'required|min:4|max:64',
             //'estado' => 'required|numeric',
         ];
