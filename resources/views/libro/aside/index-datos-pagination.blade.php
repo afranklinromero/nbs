@@ -18,7 +18,7 @@
                             //echo ucwords(strtolower($titulomarcado));
                         @endphp
 
-                        @if (($i%10)==0 && $i>0)
+                        @if (($i%10)==0)
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
                                 @include('publicidad.aside.carrousel')

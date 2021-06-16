@@ -51,7 +51,7 @@ class LibroController extends Controller
 
         $mensaje=null;
 
-        $publicidades = Publicidad::where('estado', 1)->where('lugar', 'libro')->orderBy('id')->get();
+        $publicidades = Publicidad::where('estado', 1)->where('lugar','like', '%libro%')->orderBy('id')->get();
 
         if ($request->ajax()){
 

@@ -46,6 +46,8 @@ class publicidadController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $publicidad = new publicidad($request->all());
+        $publicidad->lugar = implode(',',$publicidad->lugar);
+        //dd($publicidad);
 
         $publicidad->estado = 1;
         $fileimagen = $request->file('imagen');
@@ -77,6 +79,7 @@ class publicidadController extends Controller
         
         $publicidad = publicidad::find($id);
         $tipo = $request->tipo;
+        $publicidad->lugar = implode(',',$request->lugar);
         //dd($tipo);
         if (isset($tipo) && $tipo == 'baja'){
             $publicidad->estado = 0;

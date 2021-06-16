@@ -64,7 +64,7 @@ class ConcursoController extends Controller
 
         //dd($preguntas);
 
-        $publicidades = Publicidad::where('estado', 1)->where('lugar', 'concurso')->orderBy('id')->get();
+        $publicidades = Publicidad::where('estado', 1)->where('lugar', 'like', '%concurso%')->orderBy('id')->get();
 
         return view('concurso.index',compact('temaconcursos', 'concursoEstado', 'preguntas', 'preguntaEstado', 'publicidades'));
     }

@@ -39,17 +39,37 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
+                                <p>Lugar:</p>
+                                <div class="form-check">
+                                    @if (isset($publicidad->id))
+                                    <p>{{$publicidad->lugar}}</p>
+                                        {!! Form::checkbox('lugar[]', 'blog', (strpos($publicidad->lugar, 'blog')!==false)? true:false, ['id'=>'checkblog']) !!}
+                                        {!! Form::label('checkblog', 'Blog', ['class' => 'form-check-label']) !!} <br>
+
+                                        {!! Form::checkbox('lugar[]', 'libro', (strpos($publicidad->lugar, 'libro')!==false)? true:false, ['id'=>'checklibro']) !!}
+                                        {!! Form::label('checklibro', 'Libro', ['class' => 'form-check-label']) !!} <br>
+
+                                        {!! Form::checkbox('lugar[]', 'concurso', (strpos($publicidad->lugar, 'concurso')!==false)? true:false, ['id'=>'checkconcurso']) !!}
+                                        {!! Form::label('checkconcurso', 'Concurso', ['class' => 'form-check-label']) !!}    
+                                    @else
+                                        {!! Form::checkbox('lugar[]', 'blog', true, ['id'=>'checkblog']) !!}
+                                        {!! Form::label('checkblog', 'Blog', ['class' => 'form-check-label']) !!} <br>
+
+                                        {!! Form::checkbox('lugar[]', 'libro', true, ['id'=>'checklibro']) !!}
+                                        {!! Form::label('checklibro', 'Libro', ['class' => 'form-check-label']) !!} <br>
+
+                                        {!! Form::checkbox('lugar[]', 'concurso', true, ['id'=>'checkconcurso']) !!}
+                                        {!! Form::label('checkconcurso', 'Concurso', ['class' => 'form-check-label']) !!}    
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <p class="card-title">
                                     {!! Form::label('link', 'Enlace:', ['class' => 'form-label']) !!}
                                     {!! Form::text('link', isset($publicidad->link) ? $publicidad->link : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
                                 </p>
                             </div>
-                            <div class="col-md-3">
-                                <p class="card-title">
-                                    {!! Form::label('lugar', 'Lugar:', ['class' => 'form-label']) !!}
-                                    {!! Form::select('lugar', ['libro' => 'libro', 'blog' => 'blog', 'concurso' => 'concurso'], 'libro', ['class'=>'form-control','placeholder'=>'Seleccione lugar']) !!}
-                                </p>
-                            </div>
+                            
                             <div class="col-md-3">
                                 <p class="card-title">
                                     {!! Form::label('fechaini', 'Fecha inicio:', ['class' => 'form-label']) !!}

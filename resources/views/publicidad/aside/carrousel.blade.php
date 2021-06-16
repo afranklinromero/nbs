@@ -1,13 +1,13 @@
-<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleInterval" class="carousel slide m-3" data-ride="carousel">
     <div class="carousel-inner">
         @foreach ($publicidades as $i=>$publicidad)
             @if ($i==0)
                 <div class="carousel-item active" data-interval="2000">
-                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('img/publicidad')}}/{{$publicidad->id}}.png" class="d-block w-100" alt="..."></a>
+                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext)}}" class="d-block w-100" alt="..."></a>
                 </div>        
             @else
                 <div class="carousel-item" data-interval="2000">
-                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('img/publicidad')}}/{{$publicidad->id}}.png" class="d-block w-100" alt="..."></a>
+                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext)}}" class="d-block w-100" alt="..."></a>
                 </div>
             @endif
         @endforeach

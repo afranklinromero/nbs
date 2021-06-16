@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('links', function(){
+    if (Auth::check() && Auth::user()->hasRole('admin')){
+        if(file_exists(base_path('public_html/storage'))) return 'The "public_html/storage" directory already exits';
+        app('files')->link(storage_path('app/public'), base_path('public_html/storage'));
+        return 'The [public/storage] directory has been linked';
+    }
+    return 'Acceso denegado';
+});
 Route::resource('users', 'UserController');
 Route::resource('/', 'LibroController');
 
