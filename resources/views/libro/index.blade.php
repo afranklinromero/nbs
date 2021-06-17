@@ -32,7 +32,7 @@
             <!-- Fin Contador de visitas -->
             <div class="form-group text-center">
                 <a href="{{ route('libro.index') }}">
-                    <img class="mb-3" src="{{ asset('img/logo.nobosa.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="20%">
+                    <img class="mb-3" src="{{ asset('img/logo.nobosa1.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" height="75">
                 </a>
                 <div>
                     {!! Form::text('titulo', null,['class'=>'form-control caja input-  titulo','placeholder'=>' &#x1F50D; Introduzca su busqueda aquí', 'id' => 'input-titulo'])!!}

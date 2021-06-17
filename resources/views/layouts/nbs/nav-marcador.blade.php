@@ -10,7 +10,7 @@
             {{ csrf_field() }}
             <div class="form-group col-md-12 float-center">
                 <a href="{{ route('libro.index') }}">
-                    <img class="mb-3 mr-5" src="{{ asset('img/logo.nobosa-2.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="150">
+                    <img class="mt-2 mr-3" src="{{ asset('img/logo.nobosa3.svg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" width="150">
                 </a>
                 {!! Form::hidden('libro_id', $libro->id) !!}
                 {!! Form::text('titulo',null,['class'=>'form-control caja titulo','placeholder'=>' &#x1F50D; Introduzca su busqueda aquí', 'size' => '80',])!!}

@@ -7,7 +7,7 @@
     <ul class="navbar-nav ">
         <li class="nav-item ">
             <a href="{{ route('libro.index') }}">
-                <img class="mb-3 mr-3 mt-1" src="{{ asset('img/logonobosa3.png')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="">
+                <img class="m-2" src="{{ asset('img/logo.nobosa3.svg')}}" height="23" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="">
             </a>
             <!--<a class="nav-link" href="{{ route('home') }}">INICIO</a>-->
         </li>

@@ -7,7 +7,7 @@
             <div class="card" style="float: aut; width: 500px;" >
                 <div class="card-body">
                     <div class="text-center">
-                        <a href="{{route('libro.index')}}"><img class="img-fluid" src="{{asset('img/logonobosa3.png')}}" alt=""></a>
+                        <a href="{{route('libro.index')}}"><img class="mb-3" src="{{asset('img/logo.nobosa3.png')}}" height="45" alt=""></a>
                         <h3>Iniciar sesión</h3>
                         <p class="text-muted">Utiliza tu cuenta con número de teléfono</p>
                     </div>
