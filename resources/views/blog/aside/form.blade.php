@@ -16,7 +16,7 @@
                             <input type="hidden" name="_token" id="token" style="color: rgb(43, 75, 57)" value="{{ csrf_token() }}">
                             {!! Form::hidden('user_id',  Auth::user()->id ) !!}
                             {!! Form::label('titulo', '*Titulo:', ['class' => 'form-label']) !!}
-                            {!! Form::text('titulo', isset($blog->titulo) ? $blog->titulo : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                            {!! Form::text('titulo', isset($blog->titulo) ? $blog->titulo : null, ['class' => 'form-control', 'minlength'=>'8', 'maxlength'=>'64', 'required']) !!}
                         </p>
                     </div>
                     <div class="col-md-6">
@@ -30,6 +30,8 @@
                             {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*', isset($blog->imagen)? '': 'required']) !!}
                             @if (isset($blog->id))
                                 <div id="preview"><img class="img-fluid rounded pl-5" src="{{ asset('storage/files/blog/'.$blog->id.'/'.$blog->id.'.'.$blog->ext) }}" alt=""></div>    
+                            @else
+                                <div id="preview"></div>    
                             @endif
                         </p>
                     </div>

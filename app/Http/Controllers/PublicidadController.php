@@ -18,7 +18,7 @@ class publicidadController extends Controller
     public function index(Request $request){
         Auth::user()->authorizeRoles(['admin']);
 
-        $publicidades = Publicidad::orderBy('id', 'desc');//->where('estado', '1');
+        $publicidades = Publicidad::orderBy('id', 'desc')->where('estado', '1');
         $titulo = $request->titulo;
         if (isset($request->titulo) && strlen(trim($request->titulo)) > 0)
             $publicidades = $publicidades->where('titulo','like', '%'.$request->titulo.'%');
@@ -79,15 +79,21 @@ class publicidadController extends Controller
         
         $publicidad = publicidad::find($id);
         $tipo = $request->tipo;
-        $publicidad->lugar = implode(',',$request->lugar);
-        //dd($tipo);
+        
+        
+        
         if (isset($tipo) && $tipo == 'baja'){
             $publicidad->estado = 0;
             $publicidad->updated_at = now();
+            $publicidad->save();
+            return redirect()->route('publicidad.index');
         } else if (isset($tipo) && $tipo == 'alta'){
             $publicidad->estado = 1;
             $publicidad->updated_at = now();
-        } else{
+            $publicidad->save();
+            return redirect()->route('publicidad.index');
+        } else{ //ACTUALIZAR
+            $publicidad->lugar = implode(',',$request->lugar);
             $publicidad->titulo = $request->titulo;
             if (isset($request->imagen)){
                 $fileimagen = $request->file('imagen');
@@ -102,16 +108,9 @@ class publicidadController extends Controller
             $publicidad->fechaini = $request->fechaini;
             $publicidad->fechafin = $request->fechafin;
             $publicidad->updated_at = now();
+            $publicidad->save();    
+            return redirect()->route('publicidad.show', $publicidad->id);
         }
 
-        //$publicidad->estado = 1;
-
-        $publicidad->save();
-
-
-        //if ($request->ajax())
-          //  return redirect()->route('publicidad.show', $publicidad->id);
-
-        return redirect()->route('publicidad.show', $publicidad->id);
     }
 }

@@ -116,7 +116,8 @@ class BlogController extends Controller
             $blog->contenido = $request->contenido;
             $blog->autor = $request->autor;
             $blog->referencia = $request->referencia;
-        } 
+        }
+
         elseif (isset($request->tipo) && $request->tipo=='alta') $blog->estado=1;
         elseif (isset($request->tipo) && $request->tipo=='baja') $blog->estado=0;
 
