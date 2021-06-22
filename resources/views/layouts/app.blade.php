@@ -7,8 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Nobosa') }}</title>
-
+    <title>{{ env('APP_NAME') }}</title>
+    <link rel="icon" href="{{ URL::asset('/img/favicon.png') }}" type="image/x-icon"/>
     <!-- Fonts -->
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('dropzone.css') }}">
     
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+
+    
 </head>
 <body>
     <div id="app">

@@ -38,7 +38,7 @@
         <div class="row mt-3">
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">OBJETIVO GENERAL DE LA PLATAFORMA</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
@@ -55,8 +55,8 @@
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold">ACESSO</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p><a href="https://www.minsalud.gob.bo/" target="_blank">Ministerio de Salud y Deportes</a></p>
-                <p><a href="https://gmsantacruz.gob.bo/" target="_blank">Gobierno Municipal de Santa Cruz de la Sierra</a></p>
+                <p><a class="text-success" href="https://www.minsalud.gob.bo/" target="_blank">Ministerio de Salud y Deportes</a></p>
+                <p><a class="text-success" href="https://gmsantacruz.gob.bo/" target="_blank">Gobierno Municipal de Santa Cruz de la Sierra</a></p>
                 <!--<p><a href="#seccion1">Link2</a></p>
                 <p><a href="#seccion1">Link3</a></p>-->
 
@@ -64,11 +64,11 @@
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold">BLog</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p><a href="{{route('blog.index')}}">Blog Normas Bolivianas de Salud</a></p>
+                <p><a class="text-success" href="{{route('blog.index')}}">Blog Normas Bolivianas de Salud</a></p>
                 <!--<p><a href="#!">TU VIDA VALE</a></p>
                 <p><a href="#!">NO LO HAGAS</a></p>
                 <p><a href="#!">SALUD</a></p>-->
@@ -76,13 +76,13 @@
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-md-0 mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold" id="contactos">Contactanos</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
-                <p><i class="fa fa-home mr-3"></i> Edificio Cubo II, 3er Piso Sobre Cuarto Anillo, entre Marriot Hotel y Beauty Plaza, Equipetrol</p>
-                <p><i class="fa fa-envelope mr-3"></i> <a href="mailto:luicobeto@gmail.com" target="_blank">luicobeto@gmail.com</p>
-                <p><i class="fa fa-phone mr-3"></i><a href="tel:+59179860030" target="_blank"> 798-60030</a></p>
+                <!--<p><i class="fa fa-home mr-3"></i> Edificio Cubo II, 3er Piso Sobre Cuarto Anillo, entre Marriot Hotel y Beauty Plaza, Equipetrol</p>-->
+                <p><i class="fa fa-envelope mr-1 text-success"></i><a class="text-success" href="mailto:info@normasbolivianasdesalud.com" target="_blank">info@normasbolivianasdesalud.com</a></p>
+                <p><i class="fa fa-phone mr-1 text-success"></i><a class="text-success" href="tel:+59179860030" target="_blank">(591) 798-60030</a></p>
             </div>
         <!-- Grid column -->
         </div>

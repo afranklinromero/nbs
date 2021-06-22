@@ -5,8 +5,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-    <title>Nobosa</title>
+    <title>{{ env('APP_NAME') }}</title>
+    <!--<title>{{ config('app.name', 'NOBOSALUD') }}</title>-->
 
     <!-- Fonts -->
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
