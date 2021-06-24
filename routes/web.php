@@ -22,6 +22,14 @@ Route::get('links', function(){
     }
     return 'Acceso denegado';
 });
+
+Route::get('cache', function(){
+    if (Auth::check() && Auth::user()->hasRole('admin')){
+        Artisan::call('config:cache');
+        return 'Done!! <a href="https://normasbolivianasdesalud.com">Aceptar </a>';
+    }
+    return 'Acceso denegado <a href="https://normasbolivianasdesalud.com">Volver</a>';
+});
 Route::resource('users', 'UserController');
 Route::resource('/', 'LibroController');
 
