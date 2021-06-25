@@ -15,13 +15,13 @@
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
 
                     <!-- Facebook -->
-                    <a class="fb-ic" href="" target="_blank"><i class="fa fa-facebook text-white mr-4"> </i></a>
+                    <a class="fb-ic" href="https://www.facebook.com/NoboSalud" target="_blank"><i class="fa fa-facebook text-white mr-4"> </i></a>
                     
-                    <!-- youtube +-->
-                    <a class="yt-ic" href="" target="_blank"><i class="fa fa-youtube text-white mr-4"> </i></a>
+                    <!-- twitter +-->
+                    <a class="yt-ic" href="http://twitter.com/nobosalud" target="_blank"><i class="fa fa-twitter text-white mr-4"> </i></a>
                     
                     <!--Instagram-->
-                    <a class="ins-ic" href="" target="_blank"><i class="fa fa-instagram text-white"> </i></a>
+                    <a class="ins-ic" href="http://www.instagram.com/nobosalud" target="_blank"><i class="fa fa-instagram text-white"> </i></a>
                 </div>
                 <!-- Grid column -->
 

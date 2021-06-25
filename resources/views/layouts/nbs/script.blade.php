@@ -3,6 +3,3 @@
 <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="{{ asset('/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js') }}"></script>
-
-
-
