@@ -23,13 +23,20 @@
             </div>
         </div>
         <p class="text-center">
-              <!-- Contador de visitas -->
-            <a title="Contador De Visitas">
-            <!-- Button trigger modal -->
-
-            <!-- Modal -->
-            <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="http://www.websmultimedia.com/contador-de-visitas.php?id=291311"></a><br><a href='http://www.websmultimedia.com/contador-de-visitas-gratis'></a><br><a href='http://www.websmultimedia.com/diseno-logotipos'></a>
-            <!-- Fin Contador de visitas -->
+             <!-- Contador de visitas -->
+            <center>
+                <a href="https://websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+                    <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=1068"></a>
+                    <br>
+                    <a href='https://websmultimedia.com/contador-de-visitas-gratis'></a>
+                    <br>
+                    <a href='http://boxindian.com/'>
+                    </a>
+                </center>
+                <!-- Fin Contador de visitas -->
+            <br>
+            <a href='http://www.websmultimedia.com/contador-de-visitas-gratis'></a><br><a href='http://www.websmultimedia.com/diseno-logotipos'></a>
+                <!-- Fin Contador de visitas -->
             <div class="form-group text-center">
                 <a href="{{ route('libro.index') }}">
                     <img class="mb-3" src="{{ asset('img/logo.nobosa1.svg')}}" alt="Sistema de busqueda de Normas Bolivianas de Salud" srcset="" height="75">
@@ -59,7 +66,7 @@
          $("#mostrarmodal").modal("show");
     });
     */
-    
+
     $(document).on('keypress', '.input-titulo', function(e) {
         if(e.which == 13) {
             event.preventDefault();

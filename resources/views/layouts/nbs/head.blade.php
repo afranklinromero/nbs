@@ -4,8 +4,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ env('APP_NAME') }}</title>
+    <!--titulo-->
+    <title>{{ env('APP_NAME', 'NOBOSALUD Normas Bolivianas de Salud') }}</title>
     <!--<title>{{ config('app.name', 'NOBOSALUD') }}</title>-->
 
     <!-- Fonts -->
@@ -16,7 +16,7 @@
     <!-- Styles -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="{{ asset('bootstrap-4.0.0-dist/css/bootstrap.min.css') }}">
-    
+
     <link rel="stylesheet" href="{{ asset('dropzone.css') }}">
     <script src="{{ asset('dropzone.js')}}"></script>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
