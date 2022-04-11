@@ -5,8 +5,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--titulo-->
-    <title>{{ env('APP_NAME', 'NOBOSALUD Normas Bolivianas de Salud') }}</title>
+    <title>{{ env('APP_NAME', 'Normas Bolivianas de Salud') }}</title>
     <!--<title>{{ config('app.name', 'NOBOSALUD') }}</title>-->
+    <meta http-equiv="Content-Type" content="text/html; ISO-8859-1">
+    <META NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">
+    <META NAME="AUTHOR" CONTENT="sofcruz">
+    <META NAME="REPLY-TO" CONTENT="info@nosalud.com">
+    <LINK REV="made" href="mailto:info@nosalud.com">
+    <META NAME="DESCRIPTION" CONTENT="Aqui encontraras normas bolivianas en salud, para ayudarte en tu trabajo">
+    <META NAME="KEYWORDS" CONTENT="medicina,normas bolivianas de salud,salud">
+    <META NAME="Resource-type" CONTENT="Document">
+    <META NAME="DateCreated" CONTENT="Mon, 11 April 2022 00:00:00 GMT+1">
+    <META NAME="Revisit-after" CONTENT="7 days">
+    <META NAME="robots" content="ALL">
+    </HEAD>
+    <!-- META-TAGS generadas por https://metatags.miarroba.com -->
 
     <!-- Fonts -->
     <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->

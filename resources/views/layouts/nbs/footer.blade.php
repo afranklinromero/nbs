@@ -16,10 +16,10 @@
 
                     <!-- Facebook -->
                     <a class="fb-ic" href="https://www.facebook.com/NoboSalud" target="_blank"><i class="fa fa-facebook text-white mr-4"> </i></a>
-                    
+
                     <!-- twitter +-->
                     <a class="yt-ic" href="http://twitter.com/nobosalud" target="_blank"><i class="fa fa-twitter text-white mr-4"> </i></a>
-                    
+
                     <!--Instagram-->
                     <a class="ins-ic" href="http://www.instagram.com/nobosalud" target="_blank"><i class="fa fa-instagram text-white"> </i></a>
                 </div>
@@ -43,7 +43,7 @@
                 <h6 class="text-uppercase font-weight-bold">OBJETIVO GENERAL DE LA PLATAFORMA</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: green;">
                 <p>Proporcionar al prestador de servicios de salud una herramienta que le permita acceder de manera oportuna y rápida a las Normas Nacionales de Salud, a artículos y noticias de interés y a medir sus conocimientos sobre una determinada Norma mediante las Olimpiadas Digitales, con el fin de fortalecer sus capacidades técnicas, absorber sus dudas en el menor tiempo posible y disminuir el riesgo de tener algún problema médico legal por incumplimiento de norma.</p>
-                
+
                 <!-- Button trigger modal -->
 
             </div>
@@ -92,7 +92,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3 text-muted">
-        © 2021 Copyright: <a href="https://normasbolivianasdesalud.com" class="text-muted">normasbolivianasdesalud.com</a> | 
+        © 2021 Copyright: <a href="https://nobosalud.com" class="text-muted">nobosalud.com</a> |
         desarrollado por <a href="https://sofcruz.com" target="_blank" class="text-muted">sofcruz.com</a>
     </div>
     <!-- Copyright -->
