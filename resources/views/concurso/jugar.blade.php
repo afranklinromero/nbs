@@ -2,40 +2,45 @@
 
 @section('contenido')
 <div class="container">
-    <h2 class="text-primary"></i>Concursando</h2>
-    <div class="alert alert-primary" role="alert">
-        <p>Tiene <strong>{{$temaconcurso->concurso->configuracion->tiempolimite}} seg. </strong> para responder <strong>{{ $temaconcurso->concurso->configuracion->nropreguntas }} </strong>preguntas</p>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6">
+            <h2 class="text-primary"></i>Jugando</h2>
+            <div class="alert alert-primary" role="alert">
+                <p>Tiene <strong>{{$temaconcurso->concurso->configuracion->tiempolimite}} seg. </strong> para responder <strong>{{ $temaconcurso->concurso->configuracion->nropreguntas }} </strong>preguntas</p>
+            </div>
+
+
+            @include('concurso.aside.error')
+
+            {!! Form::open([ 'route' => [ 'participacion.store' ], 'id'=>'frmjuego', '']) !!}
+                <!--<div class="text-danger" id="testdiv">00:00</div>-->
+                <div class="progress">
+                    <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated bg-default" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">00:00</div>
+                </div>
+                {!! Form::hidden('tiempo', '0', ['id' => 'tiempo']) !!}
+                {!! Form::hidden('tiempolimite', $temaconcurso->concurso->configuracion->tiempolimite, ['id' => 'tiempolimite']) !!}
+                {!! Form::hidden('concurso_id', $temaconcurso->concurso->id) !!}
+                {!! Form::hidden('tema_id', $temaconcurso->tema->id) !!}
+                {!! Form::hidden('nropreguntas', $temaconcurso->concurso->configuracion->nropreguntas) !!}
+                @for ($i = 0; $i < $n; $i++)
+                    {!! Form::hidden('preguntas[]', '0', ['id' => 'pregunta'.$i]) !!}
+                    {!! Form::hidden('respuestas[]', '0', ['id' => 'respuesta'.$i]) !!}
+                @endfor
+
+                @php
+                    //$pregunta = $preguntas->first();
+                @endphp
+
+                <div id="pregunta">
+                    @include('concurso.aside.siguientepregunta')
+                </div>
+
+                <br>
+
+            {!! Form::close() !!}
+        </div>
     </div>
-    
 
-    @include('concurso.aside.error')
-
-    {!! Form::open([ 'route' => [ 'participacion.store' ], 'id'=>'frmjuego', '']) !!}
-        <!--<div class="text-danger" id="testdiv">00:00</div>-->
-        <div class="progress">
-            <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated bg-default" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">00:00</div>
-        </div>
-        {!! Form::hidden('tiempo', '0', ['id' => 'tiempo']) !!}
-        {!! Form::hidden('tiempolimite', $temaconcurso->concurso->configuracion->tiempolimite, ['id' => 'tiempolimite']) !!}
-        {!! Form::hidden('concurso_id', $temaconcurso->concurso->id) !!}
-        {!! Form::hidden('tema_id', $temaconcurso->tema->id) !!}
-        {!! Form::hidden('nropreguntas', $temaconcurso->concurso->configuracion->nropreguntas) !!}
-        @for ($i = 0; $i < $n; $i++)
-            {!! Form::hidden('preguntas[]', '0', ['id' => 'pregunta'.$i]) !!}
-            {!! Form::hidden('respuestas[]', '0', ['id' => 'respuesta'.$i]) !!}
-        @endfor
-
-        @php
-            //$pregunta = $preguntas->first();
-        @endphp
-
-        <div id="pregunta">
-            @include('concurso.aside.siguientepregunta')
-        </div>
-
-        <br>
-
-    {!! Form::close() !!}
 </div>
 
 @endsection
@@ -94,9 +99,10 @@
     }
 
     function siguientepregunta(index, preguntaanterior_id, ruta_respuesta){
+        //alert('repondiendo...');
         $route = $('#siguientepregunta').attr('href');
         console.log('ruta siguiente preguta: '+$route);
-        
+
         $("input[name='preguntas[]']").map( function(key){
             if (key == (index-1)){
                 $(this).val($('#pregunta_id').val());
@@ -116,8 +122,6 @@
         //$('#pregunta').fadeIn(1000).html('<div class="loading"><img src="http://127.0.0.1:8000/img/loader.gif"/><br/>Un momento, por favor...</div>');
 
         $.get($route, function(result){
-
-            console.log('boton siguiente!!');
             if (result == 'endgame'){
                 console.log('terminaodo juego');
                 terminarjuego();
@@ -129,13 +133,12 @@
             }
         });
     }
-    
+
 
     $(document).on("click", ".responder", function() {
         event.preventDefault();
-        var ruta_respuesta = this.href;   
-        console.log('ruta respuesta: '+ruta_respuesta);
-        var elemento = this; 
+        var ruta_respuesta = this.href;
+        var elemento = this;
         $(this).removeClass('btn-outline-primary');
         //$(this).addClass('btn-warning');
         var correcto = 0;
@@ -151,13 +154,18 @@
                 correcto = 0;
                 $(elemento).addClass('btn-danger');
             }
-                
+
         });
 
         var index = $('#index').text();
 
-        siguientepregunta(index,  $('#pregunta_id').val(), ruta_respuesta);
+        calificarPregunta(index,  $('#pregunta_id').val(), ruta_respuesta)
     });
+
+    function calificarPregunta(index,  pregunta_id, ruta_respuesta){
+        $('.responder').addClass('btn-danger')
+        //siguientepregunta(index,  pregunta_id, ruta_respuesta);
+    }
 
     $(document).on("click", ".jugar", function() {
         event.preventDefault();
@@ -192,7 +200,7 @@
         return false;
     });
 
-    
+
 </script>
 
 @endsection
