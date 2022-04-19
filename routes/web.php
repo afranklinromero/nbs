@@ -42,6 +42,7 @@ Route::get('libro/buscar', 'LibroController@buscar')->name('libro.buscar');
 Route::get('libro/pagination/{page}', 'LibroController@pagination')->name('libro.pagination');
 Route::get('libro/download/{documentopdf}/{titulo}', 'LibroController@download')->name('libro.download');
 Route::get('libro/showmarcador/{id}/{marcador_id}', 'LibroController@showmarcador')->name('libro.showmarcador');
+Route::get('libro/tutoriales', 'LibroController@tutoriales')->name('libro.tutoriales');
 Route::resource('libro', 'LibroController');
 
 Route::get('marcador/buscar', 'MarcadorController@buscar')->name('marcador.buscar');

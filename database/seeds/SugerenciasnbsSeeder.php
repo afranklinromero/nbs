@@ -13,6 +13,6 @@ class SugerenciasnbsSeeder extends Seeder
     public function run()
     {
         //
-        factory(SugerenciasNBS::class, 10)->create();
+        //factory(SugerenciasNBS::class, 10)->create();
     }
 }

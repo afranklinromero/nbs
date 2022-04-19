@@ -26,10 +26,12 @@ class ClasificacionSeeder extends Seeder
                 factory(Clasificacion::class, 1)->create(['user_id' => $usuario->id, 'concurso_id' => $concurso->id]);
             }
         }*/
+
+        /*
         $usuarios = User::all();
         foreach ($usuarios as $key => $user) {
             factory(Clasificacion::class, 1)->create(['user_id' => $user->id, 'concurso_id' =>'1']);
-        }
-        
+        }*/
+
     }
 }

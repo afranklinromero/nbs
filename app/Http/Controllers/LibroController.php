@@ -120,7 +120,7 @@ class LibroController extends Controller
 
 
     public function buscar(Request $request){
-        
+
         $dato = $request->dato;
 
         $libros=Libro::where('titulo', 'like', '%'.$dato.'%')->orderBy('id', 'DESC')->paginate(10);
@@ -148,7 +148,7 @@ class LibroController extends Controller
 
         Auth::user()->authorizeRoles(['admin']);
         return view('libro.create');
-        
+
     }
 
     public function store (LibroRequest $request){
@@ -159,7 +159,7 @@ class LibroController extends Controller
 
         Auth::user()->authorizeRoles(['admin']);
 
-        
+
         $libro = new Libro($request->all());
         //dd($libro);
         $libro->orden = $max = Libro::max('id') + 1;
@@ -178,7 +178,7 @@ class LibroController extends Controller
             $libro->documentopdf = $libro->orden . '.pdf';
         }
 
-        
+
         //dd($libro);
         $libro->save();
         $libro->tapa = $libro->id . '.' .$libro->ext;
@@ -293,6 +293,10 @@ class LibroController extends Controller
             'X-Header-One' => 'Header Value',
             'X-Header-Two' => 'Header Value',
         ]);
+    }
+
+    public function tutoriales(){
+        return view('libro.tutoriales');
     }
 
 }

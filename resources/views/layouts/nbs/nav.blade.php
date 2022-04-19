@@ -21,7 +21,7 @@
                         <a class="dropdown-item" href="{{route('libro.index')}}">Busqueda</a>
                         <a class="dropdown-item" href="{{route('libro.create')}}">Registrar documento</a>
                     </div>
-                </li>    
+                </li>
             @else
                 <li class="nav-item">
                     <a class="nav-link btn-outline-light" href="{{ route('libro.index') }}">LIBROS </a>
@@ -32,7 +32,7 @@
                 <a class="nav-link btn-outline-light" href="{{ route('libro.index') }}">LIBROS </a>
             </li>
         @endif
-        
+
         <li class="nav-item">
             <a class="nav-link btn-outline-light" href="{{ route('blog.index') }}">BLOG </a>
         </li>
@@ -44,33 +44,46 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{route('sugerenciasnbs.create')}}">Enviar Sugerencia</a>
-                    <a class="dropdown-item" href="{{route('sugerenciasnbs.index')}}">Administrar Sugerencias</a>  
+                    <a class="dropdown-item" href="{{route('sugerenciasnbs.index')}}">Administrar Sugerencias</a>
                 </div>
-            </li>    
+            </li>
             @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS </a>
                 </li>
+
             @endif
         @else
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('libro.tutoriales') }}">TUTORIALES </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                CONTACTANOS
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://wa.link/jghfxm" target="_blank"><span class="text-success"><i class="fa-brands fa-whatsapp"></i> Whatsap</span></a>
+                    <a class="dropdown-item" href="mailto:info@nobosalud.com" target="_blank"><span class="text-danger"><i class="fa-regular fa-envelope"></i></i> Correo </span></a>
+                </div>
+            </li>
         @endif
-        
-        
+
+
             @if(Auth::check())
                 <li class="nav-item">
                 <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
                 </li>
                 @if(Auth::user()->hasRole('admin'))
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('publicidad.index') }}">ANUNCIOS</a>
                     </li>
                     <li class="nav-item">
                     </li>
-                    
+
                     <li class="nav-item">
                     </li>
                 @endif
@@ -88,7 +101,7 @@
                 @else
                     <li class="dropdown">
                         <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                            {{ Auth::user()->name }} 
+                            {{ Auth::user()->name }}
                             <img class="img-fluid img-thumbnail rounded-circle" width="30" src="{{ asset('img/log-img.png') }}" alt="">
                             <span class="caret"></span>
                         </a>
