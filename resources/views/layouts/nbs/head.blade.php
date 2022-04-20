@@ -5,7 +5,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--titulo-->
-    <title>{{ env('APP_NAME', 'Normas Bolivianas de Salud') }}</title>
+    <title>{{ env('APP_NAME', 'NOBOSALUD: Normas Bolivianas en Salud') }}</title>
     <!--<title>{{ config('app.name', 'NOBOSALUD') }}</title>-->
     <meta http-equiv="Content-Type" content="text/html; ISO-8859-1">
     <META NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">

@@ -15,7 +15,7 @@ class SugerenciasnbsController extends Controller
     public function __construct(){
 
     }
-    
+
     public function index(Request $request){
         if (!Auth::check()) return redirect()->route('libro.index');
 
@@ -29,14 +29,14 @@ class SugerenciasnbsController extends Controller
             ->render();
 
         return view('sugerenciasnbs.index', compact('sugerenciasnbss'));
-    
+
     }
 
     public function show(Request $request, $id){
         if (!Auth::check()) return redirect()->route('libro.index');
-        
+
         Auth::user()->authorizeRoles(['admin']);
-        
+
         $sugerenciasnbs = SugerenciasNBS::find($id);
         if ($request->ajax())
             return view('sugerenciasnbs.aside.show', compact('sugerenciasnbs'))->render();
@@ -49,7 +49,7 @@ class SugerenciasnbsController extends Controller
         $sugerenciasnbs = SugerenciasNBS::find($id);
         $sugerenciasnbs->estado=2;
         $sugerenciasnbs->save();
-        
+
         return redirect()->route('sugerenciasnbs.show', $sugerenciasnbs->id);
     }
 
@@ -77,7 +77,7 @@ class SugerenciasnbsController extends Controller
     public function store(SugerenciasnbsRequest $request)
     {
             $sugerenciasnbs = new SugerenciasNBS($request->all());
-            $sugerenciasnbs->user_id = (Auth::check()? Auth::user()->id : 2); //3 user id invitado
+            //$sugerenciasnbs->user_id = (Auth::check()? Auth::user()->id : 2); //3 user id invitado
             //dd($sugerenciasnbs);
 
             $sugerenciasnbs->save();

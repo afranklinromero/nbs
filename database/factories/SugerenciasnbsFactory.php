@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(SugerenciasNBS::class, function (Faker $faker) {
     return [
         //
-        'user_id' => User::all('id')->random(),
+        //'user_id' => User::all('id')->random(),
         'name' => $faker->name,
         'email' => $faker->email,
         'subject' => $faker->text(5),

@@ -22,7 +22,6 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">&nbsp;</th>
-            <th scope="col">usuario</th>
             <th scope="col">nombre</th>
             <th scope="col">correo</th>
             <th scope="col">asunto</th>
@@ -37,20 +36,19 @@
                 <td>
                     {!! Form::open(['route'=>['sugerenciasnbs.showme', $item->id]], ['class' =>'d-inline']) !!}
                         {!! Form::hidden('_method', 'PUT') !!}
-                        
-                            @if ($item->estado==1) 
+
+                            @if ($item->estado==1)
                                 <button class="btn btn-sm btn-dark" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Leer sugerencia">
-                                    <i class="far fa-envelope"></i> 
+                                    <i class="far fa-envelope"></i>
                                 </button>
                             @else
                                 <button class="btn btn-sm btn-outline-secondary" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Leer sugerencia">
-                                    <i class="far fa-envelope-open"></i> 
+                                    <i class="far fa-envelope-open"></i>
                                 </button>
                             @endif
-                        
+
                     {!! Form::close() !!}
                 </td>
-                <td>{{ $item->user->name }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->subject }}</td>

@@ -29,7 +29,8 @@ class CreateLibrosTable extends Migration
             $table->string('serie', 64)->nullable();
             $table->string('nropublicacion')->nullable();
             $table->string('lugarpublicacion', 64);
-            $table->integer('orden');
+            $table->integer('orden')->default(0);
+            $table->integer('ranking')->default(0);
             $table->timestamps();
             $table->integer('estado')->default(1);
 
