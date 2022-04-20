@@ -26,9 +26,9 @@ Route::get('links', function(){
 Route::get('cache', function(){
     if (Auth::check() && Auth::user()->hasRole('admin')){
         Artisan::call('config:cache');
-        return 'Done!! <a href="https://normasbolivianasdesalud.com">Aceptar </a>';
+        return 'Done!! <a href="https://nobosalud.com">Aceptar </a>';
     }
-    return 'Acceso denegado <a href="https://normasbolivianasdesalud.com">Volver</a>';
+    return 'Acceso denegado <a href="https://nobosalud.com">Volver</a>';
 });
 Route::resource('users', 'UserController');
 Route::resource('/', 'LibroController');

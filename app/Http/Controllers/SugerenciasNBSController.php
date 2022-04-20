@@ -12,14 +12,13 @@ use Illuminate\Support\Facades\Auth;
 class SugerenciasnbsController extends Controller
 {
     //
-    public function __construct(){
-
-    }
-
     public function index(Request $request){
         if (!Auth::check()) return redirect()->route('libro.index');
 
-        Auth::user()->authorizeRoles(['admin']);
+        //Auth::user()->authorizeRoles(['admin']);
+
+        if (!Auth::user()->hasRole('admin')) return redirect()->route('libro.index');
+
 
         $sugerenciasnbss = SugerenciasNBS::where('estado', '<>','0')->orderby('id', 'DESC')->paginate(20);
         $request->session()->put('info', 'Listado de sugerencias desde la mas reciente a la mas antigua');

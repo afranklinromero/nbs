@@ -14,7 +14,7 @@ class publicidadController extends Controller
     public function __construct(Request $request){
         $this->middleware('auth');
     }
-    
+
     public function index(Request $request){
         Auth::user()->authorizeRoles(['admin']);
 
@@ -76,12 +76,12 @@ class publicidadController extends Controller
 
     public function update(Request $request, $id){
         Auth::user()->authorizeRoles(['admin']);
-        
+
         $publicidad = publicidad::find($id);
         $tipo = $request->tipo;
-        
-        
-        
+
+
+
         if (isset($tipo) && $tipo == 'baja'){
             $publicidad->estado = 0;
             $publicidad->updated_at = now();
@@ -108,7 +108,7 @@ class publicidadController extends Controller
             $publicidad->fechaini = $request->fechaini;
             $publicidad->fechafin = $request->fechafin;
             $publicidad->updated_at = now();
-            $publicidad->save();    
+            $publicidad->save();
             return redirect()->route('publicidad.show', $publicidad->id);
         }
 
