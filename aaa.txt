@@ -1,8 +1,0 @@
-preguntas
-	index ok
-	show ok
-	create ok
-	update pendiente
-
-validar que las 4 repuestas de una pregunta no sean iguales ok
-estado se coloca depende del usuario ok
