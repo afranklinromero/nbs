@@ -29,6 +29,10 @@
                 <a class="nav-link btn-outline-light text-success" href="https://share.vidyard.com/watch/vCncxCeFgFxyu22aG4zU52" target="_blank"><strong>COMO UTILIZAR EL BUSCADOR ? </strong></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link text-success" href="https://wa.link/o2kbsh" target="_blank"><i class="fa fa-comment mr-1 text-success"></i>WHATSAPP </a>
+            </li>
+
             @if(Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('concurso.index') }}">OLIMPIADAS DE CONOCIMIENTO</a>
