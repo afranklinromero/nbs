@@ -36,6 +36,7 @@ Route::resource('/', 'LibroController');
 
 Route::resource('autor', 'AutorController');
 
+Route::get('libro/ayuda', 'LibroController@ayuda')->name('libro.ayuda');
 Route::get('libro/editarcorreo', 'LibroController@editarcorreo')->name('libro.editarcorreo');
 Route::post('libro/enviarcorreo', 'LibroController@enviarcorreo')->name('libro.enviarcorreo');
 Route::get('libro/buscar', 'LibroController@buscar')->name('libro.buscar');

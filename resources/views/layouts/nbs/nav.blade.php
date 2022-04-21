@@ -26,7 +26,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link btn-outline-light text-success" href="https://share.vidyard.com/watch/vCncxCeFgFxyu22aG4zU52" target="_blank"><strong>COMO UTILIZAR EL BUSCADOR ? </strong></a>
+                <a class="nav-link btn-outline-light text-success" href="{{ route('libro.ayuda') }}"><strong>COMO UTILIZAR EL BUSCADOR ? </strong></a>
             </li>
 
             <li class="nav-item">
