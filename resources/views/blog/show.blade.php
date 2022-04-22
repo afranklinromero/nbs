@@ -1,17 +1,17 @@
 @extends('layouts.nbs.app')
 
 @section('contenido')
-
+    @include('blog.aside.info')
+    @include('blog.aside.error')
     <div class="container" id="blog-head">
         <div class="container" id="blog-body">
-        <h3 class="text-success text-uppercase"> {{ $blog->titulo }}</h3>
+
             @include('blog.aside.show')
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row justify-content-end">
+                    <div class="text-center">
                         <div class="btn-group" role="group">
                             <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
-                            <a href="{{ route('blog.create') }}" class="btn btn-primary">Nuevo</a>
                         </div>
                     </div>
                 </div>

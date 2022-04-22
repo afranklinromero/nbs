@@ -36,7 +36,7 @@ class BlogController extends Controller
     public function create(Request $request){
         if(!Auth::check()) return redirect()->route('libro.index');
 
-        
+
         Auth::user()->authorizeRoles(['admin']);
         return view('blog.create');
 
@@ -145,20 +145,34 @@ class BlogController extends Controller
         return redirect()->route('blog.show', $blog->id)->with('info',  $mensaje);
     }
     public function destroy(Request $request, $id){
+        //dd('destruir');
         if(!Auth::check()) return redirect()->route('libro.index');
-        Auth::user()->authorizeRoles(['admin']);
+        if (!Auth::user()->hasRole('admin')) return redirect()->route('libro.index');
 
         $blog = Blog::find($id);
+        /*
         $blog->estado = 0;
         $blog->updated_at = now();
-        $blog->save();
-        return redirect()->route('blog.index');
+        */
+        $blog->delete();
+        return redirect()->route('blog.index')->with('info', 'Articulo dado de baja!');
     }
 
     public function download($id)
     {
+        dd('descargando...');
         $blog = Blog::find($id);
-        $pathToFile = "img/blog/doc/".$blog->id.'.pdf';
-        return response()->download($pathToFile);
+        //dd($blog);
+        //$pathToFile = "img/blog/doc/".$blog->id.'.pdf';
+        //return response()->download($pathToFile);
+
+        $pathToFile = "storage/files/blog/".$blog->id . '/'. $blog->id .'.pdf';
+        dd($pathToFile);
+        return response()->download($pathToFile);/*, 'documentopdf.pdf', [
+            'Content-Type' => 'pdf',
+            'X-Header-One' => 'Header Value',
+            'X-Header-Two' => 'Header Value',
+        ]);
+        */
     }
 }

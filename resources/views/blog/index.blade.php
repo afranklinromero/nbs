@@ -22,21 +22,14 @@
                                     <br>
                                     <h4 class="mr-3 ml-3">Blog de articulos sobre normas de bolivianas de salud, y medicina en gral.</h4>
                                     <br>
-                                    <p class="text-center">
-                                        @if (Auth::user()!=null)
-                                            @if (Auth::user()->hasRole('admin'))
-                                                <a href="{{ route('blog.create') }}" class="btn btn-primary">Nuevo articulo</a>
-                                                <br>
-                                            @endif
-                                        @endif
-                                    </p>
+
                                     <p>
                                         <div class="row">
                                             <div class="col-md-12 mr-3 ml-3">
                                                 {!! Form::open(['route'=>'blog.index', 'id'=>'form-blog-index', 'method' => 'GET']) !!}
                                                 <div class="input-group mb-3">
                                                     <input id="titulo" name="titulo" value="{{ isset($titulo) ? $titulo : ''}}" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+                                                    <a class="btn btn-success" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass mt-1"></i></a>
                                                 </div>
                                                 {!! Form::close() !!}
                                             </div>
@@ -55,7 +48,23 @@
     <br>
 
 </section>
-    <a id="articulo"><H2 class="text-danger text-center">ARTICULOS</H2></a>
+    <a id="articulo"></a>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="h2 text-success">ARTICULOS</p>
+        </div>
+        <div class="col-md-6">
+            <p class="text-end">
+            @if (Auth::user()!=null)
+                @if (Auth::user()->hasRole('admin'))
+                    <a href="{{ route('blog.create') }}" class="btn btn-success">Nuevo articulo</a>
+                    <br>
+                @endif
+            @endif
+            </p>
+        </div>
+    </div>
+    <hr class="bg-success">
 
     @if (isset($blogs) && sizeof($blogs) > 0)
         <div class="alert alert-success">
@@ -85,11 +94,11 @@
                                 @if (isset($blog->imagen))
                                     <a href="{{route('blog.show', $blog->id)}}"> <img class="imagen card-img-top" src="{{ asset('storage/files/blog/'.$blog->id . '/' . $blog->id.'.'.$blog->ext) }}" alt="error img"></a>
                                 @else
-                                    <img class="imagen card-img-top" src="{{ asset('img/default.png') }}" alt="">    
+                                    <img class="imagen card-img-top" src="{{ asset('img/default.png') }}" alt="">
                                 @endif
-                                
+
                             </div>
-                            
+
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a href="{{route('blog.show', $blog->id)}}" class="text-success">
@@ -103,7 +112,7 @@
                                         @if (Auth::user()->hasRole('admin'))
                                             <strong>id:</strong> <small> {{ $blog->id }}</small><br>
                                             <strong>autor:</strong> <small> {{ $blog->autor }}</small><br>
-                                        @endif 
+                                        @endif
                                     @endif
                                 </p>
                                 @if (Auth::user()!=null)
@@ -112,32 +121,34 @@
                                                 <p class="float-right">
                                                     <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver articulo"><i class="far fa-eye"></i></a>
                                                     <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
-                                                    <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo"><i class="far fa-trash-alt"></i></button>
+                                                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </button>
                                                 </p>
 
 
                                             <!-- Modal -->
                                             <div class="modal fade" id="exampleModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar articulo: {{ $blog->title }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar articulo: {{ $blog->title }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Desea Eliminar el articulo?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <form class="d-inline" method="POST" action="{{ route('blog.destroy', $blog->id) }}">
+                                                                {{ csrf_field() }}
+                                                                {{ method_field('DELETE') }}
+                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                        </form>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        Desea Eliminar el articulo?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <form class="d-inline" method="POST" action="{{ route('blog.destroy', $blog->id) }}">
-                                                            {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
-                                                        <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                    </form>
-                                                    </div>
-                                                </div>
                                                 </div>
                                             </div>
 

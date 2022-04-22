@@ -15,13 +15,13 @@
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
 
                     <!-- Facebook -->
-                    <a class="fb-ic" href="https://www.facebook.com/NoboSalud" target="_blank"><i class="fa fa-facebook text-white mr-4"> </i></a>
+                    <a class="fb-ic" href="https://www.facebook.com/NoboSalud" target="_blank"><i class="fa-brands fa-facebook-square fs-4 text-white mr-4"></i></a>
 
                     <!-- twitter +-->
-                    <a class="yt-ic" href="http://twitter.com/nobosalud" target="_blank"><i class="fa fa-twitter text-white mr-4"> </i></a>
+                    <a class="yt-ic" href="http://twitter.com/nobosalud" target="_blank"><i class="fa-brands fa-twitter-square fs-4 text-white mr-4"> </i></a>
 
                     <!--Instagram-->
-                    <a class="ins-ic" href="http://www.instagram.com/nobosalud" target="_blank"><i class="fa fa-instagram text-white"> </i></a>
+                    <a class="ins-ic" href="http://www.instagram.com/nobosalud" target="_blank"><i class="fa-brands fa-instagram-square fs-4 text-white"> </i></a>
                 </div>
                 <!-- Grid column -->
 
@@ -55,7 +55,7 @@
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
 
                 <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">OTROS ACESSOS</h6>
+                <h6 class="text-uppercase font-weight-bold">OTROS ACCESOS</h6>
                 <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 120px; background-color: green;">
                 <p><a class="text-success" href="https://www.minsalud.gob.bo/" target="_blank">Ministerio de Salud y Deportes</a></p>
                 <!--<p><a href="#seccion1">Link2</a></p>

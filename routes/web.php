@@ -52,6 +52,7 @@ Route::resource('marcador', 'MarcadorController');
 
 Route::get('concurso/juegos', 'ConcursoController@juegos')->name('concurso.juegos');
 Route::get('concurso/jugar/{temaconcurso_id}', 'ConcursoController@jugar')->name('concurso.jugar');
+Route::get('concurso/probandojugar/{temaconcurso_id}', 'ConcursoController@probandojugar')->name('concurso.probandojugar');
 Route::get('concurso/siguientepregunta/{index}/{temaconcurso_id}/{preguntaanterior_id}', 'ConcursoController@siguientepregunta')->name('concurso.siguientepregunta');
 Route::get('concurso/responder/{mirespuesta_id}', 'ConcursoController@responder')->name('concurso.responder');
 //Route::get('concurso/responder/{index}/{pregunta_id}/{mirespuesta_id}', 'ConcursoController@responder')->name('concurso.responder');

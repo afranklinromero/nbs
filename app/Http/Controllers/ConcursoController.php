@@ -126,6 +126,15 @@ class ConcursoController extends Controller
 
     }
 
+    public function probandojugar(Request $request, $temaconcurso_id){
+        dd($request);
+        $n = isset($request->n)? $request->n+1 : 1;
+        dd($n);
+        if ($n>10)
+            dd('finalizado');
+        return view('concurso.probandojugar', compact('temaconcurso_id', 'n'));
+    }
+
     public function siguientepregunta(Request $request, $index, $temaconcurso_id, $preguntaanterior_id){
 
         Auth::user()->authorizeRoles(['admin', 'user']);

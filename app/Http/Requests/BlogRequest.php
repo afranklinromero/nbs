@@ -39,17 +39,7 @@ class BlogRequest extends FormRequest
 
     public function messages(){
         return [
-            'user_id.required' => 'El :attribute es obligatorio.',
-            'titulo.required' => 'El :attribute es obligatorio',
-            'imagen.required' => 'El :attribute es obligatorio',
-            'ext.required' => 'El :attribute es obligatorio',
-            'documentopdf.required' => 'El :attribute es obligatorio',
-            'youtube.required' => 'El :attribute es obligatorio',
-            'contenido.required' => 'El :attribute es obligatorio',
-            'autor.required' => 'El :attribute es obligatorio',
-            'referencia.required' => 'El :attribute es obligatorio',
-            'estado.required' => 'El :attribute es obligatorio',
-
+            '*.required' => 'El dato :attribute es obligatorio.',
             //numericos
             'user_id.min' => 'El :attribute deber ser numérico',
             'estado.min' => 'El :attribute deber ser numérico',

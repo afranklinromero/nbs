@@ -9,7 +9,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                     @if (Auth::user()->hasRole('admin'))
                     <a href="{{route('concurso.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
-                    
+
 
                     {!! Form::open(['route'=>['temaconcurso.index'], 'id' => 'frm-concursos', 'class' => 'row row-cols-lg-auto g-2 align-items-center']) !!}
 
@@ -68,38 +68,42 @@
                                 <table class="table table-sm">
                                     @if (Auth::user()->hasRole('admin'))
                                     <tr><td class="text-right">id:</td> <td><strong>{{$temaconcurso->id}}</strong></td> </tr>
-                                    <tr><td class="text-right">usuario:</td> <td><strong>{{$temaconcurso->concurso->usuario->email}}</strong></td> </tr>    
+                                    <tr><td class="text-right">usuario:</td> <td><strong>{{$temaconcurso->concurso->usuario->email}}</strong></td> </tr>
                                     @endif
                                     <tr><td class="text-right">tema:</td> <td><strong>{{$temaconcurso->tema->nombre}}</strong></td> </tr>
                                     <tr><td class="text-right">concurso:</td> <td><strong>{{$temaconcurso->concurso->nombre}}</strong></td> </tr>
                                     <tr><td class="text-right">inicio:</td> <td><strong>{{$temaconcurso->concurso->fechaini->format('d/m/Y')}}</strong></td> </tr>
                                     <tr><td class="text-right">fin:</td> <td><strong>{{$temaconcurso->concurso->fechafin->format('d/m/Y')}}</strong></td> </tr>
                                     <tr>
-                                        <td class="text-right">estado:</td> 
+                                        <td class="text-right">estado:</td>
                                         <td>
                                             <strong>
                                                 @switch($temaconcurso->estado)
                                                     @case(0)
-                                                        <p class="badge badge-danger text-wrap">anulado</p>
+                                                        <p class="fs-6 badge badge-danger text-wrap">FINALIZADO</p>
                                                         @break
                                                     @case(1)
-                                                    <p class="badge badge-success text-wrap">activo</p>
+                                                    <p class="fs-6 badge badge-success text-wrap">ACTIVO</p>
                                                         @break
                                                     @case(2)
-                                                        <p class="badge badge-danger text-wrap">proximamente</p>
+                                                        <p class="fs-6 badge badge-danger text-wrap">PROXIMAMENTE</p>
                                                         @break
                                                     @default
-                                                        
+
                                                 @endswitch
                                             </strong>
                                         </td>
                                     </tr>
                                 </table>
                             </p>
+                            <div class="d-grid gap-2 mb-3">
+                                <a class="block btn btn-success" href="">JUGAR</a>
+                            </div>
                             <div>
-                                <div class="btn-group float-right" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal{{ $temaconcurso->id }}">ver</button>
-                                    <a class="float-right btn btn-primary" href="{{route('concurso.jugar', $temaconcurso->id)}}">jugar</a>
+                                <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $temaconcurso->id }}">ver</button>
+                                    <a class="btn btn-primary" href="{{route('concurso.edit', $temaconcurso->concurso->id)}}">Editar</a>
+                                    <a class="btn btn-primary" href="{{route('concurso.jugar', $temaconcurso->id)}}">Jugar</a>
                                 </div>
 
                                 <!-- Modal -->
@@ -108,19 +112,19 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel"> VER concurso ID: {{ $temaconcurso->id }}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body"> @include('concurso.aside.show') </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
-                        </div>   
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endforeach

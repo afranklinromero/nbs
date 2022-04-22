@@ -70,7 +70,7 @@
 
                         <div class="form-group row">
                             <div class="col md-12 text-right">
-                                {!! Form::submit('Enviar', ['class' => 'btn btn-primary store']) !!}
+                                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                                 <a href="{{route('concurso.index')}}" class="btn btn-success index">Volver</a>
                             </div>
                         </div>

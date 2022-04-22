@@ -2,9 +2,9 @@
 
 @section('contenido')
 <div class="container">
-    
+
     {!! Form::open(['route'=>'blog.store', 'id'=>'form-blog-create', 'enctype'=>"multipart/form-data"]) !!}
-        
+
         <h3 class="text-success mb-3">
             Nuevo artitulo
             <div class="float-right">
@@ -13,19 +13,19 @@
                     {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
                 </div>
             </div>
-        </h3>        
+        </h3>
 
-        
+
         @include('blog.aside.form')
         <br>
         <div class="text-right">
             <div class="btn-group" role="group">
                 <a href="{{route('blog.index')}}" class="btn btn-success index">Cancelar</a>
                 {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
-                
+
             </div>
         </div>
-        
+
     {!! Form::close() !!}
 </div>
 
@@ -46,6 +46,7 @@
                 let preview = document.getElementById('preview'),
                         image = document.createElement('img');
 
+                image.width = 100;
                 image.src = reader.result;
                 image.className = 'img-fluid rounded';
 
@@ -61,8 +62,8 @@
                 console.error(file.name, "is not a pdf file.")
                 return
             }
-            
-            var fileReader = new FileReader();  
+
+            var fileReader = new FileReader();
 
             fileReader.onload = function() {
                 var typedarray = new Uint8Array(this.result);

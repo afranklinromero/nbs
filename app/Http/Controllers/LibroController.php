@@ -239,19 +239,24 @@ class LibroController extends Controller
         }
 
         $filepdf = $request->file('documentopdf');
-        if (isset($filepdf)) $libro->documentopdf = $filepdf->getClientOriginalName(); //else $libro->documentopdf = null;
+        if (isset($filepdf))
+         $libro->documentopdf = $filepdf->getClientOriginalName(); //else $libro->documentopdf = null;
 
         if (isset($fileimagen)){
-            $nombre = $libro->id . '.' . $fileimagen->getClientOriginalExtension();
+            /*$nombre = $libro->id . '.' . $fileimagen->getClientOriginalExtension();
             $libro->tapa = $nombre;
-            $fileimagen->move(public_path().'/tapas', $nombre);
+            $fileimagen->move(public_path().'/tapas', $nombre);*/
+            Storage::disk('local')->putFileAs('public/files/libros/tapas', $fileimagen, $libro->tapa);
         }
 
         if (isset($filepdf)) {
             //$libro->titulo = $fileimagen->getClientOriginalExtension();
+            /*
             $nombre = $libro->id . '.' . $filepdf->getClientOriginalExtension();
             $libro->documentopdf = $nombre;
             $filepdf->move(public_path().'/libros', $nombre);
+            */
+            Storage::disk('local')->putFileAs('public/files/libros/pdfs', $filepdf, $libro->documentopdf);
         }
 
 
