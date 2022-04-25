@@ -53,11 +53,12 @@ class ConcursoController extends Controller
 
 
         if ($preguntaEstado == 3)
-            $preguntas = Pregunta::orderby('id', 'DESC');
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1);
         else
-            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $preguntaEstado);
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1); //$preguntaEstado);
 
-        if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
+        if (!Auth::user()->hasRole('admin'))
+            $preguntas = $preguntas->where('user_id', Auth::user()->id)->where('estado', 1);
 
 
         $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
@@ -127,6 +128,7 @@ class ConcursoController extends Controller
     }
 
     public function probandojugar(Request $request, $temaconcurso_id){
+
         dd($request);
         $n = isset($request->n)? $request->n+1 : 1;
         dd($n);
@@ -207,20 +209,29 @@ class ConcursoController extends Controller
    }
 
     public function edit($id){
+
         Auth::user()->authorizeRoles(['admin']);
+        $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
         $concurso = Concurso::find($id);
-        return view('concurso.edit', compact('concurso'));
+        return view('concurso.edit', compact('concurso', 'temas'));
     }
 
     public function update (Request $request, $id){
         $temaconcurso = Temaconcurso::find($id);
 
-        $temaconcurso->estado = $request->estado;
-        $temaconcurso->concurso->estado = $request->estado;
+        $temaconcurso->fill($request->all());
         $temaconcurso->updated_at = now();
-        $temaconcurso->concurso->updated_at = now();
+
+        $concurso = Concurso::find($temaconcurso->concurso_id);
+        $concurso->fill($request->all());
+        //dd($concurso);
+
+        $configuracion = Configuracion::find($concurso->configuracion_id);
+        $configuracion->fill($request->all());
 
         $temaconcurso->save();
+        $concurso->save();
+        $configuracion->save();
 
         return redirect()->route('concurso.index')
                         ->with('info','El Tipoproducto fue actualizado');

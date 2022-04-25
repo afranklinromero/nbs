@@ -133,7 +133,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Eliminar articulo: {{ $blog->title }}</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                         </div>
@@ -145,7 +145,7 @@
                                                                 {{ csrf_field() }}
                                                                 {{ method_field('DELETE') }}
                                                             <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                                         </form>
                                                         </div>
                                                     </div>

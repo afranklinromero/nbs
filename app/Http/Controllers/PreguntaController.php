@@ -32,11 +32,12 @@ class PreguntaController extends Controller
         if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
 
         if ($preguntaEstado == 3)
-            $preguntas = Pregunta::orderby('id', 'DESC');
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1);
         else
-            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', $preguntaEstado);
+            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1);//$preguntaEstado);
 
-        if (!Auth::user()->hasRole('admin')) $preguntas = $preguntas->where('user_id', Auth::user()->id);
+        if (!Auth::user()->hasRole('admin'))
+            $preguntas = $preguntas->where('user_id', Auth::user()->id)->where('estado', 1);
 
         $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
 
@@ -66,23 +67,12 @@ class PreguntaController extends Controller
         return view('pregunta.create', compact('temas'));
     }
 
-    public function update(Request $request, $id)
-    {
-        Auth::user()->authorizeRoles(['admin', 'user']);
-        $pregunta = pregunta::find($id);
-        $pregunta->estado = $request->estado;
-        $pregunta->save();
-        $preguntas = pregunta::orderby('id', 'DESC')->where('estado', 1)->paginate(5);
 
-        if ($request->ajax()){
-            return redirect()->route('pregunta.index', ['page' => $request->pagePregunta]);
-        }
-    }
 
     public function store(PreguntaRequest $request)
     {
         Auth::user()->authorizeRoles(['admin', 'user']);
-        
+
         $pregunta = new Pregunta($request->all());
 
         $pregunta->estado = (Auth::user()->hasRole('admin'))?1: 2;//estado pendiente revision
@@ -106,4 +96,53 @@ class PreguntaController extends Controller
             return redirect()->route('pregunta.show', $pregunta->id);
         return redirect()->route('pregunta.show', $pregunta->id);
     }
+
+    public function edit($id){
+
+        Auth::user()->authorizeRoles(['admin']);
+        $temas = Tema::where('estado', '1')->orderby('nombre', 'ASC')->get();
+        $pregunta = Pregunta::find($id);
+        $respuestas = Respuesta::where('pregunta_id', $pregunta->id)->where('estado', 1)->get();
+        return view('pregunta.edit', compact('pregunta', 'respuestas', 'temas'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        //dd($request->escorrectas);
+        Auth::user()->authorizeRoles(['admin', 'user']);
+        $pregunta = pregunta::find($id);
+        $pregunta->fill($request->all());
+        $pregunta->save();
+
+        $valrespuestas = $request->respuestas;
+
+        foreach ($request->respuestas_id as $i=>$respuesta_id) {
+            $respuesta = Respuesta::find($respuesta_id);
+            $respuesta->respuesta = $request->respuestas[$i];
+            $respuesta->escorrecta = $request->escorrectas[$i];
+            $respuesta->save();
+        }
+
+        if ($request->ajax()){
+            return redirect()->route('pregunta.index', ['page' => $request->pagePregunta]);
+        }
+        return redirect()->route('pregunta.show', $pregunta->id);
+    }
+
+
+
+    public function destroy(Request $request, $id){
+        //dd('destruir');
+        if(!Auth::check()) return redirect()->route('concurso.index');
+        if (!Auth::user()->hasRole('admin')) return redirect()->route('concurso.index');
+
+        $pregunta = Pregunta::find($id);
+
+        $pregunta->estado = 0;
+        $pregunta->save();
+
+        //$pregunta->delete();
+        return redirect()->route('concurso.index')->with('info', 'Pregunta eliminada con exito!');
+    }
+
 }

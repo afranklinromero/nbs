@@ -7,7 +7,9 @@
             <div class="col-md-12">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-star">
                     <a href="{{route('pregunta.create')}}" class="btn btn-primary me-md-2 create" type="button">Nuevo</a>&nbsp;
+
                     <!-- Button trigger modal -->
+                    <!--
                     {!! Form::open(['route'=>['pregunta.index'], 'id' => 'frm-preguntas']) !!}
                         <div class="form-check form-check-inline">
                             {!! Form::radio('preguntaEstado', 3, (($preguntaEstado==3)? true : false)  , ['class' => 'form-check-input index', 'id' => 'preguntaEstado']) !!}
@@ -29,6 +31,7 @@
                             {!! Form::label('preguntaEstado', 'Anulados', ['class' => 'form-check-label']) !!}
                         </div>
                     {!! Form::close() !!}
+                    -->
                 </div>
             </div>
         </div>
@@ -47,7 +50,7 @@
         <thead>
             <tr>
                 <!--<th scope="col">#</th>-->
-                <th scope="col" class="d-none d-md-table-cell">id</th>
+                <!--<th scope="col" class="d-none d-md-table-cell">id</th>-->
                 <!--<th scope="col" class="d-none d-md-table-cell">user id</th>-->
                 <th scope="col" class="d-none d-md-table-cell">tema</th>
                 <th scope="col">pregunta</th>
@@ -78,17 +81,20 @@
                 @endphp
                 <tr>
                     <!--<th scope="row"> {{$key+1}}</th>-->
-                    <td class="d-none d-md-table-cell">{{ $pregunta->id }}</td>
+                    <!--<td class="d-none d-md-table-cell">{{ $pregunta->id }}</td>-->
                     <!--<td class="d-none d-md-table-cell">{{ $pregunta->user->email }}</td>-->
                     <td class="d-none d-md-table-cell">{{ $pregunta->tema->nombre }}</td>
-                    <td><span>{{ $pregunta->pregunta }}</span></td>
+                    <td>
+                        <a type="button" class="text-dark ver-pregunta" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pregunta->id }}" href="#">
+                            <span>{{ $pregunta->pregunta }}</span></td>
+                        </a>
                     <td class="d-none d-md-table-cell"> <span class="badge badge-{{$color}} text-wrap}">{{ $testado }}</span></td>
                     <td class="d-none d-md-table-cell">{{ $pregunta->created_at->format('d/m/y') }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-sm btn-primary ver-pregunta" data-toggle="modal" data-target="#exampleModal{{ $pregunta->id }}">
+                            <!--<button type="button" class="btn btn-sm btn-primary ver-pregunta" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pregunta->id }}">
                                 Ver
-                            </button>
+                            </button>-->
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal{{ $pregunta->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -97,7 +103,7 @@
                                     <h5 class="modal-title" id="exampleModalLabel">
                                         VER PREGUNTA ID: {{ $pregunta->id }}
                                     </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>
@@ -108,6 +114,35 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
+                                </div>
+                            </div>
+                            <a class="text-success fs-5" href="{{ route('pregunta.edit', $pregunta->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            &nbsp;
+                            <a type="button" class="text-success fs-5" data-bs-toggle="modal" data-bs-target="#eliminarpreguntaModal{{ $pregunta->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
+                                <i class="far fa-trash-can"></i>
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="eliminarpreguntaModal{{ $pregunta->id }}" tabindex="-1" role="dialog" aria-labelledby="eliminarpreguntaModallLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="eliminarpreguntaModalLabel">Pregunta: {{ $pregunta->pregunta }}</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Desea Eliminar la pregunta?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form class="d-inline" method="POST" action="{{ route('pregunta.destroy', $pregunta->id) }}">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     </td>

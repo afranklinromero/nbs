@@ -97,14 +97,17 @@
                                 </table>
                             </p>
                             <div class="d-grid gap-2 mb-3">
-                                <a class="block btn btn-success" href="">JUGAR</a>
+                                <a class="block btn btn-success" href="{{route('concurso.jugar', $temaconcurso->id)}}">JUGAR</a>
                             </div>
                             <div>
+                                @if (Auth::check() && Auth::user()->hasRole('admin'))
                                 <div class="btn-group mx-auto" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $temaconcurso->id }}">ver</button>
                                     <a class="btn btn-primary" href="{{route('concurso.edit', $temaconcurso->concurso->id)}}">Editar</a>
-                                    <a class="btn btn-primary" href="{{route('concurso.jugar', $temaconcurso->id)}}">Jugar</a>
+
                                 </div>
+                                @endif
+
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal{{ $temaconcurso->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
