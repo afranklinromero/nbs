@@ -40,9 +40,9 @@
                             ADMINISTRADOR
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('publicidad.index')}}">ADMINISTRAR BLOG</a>
-                            <a class="dropdown-item" href="{{route('blog.index')}}">ADMINISTRAR PUBLICIDAD</a>
-                            <a class="dropdown-item" href="{{route('sugerenciasnbs.index')}}">ADMINISTRAR SUGERENCIAS</a>
+                            <a class="dropdown-item" href="{{route('blog.index')}}">Administrar blog</a>
+                            <a class="dropdown-item" href="{{route('publicidad.index')}}">Administrar publicidad</a>
+                            <a class="dropdown-item" href="{{route('sugerenciasnbs.index')}}">Administrar sugerencias</a>
                         </div>
                     </li>
                 @endif

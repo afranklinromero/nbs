@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SugerenciasnbsRequest;
 use App\Mail\MailSugerenciasNBS;
+use App\Modelos\Respuestasugerencia;
 use App\Modelos\SugerenciasNBS;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -37,15 +38,19 @@ class SugerenciasnbsController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $sugerenciasnbs = SugerenciasNBS::find($id);
+        $respuestasugerencias = Respuestasugerencia::where('sugerencianbs_id', $sugerenciasnbs->id)->where('estado', 1)->get();
+        //dd($respuestasugerencias);
         if ($request->ajax())
-            return view('sugerenciasnbs.aside.show', compact('sugerenciasnbs'))->render();
-        return view('sugerenciasnbs.show', compact('sugerenciasnbs'));
+            return view('sugerenciasnbs.aside.show', compact('sugerenciasnbs', 'respuestasugerencias'))->render();
+        return view('sugerenciasnbs.show', compact('sugerenciasnbs', 'respuestasugerencias'));
     }
 
     public function showme($id){
         if (!Auth::check()) return redirect()->route('libro.index');
         Auth::user()->authorizeRoles(['admin']);
         $sugerenciasnbs = SugerenciasNBS::find($id);
+
+
         $sugerenciasnbs->estado=2;
         $sugerenciasnbs->save();
 

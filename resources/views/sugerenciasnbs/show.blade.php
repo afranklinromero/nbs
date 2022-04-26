@@ -3,8 +3,19 @@
 @section('contenido')
 
     <div class="container" id="sugerenciasnbs">
-
+        @include('sugerenciasnbs.aside.info')
         @include('sugerenciasnbs.aside.show')
+        @include('sugerenciasnbs.aside.respuestasugerencias')
+        <div class="row">
+            <div class="col">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="{{ route('respuestasugerencia.createBySugerencia_id', $sugerenciasnbs->id) }}" class="btn btn-primary">Responder</a>
+                    <a href="{{ route('sugerenciasnbs.index') }}" class="btn btn-success index">Volver</a>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
 @endsection

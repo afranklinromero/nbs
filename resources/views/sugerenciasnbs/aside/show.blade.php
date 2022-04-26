@@ -1,4 +1,4 @@
-@include('sugerenciasnbs.aside.info')
+
 <h3>{{$sugerenciasnbs->subject}}</h3>
 <div class="row">
     <div class="col-md-6">
@@ -17,16 +17,4 @@
     <div class="col form-group">
         {!! Form::textarea('subject', $sugerenciasnbs->content, ['class' => 'form-control', 'disabled']) !!}
     </div>
-
 </div>
-
-<div class="row">
-    <div class="col">
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{{ route('sugerenciasnbs.index') }}" class="btn btn-primary index">Responder</a>
-            <a href="{{ route('sugerenciasnbs.index') }}" class="btn btn-success index">Volver</a>
-        </div>
-        
-    </div>
-</div>
-

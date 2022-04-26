@@ -27,7 +27,7 @@
                                     <div class="input-group-append">
                                         <button class="btn btn-outline text-white" style="background-color: #d86304" type="submit" id="button-addon2">Buscar</button>
                                     </div>
-                                    
+
                                 </div>
                                 {!! Form::close() !!}
                             </p>
@@ -81,8 +81,10 @@
                                         <p class="float-right">
                                             <a href="{{ route('publicidad.show', $publicidad->id) }}" class="btn btn-sm text-white" style="background-color: #d86304" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver anuncio publicitario"><i class="far fa-eye"></i></a>
                                             <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-sm text-white" style="background-color: #d86304" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar anuncio publicitario"><i class="far fa-edit"></i></a>
-                                            
-                                            <a href="#" class="btn btn-sm text-white" style="background-color: #d86304" data-toggle="modal" data-target="#exampleModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Baja anuncio publicitario"><i class="far fa-trash-alt"></i></a>
+
+                                            <a type="button" style="background-color: #d86304" class="btn btn-sm text-white" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
                                         </p>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{ $publicidad->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,7 +92,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Eliminar anuncion publicitario: {{ $publicidad->title }}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                                 </div>
@@ -98,9 +100,9 @@
                                                     Desea dar de baja el anuncio publicitario?
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <form class="d-inline" method="POST" action="{{ route('publicidad.update', $publicidad->id) }}">
+                                                    <form class="d-inline" method="POST" action="{{ route('publicidad.destroy', $publicidad->id) }}">
                                                         {{ csrf_field() }}
-                                                        {{ method_field('PUT') }}
+                                                        {{ method_field('DELETE') }}
                                                         {!! Form::hidden('tipo','baja', null) !!}
                                                     <button type="submit" class="btn btn-primary">Confirmar</button>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -115,28 +117,6 @@
                             </div>
                         </div>
                     </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{ $publicidad->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h3 class="modal-title text-success" id="exampleModalLabel">
-                                {{ $publicidad->titulo }}
-                            </h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                                @include('publicidad.aside.show')
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <br>
             </div>

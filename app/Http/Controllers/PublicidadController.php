@@ -113,4 +113,18 @@ class publicidadController extends Controller
         }
 
     }
+
+    public function destroy(Request $request, $id){
+        //dd('destruir');
+        if(!Auth::check()) return redirect()->route('libro.index');
+        if (!Auth::user()->hasRole('admin')) return redirect()->route('libro.index');
+
+        $publicidad = Publicidad::find($id);
+        /*
+        $blog->estado = 0;
+        $blog->updated_at = now();
+        */
+        $publicidad->delete();
+        return redirect()->route('publicidad.index')->with('info', 'Publicidad eliminada!');
+    }
 }

@@ -15,4 +15,9 @@ class SugerenciasNBS extends Model
         return $this->belongsTo('App\User', 'user_id','id');
     }
     */
+
+    public function respuestasugerencias()
+    {
+        return $this->hasMany(Respuestasugerencia::class, 'id', 'respuestasugerencia_id');
+    }
 }

@@ -10,9 +10,9 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->id . '.' .$publicidad->ext)}}" width="50%" alt=""></a> 
+                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->id . '.' .$publicidad->ext)}}" width="50%" alt=""></a>
                     <p><strong >Contenido: </strong> {{ $publicidad->contenido }}</p>
-                    
+
                 </div>
             </div>
             <div class="row">
@@ -40,20 +40,13 @@
                             {!! Form::hidden('_method', 'PUT') !!}
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a class="btn btn-warning" href="{{ route('publicidad.edit', $publicidad->id) }}">Editar</a>
-                                @if ($publicidad->estado == 1)
-                                    {!! Form::hidden('tipo', 'baja') !!}
-                                    {!! Form::submit('Dar de baja', ['class' => 'btn btn-danger btn-update']) !!}
-                                @endif
-                                @if ($publicidad->estado == 0)
-                                    {!! Form::hidden('tipo', 'alta') !!}
-                                    {!! Form::submit('Dar de alta', ['class' => 'btn btn-success btn-update']) !!}
-                                @endif
+
                                 <a class="btn btn-success" href="{{ route('publicidad.create') }}">Nuevo</a>
                             </div>
                         {!! Form::close() !!}
                     @endif
                 @endif
-                
+
             </div>
         </div>
     </div>

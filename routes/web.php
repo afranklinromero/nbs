@@ -70,6 +70,10 @@ Route::resource('pregunta', 'PreguntaController');
 Route::put('sugerenciasnbs/showme/{id}', 'SugerenciasnbsController@showme')->name('sugerenciasnbs.showme');
 Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
 
+
+Route::get('respuestasugerencia/createBySugerencia_id/{sugerencia_id}', 'RespuestasugerenciaController@createBySugerencia_id')->name('respuestasugerencia.createBySugerencia_id');
+Route::resource('respuestasugerencia', 'RespuestasugerenciaController');
+
 Route::resource('blog', 'BlogController');
 
 Route::get('publicidad/download/{id}', 'BlogController@download')->name('blog.download');
