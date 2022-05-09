@@ -24,7 +24,7 @@ class CreateLibrosTable extends Migration
             $table->string('ext', 4)->default('png');
             $table->string('documentopdf', 512)->nullable();
             //$table->string('nombredocumentopdf', 512);
-            $table->string('autor', 128)->default('Ministerio de Salud y Depeortes - Estado Plurinacional de Bolivia');
+            $table->string('autor', 128)->default('Ministerio de Salud y Deportes - Estado Plurinacional de Bolivia');
             $table->string('edicion', 64)->nullable();
             $table->string('serie', 64)->nullable();
             $table->string('nropublicacion')->nullable();

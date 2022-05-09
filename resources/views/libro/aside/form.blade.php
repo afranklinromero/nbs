@@ -47,7 +47,7 @@
 
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label for="tapa"><span class="fw-bold"><span class="text-danger">*</span>  Imagen vista previa</span></label>
+                        <label for="tapa"><span class="fw-bold"><span class="text-danger">*</span>  Imagen vista previa (464x604)px</span></label>
                         <input class="form-control" type="file" name="tapa" id="tapa" accept="image/*" >
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">

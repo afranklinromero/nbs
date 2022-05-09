@@ -6,7 +6,7 @@
             <div class="btn-group" role="group" aria-label="Basic example">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ayuda</button>
-                <a href="{{ route('libro.download', ['documentopdf'=>$libro->documentopdf, 'titulo'=>$libro->titulo.'.pdf']) }}" class="btn btn-success">descargar</a>
+                <a href="{{ route('libro.download', ['documentopdf'=>$libro->documentopdf, 'titulo'=>$libro->titulo.'.pdf']) }}" download class="btn btn-success">descargar</a>
             </div>
         </p>
     </div>

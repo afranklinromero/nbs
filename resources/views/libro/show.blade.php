@@ -3,17 +3,57 @@
 @section('contenido')
     <div class="container">
         @include('libro.aside.info')
-        <div class="row">
+        <div class="row mb-1">
             <div class="col">
-                <h4 class="mb-3">
-                    <strong class="text-lowercase text-primary">titulo › </strong> <span class="text-lowercase">{{ $libro->titulo }} </span>
+                <h4>
+                    <strong class="text-lowercase text-primary">titulo › </strong> <span class="text-uppercase">{{ $libro->titulo }} </span>
                     <div class="float-right">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{ route('libro.index') }}" class="btn btn-primary">volver</a>
+                            
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
-                                <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-warning">editar</a>
-                                <a href="{{ route('libro.create') }}" class="btn btn-success">nuevo</a>    
+                                <a href="{{ route('libro.create') }}" class="btn btn-primary">Nuevo</a>    
+                                <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-primary">Editar</a>
+                                <a 
+                                    href="{{ route('libro.create') }}" 
+                                    class="btn btn-danger" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#deleteLibroModal{{ $libro->id }}" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="top" 
+                                    title="Eliminar articulo"
+                                    >
+                                    Eliminar
+                                </a>    
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteLibroModal{{ $libro->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteLibroModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-primary" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-danger text-white">
+                                                <h5 class="modal-title" id="deleteLibroModalLabel">Eliminar registro</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body bg-ligth">
+                                                <span class="fw-bold">Eliminar libro: <br>
+                                                    <span class="text-success">{{ $libro->titulo }}</span><br><br>
+                                                    Desea Eliminar el Libro?</span>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form class="d-inline" method="POST" action="{{ route('libro.destroy', $libro->id) }}">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
+                                                <button type="submit" class="btn btn-danger">Confirmar</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             @endif
+                            <a href="{{ route('libro.index') }}" class="btn btn-success">Volver</a>
                         </div>
                     </div>
                 </h4>

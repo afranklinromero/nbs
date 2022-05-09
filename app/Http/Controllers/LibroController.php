@@ -224,6 +224,7 @@ class LibroController extends Controller
         $libro = Libro::find($id);
 
         $libro->titulo = $request->titulo;
+        $libro->autor = $request->autor;
         $libro->fecha = $request->fecha;
         $libro->edicion = $request->edicion;
         $libro->serie = $request->serie;
@@ -275,7 +276,7 @@ class LibroController extends Controller
 
        $libro = Libro::find($id);
        $libro->delete();
-       return back ()->with('info', 'El Tipoproducto fue eliminado');
+       return redirect()->route('libro.index')->with('info', 'El Libro fue eliminado');
     }
 
     public function obtener(Request $request){
