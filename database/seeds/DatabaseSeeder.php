@@ -18,9 +18,7 @@ class DatabaseSeeder extends Seeder
             'users',
             'roles',
             'role_user',
-            'autor',
             'libro',
-            'autorlibro',
             'busqueda',
             'tipomarcador',
             'marcador',
@@ -43,9 +41,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RoleTableSeeder::class);
         $this->call(UserTableSeeder::class);
-        $this->call(AutorSeeder::class);
+        //$this->call(AutorSeeder::class);
         $this->call(LibroSeeder::class);
-        $this->call(AutorlibroSeeder::class);
+        //$this->call(AutorlibroSeeder::class);
         $this->call(BusquedaSeeder::class);
         $this->call(TipomarcadorSeeder::class);
         /*$this->call(Marcador1Seeder::class);

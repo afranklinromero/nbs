@@ -9,7 +9,7 @@
             Editar libro
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    <a href="{{ route('libro.index') }}" class="btn btn-warning"></i>Cancelar</a>
+                    <a href="{{ route('libro.show', $libro->id) }}" class="btn btn-warning"></i>Cancelar</a>
                     {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
                 </div>
             </div>
@@ -21,6 +21,7 @@
                 {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
             </div>
         </div>
+        include
     {!! Form::close() !!}
 </div>
 
