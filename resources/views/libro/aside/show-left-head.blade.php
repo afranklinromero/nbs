@@ -6,27 +6,27 @@
             <div class="btn-group" role="group" aria-label="Basic example">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ayuda</button>
-                <a href="{{ route('libro.download', ['documentopdf'=>$libro->documentopdf, 'titulo'=>$libro->titulo.'.pdf']) }}" class="btn btn-success">descargar</a>
+                <a href="{{ route('libro.download', ['documentopdf'=>$libro->documentopdf, 'titulo'=>$libro->titulo.'.pdf']) }}" download class="btn btn-success">descargar</a>
             </div>
         </p>
     </div>
 
     <div class="col-sm-6 col-md-12">
-        
-        <div class="alert alert-success"><strong class="text-lowercase">lugar publicación › </strong> <span class="text-lowercase">{{ $libro->lugarpublicacion }} </span><br></div> 
-        <div class="alert alert-success"><strong class="text-lowercase">autor › </strong> <span class="text-lowercase">{{ $libro->autor }} </span><br></div> 
-        
-        
+
+        <div class="alert alert-success"><strong class="text-lowercase">lugar publicación › </strong> <span class="text-lowercase">{{ $libro->lugarpublicacion }} </span><br></div>
+        <div class="alert alert-success"><strong class="text-lowercase">autor › </strong> <span class="text-lowercase">{{ $libro->autor }} </span><br></div>
+
+
 
         @if (Auth::check())
             @if (Auth::user()->hasRole('admin'))
                 <img class="img-fluid rounded img-thumbnail p-2" src="{{ asset('storage/files/libros/tapas/'.$libro->tapa) }}" alt="">
             @endif
         @endif
-        
+
         {!! Form::hidden('documentopdf', $libro->documentopdf, ['id'=>'documentopdf']) !!}
         <br>
-        
+
     </div>
 
     <div>
@@ -35,7 +35,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header alert-success">
-                        
+
                         <h5 class="modal-title" id="exampleModalLabel">Ayuda visor documento pdf</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -46,9 +46,9 @@
                             <ol class="text-sm">
                                 <li><img class="img-fluid rounded" src="{{asset('img/ayuda/visor/1.png')}}" alt=""> <Strong>barra lateral, </Strong>activar/desactivar barra lateral</li>
                                 <li>
-                                    <img class="img-fluid rounded" src="{{asset('img/ayuda/visor/2.png')}}" alt=""> 
+                                    <img class="img-fluid rounded" src="{{asset('img/ayuda/visor/2.png')}}" alt="">
                                     <Strong>buscar, </Strong> buscar texto dentro del documento, esta opción activa la siguiente barra de herramientas <br>
-                                    <img class="img-fluid rounded" src="{{asset('img/ayuda/visor/barra2.png')}}" alt=""> 
+                                    <img class="img-fluid rounded" src="{{asset('img/ayuda/visor/barra2.png')}}" alt="">
                                     <ol>
                                         <li><img class="img-fluid rounded" src="{{asset('img/ayuda/visor/21.png')}}" alt=""> <Strong>buscar en el documento, </Strong> ecribir la palabra a buscar en el documento.</li>
                                         <li><img class="img-fluid rounded" src="{{asset('img/ayuda/visor/22.png')}}" alt=""> <Strong>anterior, </Strong> anterior coincidencia de busqueda.</li>
@@ -73,7 +73,7 @@
                                 <li><img class="img-fluid rounded" src="{{asset('img/ayuda/visor/14.png')}}" alt=""> <Strong>hoja actual, </Strong> copiar o abrir hoja actual</li>
                                 <li><img class="img-fluid rounded" src="{{asset('img/ayuda/visor/15.png')}}" alt=""> <Strong>herramientas, </Strong> otras herramientas</li>
                             </ul>
-                        
+
                     </div>
                     <div class="modal-footer alert-success">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -82,6 +82,6 @@
             </div>
         </div>
     </div>
-        
+
 </div>
 <hr>
