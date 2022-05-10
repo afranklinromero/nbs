@@ -5,8 +5,13 @@
         <div class="row">
             <div class="form-group col-md-4">
                 {!! Form::hidden('user_id',  Auth::user()->id ) !!}
-                {!! Form::label('tema_id', 'Id Tema:', ['class' => 'form-label font-weight-bold']) !!}
-                {!! Form::select('tema_id', $temas->pluck('nombre', 'id'), null, ['class'=>'form-control']) !!}
+                {!! Form::label('tema_id', 'Tema:', ['class' => 'form-label font-weight-bold']) !!}
+                <select class="form-select mb-3" aria-label=".form-select-lg example" name="tema_id" id="tema_id">
+                    <option disabled selected>Seleccione un tema</option>
+                    @foreach ($temas as $tema)
+                        <option value="{{ $tema->id }}">{{ $tema->nombre }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-md-8">
                 {!! Form::label('nombre', 'Nombre:', ['class' => 'form-label font-weight-bold']) !!}
