@@ -51,7 +51,7 @@
             <div class="col-sm-12 col-md-4">
                 <div>
                     <div class="card">
-                        <a href="{{route('publicidad.show', $publicidad->id)}}"><img class="card-img-top" src="{{ asset('storage/files/publicidad/'.$publicidad->id . '/'.$publicidad->id.'.'.$publicidad->ext) }}" alt=""></a>
+                        <a href="{{route('publicidad.show', $publicidad->id)}}"><img class="card-img-top" src="{{ asset('storage/files/publicidad/'.$publicidad->id . '/'.$publicidad->imagen) }}" alt=""></a>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{{route('publicidad.show', $publicidad->id)}}" style="color: #d86304">
@@ -82,35 +82,11 @@
                                             <a href="{{ route('publicidad.show', $publicidad->id) }}" class="btn btn-sm text-white" style="background-color: #d86304" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver anuncio publicitario"><i class="far fa-eye"></i></a>
                                             <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-sm text-white" style="background-color: #d86304" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar anuncio publicitario"><i class="far fa-edit"></i></a>
 
-                                            <a type="button" style="background-color: #d86304" class="btn btn-sm text-white" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
+                                            <a type="button" style="background-color: #d86304" class="btn btn-sm text-white" data-bs-toggle="modal" data-bs-target="#deletePublicidadModal{{ $publicidad->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
                                                 <i class="far fa-trash-alt"></i>
                                             </a>
                                         </p>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal{{ $publicidad->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Eliminar anuncion publicitario: {{ $publicidad->title }}</h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Desea dar de baja el anuncio publicitario?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <form class="d-inline" method="POST" action="{{ route('publicidad.destroy', $publicidad->id) }}">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('DELETE') }}
-                                                        {!! Form::hidden('tipo','baja', null) !!}
-                                                    <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                </form>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
+                                        @include('publicidad.aside.delete-modal')
                                     @endif
                                 @endif
                             </div>

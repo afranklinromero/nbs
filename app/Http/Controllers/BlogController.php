@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 class BlogController extends Controller
 {
     //
+    protected $dirBlog = 'public/files/blog/';
+
     public function index(Request $request){
         //Auth::user()->authorizeRoles(['admin', 'user']);
 
@@ -61,12 +63,14 @@ class BlogController extends Controller
         $blog->save();
 
         if (isset($fileimagen)) {
-            Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $fileimagen, $blog->id . '.' . $fileimagen->getClientOriginalExtension());
+            $imagen_name = $blog->id . '.' . $fileimagen->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $fileimagen, $imagen_name);
             //$fileimagen->move(public_path().'/img/blog/', $blog->id . '.' . $fileimagen->getClientOriginalExtension());
         }
         if (isset($filepdf)) {
             //$filepdf->move(public_path().'/img/blog/doc', $blog->id . '.' .$filepdf->getClientOriginalExtension());
-            Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $filepdf, $blog->id . '.pdf');
+            $pdf_name = $blog->id + '.' . $filepdf->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $filepdf, $pdf_name);
         }
 
         //dd($image);

@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Storage;
 class LibroController extends Controller
 {
     //
+
+    protected $dirLibros = 'public/files/libros/pdfs/';
+    protected $dirTapas = 'public/files/libros/tapas/';
+
     public function index(Request $request){
 
         $paginate = 100;
@@ -159,9 +163,7 @@ class LibroController extends Controller
 
         Auth::user()->authorizeRoles(['admin']);
 
-
         $libro = new Libro($request->all());
-        //dd($libro);
         $libro->orden = $max = Libro::max('id') + 1;
         //dd($libro);
         $fileimagen = $request->file('tapa');
@@ -196,12 +198,6 @@ class LibroController extends Controller
             //$filepdf->move(public_path().'/libros', $libro->id . '.' .$filepdf->getClientOriginalExtension());
         }
 
-        //$libro->documentopdf = $libro->id . '.pdf';
-
-        //$libro->save();
-
-        //dd('???');
-
         return redirect()->route('libro.show', $libro->id)
                         ->with('info','Libro guardado con exito');
 
@@ -223,45 +219,25 @@ class LibroController extends Controller
 
         $libro = Libro::find($id);
 
-        $libro->titulo = $request->titulo;
-        $libro->autor = $request->autor;
-        $libro->fecha = $request->fecha;
-        $libro->edicion = $request->edicion;
-        $libro->serie = $request->serie;
-        $libro->nropublicacion = $request->nropublicacion;
-        $libro->lugarpublicacion = $request->lugarpublicacion;
+        $libro->fill($request->all());
 
         $fileimagen = $request->file('tapa');
-        if (isset($fileimagen)){
-            $libro->tapa = $fileimagen->getClientOriginalName();
+        if (isset($fileimagen)){//si se envio archivo de imagen desde el formulario
+            //$libro->tapa = $fileimagen->getClientOriginalName();
             $libro->ext = $fileimagen->getClientOriginalExtension();
+            $libro->tapa = $libro->id . '.' . $fileimagen->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs($this->dirTapas, $fileimagen, $libro->tapa);
+
         } else {
             //$libro->imagen = null;
         }
 
         $filepdf = $request->file('documentopdf');
-        if (isset($filepdf))
-         $libro->documentopdf = $filepdf->getClientOriginalName(); //else $libro->documentopdf = null;
-
-        if (isset($fileimagen)){
-            /*$nombre = $libro->id . '.' . $fileimagen->getClientOriginalExtension();
-            $libro->tapa = $nombre;
-            $fileimagen->move(public_path().'/tapas', $nombre);*/
-            Storage::disk('local')->putFileAs('public/files/libros/tapas', $fileimagen, $libro->tapa);
+        if (isset($filepdf)){
+            //si se envio archivo pdf desde el formulario
+            $libro->documentopdf = $libro->id . '.' . $filepdf->getClientOriginalExtension(); //else $libro->documentopdf = null;
+            Storage::disk('local')->putFileAs($this->dirLibros, $filepdf, $libro->documentopdf);
         }
-
-        if (isset($filepdf)) {
-            //$libro->titulo = $fileimagen->getClientOriginalExtension();
-            /*
-            $nombre = $libro->id . '.' . $filepdf->getClientOriginalExtension();
-            $libro->documentopdf = $nombre;
-            $filepdf->move(public_path().'/libros', $nombre);
-            */
-            Storage::disk('local')->putFileAs('public/files/libros/pdfs', $filepdf, $libro->documentopdf);
-        }
-
-
-        $libro->updated_at = now();
 
         $libro->save();
 
@@ -275,7 +251,10 @@ class LibroController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
        $libro = Libro::find($id);
+       Storage::disk('local')->delete($this->dirTapas . $libro->tapa);
+       Storage::disk('local')->delete($this->dirLibros . $libro->documentopdf);
        $libro->delete();
+       
        return redirect()->route('libro.index')->with('info', 'El Libro fue eliminado');
     }
 

@@ -13,6 +13,9 @@ class BlogSeeder extends Seeder
     public function run()
     {
         //
-        factory(Blog::class, 5)->create();
+        for($i = 1; $i<=5; $i++){
+            factory(Blog::class, 1)->create(['imagen' => $i . '.png', 'documentopdf' => $i . '.pdf']);
+        }
+        
     }
 }

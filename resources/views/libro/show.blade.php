@@ -11,8 +11,8 @@
                         <div class="btn-group" role="group" aria-label="Basic example">
                             
                             @if (Auth::check() && Auth::user()->hasRole('admin'))
-                                <a href="{{ route('libro.create') }}" class="btn btn-primary">Nuevo</a>    
-                                <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-primary">Editar</a>
+                                <a href="{{ route('libro.create') }}" class="btn btn-success">Nuevo</a>    
+                                <a href="{{ route('libro.edit', $libro->id) }}" class="btn btn-success">Editar</a>
                                 <a 
                                     href="{{ route('libro.create') }}" 
                                     class="btn btn-danger" 

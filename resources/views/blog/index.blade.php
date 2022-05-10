@@ -92,7 +92,9 @@
                         <div class="card">
                             <div class="contenedorimg">
                                 @if (isset($blog->imagen))
-                                    <a href="{{route('blog.show', $blog->id)}}"> <img class="imagen card-img-top" src="{{ asset('storage/files/blog/'.$blog->id . '/' . $blog->id.'.'.$blog->ext) }}" alt="error img"></a>
+                                    <a href="{{route('blog.show', $blog->id)}}"> 
+                                        <img class="imagen card-img-top" src="{{ asset('storage/files/blog/'.$blog->id . '/' . $blog->imagen) }}" alt="error img">
+                                    </a>
                                 @else
                                     <img class="imagen card-img-top" src="{{ asset('img/default.png') }}" alt="">
                                 @endif
@@ -118,39 +120,15 @@
                                 @if (Auth::user()!=null)
                                     @if (Auth::user()->hasRole('admin'))
 
-                                                <p class="float-right">
-                                                    <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver articulo"><i class="far fa-eye"></i></a>
-                                                    <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </button>
-                                                </p>
+                                        <p class="float-right">
+                                            <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver articulo"><i class="far fa-eye"></i></a>
+                                            <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar articulo"><i class="far fa-edit"></i></a>
+                                            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#deleteBlogModal{{ $blog->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar articulo">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </p>
 
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar articulo: {{ $blog->title }}</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Desea Eliminar el articulo?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <form class="d-inline" method="POST" action="{{ route('blog.destroy', $blog->id) }}">
-                                                                {{ csrf_field() }}
-                                                                {{ method_field('DELETE') }}
-                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        @include('blog.aside.delete-modal')
 
                                     @endif
                                 @endif

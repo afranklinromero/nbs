@@ -7,16 +7,16 @@
             Nuevo libro
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    <a href="{{ route('libro.index') }}" class="btn btn-success"></i>Cancelar</a>
-                    {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
+                    <a href="{{ route('libro.index') }}" class="btn btn-primary"></i>Cancelar</a>
                 </div>
             </div>
         </h3>
         @include('libro.aside.form')
         <div class="text-right">
             <div class="btn-group mt-3" role="group">
-                <a href="{{ route('libro.index') }}" class="btn btn-success"></i>Cancelar</a>
-                {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
+                <a href="{{ route('libro.index') }}" class="btn btn-primary"></i>Cancelar</a>
             </div>
         </div>
     {!! Form::close() !!}

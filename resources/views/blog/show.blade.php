@@ -5,18 +5,27 @@
     @include('blog.aside.error')
     <div class="container" id="blog-head">
         <div class="container" id="blog-body">
-
-            @include('blog.aside.show')
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <div class="btn-group" role="group">
-                            <a href="{{ route('blog.index') }}" class="btn btn-success">Volver</a>
-                        </div>
-                    </div>
+            <div class="row m-2">
+                <div class="col">
+                    <h3> 
+                        <span class="h3 fw-bold text-dark">
+                            {{ $blog->titulo }}        
+                        </span>
+                        @include('blog.aside.show-buttons')
+                    </h3>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col">
+                    @include('blog.aside.show')
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    @include('blog.aside.show-buttons')
+                </div>
+            </div>
         </div>
 
     </div>

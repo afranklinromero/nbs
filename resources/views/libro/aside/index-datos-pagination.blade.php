@@ -2,7 +2,14 @@
 
     <div>
         @if (count($libros->items())>0)
-            <p> <strong> encontraron {{$libros->total()}} resultados, pagina {{$libros->currentPage()}} de {{$libros->lastPage()}} </strong></p>
+            <p> 
+                <strong> encontraron {{$libros->total()}} resultados, pagina {{$libros->currentPage()}} de {{$libros->lastPage()}} </strong>
+                <span class="float-end"> 
+                    @if (Auth::check() && Auth::user()->hasRole('admin'))
+                        <a href="{{ route('libro.create') }}" class="btn btn-success">Nuevo</a>    
+                    @endif
+                </span>
+            </p>
         @endif
     </div>
             @if (count($libros->items())>0)

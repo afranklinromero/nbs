@@ -1,24 +1,22 @@
 @extends('layouts.nbs.app')
 
 @section('contenido')
-
-@section('contenido')
 <div class="container">
     {!! Form::open([ 'route' => [ 'libro.update', $libro->id ], 'method'=>'PUT', 'files' => true, 'enctype' => 'multipart/form-data', 'id' => 'image-upload' ]) !!}
         <h3 class="text-success mb-3">
             Editar libro
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    <a href="{{ route('libro.show', $libro->id) }}" class="btn btn-warning"></i>Cancelar</a>
                     {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
+                    <a href="{{ route('libro.show', $libro->id) }}" class="btn btn-success"></i>Cancelar</a>
                 </div>
             </div>
         </h3>
         @include('libro.aside.form')
         <div class="text-right">
             <div class="btn-group mt-3" role="group">
-                <a href="{{ route('libro.index') }}" class="btn btn-warning"></i>Cancelar</a>
                 {!! Form::submit('Guardar',['step' => 'any','class'=>'btn btn-success']) !!}
+                <a href="{{ route('libro.index') }}" class="btn btn-success"></i>Cancelar</a>
             </div>
         </div>
         include
