@@ -10,7 +10,7 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->id . '.' .$publicidad->ext)}}" width="50%" alt=""></a>
+                    <img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->imagen)}}" width="50%" alt="">
                     <p><strong >Contenido: </strong> {{ $publicidad->contenido }}</p>
 
                 </div>
@@ -18,7 +18,14 @@
             <div class="row">
                 <div class="col-md-12 m-3 alert alert-secondary">
                     <p>
-                        <strong>Enlace:</strong>  {{ $publicidad->link }}<br>
+                        @if (isset($publicidad->link))
+                        <a href="{{ $publicidad->link }}" target="_blank" class="link-success">
+                            <strong>Enlace:</strong>  {{ $publicidad->link }}<br>    
+                        </a>
+                        @else
+                            <strong>Enlace:</strong>  {{ $publicidad->link }}<br>
+                        @endif
+                        
                         <strong>Lugar:</strong>  {{ $publicidad->lugar }}<br>
                         <strong>fecha inicio:</strong>  {{ $publicidad->fechaini->format('d/m/Y') }}<br>
                         <strong>fecha fin:</strong>  {{ $publicidad->fechafin->format('d/m/Y') }}<br>
@@ -29,25 +36,3 @@
             </div>
     </div>
 </div>
-
-@if (isset($publicidad))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row justify-content-center">
-                @if (Auth::user()!=null)
-                    @if (Auth::user()->hasRole('admin'))
-                        {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
-                            {!! Form::hidden('_method', 'PUT') !!}
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <a class="btn btn-warning" href="{{ route('publicidad.edit', $publicidad->id) }}">Editar</a>
-
-                                <a class="btn btn-success" href="{{ route('publicidad.create') }}">Nuevo</a>
-                            </div>
-                        {!! Form::close() !!}
-                    @endif
-                @endif
-
-            </div>
-        </div>
-    </div>
-@endif

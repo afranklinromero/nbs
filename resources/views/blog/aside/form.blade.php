@@ -59,7 +59,7 @@
                             <label class="form-label" for="imagen">
                                 <span class="fw-bold">Imagen</span>
                             </label>
-                            <input class="form-control" type="file" name="imagen" id="imagen" accept="image/*"  }}>
+                            <input class="form-control" type="file" name="imagen" id="imagen" accept="image/*">
 
                             @if (isset($blog->id))
                                 <div id="preview"><img class="img-fluid rounded pl-5" src="{{ asset('storage/files/blog/'.$blog->id.'/'.$blog->id.'.'.$blog->ext) }}" alt=""></div>
@@ -73,7 +73,7 @@
                     <div class="col-md-6">
                         <p class="card-title">
                             <label class="form-label" for="documentopdf"><span class="fw-bold">Documento en formato pdf</span></label>
-                            <input class="form-control" type="file" name="documentopdf" id="documentopdf" accept=".pdf" }}>
+                            <input class="form-control" type="file" name="documentopdf" id="documentopdf" accept=".pdf">
 
                             <div id="viewpdf">
                                 @if (isset($blog->documentopdf))

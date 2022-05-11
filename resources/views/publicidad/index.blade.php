@@ -3,24 +3,18 @@
 @section('contenido')
 <div class="container">
     <section>
-    <div class="row">
-
-            <div class="card">
-                <div class="card-body" style="padding: 0">
-                    <div class="row">
-                        <div class="col-7">
-                            <h2 class="p-3"><a href="{{ route('publicidad.index') }}" style="color: #d86304">PUBLICIDAD NORMAS BOLIVIANAS DE SALUD</a></h2>
-                            <h4 class="mr-3 ml-3">Administración de anuncios publicitarios en la pagina de Normas Bolivianas de Salud</h4>
-                            <br>
-                            <p class="text-center">
-                                @if (Auth::user()!=null)
-                                    @if (Auth::user()->hasRole('admin'))
-                                        <a href="{{ route('publicidad.create') }}" class="btn text-white" style="background-color: #d86304">Nueva publicidad</a>
-                                        <br>
-                                    @endif
-                                @endif
-                            </p>
-                            <p>
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/publicidadlogo2.png') }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="p-3"><a href="{{ route('publicidad.index') }}" style="color: #d86304">PUBLICIDAD NORMAS BOLIVIANAS DE SALUD</a></h2>
+                        <h4 class="mr-3 ml-3">Administración de anuncios publicitarios en la pagina de Normas Bolivianas de Salud</h4>
+                        <br>
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-8">
                                 {!! Form::open(['route'=>'publicidad.index', 'id'=>'form-publicidad-index', 'method' => 'GET']) !!}
                                 <div class="input-group m-3">
                                     <input id="titulo" name="titulo" value="{{ isset($titulo) ? $titulo : ''}}" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -30,22 +24,29 @@
 
                                 </div>
                                 {!! Form::close() !!}
-                            </p>
-
-
-                        </div>
-                        <div class="col-5  mt-0">
-                            <img class="rounded img-fluid float-right" src="{{ asset('img/publicidadlogo.png') }}" alt="" width="450">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+   
+    <div class="row">
+        <div class="col-md-6">
+            <p class="h2 fs-bold" style="color: #d86304">ANUNCIOS PUBLICITARIOS</p>
+        </div>
+        <div class="col-md-6">
+            <p class="text-end">
+            @if (Auth::user()!=null)
+                @if (Auth::user()->hasRole('admin'))
+                    <a href="{{ route('publicidad.create') }}" class="btn text-white"  style="background-color: #d86304">Nueva publicidad</a>
+                    <br>
+                @endif
+            @endif
+            </p>
+        </div>
     </div>
-    <br>
-    <br>
-
-</section>
-    <H2 class="text-center" style="color: #d86304">ANUNCIOS PUBLICITARIOS</H2>
     <div class="row">
         @foreach ($publicidades as $i=>$publicidad)
             <div class="col-sm-12 col-md-4">

@@ -6,7 +6,7 @@
             <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-success">Editar</a>
             <a 
                 href="{{ route('publicidad.create') }}" 
-                class="btn btn-danger" 
+                class="btn btn-success" 
                 data-bs-toggle="modal" 
                 data-bs-target="#deletePublicidadModal{{ $publicidad->id }}" 
                 data-bs-toggle="tooltip" 
@@ -19,6 +19,6 @@
             @include('publicidad.aside.delete-modal')
 
         @endif
-        <a href="{{ route('publicidad.index') }}" class="btn btn-success">Volver</a>
+        <a href="{{ route('publicidad.index') }}" class="btn btn-primary">Volver</a>
     </div>
 </div>

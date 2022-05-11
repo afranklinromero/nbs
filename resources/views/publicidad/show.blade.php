@@ -2,18 +2,32 @@
 
 @section('contenido')
 
-    <div class="container" id="publicidad-head">
-        <div class="container" id="publicidad-body">
-            <h3 style="color: #d86304">Titulo: {{$publicidad->titulo}}</h3>
-            @include('publicidad.aside.show')
-            <div class="row">
-                <div class="col text-center">
-                    <a href="{{ route('publicidad.index') }}#publicidades" class="btn btn-link">Volver</a>
-                </div>
+<div class="container" id="publicidad-head">
+    <div class="container" id="publicidad-body">
+        <div class="row m-2">
+            <div class="col">
+                <h3> 
+                    <span class="h3 fw-bold" style="color: #d86304" >
+                        {{ $publicidad->titulo }}        
+                    </span>
+                    @include('publicidad.aside.show-buttons')
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @include('publicidad.aside.show')
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                @include('publicidad.aside.show-buttons')
             </div>
         </div>
     </div>
 
+</div>
 @endsection
 
 @section('scriptlocal')

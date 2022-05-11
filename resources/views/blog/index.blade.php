@@ -4,54 +4,42 @@
 @section('contenido')
 <div class="container">
     <section>
-    <div class="row">
-
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <a href="{{ route('blog.index') }}">
-                            <img class="img-round img-fluid" src="{{ asset('img/bloglogo.jpg') }}" alt="">
-                        </a>
-                      </div>
-
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h2><a class="text-success" href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
-                                    <br>
-                                    <h4 class="mr-3 ml-3">Blog de articulos sobre normas de bolivianas de salud, y medicina en gral.</h4>
-                                    <br>
-
-                                    <p>
-                                        <div class="row">
-                                            <div class="col-md-12 mr-3 ml-3">
-                                                {!! Form::open(['route'=>'blog.index', 'id'=>'form-blog-index', 'method' => 'GET']) !!}
-                                                <div class="input-group mb-3">
-                                                    <input id="titulo" name="titulo" value="{{ isset($titulo) ? $titulo : ''}}" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                                    <a class="btn btn-success" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass mt-1"></i></a>
-                                                </div>
-                                                {!! Form::close() !!}
-                                            </div>
-                                        </div>
-
-                                    </p>
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src="{{ asset('img/bloglogo2.png') }}" class="img-fluid rounded-start" alt="...">
+            </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2><a class="text-success" href="{{ route('blog.index') }}">BLOGS NORMAS BOLIVIANAS DE SALUD</a></h2>
+                        <br>
+                        <h4 class="mr-3 ml-3">Blog de articulos sobre normas de bolivianas de salud, y medicina en gral.</h4>
+                        <br>
+                        <p>
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-8">
+                                    {!! Form::open(['route'=>'blog.index', 'id'=>'form-blog-index', 'method' => 'GET']) !!}
+                                    <div class="input-group mb-3">
+                                        <input id="titulo" name="titulo" value="{{ isset($titulo) ? $titulo : ''}}" type="text" class="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <a class="btn btn-success" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass mt-1"></i></a>
+                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
-                        </div>
+
+                        </p>
                     </div>
                 </div>
-
             </div>
-    </div>
-    <br>
-    <br>
+        </div>
+        <br>
+        <br>
 
-</section>
+    </section>
     <a id="articulo"></a>
     <div class="row">
         <div class="col-md-6">
-            <p class="h2 text-success">ARTICULOS</p>
+            <p class="h2 fs-bold text-success">ARTICULOS</p>
         </div>
         <div class="col-md-6">
             <p class="text-end">

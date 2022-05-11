@@ -9,40 +9,14 @@
                                 <p class="card-title">
                                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                                     {!! Form::hidden('user_id',  Auth::user()->id ) !!}
-                                    {!! Form::label('titulo', 'Titulo:', ['class' => 'form-label']) !!}
-                                    {!! Form::text('titulo', isset($publicidad->titulo) ? $publicidad->titulo : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                                    <label class="form-label" for="titulo"><span class="text-danger fw-bold">*</span> <span class="fw-bold">Titulo</span></label>
+                                    <input class="form-control" type="text" name="titulo" id="titulo" value="{{ isset($publicidad->titulo)? $publicidad->titulo: old('titulo') }}">
                                 </p>
                             </div>
-                            <div class="col-md-6">
-                                <p class="card-title">
-                                    {!! Form::label('imagen', 'Portada articulo:', ['class' => 'form-label']) !!}
-                                    @if (isset($publicidad->id))
-                                        <!--EDITAR-->
-                                        {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
-                                        <div id="preview"><img class="img-fluid rounded" src="{{ asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext) }}" alt=""></div>    
-                                    @else
-                                        <!--CREAR-->
-                                        {!! Form::file('imagen', ['class' => 'form-control-file', 'accept' => 'image/*', 'required']) !!}
-                                        <div id="preview"></div>
-                                    @endif
-                                    
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p class="card-title">
-                                    {!! Form::label('contenido', 'Contenido:', ['class' => 'form-label']) !!}
-                                    {!! Form::textarea('contenido', isset($publicidad->contenido) ? $publicidad->contenido : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'3074', 'required']) !!}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-3">
-                                <p>Lugar:</p>
+                                <p class="fw-bold">Lugar:</p>
                                 <div class="form-check">
                                     @if (isset($publicidad->id))
-                                    <p>{{$publicidad->lugar}}</p>
                                         {!! Form::checkbox('lugar[]', 'blog', (strpos($publicidad->lugar, 'blog')!==false)? true:false, ['id'=>'checkblog']) !!}
                                         {!! Form::label('checkblog', 'Blog', ['class' => 'form-check-label']) !!} <br>
 
@@ -63,23 +37,56 @@
                                     @endif
                                 </div>
                             </div>
+                            
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <p class="card-title">
+                                    <label class="form-label" for="imagenfile"><span class="text-danger fw-bold">*</span> <span class="fw-bold">Imagen pulblicidad</span></label>
+                                    {!! Form::file('imagenfile', ['class' => 'form-control', 'accept' => 'image/*', 'name' => 'imagenfile', 'id' => 'imagenfile']) !!}
+                                    @if (isset($publicidad))
+                                        <!--EDITAR-->
+                                        <div id="preview">
+                                            <img 
+                                                class="rounded" 
+                                                height="180" 
+                                                src="{{ asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->imagen) }}" alt=""
+                                            >
+                                        </div>    
+                                    @else
+                                        <!--CREAR-->
+                                        <div id="preview"></div>
+                                    @endif
+                                    
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="card-title">
+                                    <label class="form-label" for="contenido"><span class="fw-bold">Contenido</span></label>
+                                    {!! Form::textarea('contenido', isset($publicidad->contenido) ? $publicidad->contenido : old('contenido'), ['class' => 'form-control']) !!}
+                                </p>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            
                             <div class="col-md-3">
                                 <p class="card-title">
-                                    {!! Form::label('link', 'Enlace:', ['class' => 'form-label']) !!}
-                                    {!! Form::text('link', isset($publicidad->link) ? $publicidad->link : null, ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                                    {!! Form::label('link', 'Enlace:', ['class' => 'fw-bold form-label']) !!}
+                                    {!! Form::text('link', isset($publicidad->link) ? $publicidad->link : null, ['class' => 'form-control']) !!}
                                 </p>
                             </div>
                             
                             <div class="col-md-3">
                                 <p class="card-title">
-                                    {!! Form::label('fechaini', 'Fecha inicio:', ['class' => 'form-label']) !!}
-                                    {!! Form::date('fechaini', isset($publicidad->fechaini) ? $publicidad->fechaini : now(), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                                    {!! Form::label('fechaini', 'Fecha inicio:', ['class' => 'form-label fw-bold']) !!}
+                                    {!! Form::date('fechaini', isset($publicidad->fechaini) ? $publicidad->fechaini : now(), ['class' => 'form-control']) !!}
                                 </p>
                             </div>
                             <div class="col-md-3">
                                 <p class="card-title">
-                                    {!! Form::label('fechafin', 'Fecha fin:', ['class' => 'form-label']) !!}
-                                    {!! Form::date('fechafin', isset($publicidad->fechafin) ? $publicidad->fechafin : now(), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>'64', 'required']) !!}
+                                    {!! Form::label('fechafin', 'Fecha fin:', ['class' => 'form-label fw-bold']) !!}
+                                    {!! Form::date('fechafin', isset($publicidad->fechafin) ? $publicidad->fechafin : now(), ['class' => 'form-control']) !!}
                                 </p>
                             </div>
                         </div>
