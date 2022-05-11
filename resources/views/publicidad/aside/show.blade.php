@@ -10,7 +10,7 @@
     <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 text-justify">
-                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->id . '.' .$publicidad->ext)}}" width="50%" alt=""></a>
+                    <a href="{{$publicidad->link}}" target='_blank'><img class='img-fluid rounded float-left mr-3' src="{{asset('storage/files/publicidad/'. $publicidad->id. '/' .$publicidad->imagen)}}" width="50%" alt=""></a>
                     <p><strong >Contenido: </strong> {{ $publicidad->contenido }}</p>
 
                 </div>
@@ -29,25 +29,3 @@
             </div>
     </div>
 </div>
-
-@if (isset($publicidad))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row justify-content-center">
-                @if (Auth::user()!=null)
-                    @if (Auth::user()->hasRole('admin'))
-                        {!! Form::open(['route'=>['publicidad.update', $publicidad->id]]) !!}
-                            {!! Form::hidden('_method', 'PUT') !!}
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <a class="btn btn-warning" href="{{ route('publicidad.edit', $publicidad->id) }}">Editar</a>
-
-                                <a class="btn btn-success" href="{{ route('publicidad.create') }}">Nuevo</a>
-                            </div>
-                        {!! Form::close() !!}
-                    @endif
-                @endif
-
-            </div>
-        </div>
-    </div>
-@endif

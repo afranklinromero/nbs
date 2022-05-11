@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class publicidadController extends Controller
 {
     //
-
+    protected $dirPublicidad = 'public/files/publicidad/';
     public function __construct(Request $request){
         $this->middleware('auth');
     }
@@ -46,18 +46,23 @@ class publicidadController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $publicidad = new publicidad($request->all());
-        $publicidad->lugar = implode(',',$publicidad->lugar);
+        $publicidad->lugar = implode(',', $publicidad->lugar);
         //dd($publicidad);
 
-        $publicidad->estado = 1;
+        //$publicidad->estado = 1;
         $fileimagen = $request->file('imagen');
-        $name = $fileimagen->getClientOriginalName();
-        $publicidad->imagen = $name;
-        $publicidad->ext = $fileimagen->getClientOriginalExtension();
 
         $publicidad->save();
-        //$image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
-        Storage::disk('local')->putFileAs('public/files/publicidad/'.$publicidad->id, $fileimagen, $publicidad->id . '.' . $fileimagen->getClientOriginalExtension());
+
+        if (isset($fileimagen)){
+            //$name = $fileimagen->getClientOriginalName();
+            //$ext = $fileimagen->getClientOriginalExtension();
+            $publicidad->imagen = $publicidad->id . '.' . $fileimagen->getClientOriginalExtension();
+            $publicidad->save();
+            Storage::disk('local')->putFileAs($this->dirPublicidad . $publicidad->id, $fileimagen, $publicidad->imagen);
+        }
+
+
         //dd($image);
         //Storage::put('/public/publicidad/'.$publicidad->id . '.png', \File::get);
 
@@ -78,39 +83,22 @@ class publicidadController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $publicidad = publicidad::find($id);
-        $tipo = $request->tipo;
+        $publicidad->fill($request->all());
+
+        $publicidad->lugar = implode(',', $publicidad->lugar);
+
+        $fileimagen = $request->file('imagen');
 
 
-
-        if (isset($tipo) && $tipo == 'baja'){
-            $publicidad->estado = 0;
-            $publicidad->updated_at = now();
-            $publicidad->save();
-            return redirect()->route('publicidad.index');
-        } else if (isset($tipo) && $tipo == 'alta'){
-            $publicidad->estado = 1;
-            $publicidad->updated_at = now();
-            $publicidad->save();
-            return redirect()->route('publicidad.index');
-        } else{ //ACTUALIZAR
-            $publicidad->lugar = implode(',',$request->lugar);
-            $publicidad->titulo = $request->titulo;
-            if (isset($request->imagen)){
-                $fileimagen = $request->file('imagen');
-                $name = $fileimagen->getClientOriginalName();
-                $publicidad->imagen = $name;
-                $publicidad->ext = $fileimagen->getClientOriginalExtension();
-                //$image->move(public_path().'/img/publicidad/', $publicidad->id . '.png');
-                Storage::disk('local')->putFileAs('public/files/publicidad/'.$publicidad->id, $fileimagen, $publicidad->id . '.' . $fileimagen->getClientOriginalExtension());
-            }
-            $publicidad->contenido = $request->contenido;
-            $publicidad->link = $request->link;
-            $publicidad->fechaini = $request->fechaini;
-            $publicidad->fechafin = $request->fechafin;
-            $publicidad->updated_at = now();
-            $publicidad->save();
-            return redirect()->route('publicidad.show', $publicidad->id);
+        if (isset($fileimagen)){
+            //$name = $fileimagen->getClientOriginalName();
+            //$ext = $fileimagen->getClientOriginalExtension();
+            $publicidad->imagen = $publicidad->id . '.' . $fileimagen->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs($this->dirPublicidad . $publicidad->id, $fileimagen, $publicidad->imagen);
         }
+
+        $publicidad->save();
+        return redirect()->route('publicidad.show', $publicidad->id);
 
     }
 
@@ -120,6 +108,7 @@ class publicidadController extends Controller
         if (!Auth::user()->hasRole('admin')) return redirect()->route('libro.index');
 
         $publicidad = Publicidad::find($id);
+        Storage::deleteDirectory($this->dirPublicidad . $id);
         /*
         $blog->estado = 0;
         $blog->updated_at = now();

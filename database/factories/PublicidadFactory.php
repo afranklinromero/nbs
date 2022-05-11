@@ -13,7 +13,6 @@ $factory->define(Publicidad::class, function (Faker $faker) {
         //
         'user_id' => User::all('id')->random(),
         'imagen' => $faker->text(5),
-        'ext' => 'png',
         'titulo' => $faker->text(32),
         'contenido' => $faker->text(1024),
         'fechaini' => now(),

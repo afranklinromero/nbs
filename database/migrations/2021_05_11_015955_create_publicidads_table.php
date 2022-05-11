@@ -18,7 +18,6 @@ class CreatePublicidadsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('imagen', 64);
-            $table->string('ext', 6);
             $table->string('titulo', 64);
             $table->string('contenido', 3074);
             $table->string('link', 128);

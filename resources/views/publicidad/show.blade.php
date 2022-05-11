@@ -4,11 +4,14 @@
 
     <div class="container" id="publicidad-head">
         <div class="container" id="publicidad-body">
-            <h3 style="color: #d86304">Titulo: {{$publicidad->titulo}}</h3>
+            <h3 style="color: #d86304">
+                Titulo: {{$publicidad->titulo}}
+                @include('publicidad.aside.show-buttons')
+            </h3>
             @include('publicidad.aside.show')
             <div class="row">
-                <div class="col text-center">
-                    <a href="{{ route('publicidad.index') }}#publicidades" class="btn btn-link">Volver</a>
+                <div class="col">
+                    @include('publicidad.aside.show-buttons')
                 </div>
             </div>
         </div>

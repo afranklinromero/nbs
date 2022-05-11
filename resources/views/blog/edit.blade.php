@@ -7,19 +7,19 @@
             Editar artitulo
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    <a href="{{route('blog.index')}}" class="btn btn-success index">Cancelar</a>
-                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-success store']) !!}
+                    <a href="{{route('blog.index')}}" class="btn btn-primary index">Cancelar</a>
                 </div>
             </div>
-        </h3>      
+        </h3>
         @method('PUT')
         {!! Form::hidden('tipo', 'update', null) !!}
         @include('blog.aside.form')
         <br>
         <div class="text-right">
             <div class="btn-group" role="group">
-                <a href="{{route('blog.index')}}" class="btn btn-success index">Cancelar</a>
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success store']) !!}
+                <a href="{{route('blog.index')}}" class="btn btn-primary index">Cancelar</a>
             </div>
         </div>
 
@@ -32,11 +32,11 @@
 @section('scriptlocal')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.3.200/pdf.min.js" integrity="sha512-YP2ayDGlp2agSpcEeqEbVBwpU1OjNVKk3teB/J5j0947d5wstmhirMUxHFQCh7Y7HwqZCAoqBEHlltvGReweTQ==" crossorigin="anonymous"></script>
-    
+
     <script>
         $(document).ready(function(){
             var url = $('#urlpdf').attr('href');
-            
+
         });
         document.getElementById("imagen").onchange = function(e) {
             // Creamos el objeto de la clase FileReader
@@ -64,15 +64,15 @@
         });
 
         function leerpdf(file){
-            
+
             var canvasElement = document.querySelector("canvas")
-            
+
             if(file.type != "application/pdf"){
                 console.error(file.name, "is not a pdf file.")
                 return
             }
-            
-            var fileReader = new FileReader();  
+
+            var fileReader = new FileReader();
 
             fileReader.onload = function() {
                 var typedarray = new Uint8Array(this.result);

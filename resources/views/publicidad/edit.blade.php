@@ -2,14 +2,14 @@
 
 @section('contenido')
 <div class="container">
-    
+
     {!! Form::open(['route'=>['publicidad.update', $publicidad->id], 'id'=>'form-publicidad-create', 'enctype'=>"multipart/form-data"]) !!}
         <h3 style="color: #d86304" class="mb-3">
             Editar anuncion publicitario
             <div class="float-right">
                 <div class="btn-group" role="group">
-                    <a href="{{route('publicidad.index')}}" class="btn btn-success index">Cancelar</a>
-                    {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-success store']) !!}
+                    <a href="{{route('publicidad.index')}}" class="btn btn-primary index">Cancelar</a>
                 </div>
             </div>
         </h3>
@@ -17,11 +17,11 @@
         @include('publicidad.aside.form')
         <div class="text-right">
             <div class="btn-group" role="group">
-                <a href="{{route('publicidad.index')}}" class="btn btn-success index">Cancelar</a>
-                {!! Form::submit('Guardar', ['class' => 'btn btn-primary store']) !!}
+                {!! Form::submit('Guardar', ['class' => 'btn btn-success store']) !!}
+                <a href="{{route('publicidad.index')}}" class="btn btn-primary index">Cancelar</a>
             </div>
         </div>
-    
+
 
     {!! Form::close() !!}
 </div>
