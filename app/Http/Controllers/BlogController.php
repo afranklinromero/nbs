@@ -57,20 +57,24 @@ class BlogController extends Controller
         } else {
             $blog->imagen = null;
         }
+
         $filepdf = $request->file('documentopdf');
         if (isset($filepdf)) $blog->documentopdf = $filepdf->getClientOriginalName(); else $blog->documentopdf = null;
 
         $blog->save();
 
+
+
         if (isset($fileimagen)) {
-            $imagen_name = $blog->id . '.' . $fileimagen->getClientOriginalExtension();
-            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $fileimagen, $imagen_name);
-            //$fileimagen->move(public_path().'/img/blog/', $blog->id . '.' . $fileimagen->getClientOriginalExtension());
+            $blog->imagen = $blog->id . '.' . $fileimagen->getClientOriginalExtension();
+            $blog->save();
+            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $fileimagen, $blog->imagen);
         }
         if (isset($filepdf)) {
             //$filepdf->move(public_path().'/img/blog/doc', $blog->id . '.' .$filepdf->getClientOriginalExtension());
+            $blog->documentopdf = $blog->id . '.' . $filepdf->getClientOriginalExtension();
             $pdf_name = $blog->id + '.' . $filepdf->getClientOriginalExtension();
-            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $filepdf, $pdf_name);
+            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $filepdf, $blog->documentopdf);
         }
 
         //dd($image);
@@ -96,36 +100,24 @@ class BlogController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $blog = Blog::find($id);
-        if (isset($request->tipo) && $request->tipo=='update'){
-            $blog->titulo = $request->titulo;
-            if (isset($request->imagen)){
-                $fileimagen = $request->file('imagen');
-                $name = $fileimagen->getClientOriginalName();
-                $ext = $fileimagen->getClientOriginalExtension();
-                //$image->move(public_path().'/img/blog/', $blog->id . '.'.$ext);
-                Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $fileimagen, $blog->id . '.' . $fileimagen->getClientOriginalExtension());
-                $blog->imagen = $name;
-                $blog->ext = $ext;
-            }
+        $blog->fill($request->all());
 
-            if (isset($request->documentopdf)){
-                $filepdf = $request->file('documentopdf');
-                $name = $filepdf->getClientOriginalName();
-                //$pdf->move(public_path().'/img/blog/doc/', $blog->id . '.' . $ext);
-                Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $filepdf, $blog->id . '.pdf');
-                $blog->documentopdf = $name;
-            }
 
-            $blog->youtube = $request->youtube;
-            $blog->contenido = $request->contenido;
-            $blog->autor = $request->autor;
-            $blog->referencia = $request->referencia;
+        if (isset($request->imagen)){
+            $fileimagen = $request->file('imagen');
+            //$name = $fileimagen->getClientOriginalName();
+            //$ext = $fileimagen->getClientOriginalExtension();
+            $blog->imagen = $id . '.' . $fileimagen->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs($this->dirBlog . $blog->id, $fileimagen, $blog->imagen);
         }
 
-        elseif (isset($request->tipo) && $request->tipo=='alta') $blog->estado=1;
-        elseif (isset($request->tipo) && $request->tipo=='baja') $blog->estado=0;
+        if (isset($request->documentopdf)){
+            $filepdf = $request->file('documentopdf');
+            $blog->documentopdf =  $id . $filepdf->getClientOriginalName();
+            //$pdf->move(public_path().'/img/blog/doc/', $blog->id . '.' . $ext);
+            Storage::disk('local')->putFileAs('public/files/blog/'.$blog->id, $filepdf, $blog->documentopdf);
+        }
 
-        $blog->updated_at = now();
         $blog->save();
 
 
@@ -152,6 +144,8 @@ class BlogController extends Controller
         //dd('destruir');
         if(!Auth::check()) return redirect()->route('libro.index');
         if (!Auth::user()->hasRole('admin')) return redirect()->route('libro.index');
+
+        Storage::deleteDirectory($this->dirBlog . $id);
 
         $blog = Blog::find($id);
         /*

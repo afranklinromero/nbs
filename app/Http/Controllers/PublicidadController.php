@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class publicidadController extends Controller
 {
     //
-
+    protected $dirPublicidad = 'public/files/publicidad/';
     public function __construct(Request $request){
         $this->middleware('auth');
     }
@@ -47,7 +47,7 @@ class publicidadController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $publicidad = new publicidad($request->all());
-        $publicidad->lugar = implode(',',$publicidad->lugar);
+        $publicidad->lugar = implode(',', $publicidad->lugar);
         //dd($publicidad);
 
         $publicidad->estado = 1;
@@ -96,6 +96,9 @@ class publicidadController extends Controller
 
         return redirect()->route('publicidad.show', $publicidad->id);
 
+        $publicidad->save();
+        return redirect()->route('publicidad.show', $publicidad->id);
+
     }
 
     public function destroy(Request $request, $id){
@@ -104,6 +107,7 @@ class publicidadController extends Controller
         if (!Auth::user()->hasRole('admin')) return redirect()->route('libro.index');
 
         $publicidad = Publicidad::find($id);
+        Storage::deleteDirectory($this->dirPublicidad . $id);
         /*
         $blog->estado = 0;
         $blog->updated_at = now();

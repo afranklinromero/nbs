@@ -17,6 +17,6 @@ class PublicidadSeeder extends Seeder
         for($i=2; $i<=6; $i++){
             factory(Publicidad::class, 1)->create(['imagen' => $i . '.png']);
         }
-        
+
     }
 }

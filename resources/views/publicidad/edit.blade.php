@@ -2,7 +2,7 @@
 
 @section('contenido')
 <div class="container">
-    
+
     {!! Form::open(['route'=>['publicidad.update', $publicidad->id], 'id'=>'form-publicidad-create', 'enctype'=>"multipart/form-data"]) !!}
         <input type="hidden" name="id" value="{{ $publicidad->id }}">
         <h3 style="color: #d86304" class="mb-5">
@@ -22,7 +22,7 @@
                 <a href="{{route('publicidad.index')}}" class="btn btn-primary index">Cancelar</a>
             </div>
         </div>
-    
+
 
     {!! Form::close() !!}
 </div>

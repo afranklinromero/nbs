@@ -3,11 +3,11 @@
         @foreach ($publicidades as $i=>$publicidad)
             @if ($i==0)
                 <div class="carousel-item active" data-bs-interval="5000">
-                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext)}}" class="d-block w-100" alt="..."></a>
+                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->imagen)}}" class="d-block w-100 rounded" alt="..."></a>
                 </div>
             @else
                 <div class="carousel-item" data-bs-interval="5000">
-                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->id.'.'.$publicidad->ext)}}" class="d-block w-100" alt="..."></a>
+                    <a target="_blank" href="{{$publicidad->link}}"><img src="{{asset('storage/files/publicidad/'.$publicidad->id.'/'.$publicidad->imagen)}}" class="d-block w-100 rounded" alt="..."></a>
                 </div>
             @endif
         @endforeach

@@ -254,7 +254,7 @@ class LibroController extends Controller
        Storage::disk('local')->delete($this->dirTapas . $libro->tapa);
        Storage::disk('local')->delete($this->dirLibros . $libro->documentopdf);
        $libro->delete();
-       
+
        return redirect()->route('libro.index')->with('info', 'El Libro fue eliminado');
     }
 
