@@ -3,11 +3,17 @@
 @section('contenido')
 
     <div class="container" id="pregunta-head">
+        @include('pregunta.aside.info')
         <div class="container" id="pregunta-body">
+            <div class="row">
+                <div class="col">
+                    @include('pregunta.aside.show-buttons')
+                </div>
+            </div>
             @include('pregunta.aside.show')
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('concurso.index') }}#preguntas" class="btn btn-success">Volver</a>
+                    @include('pregunta.aside.show-buttons')
                 </div>
             </div>
 

@@ -5,7 +5,7 @@
             <a href="{{ route('publicidad.create') }}" class="btn btn-success">Nuevo</a>
             <a href="{{ route('publicidad.edit', $publicidad->id) }}" class="btn btn-success">Editar</a>
             <a 
-                href="{{ route('publicidad.create') }}" 
+                href="#" 
                 class="btn btn-success" 
                 data-bs-toggle="modal" 
                 data-bs-target="#deletePublicidadModal{{ $publicidad->id }}" 

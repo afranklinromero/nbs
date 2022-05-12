@@ -97,7 +97,7 @@
                                 </table>
                             </p>
                             <div class="d-grid gap-2 mb-3">
-                                <a class="block btn btn-success" href="{{route('concurso.jugar', $temaconcurso->id)}}">JUGAR</a>
+                                <a class="block rounded-pill btn btn-success" href="{{route('concurso.jugar', $temaconcurso->id)}}">JUGAR</a>
                             </div>
                             <div>
                                 @if (Auth::check() && Auth::user()->hasRole('admin'))

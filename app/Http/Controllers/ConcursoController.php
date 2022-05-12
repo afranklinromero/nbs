@@ -42,15 +42,13 @@ class ConcursoController extends Controller
 
 
         //$temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(5)->setPath(route('temaconcurso.index'));;
-        $temaconcursos = $temaconcursos->paginate(5)->setPath(route('temaconcurso.index'));;
+        $temaconcursos = $temaconcursos->paginate(10)->setPath(route('temaconcurso.index'));;
 
         //$request->session()->put('info', 'Listado de concursos');
 
         //PREGUNTAS
         $preguntaEstado = 3;
         if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
-
-
 
         if ($preguntaEstado == 3)
             $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1);
@@ -61,7 +59,7 @@ class ConcursoController extends Controller
             $preguntas = $preguntas->where('user_id', Auth::user()->id)->where('estado', 1);
 
 
-        $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
+        $preguntas = $preguntas->paginate(10)->setPath(route('pregunta.index'));
 
         //dd($preguntas);
 

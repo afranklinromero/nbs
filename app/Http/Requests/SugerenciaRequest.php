@@ -4,10 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SugerenciasnbsRequest extends FormRequest
+class SugerenciaRequest extends FormRequest
 {
 
-    protected $redirectRoute = 'sugerenciasnbs.create';
+    protected $redirectRoute = 'sugerencia.create';
     /**
      * Determine if the user is authorized to make this request.
      *

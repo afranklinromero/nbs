@@ -67,8 +67,8 @@ Route::resource('clasificacion', 'ClasificacionController');
 
 Route::resource('pregunta', 'PreguntaController');
 
-Route::put('sugerenciasnbs/showme/{id}', 'SugerenciasnbsController@showme')->name('sugerenciasnbs.showme');
-Route::resource('sugerenciasnbs', 'SugerenciasnbsController');
+Route::put('sugerencia/showme/{id}', 'SugerenciaController@showme')->name('sugerencia.showme');
+Route::resource('sugerencia', 'SugerenciaController');
 
 
 Route::get('respuestasugerencia/createBySugerencia_id/{sugerencia_id}', 'RespuestasugerenciaController@createBySugerencia_id')->name('respuestasugerencia.createBySugerencia_id');

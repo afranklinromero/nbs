@@ -13,7 +13,7 @@ class CreateSugerenciasNBSTable extends Migration
      */
     public function up()
     {
-        Schema::create('sugerenciasnbs', function (Blueprint $table) {
+        Schema::create('sugerencia', function (Blueprint $table) {
             $table->engine = 'InnoDB'; //para db relacional
             $table->id();
             //$table->bigInteger('user_id')->unsigned();
@@ -35,6 +35,6 @@ class CreateSugerenciasNBSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sugerenciasnbs');
+        Schema::dropIfExists('sugerencia');
     }
 }

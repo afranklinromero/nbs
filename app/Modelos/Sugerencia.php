@@ -4,10 +4,10 @@ namespace App\Modelos;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SugerenciasNBS extends Model
+class Sugerencia extends Model
 {
     //
-    protected $table = 'sugerenciasnbs';
+    protected $table = 'sugerencia';
     protected $fillable = ['name', 'email', 'subject', 'content'];
 
     /*

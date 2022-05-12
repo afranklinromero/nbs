@@ -39,22 +39,31 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3"></div>
         <div class="col-md-6">
             @include('publicidad.aside.carrousel')
         </div>
-        <div class="col-md-3"></div>
     </div>
     <hr>
     <div class="container" id="concurso-body">
         @include('concurso.aside.index')
     </div>
 
-    <div id="temaconcurso"> @include('concurso.index.concurso') </div> 
+    <div id="temaconcurso">
+        @include('concurso.index.concurso')
+    </div>
     <hr>
-    <div id='pregunta'> @include('concurso.index.pregunta') </div> 
+
+    <div id='clasificacion'>
+        @include('concurso.index.clasificacion')
+    </div>
+
     <hr>
-    <div id='clasificacion'> @include('concurso.index.clasificacion') </div> 
+
+    <div id='preguntados'>
+        @include('pregunta.aside.index')
+    </div>
+
+
     <hr>
 
 </div>
@@ -67,6 +76,7 @@
         var href = $(this).attr('href');
 
         if (href.indexOf('temaconcurso') > 0){
+            alert('temaconcurso');
             var frm = $('#frm-concursos');
             $.get(href, frm.serialize(), function(result){
                 $('#temaconcurso').html(result);
@@ -74,9 +84,10 @@
         }
 
         if (href.indexOf('pregunta') > 0){
+            //alert(href);
             var frm = $('#frm-preguntas');
             $.get(href, frm.serialize(), function(result){
-                $('#pregunta').html(result);
+                $('#preguntados').html(result);
             });
         }
     });

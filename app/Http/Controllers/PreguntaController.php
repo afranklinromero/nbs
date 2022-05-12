@@ -20,30 +20,37 @@ class PreguntaController extends Controller
     }
 
     public function index(Request $request){
+        $paginate = 10;
         Auth::user()->authorizeRoles(['admin', 'user']);
         $preguntaEstado = 3;
-
-        /*if (isset($request->preguntaEstado)){
+        $user_id = Auth::user()->id;
+        if (isset($request->preguntaEstado)){
             $preguntaEstado = $request->preguntaEstado;
-            dd($preguntaEstado);
-        }*/
+            //dd($preguntaEstado);
+        }
+        //dd('333333333');
+        $preguntas = null;
+        if (Auth::user()->hasRole('admin')){
+            //de todos los usuarios, no hase filtro por usuario
+            //ni por estado
+            $preguntas = Pregunta::orderBy('estado', 'DESC')->orderBy('id', 'DESC');
+        }
+        else {//preguntas del usuario logeado
+            $preguntas = Pregunta::orderBy('estado', 'DESC')->orderBy('id', 'DESC')->where('user_id', $user_id);
+        }
 
+        if ($preguntaEstado<>3)
+            $preguntas = $preguntas->where('estado', $preguntaEstado);
 
-        if (isset($request->preguntaEstado)) $preguntaEstado = $request->preguntaEstado;
-
-        if ($preguntaEstado == 3)
-            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1);
-        else
-            $preguntas = Pregunta::orderby('id', 'DESC')->where('estado', 1);//$preguntaEstado);
-
-        if (!Auth::user()->hasRole('admin'))
-            $preguntas = $preguntas->where('user_id', Auth::user()->id)->where('estado', 1);
-
-        $preguntas = $preguntas->paginate(5)->setPath(route('pregunta.index'));
-
-        if ($request->ajax())
-            return view('concurso.index.pregunta', compact('preguntas', 'preguntaEstado'))
+        $preguntas = $preguntas->paginate($paginate)->setPath(route('pregunta.index'));
+        //dd('lkajsdf');
+        if ($request->ajax()){
+            //dd('qwerqwerqwer');
+            return view('pregunta.aside.index', compact('preguntas', 'preguntaEstado'))
             ->render();
+        }
+
+        return view('pregunta.index', compact('preguntas', 'preguntaEstado'));
 
     }
 

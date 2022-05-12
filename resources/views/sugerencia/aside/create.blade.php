@@ -1,10 +1,10 @@
-@include('sugerenciasnbs.aside.info')
-@include('sugerenciasnbs.aside.error')
+@include('sugerencia.aside.info')
+@include('sugerencia.aside.error')
 
 <h3>Enviar Sugerencia</h3>
     <div class="row">
         <div class="col-md-6">
-        {!! Form::open(['route'=>'sugerenciasnbs.store']) !!}
+        {!! Form::open(['route'=>'sugerencia.store']) !!}
             {{ csrf_field() }}
             <div class="mb-3">
             {!! Form::label('name', 'Nombre:', ['class' => 'form-label']) !!}

@@ -7,7 +7,7 @@
             Preguntas para las olimpiadas de conocimiento
         </h3>
         @include('pregunta.aside.aside')
-        <div class="container" id="pregunta-body">
+        <div id="pregunta-body">
             @include('pregunta.aside.index')
         </div>
 
@@ -18,38 +18,17 @@
 @section('scriptlocal')
 <script>
 
-    $(document).on('click', '.pagination a', function(e) {
+    $(document).on('click', '.page-link', function(e) {
         event.preventDefault();
-        console.log('pagination');
-        page = $(this).attr('href').split('page=')[1];;
-        console.log('pagina: '+ page);
-        //var route = $('#paginationlink').attr('href');
+        var href = $(this).attr('href');
         var frm = $('#frm-preguntas');
-        action = frm.attr('action')+'?page='+page;
-        console.log('formulario: ' +  action);
-
-        $.get(action, frm.serialize(), function(result){
+        $.get(href, frm.serialize(), function(result){
+            //console.log(result);
             $('#pregunta-body').html(result);
         });
 
     });
-/*
-    $(document).on('click', '.show', function(e) {
-        event.preventDefault();
-        console.log('show');
-        //page = $(this).attr('href').split('page=')[1];;
-        //console.log('pagina: '+ page);
-        //var route = $('#paginationlink').attr('href');
-        var route = $(this).attr('href');
-        console.log(route);
-        //alert(route);
 
-        $.get(route,  function(result){
-            $('#pregunta-body').html(result);
-        });
-
-    });
-*/
     $(document).on('change', '.index', function(e) {
         event.preventDefault();
 

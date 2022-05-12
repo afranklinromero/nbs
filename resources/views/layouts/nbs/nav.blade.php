@@ -17,7 +17,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('sugerenciasnbs.create') }}">SUGERENCIAS </a>
+                    <a class="nav-link" href="{{ route('sugerencia.create') }}">SUGERENCIAS </a>
                 </li>
 
                 <li class="nav-item">
@@ -42,7 +42,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('blog.index')}}">Administrar blog</a>
                             <a class="dropdown-item" href="{{route('publicidad.index')}}">Administrar publicidad</a>
-                            <a class="dropdown-item" href="{{route('sugerenciasnbs.index')}}">Administrar sugerencias</a>
+                            <a class="dropdown-item" href="{{route('sugerencia.index')}}">Administrar sugerencias</a>
                         </div>
                     </li>
                 @endif

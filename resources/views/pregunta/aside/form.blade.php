@@ -3,6 +3,11 @@
     <div class="card-body">
         <h4 class="card-title">
             <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+            @if (Auth::user()->hasRole('admin'))
+                <input type="hidden" name="estado" value="1">
+            @else
+                <input type="hidden" name="estado" value="2">
+            @endif
             {!! Form::hidden('user_id',  Auth::user()->id ) !!}
             {!! Form::label('tema_id', 'Id Tema:', ['class' => 'form-label']) !!}
             {!! Form::select('tema_id', $temas->pluck('nombre', 'id'), isset($pregunta->tema_id)? $pregunta->tema_id: old('tema_id'), ['class'=>'form-control']) !!}

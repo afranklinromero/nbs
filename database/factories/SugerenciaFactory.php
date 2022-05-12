@@ -3,10 +3,10 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\User;
-use App\Modelos\SugerenciasNBS;
+use App\Modelos\Sugerencia;
 use Faker\Generator as Faker;
 
-$factory->define(SugerenciasNBS::class, function (Faker $faker) {
+$factory->define(Sugerencia::class, function (Faker $faker) {
     return [
         //
         //'user_id' => User::all('id')->random(),

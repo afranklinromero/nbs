@@ -3,9 +3,9 @@
 @section('contenido')
 
 <div class="container">
-    <p class="h3 text-center">Bienvenido a la ayuda</p>
+    <p class="h3 text-center fw-bold">Bienvenido a la ayuda</p>
     <p class="fs-6 text-center text-secondary">aqui podras obtener ayuda sobre como usar nuestro buscador.</p>
-    <p class="h3 fw-bold">Videos de ayuda</p>
+    <p class="h4 fw-bold">Videos de ayuda</p>
     <div class="row">
         <div class="col-md-4">
             <a href="https://share.vidyard.com/watch/vCncxCeFgFxyu22aG4zU52?" target="_blank">
@@ -20,7 +20,7 @@
             <p class="fw-bold fs-6 mt-3">Como utilizar buscar dentro de un documento pdf.</p>
         </div>
     </div>
-    <p class="fs-5 text-secondary mt-3">Para enviarnos tus sugerencias has click  <a class="link-success" href="{{ route('sugerenciasnbs.create') }}">aquí</a></p>
+    <p class="fs-5 text-secondary mt-3">Para enviarnos tus sugerencias has click  <a class="link-success" href="{{ route('sugerencia.create') }}">aquí</a></p>
 
 </div>
 @endsection

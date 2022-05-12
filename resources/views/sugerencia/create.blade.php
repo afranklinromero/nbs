@@ -2,7 +2,7 @@
 
 @section('contenido')
 <div class="container">
-    @include('sugerenciasnbs.aside.create')
+    @include('sugerencia.aside.create')
 </div>
 
 @endsection

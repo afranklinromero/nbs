@@ -15,13 +15,14 @@ class CreateRespuestasugerenciasTable extends Migration
     {
         Schema::create('respuestasugerencia', function (Blueprint $table) {
             $table->id();
-            //$table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('sugerencianbs_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('sugerencia_id')->unsigned();
             $table->string('respuesta', 1024);
             $table->integer('estado')->default(1);
             $table->timestamps();
 
-            $table->foreign('sugerencianbs_id')->references('id')->on('sugerenciasnbs');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('sugerencia_id')->references('id')->on('sugerencia')->onDelete('cascade');
         });
     }
 
