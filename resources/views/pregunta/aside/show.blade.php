@@ -1,4 +1,4 @@
-@include('pregunta.aside.info')
+
 <h3>{{$pregunta->subject}}</h3>
 <div class="row">
     <div class="col-md-12">
@@ -66,10 +66,10 @@
                     @endforeach
                 </tbody>
         </table>
-    </div>  
+    </div>
 </div>
 @if (isset($preguntas))
-    
+
 
 <div class="row">
     <div class="col-md-12">
