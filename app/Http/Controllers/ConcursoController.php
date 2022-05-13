@@ -49,7 +49,7 @@ class ConcursoController extends Controller
 
 
         if (!Auth::user()->hasRole('admin'))// si no es administrador filtra por fecha
-            $temaconcursos = $temaconcursos->where('fechaini', '<=', now())->where('fechafin', '>=', now());
+            $temaconcursos = $temaconcursos->where('fechaini', '<=', now())->where('fechafin', '>=', now())->where('estado', 1);
 
         //$temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(5)->setPath(route('temaconcurso.index'));;
         $temaconcursos = $temaconcursos->paginate(10)->setPath(route('temaconcurso.index'));;

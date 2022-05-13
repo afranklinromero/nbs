@@ -4,19 +4,8 @@
         $image = asset('storage/files/publicidad/'.$publicidadinicio->id . '/' . $publicidadinicio->imagen);
     @endphp
 @endif
-@section('css')
-    <style>
-        .mimagen{
-            background-image: url('{{ $image }}');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-    </style>
-@endsection
 
 @section('contenido')
-
 
 <div class="container">
 
@@ -34,7 +23,7 @@
                 <div class="modal-body">
 
                     <a href="{{ $publicidadinicio->link }}#" target="_blank">
-                        <img width="100%" src="{{ $image }}" class="img-fluid"  style="opacity: 1">
+                        <img width="100%" src="{{ $image }}" class="img-fluid rounded"  style="opacity: 1">
 
                     </a>
                 </div>
