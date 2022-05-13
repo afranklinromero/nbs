@@ -12,7 +12,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Olimpiadas de Conocimiento en Normas de Salud</h5>
                   <p class="card-text">Participa de esta olimpiada, respondiendo 10 preguntas en un determinado tiempo, mientras mas participes tendras mas oportunidad de ganar</p>
-                  <a href="#olimpiadas" class="btn btn-outline-success">Ingresar</a>
+                  <a href="#olimpiadas" class="btn rounded-pill btn-success">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Ver la clasificacion</h5> <br>
                   <p class="card-text">Mira la clasificación en linea, y ve en que lugar estas, tus puntos son acumulativos, mientras mas participes tendras mas oportunidades de ganar.</p>
-                    <a href="#clasificacion" class="btn btn-outline-success">Ingresar</a>
+                    <a href="#clasificacion" class="btn rounded-pill btn-success">Ingresar</a>
                 </div>
             </div>
         </div>
@@ -32,39 +32,30 @@
                 <div class="card-body">
                   <h5 class="card-title">Preguntas</h5><br>
                   <p class="card-text">Puedes sugerir algunas preguntas para las olimpiadas, tu pregunta será evaluada por nuestro equipo, y se mostrará con tu nombre en la olimpiada.</p>
-                  <a href="{{route('pregunta.create')}}" class="btn btn-outline-success">Registrar</a>
-                  <a href="#preguntas" class="btn btn-outline-success">Ver mis preguntas</a>
+                  <a href="{{route('pregunta.create')}}" class="btn rounded-pill btn-success">Registrar</a>
+                  <a href="{{ route('pregunta.index') }}" class="btn rounded-pill btn-success">Ver mis preguntas</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="col-md-6">
             @include('publicidad.aside.carrousel')
         </div>
     </div>
-    <hr>
+    <!--
     <div class="container" id="concurso-body">
         @include('concurso.aside.index')
     </div>
-
+    -->
     <div id="temaconcurso">
         @include('concurso.index.concurso')
     </div>
-    <hr>
 
     <div id='clasificacion'>
         @include('concurso.index.clasificacion')
     </div>
 
-    <hr>
-
-    <div id='preguntados'>
-        @include('pregunta.aside.index')
-    </div>
-
-
-    <hr>
 
 </div>
 @endsection

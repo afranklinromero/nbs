@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
             'configuracion',
             'concurso',
             'temaconcurso',
-            'inscripcion',
             'participacion',
             'detalleparticipacion',
             'clasificacion',
@@ -54,7 +53,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ConfiguracionSeeder::class);
         $this->call(ConcursoSeeder::class);
         $this->call(TemaconcursoSeeder::class);
-        $this->call(InscripcionSeeder::class);
         $this->call(ParticipacionSeeder::class);
         $this->call(DetalleparticipacionSeeder::class);
         $this->call(ClasificacionSeeder::class);

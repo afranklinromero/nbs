@@ -1,9 +1,7 @@
 
-<h3 id="clasificacion" class="text-primary text-center">TABLAS DE CLASIFICACION</h3>
-@include('concurso.aside.aside.clasificacion')
-@include('concurso.aside.info.clasificacion')
+<h3 id="clasificacion" class="text-success fw-bold">TABLAS DE CLASIFICACION</h3>
 <div class="row">
- 
+
         @foreach($temaconcursos as $temaconcurso)
             <div class="col-md-12">
                 <div class="card mb-3 shadow">
@@ -34,14 +32,14 @@
                                             @php $entop = true; @endphp
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
-                                                <td>*** {{ $clasificacion->usuario->name }} 
+                                                <td>*** {{ $clasificacion->usuario->name }}
                                                 <td> {{ $clasificacion->puntos }} </td>
                                             </tr>
-                                            
+
                                         @else
                                             <tr>
                                                 <td> {{ $nro }}° </td>
-                                                <td> {{ $clasificacion->usuario->name }} 
+                                                <td> {{ $clasificacion->usuario->name }}
                                                 <td> {{ $clasificacion->puntos }} </td>
                                             </tr>
                                         @endif
@@ -49,7 +47,7 @@
                                         @if (!$entop && Auth::user()->id == $clasificacion->usuario->id)
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
-                                                <td>*** {{ $clasificacion->usuario->name }} 
+                                                <td>*** {{ $clasificacion->usuario->name }}
                                                 <td> {{ $clasificacion->puntos }} </td>
                                             </tr>
                                         @endif
@@ -63,5 +61,5 @@
                 </div>
             </div>
         @endforeach
-    
+
 </div>

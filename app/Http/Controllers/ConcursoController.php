@@ -30,16 +30,26 @@ class ConcursoController extends Controller
     }
 
     public function index(Request $request){
+        //los administradores pueden ver todos las olimpiadas
+        //los usuarios solo pueden ver las olimpiadas activas y en fechas
         Auth::user()->authorizeRoles(['admin', 'user']);
         //CONCURSOS
         $concursoEstado = 3;
-        if (isset($request->concursoEstado)) $concursoEstado = $request->concursoEstado;
 
-        if ($concursoEstado == 3)
+
+        if (isset($request->concursoEstado))
+            $concursoEstado = $request->concursoEstado;
+
+        $temaconcurso = null;
+        if ($concursoEstado == 3){ // todos
             $temaconcursos = Temaconcurso::orderby('id', 'DESC');
+        }
         else
             $temaconcursos = Temaconcurso::orderby('id', 'DESC')->where('estado', $concursoEstado);
 
+
+        if (!Auth::user()->hasRole('admin'))// si no es administrador filtra por fecha
+            $temaconcursos = $temaconcursos->where('fechaini', '<=', now())->where('fechafin', '>=', now());
 
         //$temaconcursos=Temaconcurso::orderBy('id', 'DESC')->paginate(5)->setPath(route('temaconcurso.index'));;
         $temaconcursos = $temaconcursos->paginate(10)->setPath(route('temaconcurso.index'));;
@@ -238,10 +248,10 @@ class ConcursoController extends Controller
    }
 
    public function destroy ($id){
-    Auth::user()->authorizeRoles([]);
+        Auth::user()->authorizeRoles(['admin']);
        $concurso = Concurso::find($id);
        $concurso->delete();
-       return back ()->with('info', 'El Tipoproducto fue eliminado');
+       return redirect()->route('concurso.index')->with('info', 'El registro fue eliminado');
     }
 
     public function obtener(Request $request){

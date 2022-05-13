@@ -8,14 +8,14 @@
             @yield('contenido')
         </main>
     </div>
-    
-    
-    
+
+
+
     @include('layouts.nbs.footer')
-    
+
     @include('layouts.nbs.script')
     @yield('scriptlocal')
-    
+
 </body>
 
 </html>

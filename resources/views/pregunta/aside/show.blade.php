@@ -15,7 +15,7 @@
             switch($pregunta->estado){
                 case 0:
                     $btn = "danger";
-                    $testado = "Anulado";
+                    $testado = "Rechazado";
                     break;
                 case 1:
                     $btn = "success";
@@ -70,6 +70,7 @@
 </div>
 @if (isset($preguntas))
 
+<!--
 
 <div class="row">
     <div class="col-md-12">
@@ -110,4 +111,5 @@
         </div>
     </div>
 </div>
+-->
 @endif

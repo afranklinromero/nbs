@@ -115,19 +115,19 @@ class PreguntaController extends Controller
 
     public function update(Request $request, $id)
     {
-        //dd($request->escorrectas);
         Auth::user()->authorizeRoles(['admin', 'user']);
         $pregunta = pregunta::find($id);
         $pregunta->fill($request->all());
         $pregunta->save();
 
         $valrespuestas = $request->respuestas;
-
-        foreach ($request->respuestas_id as $i=>$respuesta_id) {
-            $respuesta = Respuesta::find($respuesta_id);
-            $respuesta->respuesta = $request->respuestas[$i];
-            $respuesta->escorrecta = $request->escorrectas[$i];
-            $respuesta->save();
+        if (isset($request->respuestas_id)){
+            foreach ($request->respuestas_id as $i=>$respuesta_id) {
+                $respuesta = Respuesta::find($respuesta_id);
+                $respuesta->respuesta = $request->respuestas[$i];
+                $respuesta->escorrecta = $request->escorrectas[$i];
+                $respuesta->save();
+            }
         }
 
         if ($request->ajax()){
@@ -149,7 +149,7 @@ class PreguntaController extends Controller
         $pregunta->save();
 
         //$pregunta->delete();
-        return redirect()->route('concurso.index')->with('info', 'Pregunta eliminada con exito!');
+        return redirect()->route('pregunta.index')->with('info', 'Pregunta eliminada con exito!');
     }
 
 }

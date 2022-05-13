@@ -43,6 +43,6 @@
             @include('pregunta.aside.delete-modal')
 
         @endif
-        <a href="{{ route('pregunta.index') }}" class="btn btn-primary">Volver</a>
+        <a href="{{ route('pregunta.index') }}" class="btn btn-primary" data-bs-dismiss="modal">Volver</a>
     </div>
 </div>

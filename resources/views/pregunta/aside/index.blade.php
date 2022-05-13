@@ -70,15 +70,15 @@
                 $testado = "";
                     switch($pregunta->estado){
                         case 0:
-                            $color = "bg-danger";
-                            $testado = "Anulado";
+                            $color = "badge bg-danger";
+                            $testado = "Rechazado";
                             break;
                         case 1:
-                            $color= "bg-success";
+                            $color= "badge bg-success";
                             $testado = "Activo";
                             break;
                         case 2:
-                            $color = "bg-warning";
+                            $color = "badge bg-warning";
                             $testado = "Pendiente";
                             break;
                     }
@@ -89,34 +89,23 @@
                     <td>{{ $pregunta->user->email }}</td>
                     <td>{{ $pregunta->tema->nombre }}</td>
                     <td>{{ $pregunta->pregunta }}</td>
-                    <td > <span class="text-white {{ $color }}">{{ $testado }}</span></td>
+                    <td > <span class="text-white fs-6 {{ $color }} ">{{ $testado }}</span></td>
                     <td>{{ $pregunta->created_at->format('d/m/y') }}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <a type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pregunta->id }}">
+                        <a class="btn btn-sm btn-success m-1" href="{{ route('pregunta.show', $pregunta->id) }}">
                             <i class="fa-solid fa-eye"></i>
                         </a>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal{{ $pregunta->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    VER PREGUNTA ID: {{ $pregunta->id }}
-                                </h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    @include('pregunta.aside.show')
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                        <a href="{{ route('pregunta.edit', $pregunta->id) }}" class="btn btn-sm btn-success m-1">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <a class="btn btn-sm btn-success m-1" data-bs-toggle="modal" data-bs-target="#deletePreguntaModal{{ $pregunta->id }}">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                        @include('pregunta.aside.delete-modal')
+
+                        @include('pregunta.aside.show-modal')
+
                         <!-- {!! Form::open(['route'=>['pregunta.update', $pregunta->id]], ['class' =>'d-inline']) !!}
                             {!! Form::hidden('_method', 'PUT') !!}
                             {!! Form::hidden('id', $pregunta->id) !!}
