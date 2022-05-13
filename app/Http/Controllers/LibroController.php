@@ -57,6 +57,9 @@ class LibroController extends Controller
 
         $publicidades = Publicidad::where('estado', 1)->where('lugar','like', '%libro%')->orderBy('id')->get();
 
+        $now = now()->format('y-m-d');
+        $publicidadinicio = Publicidad::where('estado', '1')->where('titulo', 'PUBLICIDAD INICIO')->where('fechaini', '<=', $now)->where('fechafin', '>=', $now)->first();
+
         if ($request->ajax()){
 
             if(sizeof($libros->items()) > 0){
@@ -79,9 +82,9 @@ class LibroController extends Controller
                 $mensaje = "No se encontraron coincidencias!!!";
             }
 
-            return view('libro.aside.index-datos',compact('libros', 'publicidades', 'busquedas', 'mensaje', 'titulos'))->render();
+            return view('libro.aside.index-datos',compact('libros', 'publicidades', 'publicidadinicio', 'busquedas', 'mensaje', 'titulos'))->render();
         } else{
-            return view('libro.index',compact('libros', 'publicidades', 'busquedas', 'mensaje', 'titulos'));
+            return view('libro.index',compact('libros', 'publicidades', 'publicidadinicio', 'busquedas', 'mensaje', 'titulos'));
         }
     }
 

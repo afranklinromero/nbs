@@ -28,11 +28,11 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         {!! Form::label('fechaini', 'Fecha de Inicio:', ['class' => 'form-label font-weight-bold']) !!}
-                        {!! Form::date('fechaini', isset($concurso->fechaini)? $concurso->fechaini : old('fechaini'), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                        {!! Form::date('fechaini', isset($concurso->fechaini)? $concurso->fechaini : old('fechaini', now()), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
                     </div>
                     <div class="form-group col-md-6">
                         {!! Form::label('fechafin', 'Fecha Finalizacion:', ['class' => 'form-label font-weight-bold']) !!}
-                        {!! Form::date('fechafin', isset($concurso->fechafin)? $concurso->fechafin : old('fechafin'), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                        {!! Form::date('fechafin', isset($concurso->fechafin)? $concurso->fechafin : old('fechafin', now()), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
                     </div>
                 </div>
             </div>
@@ -43,22 +43,22 @@
         <div class="row">
             <div class="form-group col-md-4">
                 {!! Form::label('nropreguntas', 'Número de preguntas:', ['class' => 'form-label font-weight-bold']) !!}
-                {!! Form::number('nropreguntas', isset($concurso->configuracion->nropreguntas)? $concurso->configuracion->nropreguntas : old('nropreguntas'), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                {!! Form::number('nropreguntas', isset($concurso->configuracion->nropreguntas)? $concurso->configuracion->nropreguntas : old('nropreguntas', 10), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
             </div>
             <div class="form-group col-md-4">
                 {!! Form::label('limiterespuestaserroneas', 'Número respuestas incorrectas permitidas:', ['class' => 'form-label font-weight-bold']) !!}
-                {!! Form::number('limiterespuestaserroneas', isset($concurso->configuracion->limiterespuestaserroneas)? $concurso->configuracion->limiterespuestaserroneas : old('limiterespuestaserroneas'), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                {!! Form::number('limiterespuestaserroneas', isset($concurso->configuracion->limiterespuestaserroneas)? $concurso->configuracion->limiterespuestaserroneas : old('limiterespuestaserroneas', 0), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
             </div>
             <div class="form-group col-md-4">
                 {!! Form::label('puntosporrespuesta', 'Puntos por respuesta correcta:', ['class' => 'form-label font-weight-bold']) !!}
-                {!! Form::number('puntosporrespuesta', isset($concurso->configuracion->puntosporrespuesta)? $concurso->configuracion->puntosporrespuesta : old('puntosporrespuesta'), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                {!! Form::number('puntosporrespuesta', isset($concurso->configuracion->puntosporrespuesta)? $concurso->configuracion->puntosporrespuesta : old('puntosporrespuesta', 1), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-4">
                 {!! Form::label('tiempolimite', 'Tiempo para responder todas las preguntas (seg):', ['class' => 'form-label font-weight-bold']) !!}
-                {!! Form::number('tiempolimite', isset($concurso->configuracion->tiempolimite)? $concurso->configuracion->tiempolimite : old('tiempolimite'), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
+                {!! Form::number('tiempolimite', isset($concurso->configuracion->tiempolimite)? $concurso->configuracion->tiempolimite : old('tiempolimite', 180), ['class' => 'form-control', 'minlength'=>'5', 'maxlength'=>256, 'required']) !!}
             </div>
             <div class="form-group col-md-4">
 

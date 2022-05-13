@@ -46,7 +46,6 @@ class BlogRequest extends FormRequest
             //logitud minima
             'titulo.min' => 'El :attribute como minimo 8 caracter(es)',
             'imagen.min' => 'El :attribute como minimo 5 caracter(es)',
-            'ext.min' => 'El :attribute como minimo 1 caracter(es)',
             'documentopdf.min' => 'El :attribute como minimo 5 caracter(es)',
             'youtube.min' => 'El :attribute como minimo 5 caracter(es)',
             'contenido.min' => 'El :attribute como minimo 8 caracter(es)',
@@ -56,7 +55,6 @@ class BlogRequest extends FormRequest
             //logitud maxima
             'titulo.max' => 'El :attribute como maximo 64 caracter(es)',
             'imagen.max' => 'El :attribute como maximo 128 caracter(es)',
-            'ext.max' => 'El :attribute como maximo 6 caracter(es)',
             'documentopdf.max' => 'El :attribute como maximo 128 caracter(es)',
             'youtube.max' => 'El :attribute como maximo 128 caracter(es)',
             'contenido.max' => 'El :attribute como maximo 3024 caracter(es)',
@@ -70,7 +68,6 @@ class BlogRequest extends FormRequest
             'user_id' => 'Id usuario',
             'titulo' => 'Titulo',
             'imagen' => 'Imagen',
-            'ext' => 'Tipo imagen',
             'documentopdf' => 'Documento pdf',
             'youtube' => 'Enlace youtube',
             'contenido' => 'Contenido',

@@ -49,7 +49,7 @@
     </div>
     -->
     <div id="temaconcurso">
-        @include('concurso.index.concurso')
+    @include('concurso.index.concurso')
     </div>
 
     <div id='clasificacion'>

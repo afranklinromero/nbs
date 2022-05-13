@@ -1,16 +1,16 @@
 <div class="float-right">
 
         @if (Auth::check() && Auth::user()->hasRole('admin'))
-            <a type="button" class="btn rounded-circle btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $temaconcurso->id }}">
+            <a type="button" class="btn rounded-circle btn-{{ $color }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $temaconcurso->id }}">
                 <i class="fa-solid fa-eye"></i>
             </a>
-            <a href="{{ route('concurso.edit', $temaconcurso->concurso->id) }}" class="btn btn-success rounded-pill">
+            <a href="{{ route('concurso.edit', $temaconcurso->concurso->id) }}" class="btn btn-{{ $color }} rounded-pill">
                 <!--Editar-->
                 <i class="fa-solid fa-pen"></i>
             </a>
             <a
                 href="{{ route('temaconcurso.create') }}"
-                class="btn btn-success rounded-pill"
+                class="btn btn-{{ $color }} rounded-pill"
                 data-bs-toggle="modal"
                 data-bs-target="#updateTemaconcursoModal{{ $temaconcurso->id }}"
                 data-bs-toggle="tooltip"

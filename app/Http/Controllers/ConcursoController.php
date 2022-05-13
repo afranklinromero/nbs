@@ -172,7 +172,7 @@ class ConcursoController extends Controller
     public function responder(Request $request, $mirespuesta_id){
         Auth::user()->authorizeRoles(['admin', 'user']);
         if ($request->ajax()){
-            $escorrecta = $mirespuesta = Respuesta::find($mirespuesta_id)->escorrecta;
+            $escorrecta =  Respuesta::find($mirespuesta_id)->escorrecta;
             return $escorrecta;
         }
     }

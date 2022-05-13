@@ -1,43 +1,69 @@
 @extends('layouts.nbs.app')
 
+@section('css')
+<style>
+    .bg-success {
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+    }
+
+    .showcase {
+        position: relative;
+    }
+
+    .bg-image {
+        opacity: 0.7;
+    }
+
+    .bg-img-title {
+        position: absolute;
+        top: 420px;
+        left: 20px;
+    }
+</style>
+@endsection
+
 @section('contenido')
 <div class="container">
-    <h2 class="text-primary"></i>Concursando</h2>
-    <div class="alert alert-primary" role="alert">
-        <p>Tiene <strong>{{$temaconcurso->concurso->configuracion->tiempolimite}} seg. </strong> para responder <strong>{{ $temaconcurso->concurso->configuracion->nropreguntas }} </strong>preguntas</p>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <h2 class="text-primary"></i>Olimpiada de conocimiento</h2>
+            <div class="alert alert-primary" role="alert">
+                <p>Tiene <strong>{{$temaconcurso->concurso->configuracion->tiempolimite}} seg. </strong> para responder <strong>{{ $temaconcurso->concurso->configuracion->nropreguntas }} </strong>preguntas</p>
+            </div>
+
+
+            @include('concurso.aside.error')
+
+            {!! Form::open([ 'route' => [ 'participacion.store' ], 'id'=>'frmjuego', '']) !!}
+                <div class="progress">
+                    <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated bg-default" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">00:00</div>
+                </div>
+
+                {!! Form::hidden('tiempo', '0', ['id' => 'tiempo']) !!}
+                {!! Form::hidden('tiempolimite', $temaconcurso->concurso->configuracion->tiempolimite, ['id' => 'tiempolimite']) !!}
+                {!! Form::hidden('concurso_id', $temaconcurso->concurso->id) !!}
+                {!! Form::hidden('tema_id', $temaconcurso->tema->id) !!}
+                {!! Form::hidden('nropreguntas', $temaconcurso->concurso->configuracion->nropreguntas) !!}
+                @for ($i = 0; $i < $n; $i++)
+                    {!! Form::hidden('preguntas[]', '0', ['id' => 'pregunta'.$i]) !!}
+                    {!! Form::hidden('respuestas[]', '0', ['id' => 'respuesta'.$i]) !!}
+                @endfor
+
+                @php
+                    //$pregunta = $preguntas->first();
+                @endphp
+
+                <div id="pregunta">
+                    @include('concurso.aside.siguientepregunta')
+                </div>
+
+                <br>
+
+            {!! Form::close() !!}
+        </div>
     </div>
-    
-
-    @include('concurso.aside.error')
-
-    {!! Form::open([ 'route' => [ 'participacion.store' ], 'id'=>'frmjuego', '']) !!}
-        <!--<div class="text-danger" id="testdiv">00:00</div>-->
-        <div class="progress">
-            <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated bg-default" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">00:00</div>
-        </div>
-        {!! Form::hidden('tiempo', '0', ['id' => 'tiempo']) !!}
-        {!! Form::hidden('tiempolimite', $temaconcurso->concurso->configuracion->tiempolimite, ['id' => 'tiempolimite']) !!}
-        {!! Form::hidden('concurso_id', $temaconcurso->concurso->id) !!}
-        {!! Form::hidden('tema_id', $temaconcurso->tema->id) !!}
-        {!! Form::hidden('nropreguntas', $temaconcurso->concurso->configuracion->nropreguntas) !!}
-        @for ($i = 0; $i < $n; $i++)
-            {!! Form::hidden('preguntas[]', '0', ['id' => 'pregunta'.$i]) !!}
-            {!! Form::hidden('respuestas[]', '0', ['id' => 'respuesta'.$i]) !!}
-        @endfor
-
-        @php
-            //$pregunta = $preguntas->first();
-        @endphp
-
-        <div id="pregunta">
-            @include('concurso.aside.siguientepregunta')
-        </div>
-
-        <br>
-
-    {!! Form::close() !!}
 </div>
-
 @endsection
 
 @section('scriptlocal')
@@ -94,10 +120,13 @@
     }
 
     function siguientepregunta(index, preguntaanterior_id, ruta_respuesta){
+        console.log('SIGUIENTE PREBUNTA....');
         $route = $('#siguientepregunta').attr('href');
-        console.log('ruta siguiente preguta: '+$route);
-        
+        //console.log('ruta siguiente preguta: '+$route);
+
         $("input[name='preguntas[]']").map( function(key){
+            console.log('key: ' + key);
+            console.log('index: ' + index);
             if (key == (index-1)){
                 $(this).val($('#pregunta_id').val());
                 console.log('pregunta_id: ' + $('#pregunta_id').val());
@@ -116,8 +145,6 @@
         //$('#pregunta').fadeIn(1000).html('<div class="loading"><img src="http://127.0.0.1:8000/img/loader.gif"/><br/>Un momento, por favor...</div>');
 
         $.get($route, function(result){
-
-            console.log('boton siguiente!!');
             if (result == 'endgame'){
                 console.log('terminaodo juego');
                 terminarjuego();
@@ -129,29 +156,21 @@
             }
         });
     }
-    
+
 
     $(document).on("click", ".responder", function() {
         event.preventDefault();
-        var ruta_respuesta = this.href;   
-        console.log('ruta respuesta: '+ruta_respuesta);
-        var elemento = this; 
+        var ruta_respuesta = this.href;
+        //console.log('ruta respuesta: '+ruta_respuesta);
+        var elemento = this;
         $(this).removeClass('btn-outline-primary');
         //$(this).addClass('btn-warning');
-        var correcto = 0;
         $.get(ruta_respuesta, function(result){
             if (result == 1){
-                console.log('success');
-                //alert('correcto');
-                correcto = 1;
                 $(elemento).addClass('btn-success');
             } else {
-                console.log('danger');
-                //alert('incorrecto');
-                correcto = 0;
                 $(elemento).addClass('btn-danger');
             }
-                
         });
 
         var index = $('#index').text();
@@ -192,7 +211,7 @@
         return false;
     });
 
-    
+
 </script>
 
 @endsection

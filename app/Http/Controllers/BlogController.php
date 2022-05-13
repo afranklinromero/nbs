@@ -53,7 +53,6 @@ class BlogController extends Controller
         $fileimagen = $request->file('imagen');
         if (isset($fileimagen)){
             $blog->imagen = $fileimagen->getClientOriginalName();
-            $blog->ext = $fileimagen->getClientOriginalExtension();
         } else {
             $blog->imagen = null;
         }

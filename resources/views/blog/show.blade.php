@@ -7,9 +7,9 @@
         <div class="container" id="blog-body">
             <div class="row m-2">
                 <div class="col">
-                    <h3> 
+                    <h3>
                         <span class="h3 fw-bold text-dark">
-                            {{ $blog->titulo }}        
+                            {{ $blog->titulo }}
                         </span>
                         @include('blog.aside.show-buttons')
                     </h3>
@@ -20,7 +20,7 @@
                     @include('blog.aside.show')
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col">
                     @include('blog.aside.show-buttons')

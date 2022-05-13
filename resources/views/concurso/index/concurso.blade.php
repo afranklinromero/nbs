@@ -56,65 +56,59 @@
 
         @if (isset($temaconcursos) && $temaconcursos->total() > 0)
             <!--<div class="table-responsive">-->
-                @php
-                    $color = 'primary';
-                    switch($temaconcurso->estado){
-                        case(0)
-                            $color = 'danger';
-                            break;
-                        case(1)
-                            $color = 'success';
-                            break;
-                        case(2)
-                            $color = 'warning';
-                            break;
-                    }
 
-                @endphp
 
             <div class="row justify-content-md-center">
 
                 @foreach ($temaconcursos as $key => $temaconcurso)
-                    <div class="col-md-4">
-                        <div class="card border-success mb-3 shadow">
-                            <div class="card-header bg-{{ $color }} text-white">
-                                <h5>{{$temaconcurso->concurso->nombre}}</h5>
+                    @php
+                        $color = 'primary';
+                        $estadoStr = 'ninguno';
+                        switch($temaconcurso->estado){
+                            case 0:
+                                $color = 'danger';
+                                $estadoStr = 'TERMINADO';
+                                break;
+                            case 1:
+                                $color = 'success';
+                                $estadoStr = 'ACTIVO';
+                                break;
+                            case 2:
+                                $color = 'warning';
+                                $estadoStr = 'PROGRAMADO';
+                                break;
+                        }
+                    @endphp
+                        <div class="col-md-4">
+                        <div class="card border-{{ $color }} mb-3 shadow">
+                            <div class="card-header text-center bg-{{ $color }}  {{ ($color=='warning')? 'text-black' : 'text-white' }}">
+                                <h4>{{$temaconcurso->concurso->nombre}}</h4>
                             </div>
                             <div class="card-body bg-white">
                                 <p class="card-text">
                                     <table class="table table-sm">
                                         @if (Auth::user()->hasRole('admin'))
-                                        <tr><td class="text-right">id:</td> <td><strong>{{$temaconcurso->id}}</strong></td> </tr>
-                                        <tr><td class="text-right">usuario:</td> <td><strong>{{$temaconcurso->concurso->usuario->email}}</strong></td> </tr>
+                                            <tr><td class="text-right">id:</td> <td><strong>{{$temaconcurso->id}}</strong></td> </tr>
+                                            <tr><td class="text-right">usuario:</td> <td><strong>{{$temaconcurso->concurso->usuario->email}}</strong></td> </tr>
                                         @endif
                                         <tr><td class="text-right">tema:</td> <td><strong>{{$temaconcurso->tema->nombre}}</strong></td> </tr>
                                         <tr><td class="text-right">concurso:</td> <td><strong>{{$temaconcurso->concurso->nombre}}</strong></td> </tr>
-                                        <tr><td class="text-right">inicio:</td> <td><strong>{{$temaconcurso->fechaini->format('d/m/Y')}}</strong></td> </tr>
-                                        <tr><td class="text-right">fin:</td> <td><strong>{{$temaconcurso->fechafin->format('d/m/Y')}}</strong></td> </tr>
+                                        <tr><td class="text-right">fecha:</td> <td><strong>{{$temaconcurso->fechaini->format('d/m/Y')}} al {{$temaconcurso->fechafin->format('d/m/Y')}}</strong></td> </tr>
                                         <tr>
                                             <td class="text-right">estado:</td>
                                             <td>
                                                 <strong>
-                                                    @switch($temaconcurso->estado)
-                                                        @case(0)
-                                                            <p class="fs-6 badge badge-danger text-wrap">FINALIZADO</p>
-                                                            @break
-                                                        @case(1)
-                                                        <p class="fs-6 badge badge-success text-wrap">ACTIVO</p>
-                                                            @break
-                                                        @case(2)
-                                                            <p class="fs-6 badge badge-danger text-wrap">PROXIMAMENTE</p>
-                                                            @break
-                                                        @default
-
-                                                    @endswitch
+                                                    <p class="fs-6 badge badge-{{ $color }} text-wrap">{{ $estadoStr }}</p>
                                                 </strong>
                                             </td>
                                         </tr>
                                     </table>
                                 </p>
                                 <div class="d-grid gap-2 mb-3">
-                                    <a class="block rounded-pill btn btn-success" href="{{route('concurso.jugar', $temaconcurso->id)}}">JUGAR</a>
+                                    @if ($temaconcurso->estado == 1)
+                                        <a class="block rounded-pill btn btn-{{ $color }}" href="{{route('concurso.jugar', $temaconcurso->id)}}">JUGAR</a>
+                                    @endif
+
                                 </div>
                                 <div>
                                     @if (Auth::check() && Auth::user()->hasRole('admin'))

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Modelos\Publicidad;
 use Illuminate\Http\Request;
 use App\Http\Requests\PublicidadRequest;
+use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
 
 class publicidadController extends Controller
@@ -47,12 +49,18 @@ class publicidadController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $publicidad = new publicidad($request->all());
-        $publicidad->lugar = implode(',', $publicidad->lugar);
+        $publicidad->fechaini = $publicidad->fechaini->format('y-m-d');
+        $publicidad->fechafin = $publicidad->fechafin->format('y-m-d');
+
+        if (isset($publicidad->lugar))
+            $publicidad->lugar = implode(',', $publicidad->lugar);
+        else
+            $publicidad->lugar = '';
         //dd($publicidad);
 
         $publicidad->estado = 1;
         $fileimagen = $request->file('imagenfile');
-        
+
         //$name = $fileimagen->getClientOriginalName();
         //$ext = $fileimagen->getClientOriginalExtension();
 
@@ -81,8 +89,10 @@ class publicidadController extends Controller
         Auth::user()->authorizeRoles(['admin']);
 
         $publicidad = publicidad::find($id);
-        
+
         $publicidad->fill($request->all());
+        $publicidad->fechaini = $publicidad->fechaini->format('y-m-d');
+        $publicidad->fechafin = $publicidad->fechafin->format('y-m-d');
         $fileimagen = $request->file('imagenfile');
         //$name = $fileimagen->getClientOriginalName();
         //$ext = $fileimagen->getClientOriginalExtension();
@@ -114,5 +124,12 @@ class publicidadController extends Controller
         */
         $publicidad->delete();
         return redirect()->route('publicidad.index')->with('info', 'Publicidad eliminada!');
+    }
+
+    public function inicio(){
+        $now = now()->format('y-m-d');
+        $publicidad = Publicidad::where('estado', '1')->where('titulo', 'PUBLICIDAD INICIO')->where('fechaini', '<=', $now)->where('fechafin', '>=', $now)->first();
+        //dd($publicidad);
+        return $publicidad;
     }
 }

@@ -15,8 +15,8 @@ $factory->define(Publicidad::class, function (Faker $faker) {
         'imagen' => $faker->text(5),
         'titulo' => $faker->text(32),
         'contenido' => $faker->text(1024),
-        'fechaini' => now(),
-        'fechafin' => now(),
+        'fechaini' => now()->format('y-m-d'),
+        'fechafin' => now()->format('y-m-d'),
         'lugar' => $lugar[array_rand($lugar)],
         'link' => $faker->url,
     ];

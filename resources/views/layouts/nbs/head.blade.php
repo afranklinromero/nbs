@@ -45,6 +45,7 @@
   gtag('config', 'G-LJWQ3NJ1EG');
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
+@yield('css')
 
 
 </head>

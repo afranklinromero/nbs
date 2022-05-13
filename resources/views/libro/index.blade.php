@@ -1,4 +1,19 @@
 @extends('layouts.nbs.app')
+@if (isset($publicidadinicio))
+    @php
+        $image = asset('storage/files/publicidad/'.$publicidadinicio->id . '/' . $publicidadinicio->imagen);
+    @endphp
+@endif
+@section('css')
+    <style>
+        .mimagen{
+            background-image: url('{{ $image }}');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+@endsection
 
 @section('contenido')
 
@@ -8,20 +23,26 @@
     <form action="{{route ('libro.index') }}" method="GET" class="d-inline">
         {{ csrf_field() }}
 
-
         <!-- Modal -->
+        @if (isset($publicidadinicio))
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-dialog modal-md">
+            <div class="modal-content" style="margin: 0; padding: 0;">
+                <div class="modal-header miimagen">
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{asset('img/publicidad.jpg')}}" class="img-fluid" >
+
+                    <a href="{{ $publicidadinicio->link }}#" target="_blank">
+                        <img width="100%" src="{{ $image }}" class="img-fluid"  style="opacity: 1">
+
+                    </a>
                 </div>
             </div>
             </div>
         </div>
+        @endif
+
 
 
         <p class="text-center">

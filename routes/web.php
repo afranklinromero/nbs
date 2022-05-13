@@ -76,6 +76,7 @@ Route::resource('respuestasugerencia', 'RespuestasugerenciaController');
 
 Route::resource('blog', 'BlogController');
 
-Route::get('publicidad/download/{id}', 'BlogController@download')->name('blog.download');
-Route::put('publicidad/altabaja/{id}', 'BlogController@altabaja')->name('blog.altabaja');
+Route::get('publicidad/inicio', 'PublicidadController@inicio')->name('publicidad.inicio');
+Route::get('publicidad/download/{id}', 'PublicidadController@download')->name('publicidad.download');
+Route::put('publicidad/altabaja/{id}', 'PublicidadController@altabaja')->name('publicidad.altabaja');
 Route::resource('publicidad', 'PublicidadController');

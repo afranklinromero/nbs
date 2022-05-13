@@ -12,7 +12,7 @@
                             <strong>Fecha de Fin: </strong> {{ $temaconcurso->concurso->fechafin->format('d/m/Y') }}  <br>
                         </p>
                         <p class="card-text"><small class="text-muted">Clasificación top 10</small></p>
-                        <table class="table table-sm table-striped">
+                        <table class="table table table-striped fs-6">
                             <thead>
                                 <tr>
                                 <th scope="col">puesto</th>
@@ -33,22 +33,29 @@
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
                                                 <td>*** {{ $clasificacion->usuario->name }}
-                                                <td> {{ $clasificacion->puntos }} </td>
+                                                <td>
+                                                    {{ $clasificacion->puntos }}
+                                                </td>
                                             </tr>
 
                                         @else
                                             <tr>
                                                 <td> {{ $nro }}° </td>
                                                 <td> {{ $clasificacion->usuario->name }}
-                                                <td> {{ $clasificacion->puntos }} </td>
+                                                <td>
+                                                    {{ $clasificacion->puntos }}
+                                                </td>
                                             </tr>
                                         @endif
                                     @else
                                         @if (!$entop && Auth::user()->id == $clasificacion->usuario->id)
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
-                                                <td>*** {{ $clasificacion->usuario->name }}
-                                                <td> {{ $clasificacion->puntos }} </td>
+                                                <td> {{ $clasificacion->usuario->name }}
+                                                <td>
+                                                    {{ $clasificacion->puntos }}
+                                                    <!--<i class="fa-solid fa-circle-check"></i>-->
+                                                </td>
                                             </tr>
                                         @endif
                                     @endif
