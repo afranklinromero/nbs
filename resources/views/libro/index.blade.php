@@ -15,7 +15,7 @@
         <!-- Modal -->
         @if (isset($publicidadinicio))
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-sm">
             <div class="modal-content" style="margin: 0; padding: 0;">
                 <div class="modal-header miimagen">
                     <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -37,15 +37,22 @@
         <p class="text-center">
              <!-- Contador de visitas -->
             <center>
-                <a href="https://websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+                <!--<a href="https://websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
                     <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=1068"></a>
                     <br>
                     <a href='https://websmultimedia.com/contador-de-visitas-gratis'></a>
                     <br>
                     <a href='http://boxindian.com/'>
                     </a>
-                </center>
+                </center>-->
                 <!-- Fin Contador de visitas -->
+                <div id="sfcg3jzp5sd69jltuub76zwac96hpd12zcg"></div>
+                <script type="text/javascript" src="https://counter9.stat.ovh/private/counter.js?c=g3jzp5sd69jltuub76zwac96hpd12zcg&down=async" async></script>
+                <noscript>
+                    <a href="https://www.contadorvisitasgratis.com" title="contador de visitas">
+                        <img src="https://counter9.stat.ovh/private/contadorvisitasgratis.php?c=g3jzp5sd69jltuub76zwac96hpd12zcg" border="0" title="contador de visitas" alt="contador de visitas">
+                    </a>
+                </noscript>
             <br>
             <a href='http://www.websmultimedia.com/contador-de-visitas-gratis'></a><br><a href='http://www.websmultimedia.com/diseno-logotipos'></a>
                 <!-- Fin Contador de visitas -->
