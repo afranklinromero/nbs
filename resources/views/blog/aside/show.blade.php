@@ -36,7 +36,7 @@
             @endif
 
             @if (isset($blog->documentopdf))
-                <!--
+                <p>{{ asset('storage/files/blog/'.$blog->id.'/'.$blog->documentopdf) }}</p>
                 <iframe
                     class='pdfembed'
                     src= '{{ asset('pdfjs/web/viewer.html') }}?file={{asset('storage/files/blog/'.$blog->id.'/'.$blog->documentopdf)}}'
@@ -46,9 +46,9 @@
                 </iframe>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-primary btn-sm" target="_blank" href="{{ asset('storage/files/blog/') }}/{{ $blog->id }}/{{$blog->id}}.pdf">abrir documento pdf</a>
-                    <a download="{{$blog->documentopdf}}" class="btn btn-success btn-sm" href="{{ asset('storage/files/blog/') }}/{{ $blog->id }}/{{$blog->id}}.pdf" >descargar</a>
+                    <a download="{{$blog->documentopdf}}" class="btn btn-success btn-sm" href="{{ asset('storage/files/blog/') }}/{{ $blog->id }}/{{$blog->documentopdf}}" >descargar</a>
                 </div>
-                -->
+
             @endif
         </div>
     </div>
