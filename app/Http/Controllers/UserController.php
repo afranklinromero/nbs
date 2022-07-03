@@ -16,7 +16,7 @@ class UserController extends Controller
 
     }
     public function index(Request $request){
-        //Auth::user()->authorizeRoles(['admin']);
+        Auth::user()->authorizeRoles(['admin']);
 
         $users = User::orderBy('id')->paginate(10);
         if ($request->ajax())
@@ -26,7 +26,7 @@ class UserController extends Controller
     }
 
     public function show(Request $request, $id){
-        //Auth::user()->authorizeRoles(['admin', 'user']);
+        Auth::user()->authorizeRoles(['admin', 'user']);
 
         $user = User::find($id);
 

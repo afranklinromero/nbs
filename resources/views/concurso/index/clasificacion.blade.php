@@ -32,7 +32,12 @@
                                             @php $entop = true; @endphp
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
-                                                <td>*** {{ $clasificacion->usuario->name }}
+                                                <td>
+                                                    <span class="text-white">*** {{ $clasificacion->usuario->name }} </span>
+                                                    @if(Auth::user()->hasRole('admin'))
+                                                        , <a target="_blank" class="text-white" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a> 
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     {{ $clasificacion->puntos }}
                                                 </td>
@@ -41,7 +46,12 @@
                                         @else
                                             <tr>
                                                 <td> {{ $nro }}° </td>
-                                                <td> {{ $clasificacion->usuario->name }}
+                                                <td> 
+                                                    {{ $clasificacion->usuario->name }}
+                                                    @if(Auth::user()->hasRole('admin'))
+                                                        , <a target="_blank" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a> 
+                                                    @endif
+                                                </td>    
                                                 <td>
                                                     {{ $clasificacion->puntos }}
                                                 </td>
@@ -51,7 +61,12 @@
                                         @if (!$entop && Auth::user()->id == $clasificacion->usuario->id)
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
-                                                <td> {{ $clasificacion->usuario->name }}
+                                                <td> 
+                                                    <span class="text--white">*** {{ $clasificacion->usuario->name }} </span>
+                                                    @if(Auth::user()->hasRole('admin'))
+                                                        , <a target="_blank" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a> 
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     {{ $clasificacion->puntos }}
                                                     <!--<i class="fa-solid fa-circle-check"></i>-->
