@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
+<!--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">-->
 @include('layouts.nbs.head')
 
 <body>
