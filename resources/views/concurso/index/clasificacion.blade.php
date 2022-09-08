@@ -25,9 +25,12 @@
                                     $nro = 1;
                                     $topclasificacion = $temaconcurso->concurso->clasificaciones->sortByDesc('puntos');
                                     $entop = false;
+                                    $n = 10;
+                                    if (Auth::user()->hasRole('admin')) $n = $topclasificacion->count();
+                                    //dd($n);
                                 @endphp
                                 @foreach($topclasificacion as $clasificacion)
-                                    @if ($nro<=10)
+                                    @if ($nro<=$n)
                                         @if (Auth::user()->id == $clasificacion->usuario->id)
                                             @php $entop = true; @endphp
                                             <tr class="bg-success text-white">
@@ -35,7 +38,7 @@
                                                 <td>
                                                     <span class="text-white">*** {{ $clasificacion->usuario->name }} </span>
                                                     @if(Auth::user()->hasRole('admin'))
-                                                        , <a target="_blank" class="text-white" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a> 
+                                                        , <a target="_blank" class="text-white" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a>
                                                     @endif
                                                 </td>
                                                 <td>
@@ -46,12 +49,12 @@
                                         @else
                                             <tr>
                                                 <td> {{ $nro }}° </td>
-                                                <td> 
+                                                <td>
                                                     {{ $clasificacion->usuario->name }}
                                                     @if(Auth::user()->hasRole('admin'))
-                                                        , <a target="_blank" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a> 
+                                                        , <a target="_blank" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a>
                                                     @endif
-                                                </td>    
+                                                </td>
                                                 <td>
                                                     {{ $clasificacion->puntos }}
                                                 </td>
@@ -61,10 +64,10 @@
                                         @if (!$entop && Auth::user()->id == $clasificacion->usuario->id)
                                             <tr class="bg-success text-white">
                                                 <td> {{ $nro }}° </td>
-                                                <td> 
+                                                <td>
                                                     <span class="text--white">*** {{ $clasificacion->usuario->name }} </span>
                                                     @if(Auth::user()->hasRole('admin'))
-                                                        , <a target="_blank" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a> 
+                                                        , <a target="_blank" href="https://wa.me/591{{ $clasificacion->usuario->telefono }}"><i class="fa-brands fa-whatsapp"></i> {{ $clasificacion->usuario->telefono }}</a>
                                                     @endif
                                                 </td>
                                                 <td>
