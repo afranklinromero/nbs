@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('links', function(){
+Route::get('/links', function(){
     if (Auth::check() && Auth::user()->hasRole('admin')){
         if(file_exists(base_path('public_html/storage'))) return 'The "public_html/storage" directory already exits';
         app('files')->link(storage_path('app/public'), base_path('public_html/storage'));
@@ -23,13 +23,23 @@ Route::get('links', function(){
     return 'Acceso denegado';
 });
 
-Route::get('cache', function(){
-    if (Auth::check() && Auth::user()->hasRole('admin')){
+Route::get('/hello', function(){
+    return 'hello world';
+});
+
+
+Route::get('/cache', function(){
+    //if (Auth::check() && Auth::user()->hasRole('admin')){
         Artisan::call('config:cache');
         return 'Done!! <a href="https://nobosalud.com">Aceptar </a>';
-    }
+    //}
     return 'Acceso denegado <a href="https://nobosalud.com">Volver</a>';
 });
+
+Route::get('/prueba', function(){
+    return 'prueba ok';
+});
+
 Route::resource('users', 'UserController');
 Route::resource('/', 'LibroController');
 
